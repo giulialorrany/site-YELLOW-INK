@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickCannabis Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-yellow: #D4AF37;
+            --secondary-yellow: #F4E4BC;
+            --accent-yellow: #B8860B;
+            --marble-white: #F8F8FF;
+            --stone-gray: #696969;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-yellow);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 4.9vh;
+            color: #1A1A1A;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .logo h4 span {
+            background: #eaee0f;
+            padding: .7vh .5vh 0 .7vh;
+        }
+
+        .logo.hidden {
+            display: none;
+        }
+
+        .logo img {
+            width: 45px;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #f7de8d;
+            font-weight: 700;
+        }
+
+        .nav-links a.active::before {
+            width: 100%;
+            background: #f7de8d;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-links.active {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100vh;
+            background: var(--marble-white);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .nav-links .close-btn {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-links.active .close-btn {
+            display: block;
+        }
+
+        .filters {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-right: 1vh;
+        }
+
+        .filter-button {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 5px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .filter-button:hover {
+            border-color: var(--primary-yellow);
+            color: var(--primary-yellow);
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            text-align: left;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 40px 12px 16px;
+            width: 50vh;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .fa-search {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            color: #a0aec0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            margin-top: 80px;
+            flex: 1 1 70%;
+            margin-right: 20vh;
+            z-index: 1;
+        }
+
+        /* .sidebar {
+            margin-top: 12vh !important;
+            flex: 1 1 10%;
+            padding: 20px;
+            background-color: #92919163;
+            position: fixed !important;
+            right: 0;
+            top: 0px;
+            width: 18%;
+            height: 100vh;
+            min-height: 100vh;
+            height: 100%;
+            min-height: -webkit-fill-available;
+            margin: 0;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            overflow-y: auto;
+        } */
+
+        .sidebar.active {
+            transform: translateX(0);
+            z-index: 999;
+        }
+
+        /* .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 85px;
+            right: 1rem;
+            background: var(--primary-yellow);
+            border: 1px solid #1A1A1A;
+            color: #1A1A1A;
+            font-size: 1.4rem;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1004;
+            transition: var(--transition);
+        } */
+
+        /* .sidebar-toggle:hover {
+            background: var(--accent-yellow);
+            color: #FFF;
+        } */
+
+        .sidebar-close {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.4rem;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1004;
+        }
+
+        .sidebar.active .sidebar-close {
+            display: block;
+        }
+
+        .sidebar-close::before {
+            content: "<";
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            position: sticky;
+            margin-bottom: 1vh;
+            margin-top: -2vh;
+            background: #000000d3;
+            padding: 10px 10px 10px 10px;
+            z-index: 1005;
+        }
+
+        .sidebar h2:nth-of-type(2) {
+            margin-top: 1vh;
+            margin-bottom: 1vh;
+        }
+
+        .sidebar .post-card {
+            background: #f9f9f9;
+            overflow: hidden;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            position: relative;
+            height: 27vh;
+            width: 100%;
+        }
+
+        .sidebar .post-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .sidebar .post-image {
+            width: 30vh;
+            height: 13vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .sidebar .post-content {
+            padding: 10px;
+        }
+
+        .sidebar .post-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .sidebar .post-meta {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 90vh;
+            width: 100vh;
+            background: #d4af37cb;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 0px 40px 15px 40px;
+            z-index: 1;
+        }
+        
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+        
+
+
+        
+/*         
+        .hero-content {
+            position: relative;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            max-width: 600px;
+        } */
+
+        .hero-content.expanded ~ .hero-section {
+            height: auto;
+            min-height: 83vh;
+        }
+
+        .hero-content img {
+            width: 160vh;
+            width: 148vh;
+            height: 88vh;
+        }
+
+        .hero-tag {
+            background: rgba(255, 255, 255, 0.9);
+            color: #48bb78;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            max-width: 600px;
+            font-family: 'Quicksand', sans-serif;
+            color: white;
+        }
+
+        .hero-title span {
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            opacity: 0.9;   
+            margin-bottom: 16px;
+        }
+
+        .read-more {
+            color: #ffffff;
+            font-weight: 500;
+            display: block;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            margin-bottom: -4vh;
+        }
+
+        .readmore-hero {
+
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .readmore-hero:hover {
+            color: #f7de8d;
+        }
+
+        .hero-content.expanded .readmore-hero {
+            display: none;
+        }
+
+        .hero-content.expanded {
+            display: block;
+        }
+
+        .fulltext-hero {
+            display: none;
+            color: #ffffff;
+            font-size: 16px;
+            margin-top: 30px;
+            text-align: justify;
+            max-width: 600px;
+        }
+
+        .hero-content.expanded .fulltext-hero {
+            display: block;
+        }
+
+        .fulltext-hero img {
+            display: block;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            border-radius: 6px;
+        }
+
+        .fulltext-hero h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .fulltext-hero p {
+            margin-bottom: 15px;
+        }
+
+        .fulltext-hero .post-meta {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #718096;
+            transition: all 0.2s;
+        }
+
+        .tab-button.active,
+        .tab-button:hover {
+            background: var(--primary-yellow);
+            color: white;
+            border-color: var(--primary-yellow);
+        }
+
+        .load-more, .load-less {
+            display: block;
+            margin: 32px auto;
+            padding: 12px 24px;
+            background: #e2e8f0;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #4a5568;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .load-more:hover, .load-less:hover {
+            background: #d1d9e6;
+            color: #2d3748;
+        }
+
+        .load-more.hidden, .load-less.hidden {
+            display: none;
+        }
+
+        footer {
+            background: var(--primary-yellow);
+            color: #FFFFFF;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            width: 100%;
+            position: relative;
+            z-index: 1003;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section .social-links a {
+            color: #FFFFFF;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-section .social-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .guest-a, .saibamais-a {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+        .saibamais-a {
+            text-decoration: underline;
+        }
+
+        .guest-a:hover, .saibamais-a:hover {
+            color: #1A1A1A;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.8rem;
+            color: #FFF;
+            position: relative;
+            overflow: visible;
+            min-height: 4.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .footer-bottom::before {
+            content: "YELLOW INK";
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'League Spartan', sans-serif;
+            font-size: 10vh;
+            font-weight: 700;
+            color: rgba(119, 85, 11, 0.308);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .footer-bottom p {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0.8vh;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-top: 4vh;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 30%;
+            height: 0;
+            background: var(--primary-yellow);
+            z-index: 998;
+            transition: height 0.4s ease;
+        }
+
+        .sidebar, .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* @media (min-width: 1025px) {
+            .container {
+                margin-right: 20vh;
+            }
+            .sidebar {
+                transform: translateX(0);
+                height: 100vh;
+                min-height: 100vh;
+                height: 100%;
+                min-height: -webkit-fill-available;
+                top: 0;
+                margin: 0;
+            }
+            .sidebar-toggle {   
+                  display: none !important; 
+                  
+            }
+               .hero-section {
+                height: 500px;
+                max-width: 100%;
+                width: 1050px;
+                padding: 20px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+                    .hero-content img {
+                    max-width: 100%;
+                    width: 1010px;
+                    height: 950px;
+                }
+         
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        } */
+
+        /* @media (max-width: 1024px) {
+            .container {
+                margin-right: 0;
+            }
+            .filters {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+            .search-input {
+                width: 180px;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+            .footer-container {
+                gap: 1.5rem;
+            }
+            .sidebar {
+                position: fixed !important;
+                width: 40%;
+                max-width: 280px;
+                height: calc(100vh - 80px);
+                min-height: calc(100vh - 80px);
+                top: 80px;
+                right: 0;
+                margin: 0;
+                transform: translateX(100%);
+                transition: var(--transition);
+                z-index: 999;
+                overflow-y: auto;
+            }
+            .sidebar.active {
+                transform: translateX(0);
+                z-index: 999;
+            }
+            .sidebar-toggle {
+                display: block;
+                font-size: 1.3rem;
+                padding: 0.5rem 0.9rem;
+                top: 85px;
+            }
+            .sidebar .post-card {
+                width: 100%;
+            }
+
+                .hero-section {
+                height: 410px;
+                max-width: 100%;
+                width: 990px;
+                padding: 20px 40px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+           
+                    .hero-content img {
+                    width: 170vh;
+                    height: 800px;
+                }
+         
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        } */
+
+        /* @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 80%;
+                height: 100vh;
+                background: var(--marble-white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                z-index: 1001;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .container {
+                padding: 0 16px;
+                z-index: 1;
+            }
+            .filters {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+            .search-container {
+                width: 100%;
+            }
+            .search-input {
+                width: 100%;
+            }
+            .hero-section {
+                height: 300px;
+                width: 100%;
+                padding: 20px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 24px;
+            }
+            
+                    .hero-content img {
+                    width: 100%;
+                    height: 500px;
+                }
+    
+            .footer-container {
+                flex-direction: column;
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+            .footer-section {
+                min-width: 100%;
+            }
+            .footer-section h4 {
+                font-size: 1.3rem;
+            }
+            .footer-section p {
+                font-size: 0.8rem;
+            }
+            .sidebar {
+                position: fixed !important;
+                width: 50%;
+                max-width: 250px;
+                height: calc(100vh - 80px);
+                min-height: calc(100vh - 80px);
+                top: 80px;
+                right: 0;
+                margin: 0;
+                transform: translateX(100%);
+                transition: var(--transition);
+                z-index: 999;
+                overflow-y: auto;
+            }
+            .sidebar-toggle {
+                display: block;
+                font-size: 1.2rem;
+                padding: 0.4rem 0.8rem;
+                top: 85px;
+            }
+            .sidebar .post-card {
+                width: 100%;
+                position: relative;
+            }
+        } */
+
+
+/* Estilos base da sidebar */
+.sidebar {
+    flex: 1 1 10%;
+    padding: 20px;
+    background-color: #92919163;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 18%;
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Maior que nav (z-index: 1000) */
+    overflow-y: auto;
+    transform: translateX(0); /* Visível por padrão */
+}
+
+/* Estilos base do botão de toggle */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 85px;
+    right: 1rem;
+    background: var(--primary-yellow);
+    border: 1px solid #1A1A1A;
+    color: #1A1A1A;
+    font-size: 1.4rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1004;
+    transition: var(--transition);
+}
+
+.sidebar-toggle:hover {
+    background: var(--accent-yellow);
+    color: #FFF;
+}
+
+/* Ajustes para telas maiores que 1024px */
+@media (min-width: 1025px) {
+    .container {
+        margin-right: 20vh;
+    }
+    .sidebar {
+        transform: translateX(0);
+        height: auto;
+        min-height: calc(100vh - 80px); /* Ajusta a altura para excluir o header */
+        top: 80px; /* Posiciona abaixo do header */
+        margin: 0;
+        z-index: 1001;
+        display: block;
+    }
+    .sidebar-toggle {
+        display: none !important; /* Esconde a seta */
+    }
+    .sidebar.active {
+        transform: translateX(0); /* Mantém consistência */
+    }
+    .hero-section {
+        height: 500px;
+        max-width: 100%;
+        width: 1050px;
+        padding: 20px;
+        z-index: 1;
+    }
+    .hero-title {
+        font-size: 28px;
+    }
+    .hero-content img {
+        max-width: 100%;
+        width: 1010px;
+        height: 950px;
+    }
+    .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* Ajustes específicos para 1025px a 1032px */
+@media (min-width: 1025px) and (max-width: 1032px) {
+    .hero-section {
+        height: 430px;
+        max-width: 100%;
+        width: 888px;
+        padding: 10px;
+        z-index: 1;
+    }
+    .hero-title {
+        font-size: 28px;
+    }
+    .hero-content img {
+        max-width: 100%;
+        width: 900px;
+        height: 850px;
+    }
+    .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .readmore-hero {
+        font-size: 20px;
+    }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 1024px) {
+    .container {
+        margin-right: 0;
+    }
+    .filters {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .search-input {
+        width: 180px;
+    }
+    .hero-title {
+        font-size: 28px;
+    }
+    .footer-container {
+        gap: 1.5rem;
+    }
+    .sidebar {
+        position: fixed !important;
+        width: 40%;
+        max-width: 280px;
+        height: auto;
+        min-height: calc(100vh - 80px);
+        top: 80px;
+        right: 0;
+        margin: 0;
+        transform: translateX(100%); /* Escondida por padrão */
+        transition: var(--transition);
+        z-index: 1001;
+        overflow-y: auto;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .sidebar-toggle {
+        display: block;
+        font-size: 1.3rem;
+        padding: 0.5rem 0.9rem;
+        top: 85px;
+    }
+    .sidebar .post-card {
+        width: 100%;
+    }
+    .hero-section {
+        height: 410px;
+        max-width: 100%;
+        width: 990px;
+        padding: 20px 40px;
+        z-index: 1;
+    }
+    .hero-content img {
+        width: 170vh;
+        height: 800px;
+    }
+    .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* Demais media queries permanecem inalterados */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background: var(--marble-white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .container {
+        padding: 0 16px;
+        z-index: 1;
+    }
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .search-container {
+        width: 100%;
+    }
+    .search-input {
+        width: 100%;
+    }
+    .hero-section {
+        height: 300px;
+        width: 100%;
+        padding: 20px;
+        z-index: 1;
+    }
+    .hero-title {
+        font-size: 24px;
+    }
+    .hero-content img {
+        width: 100%;
+        height: 500px;
+    }
+    .footer-container {
+        flex-direction: column;
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+    .footer-section {
+        min-width: 100%;
+    }
+    .footer-section h4 {
+        font-size: 1.3rem;
+    }
+    .footer-section p {
+        font-size: 0.8rem;
+    }
+    .sidebar {
+        position: fixed !important;
+        width: 50%;
+        max-width: 250px;
+        height: auto;
+        min-height: calc(100vh - 80px);
+        top: 80px;
+        right: 0;
+        margin: 0;
+        transform: translateX(100%);
+        transition: var(--transition);
+        z-index: 1001;
+        overflow-y: auto;
+    }
+    .sidebar-toggle {
+        display: block;
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+        top: 85px;
+    }
+    .sidebar .post-card {
+        width: 100%;
+        position: relative;
+    }
+}
+
+/* Media queries para 480px, 360px, 310px, 270px permanecem inalterados */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @media (max-width: 480px) {
+              .hero-section {
+                height: 310px;
+                width: 100%;
+                padding: 20px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 24px;
+            }
+            .fulltext-hero img {
+                width: 100%;
+                height: 240px;
+            }
+                    /* .hero-content img {
+                    width: 90vh;
+                    height: 50vh;
+                } */
+         
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .footer-section h4 {
+                font-size: 1.1rem;
+            }
+            .footer-section p {
+                font-size: 0.7rem;
+            }
+            .footer-bottom {
+                font-size: 0.7rem;
+            }
+            .sidebar {
+                position: fixed !important;
+                width: 70%;
+                max-width: 220px;
+                height: calc(100vh - 80px);
+                min-height: calc(100vh - 80px);
+                top: 80px;
+                right: 0;
+                margin: 0;
+                transform: translateX(100%);
+                transition: var(--transition);
+                z-index: 999;
+                overflow-y: auto;
+            }
+            .sidebar-toggle {
+                display: block;
+                font-size: 1.1rem;
+                padding: 0.4rem 0.7rem;
+                top: 85px;
+            }
+            .sidebar .post-card {
+                width: 100%;
+                position: relative;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .sidebar {
+                position: fixed !important;
+                width: 70%;
+                max-width: 200px;
+                height: calc(100vh - 80px);
+                min-height: calc(100vh - 80px);
+                top: 80px;
+                right: 0;
+                margin: 0;
+                transform: translateX(100%);
+                transition: var(--transition);
+                z-index: 999;
+                overflow-y: auto;
+            }
+            .sidebar-toggle {
+                display: block;
+                font-size: 1rem;
+                padding: 0.3rem 0.6rem;
+                top: 85px;
+            }
+
+               .hero-section {
+                height: 330px;
+                max-width: 100%;
+                width: 350px;
+                padding: 11px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 20px;
+            }
+                    .hero-content img {
+                    max-width: 100%;
+                    width: 320px;
+                    height: 350px;
+                }
+         
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 310px){
+               .hero-section {
+                height: 330px;
+                max-width: 100%;
+                width: 250px;
+                padding: 10px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 20px;
+            }
+                    .hero-content img {
+                    max-width: 100%;
+                    width: 250px;
+                    height: 250px;
+                }
+         
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+
+        .container-article {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3vh 20px;
+            z-index: 1;
+        }
+
+        .articles-section {
+            margin-right: 16vh;
+            z-index: 1;
+        }
+
+        .article {
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .post-article {
+            display: flex;
+            align-items: flex-start;
+            padding: 30px;
+            gap: 30px;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            background-color: #55555515;
+        }
+
+        .article.expanded .post-article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .article.expanded .postimage-article {
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            order: -1;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .text-article {
+            flex: 1;
+        }
+
+        .article.expanded .text-article {
+            flex: none;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            order: 1;
+            text-align: justify;
+        }
+
+        .title-article {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .excerpt-article {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .fulltext-article {
+            display: none;
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .article.expanded .fulltext-article {
+            display: block;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        .article.expanded .fulltext-article h3 {
+            font-size: 20px;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .article.expanded .fulltext-article p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .article.expanded .fulltext-article .post-meta {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .postimage-article {
+            width: 200px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .readmore-btn, .readless-btn {
+            border-radius: 5px;
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.158);
+            color: #3498db;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 5px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .readmore-btn:hover, .readless-btn:hover {
+            color: #2980b9;
+        }
+
+        .readless-btn {
+            display: none;
+            color: #7f8c8d;
+        }
+
+        .article.expanded .readmore-btn {
+            display: none;
+        }
+
+        .article.expanded .readless-btn {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .title-container {
+            max-width: 1200px;
+            margin: 2vh auto;
+            padding: 5vh 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1;
+        }
+
+        .title-container .content-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .title-container .content-row h1 {
+            flex: 1;
+            text-align: left;
+            margin: 0;
+            order: 1;
+            font-size: 7vh;
+            color: #000000;
+        }
+
+        .title-container .content-row img {
+            flex: 0 0 auto;
+            max-width: 400vh;
+            width: 55vh;
+            height: 50vh;
+            order: 2;
+        }
+
+        .lermais-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            order: 1;
+        }
+
+        .readmore-lermais, .readless-lermais {
+            border-radius: 5px;
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.158);
+            color: #3498db;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: fit-content;
+        }
+
+        .readmore-lermais:hover, .readless-lermais:hover {
+            color: #2980b9;
+        }
+
+        .readless-lermais {
+            margin-top: 4vh;
+            display: none;
+            color: #7f8c8d;
+        }
+
+        .title-container.expanded .readmore-lermais {
+            display: none;
+        }
+
+        .title-container.expanded .readless-lermais {
+            display: block;
+        }
+
+        .fulltext-lermais {
+            display: none;
+            color: #555;
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: justify;
+            max-width: 900px;
+            order: 3;
+        }
+
+        .title-container.expanded .fulltext-lermais {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .title-container.expanded .fulltext-lermais img {
+            width: 40%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 6px;
+            margin: 0;
+        }
+
+        .title-container.expanded .fulltext-lermais.alternancia {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .title-container.expanded .fulltext-lermais.alternancia img {
+            order: 2;
+            width: 40%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 6px;
+            margin: 0;
+        }
+
+        .title-container.expanded .fulltext-lermais.alternancia > div {
+            order: 1;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .title-container .content-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .title-container .content-row h1 {
+                order: 1;
+            }
+            .title-container .content-row img {
+                order: 2;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+            .title-container.expanded .fulltext-lermais {
+                flex-direction: column;
+                align-items: center;
+            }
+            .title-container.expanded .fulltext-lermais img {
+                width: 100%;
+                max-width: 600px;
+                margin-bottom: 20px;
+            }
+            .title-container.expanded .fulltext-lermais.alternancia {
+                flex-direction: column;
+                align-items: center;
+            }
+            .title-container.expanded .fulltext-lermais.alternancia img {
+                order: 2;
+                width: 100%;
+                max-width: 600px;
+                margin-bottom: 20px;
+            }
+            .title-container.expanded .fulltext-lermais.alternancia > div {
+                order: 1;
+            }
+        }
+
+
+
+        @media (max-width: 270px) {
+
+               .hero-section {
+                height: 330px;
+                max-width: 100%;
+                width: 220px;
+                padding: 10px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 20px;
+            }
+                    .hero-content img {
+                    max-width: 100%;
+                    width: 220px;
+                    height: 250px;
+                }
+         
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+/* 
+        @media (max-width: 1032px){
+            
+               .hero-section {
+                height: 430px;
+                max-width: 100%;
+                width: 888px;
+                padding: 10px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+                    .hero-content img {
+                    max-width: 100%;
+                    width: 900px;
+                    height: 850px;
+                }
+         
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .readmore-hero{
+                font-size: 20px;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span><img src="img/plantaof.png" alt="Logo Yellow Ink" onerror="this.src='https://via.placeholder.com/45x45/D4AF37/000000?text=YI'"></span>
+                <h4>YELLOW<span>INK</span></h4>
+            </a>
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Sobre Nós</a></li>
+                <li><a href="index.html">Galeria</a></li>
+                <li><a href="index.html">Feedbacks</a></li>
+                <li><a href="tatuadores.html">Tatuadores</a></li>
+                <li><a href="blog.com" class="active">Blog</a></li>
+                <li><a href="contato.com">Contato</a></li>
+                <li><a href="guest.html">Guest</a></li>
+                <button class="close-btn" id="closeBtn">✕</button>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="sidebar-toggle" id="sidebarToggle">></button>
+    <main class="container">
+        <div class="hero-section">
+            <div class="hero-content" id="hero-content">
+                <img class="img-moodboard" src="img/mood board.jpeg" alt="">
+                <h1 class="hero-title"><span>YELLOW INK</span>: Tudo o que você deveria saber sobre nossa ligação com a saúde mental</h1>
+                <div class="hero-meta">
+                    <span>📅 01/08/2025</span>
+                    <span>⏱️ 8 min de leitura</span>
+                </div>
+                <button class="readmore-hero" onclick="toggleHeroContent()">Leia mais sobre →</button>
+            </div>
+        </div>
+
+        <section class="articles-section">
+            <section class="container-article">
+                <div class="title-container" id="title-container">
+                    <div class="content-row">
+                        <div class="lermais-container">
+                            <h1>Entenda como tatuagem e saúde mental se misturam <br>na <span>YELLOW INK</span></h1>
+                            <button class="readmore-lermais" onclick="toggleLerMais()">Ler Mais</button>
+                            <button class="readless-lermais" onclick="toggleLerMais()">Ler Menos</button>
+                        </div>
+                        <img src="img/autoestima-tattoo.jpeg" alt="">
+                    </div>
+                    <div class="fulltext-lermais">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'%3E%3Crect width='600' height='350' fill='%23f5f5f5'/%3E%3Cg fill='%23333'%3E%3Crect x='200' y='100' width='200' height='150' rx='10' fill='none' stroke='%23666' stroke-width='4'/%3E%3Crect x='220' y='120' width='160' height='110' fill='%23e8e8e8'/%3E%3Ccircle cx='300' cy='150' r='10' fill='%23999'/%3E%3Cpath d='M250 280h100v20H250z' fill='%23ddd'/%3E%3Cpath d='M260 300h80v10H260z' fill='%23bbb'/%3E%3C/g%3E%3Ctext x='300' y='320' text-anchor='middle' fill='%23666' font-size='24' font-family='Arial'%3ETatuagem e Saúde Mental%3C/text%3E%3C/svg%3E" alt="Tatuagem e saúde mental">
+                        <div>
+                            <h3>Tatuagens como Ferramenta de Cura Emocional</h3>
+                            <p>Na Yellow Ink, acreditamos que tatuagens são mais do que arte na pele; elas são uma forma poderosa de expressão emocional e cura. Muitos clientes chegam ao nosso estúdio buscando transformar experiências pessoais em símbolos visíveis que representem superação, resiliência ou um novo capítulo em suas vidas.</p>
+                            <p>Escolher um desenho significativo, como uma tatuagem que homenageia um momento de superação ou reforça a identidade pessoal, pode ser profundamente terapêutico. O processo de tatuar envolve não apenas a criação de uma obra de arte, mas também um momento de reflexão e conexão com o tatuador, que atua como um facilitador dessa jornada emocional.</p>
+                            <p>Estudos mostram que a expressão criativa, como a criação de uma tatuagem, pode reduzir o estresse e promover o bem-estar mental. Na Yellow Ink, nossos tatuadores são treinados para ouvir e entender as histórias dos clientes, criando desenhos que não apenas embelezam, mas também empoderam.</p>
+                            <p>Junte-se à nossa comunidade e descubra como uma tatuagem pode ser um passo significativo em sua jornada de saúde mental, conectando você à sua história e ao apoio da equipe Yellow Ink.</p>
+                            <div class="post-meta">📅 01/08/2025 | ⏱️ 8 min</div>
+                        </div>
+                    </div>
+                    <div class="fulltext-lermais alternancia">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'%3E%3Crect width='600' height='350' fill='%23f5f5f5'/%3E%3Cg fill='%23333'%3E%3Crect x='200' y='100' width='200' height='150' rx='10' fill='none' stroke='%23666' stroke-width='4'/%3E%3Crect x='220' y='120' width='160' height='110' fill='%23e8e8e8'/%3E%3Ccircle cx='300' cy='150' r='10' fill='%23999'/%3E%3Cpath d='M250 280h100v20H250z' fill='%23ddd'/%3E%3Cpath d='M260 300h80v10H260z' fill='%23bbb'/%3E%3C/g%3E%3Ctext x='300' y='320' text-anchor='middle' fill='%23666' font-size='24' font-family='Arial'%3ETatuagem e Saúde Mental%3C/text%3E%3C/svg%3E" alt="Tatuagem e saúde mental">
+                        <div>
+                            <h3>Tatuagens como Ferramenta de Cura Emocional</h3>
+                            <p>Na Yellow Ink, acreditamos que tatuagens são mais do que arte na pele; elas são uma forma poderosa de expressão emocional e cura. Muitos clientes chegam ao nosso estúdio buscando transformar experiências pessoais em símbolos visíveis que representem superação, resiliência ou um novo capítulo em suas vidas.</p>
+                            <p>Escolher um desenho significativo, como uma tatuagem que homenageia um momento de superação ou reforça a identidade pessoal, pode ser profundamente terapêutico. O processo de tatuar envolve não apenas a criação de uma obra de arte, mas também um momento de reflexão e conexão com o tatuador, que atua como um facilitador dessa jornada emocional.</p>
+                            <p>Estudos mostram que a expressão criativa, como a criação de uma tatuagem, pode reduzir o estresse e promover o bem-estar mental. Na Yellow Ink, nossos tatuadores são treinados para ouvir e entender as histórias dos clientes, criando desenhos que não apenas embelezam, mas também empoderam.</p>
+                            <p>Junte-se à nossa comunidade e descubra como uma tatuagem pode ser um passo significativo em sua jornada de saúde mental, conectando você à sua história e ao apoio da equipe Yellow Ink.</p>
+                            <div class="post-meta">📅 01/08/2025 | ⏱️ 8 min</div>
+                        </div>
+                    </div>
+                    <div class="fulltext-lermais">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'%3E%3Crect width='600' height='350' fill='%23f5f5f5'/%3E%3Cg fill='%23333'%3E%3Crect x='200' y='100' width='200' height='150' rx='10' fill='none' stroke='%23666' stroke-width='4'/%3E%3Crect x='220' y='120' width='160' height='110' fill='%23e8e8e8'/%3E%3Ccircle cx='300' cy='150' r='10' fill='%23999'/%3E%3Cpath d='M250 280h100v20H250z' fill='%23ddd'/%3E%3Cpath d='M260 300h80v10H260z' fill='%23bbb'/%3E%3C/g%3E%3Ctext x='300' y='320' text-anchor='middle' fill='%23666' font-size='24' font-family='Arial'%3ETatuagem e Saúde Mental%3C/text%3E%3C/svg%3E" alt="Tatuagem e saúde mental">
+                        <div>
+                            <h3>Tatuagens como Ferramenta de Cura Emocional</h3>
+                            <p>Na Yellow Ink, acreditamos que tatuagens são mais do que arte na pele; elas são uma forma poderosa de expressão emocional e cura. Muitos clientes chegam ao nosso estúdio buscando transformar experiências pessoais em símbolos visíveis que representem superação, resiliência ou um novo capítulo em suas vidas.</p>
+                            <p>Escolher um desenho significativo, como uma tatuagem que homenageia um momento de superação ou reforça a identidade pessoal, pode ser profundamente terapêutico. O processo de tatuar envolve não apenas a criação de uma obra de arte, mas também um momento de reflexão e conexão com o tatuador, que atua como um facilitador dessa jornada emocional.</p>
+                            <p>Estudos mostram que a expressão criativa, como a criação de uma tatuagem, pode reduzir o estresse e promover o bem-estar mental. Na Yellow Ink, nossos tatuadores são treinados para ouvir e entender as histórias dos clientes, criando desenhos que não apenas embelezam, mas também empoderam.</p>
+                            <p>Junte-se à nossa comunidade e descubra como uma tatuagem pode ser um passo significativo em sua jornada de saúde mental, conectando você à sua história e ao apoio da equipe Yellow Ink.</p>
+                            <div class="post-meta">📅 01/08/2025 | ⏱️ 8 min</div>
+                            <button class="readless-lermais" onclick="toggleLerMais()">Ler Menos</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-article article" id="post3-article">
+                    <div class="text-article">
+                        <h2 class="title-article">Minimalismo Digital: Redescobrindo o Foco</h2>
+                        <p class="excerpt-article">Como a tecnologia pode nos ajudar sem nos dominar. Estratégias práticas para uma vida digital equilibrada.</p>
+                        <div class="fulltext-article">
+                            <p>Em uma era onde somos bombardeados por notificações, aplicativos e demandas digitais constantes, o minimalismo digital emerge como uma filosofia essencial para recuperarmos nossa atenção e bem-estar mental.</p>
+                            <p>Esta abordagem não se trata de rejeitar completamente a tecnologia, mas sim de usá-la de forma intencional e consciente. Exploramos técnicas comprovadas para eliminar distrações digitais desnecessárias, criar ambientes tecnológicos que apoiem nossos objetivos e estabelecer limites saudáveis com dispositivos.</p>
+                            <p>Descobrimos como fazer uma auditoria digital efetiva, identificando quais aplicativos realmente agregam valor à nossa vida e quais apenas consomem nosso tempo precioso. Também abordamos estratégias para criar momentos de desconexão digital que permitam o cultivo de hobbies offline e relacionamentos mais profundos.</p>
+                            <p>O resultado é uma relação mais equilibrada com a tecnologia, onde ela serve como ferramenta para amplificar nossa humanidade, não para substituí-la. Uma jornada transformadora para quem busca mais presença e menos ansiedade digital.</p>
+                        </div>
+                        <button class="readmore-btn" onclick="togglePostArticle('post3-article')">Ler Mais</button>
+                        <button class="readless-btn" onclick="togglePostArticle('post3-article')">Ler Menos</button>
+                    </div>
+                    <img src="img/foto1-tatoo.jpeg" alt="Minimalismo digital" class="postimage-article">
+                </div>
+                <div class="post-article article" id="post4-article">
+                    <div class="text-article">
+                        <h2 class="title-article">Minimalismo Digital: Redescobrindo o Foco</h2>
+                        <p class="excerpt-article">Como a tecnologia pode nos ajudar sem nos dominar. Estratégias práticas para uma vida digital equilibrada.</p>
+                        <div class="fulltext-article">
+                            <p>Em uma era onde somos bombardeados por notificações, aplicativos e demandas digitais constantes, o minimalismo digital emerge como uma filosofia essencial para recuperarmos nossa atenção e bem-estar mental.</p>
+                            <p>Esta abordagem não se trata de rejeitar completamente a tecnologia, mas sim de usá-la de forma intencional e consciente. Exploramos técnicas comprovadas para eliminar distrações digitais desnecessárias, criar ambientes tecnológicos que apoiem nossos objetivos e estabelecer limites saudáveis com dispositivos.</p>
+                            <p>Descobrimos como fazer uma auditoria digital efetiva, identificando quais aplicativos realmente agregam valor à nossa vida e quais apenas consomem nosso tempo precioso. Também abordamos estratégias para criar momentos de desconexão digital que permitam o cultivo de hobbies offline e relacionamentos mais profundos.</p>
+                            <p>O resultado é uma relação mais equilibrada com a tecnologia, onde ela serve como ferramenta para amplificar nossa humanidade, não para substituí-la. Uma jornada transformadora para quem busca mais presença e menos ansiedade digital.</p>
+                        </div>
+                        <button class="readmore-btn" onclick="togglePostArticle('post4-article')">Ler Mais</button>
+                        <button class="readless-btn" onclick="togglePostArticle('post4-article')">Ler Menos</button>
+                    </div>   
+                    <img src="img/foto2-arteGrecia.jpeg" alt="Minimalismo digital" class="postimage-article">
+                </div>
+                <div class="post-article article" id="post5-article">
+                    <div class="text-article">
+                        <h2 class="title-article">Minimalismo Digital: Redescobrindo o Foco</h2>
+                        <p class="excerpt-article">Como a tecnologia pode nos ajudar sem nos dominar. Estratégias práticas para uma vida digital equilibrada.</p>
+                        <div class="fulltext-article">
+                            <p>Em uma era onde somos bombardeados por notificações, aplicativos e demandas digitais constantes, o minimalismo digital emerge como uma filosofia essencial para recuperarmos nossa atenção e bem-estar mental.</p>
+                            <p>Esta abordagem não se trata de rejeitar completamente a tecnologia, mas sim de usá-la de forma intencional e consciente. Exploramos técnicas comprovadas para eliminar distrações digitais desnecessárias, criar ambientes tecnológicos que apoiem nossos objetivos e estabelecer limites saudáveis com dispositivos.</p>
+                            <p>Descobrimos como fazer uma auditoria digital efetiva, identificando quais aplicativos realmente agregam valor à nossa vida e quais apenas consomem nosso tempo precioso. Também abordamos estratégias para criar momentos de desconexão digital que permitam o cultivo de hobbies offline e relacionamentos mais profundos.</p>
+                            <p>O resultado é uma relação mais equilibrada com a tecnologia, onde ela serve como ferramenta para amplificar nossa humanidade, não para substituí-la. Uma jornada transformadora para quem busca mais presença e menos ansiedade digital.</p>
+                        </div>
+                        <button class="readmore-btn" onclick="togglePostArticle('post5-article')">Ler Mais</button>
+                        <button class="readless-btn" onclick="togglePostArticle('post5-article')">Ler Menos</button>
+                    </div>
+                    <img src="img/tatto3.jpeg" alt="Minimalismo digital" class="postimage-article">  
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <aside class="sidebar">
+        <h2>Últimas Postagens</h2>
+        <div class="post-card">
+            <img src="img/card-foto1.jpeg" alt="Histórias reais" class="post-image-direct" style="width: 100%; height: 13vh; object-fit: cover;">
+            <div class="post-content">
+                <h3 class="post-title">Histórias reais: pacientes que transformaram suas vidas</h3>
+                <div class="post-meta">📅 31/07/2025 | ⏱️ 6 min</div>
+            </div>
+        </div>
+        <div class="post-card">
+            <img src="img/card-foto2.jpeg" alt="Histórias reais" class="post-image-direct" style="width: 100%; height: 13vh; object-fit: cover;">
+            <div class="post-content">
+                <h3 class="post-title">Como a luta da Família Fischer revolucionou</h3>
+                <div class="post-meta">📅 31/07/2025 | ⏱️ 5 min</div>
+            </div>
+        </div>
+        <div class="post-card">
+            <img src="img/card-foto3.jpeg" alt="Histórias reais" class="post-image-direct" style="width: 100%; height: 13vh; object-fit: cover;">
+            <div class="post-content">
+                <h3 class="post-title">Como o CBD atua no cérebro</h3>
+                <div class="post-meta">📅 24/07/2025 | ⏱️ 7 min</div>
+            </div>
+        </div>
+        <h2>Postagens Principais</h2>
+        <div class="post-card">
+            <img src="img/card-foto4.jpeg" alt="Histórias reais" class="post-image-direct" style="width: 100%; height: 13vh; object-fit: cover;">
+            <div class="post-content">
+                <h3 class="post-title">Os benefícios do CBD para a saúde mental</h3>
+                <div class="post-meta">📅 23/07/2025 | ⏱️ 6 min</div>
+            </div>
+        </div>
+        <div class="post-card">
+            <img src="img/card-foto1.jpeg" alt="Histórias reais" class="post-image-direct" style="width: 100%; height: 13vh; object-fit: cover;">
+            <div class="post-content">
+                <h3 class="post-title">Terapias naturais e saúde mental</h3>
+                <div class="post-meta">📅 22/07/2025 | ⏱️ 5 min</div>
+            </div>
+        </div>
+        <button class="sidebar-close"><</button>
+    </aside>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: contato@clickcannabis.com</p>
+                <p>Telefone: +55 11 9876-5432</p>
+                <p>Endereço: Rua da Cannabis, 456, São Paulo - SP</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Horário</h4>
+                <p>Segunda a Sexta: 09h - 18h</p>
+                <p>Sábado: 09h - 13h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+            <div class="footer-section">
+                <h4>Trabalhe Conosco</h4>
+                <p>Envie seu portfólio para: jobs@clickcannabis.com</p>
+                <p>Ou seja um <a href="#" class="guest-a">Guest</a></p>
+                <p>Confira nossas vagas abertas!</p>
+                <p><a href="#" class="saibamais-a">Saiba mais</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 <span class="yellow-ink-brand">Yellow Ink</span>. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const closeBtn = document.querySelector('#closeBtn');
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarClose = document.querySelector('.sidebar-close');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.textContent = '☰';
+        });
+
+        if (sidebarToggle && sidebar && sidebarClose) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                sidebarToggle.textContent = sidebar.classList.contains('active') ? '<' : '>';
+            });
+
+            sidebarClose.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                sidebarToggle.textContent = '>';
+            });
+        }
+
+
+
+
+        function updateSidebarState() {
+            if (window.innerWidth <= 1024) {
+                sidebar.classList.remove('active');
+                sidebarToggle.style.display = 'block';
+                sidebarToggle.textContent = '>';
+                // Forçar recalculo da altura do sidebar
+                sidebar.style.height = `${window.innerHeight}px`;
+            } else {
+                sidebar.classList.remove('active');
+                sidebarToggle.style.display = 'none';
+                sidebar.style.height = '100vh';
+            }
+        }
+
+        window.addEventListener('resize', updateSidebarState);
+        window.addEventListener('load', updateSidebarState);
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                hamburger.textContent = '☰';
+            }
+        });
+
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const footer = document.querySelector('footer');
+            const footerRect = footer.getBoundingClientRect();
+            const bodyOverlay = document.querySelector('body::after');
+
+            if (footerRect.top <= window.innerHeight) {
+                const overlapHeight = window.innerHeight - footerRect.top;
+                if (overlapHeight > 0) {
+                    bodyOverlay.style.height = `${overlapHeight}px`;
+                } else {
+                    bodyOverlay.style.height = '0';
+                }
+            } else {
+                bodyOverlay.style.height = '0';
+            }
+        });
+
+        window.dispatchEvent(new Event('scroll'));
+
+        function togglePostArticle(articleId) {
+            const article = document.getElementById(articleId);
+            const isExpanded = article.classList.contains('expanded');
+
+            if (!isExpanded && !article.dataset.initialPosition) {
+                article.dataset.initialPosition = article.offsetTop;
+            }
+
+            article.classList.toggle('expanded');
+
+            if (article.classList.contains('expanded')) {
+                setTimeout(() => {
+                    article.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }, 100);
+            } else {
+                const initialPosition = article.dataset.initialPosition;
+                if (initialPosition) {
+                    window.scrollTo({
+                        top: initialPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        function toggleLerMais() {
+            const titleContainer = document.getElementById('title-container');
+            const contentRow = document.querySelector('.content-row');
+            const readmoreLerMais = document.querySelector('.readmore-lermais');
+            const readlessLerMaisButtons = document.querySelectorAll('.readless-lermais');
+            const isExpanded = titleContainer.classList.contains('expanded');
+
+            if (!isExpanded && !titleContainer.dataset.initialPosition) {
+                titleContainer.dataset.initialPosition = titleContainer.offsetTop;
+            }
+
+            titleContainer.classList.toggle('expanded');
+
+            readmoreLerMais.style.display = isExpanded ? 'block' : 'none';
+            readlessLerMaisButtons.forEach(button => {
+                button.style.display = isExpanded ? 'none' : 'block';
+            });
+
+            if (titleContainer.classList.contains('expanded')) {
+                setTimeout(() => {
+                    contentRow.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }, 100);
+            } else {
+                const initialPosition = titleContainer.dataset.initialPosition;
+                if (initialPosition) {
+                    window.scrollTo({
+                        top: initialPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        function toggleHeroContent() {
+            const titleContainer = document.getElementById('title-container');
+            const readmoreLerMais = document.querySelector('.readmore-lermais');
+            const readlessLerMaisButtons = document.querySelectorAll('.readless-lermais');
+            
+            if (!titleContainer.dataset.initialPosition) {
+                titleContainer.dataset.initialPosition = titleContainer.offsetTop;
+            }
+
+            if (!titleContainer.classList.contains('expanded')) {
+                titleContainer.classList.add('expanded');
+                readmoreLerMais.style.display = 'none';
+                readlessLerMaisButtons.forEach(button => {
+                    button.style.display = 'block';
+                });
+            }
+
+            setTimeout(() => {
+                const sectionRect = titleContainer.getBoundingClientRect();
+                const isMobile = window.innerWidth <= 768;
+                const scrollPosition = isMobile 
+                    ? window.scrollY + sectionRect.top - 20
+                    : window.scrollY + sectionRect.top - 50;
+
+                window.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth'
+                });
+
+                setTimeout(() => {
+                    console.log('Posição de rolagem (em pixels):', window.scrollY);
+                    console.log('Dispositivo:', isMobile ? 'Mobile' : 'Desktop');
+                    console.log('Topo do title-container:', titleContainer.offsetTop);
+                    console.log('Altura do title-container:', sectionRect.height);
+                    console.log('Altura da janela:', window.innerHeight);
+                }, 500);
+            }, 100);
+        }
+    </script>
+</body>
+</html>

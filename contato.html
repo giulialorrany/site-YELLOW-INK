@@ -29,6 +29,7 @@
             background: #FFFFFF;
             color: #1A1A1A;
             overflow-x: hidden;
+            min-width: 240px;
         }
 
         /* Navegação */
@@ -42,6 +43,7 @@
             padding: 0.5rem 0;
             box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
             transition: var(--transition);
+            min-height: 60px;
         }
 
         .nav-container {
@@ -51,19 +53,22 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 1.5rem;
+            height: 100%;
+            min-height: 60px;
         }
 
-           .logo {
+        .logo {
             font-family: League Spartan, sans-serif;
             font-size: 4.9vh;
             color: #1A1A1A;
             text-decoration: none;
             letter-spacing: 2px;
             position: relative;
-            transition: var(--t);
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: .5rem;
+            flex-shrink: 0;
         }
         .logo h4 span {
             background: #eaee0f;
@@ -74,7 +79,8 @@
         }
         .logo img {
             width: 45px;
-            padding-top:10px ;
+            padding-top:10px;
+            flex-shrink: 0;
         }
         .logo::after {
             content: "";
@@ -84,7 +90,7 @@
             width: 0;
             height: 2px;
             background: #1A1A1A;
-            transition: var(--t);
+            transition: var(--transition);
         }
         .logo:hover::after {
             width: 100%;
@@ -143,6 +149,11 @@
             cursor: pointer;
             padding: 0.5rem;
             transition: var(--transition);
+            flex-shrink: 0;
+            min-width: 40px;
+            min-height: 40px;
+            justify-content: center;
+            align-items: center;
         }
 
         .nav-links.active {
@@ -179,17 +190,16 @@
 
         /* Hero Section */
         .hero {
-            
             background: #d4af37cb;
-            /* background-color: #d4af3794; */
-            height: 60vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            margin-top: 80px;
-            scroll-margin-top: 80px;
+            margin-top: 60px;
+            scroll-margin-top: 60px;
+            padding: 2rem 1rem;
         }
 
         .hero-content {
@@ -199,18 +209,20 @@
             justify-content: center;
             text-align: center;
             max-width: 1000px;
-            padding: 2rem;
             position: relative;
             z-index: 2;
             gap: 2rem;
+            width: 100%;
         }
 
         .hero-image {
             width: 30vh;
+            min-width: 150px;
             border-radius: 50%;
             overflow: hidden;
             margin-right: 0;
             margin-bottom: 2vh;
+            flex-shrink: 0;
         }
 
         .yellow-fotocircle {
@@ -226,6 +238,7 @@
             align-items: center;
             text-align: center;
             margin-left: 50vh;
+            flex: 1;
         }
 
         .hero-title {
@@ -237,7 +250,6 @@
             margin-bottom: 0;
             display: inline-block;
             font-family: 'League Spartan', sans-serif;
-            /* font-family: 'Playfair Display', serif; */
         }
 
         .hero-subtitle {
@@ -277,6 +289,7 @@
             justify-content: center;
             border-top: 1px solid var(--primary-yellow);
             margin-bottom: 18vh;
+            padding: 0 1rem;
         }
 
         .section-title {
@@ -339,6 +352,8 @@
         .instagram-photo {
             width: 40vh;
             height: 50vh;
+            min-width: 200px;
+            min-height: 250px;
             border-radius: 4px;
             overflow: hidden;
             margin-bottom: 1rem;
@@ -423,6 +438,7 @@
             color: var(--primary-yellow);
             width: 60px;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .info-content h3 {
@@ -440,6 +456,7 @@
             font-weight: 600;
             font-size: 1rem;
             font-family: 'Quicksand', sans-serif;
+            word-break: break-word;
         }
 
         /* Map Section */
@@ -500,6 +517,7 @@
         .map-text {
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         /* Hours Section */
@@ -636,34 +654,47 @@
         }
 
         .footer-bottom {
+            margin-bottom: 0.8vh;
             margin-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 2rem;
             font-size: 0.8rem;
-            color: #FFFFFF;
+            color: #FFF;
+            position: relative;
+            overflow: visible;
+            min-height: 4.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
         }
 
-        /* AI Button */
-        .ai-button {
-            position: fixed;
-            bottom: 10px;
-            right: 20px;
-            padding: 10px 20px;
-            background: #000;
-            color: #fff;
-            border: none;
-            border-radius: 25px;
+        .footer-bottom::before {
+            content: "YELLOW INK";
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-family: 'League Spartan', sans-serif;
-            font-size: 1.2rem;
+            font-size: 10vh;
             font-weight: 700;
-            cursor: pointer;
-            z-index: 1000;
-            transition: var(--transition);
+            color: rgba(151, 105, 5, 0.979);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-align: center;
+            text-transform: uppercase;
         }
 
-        .ai-button:hover {
-            background: var(--accent-yellow);
-            color: #1A1A1A;
+        .footer-bottom p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-top: 4vh;
         }
 
         /* Responsive Adjustments */
@@ -676,6 +707,7 @@
 
             .hero-image {
                 width: 25vh;
+                min-width: 130px;
             }
 
             .hero-text {
@@ -706,6 +738,8 @@
             .instagram-photo {
                 width: 35vh;
                 height: 45vh;
+                min-width: 180px;
+                min-height: 230px;
             }
 
             .map-container {
@@ -723,7 +757,7 @@
 
         @media (max-width: 768px) {
             .hamburger {
-                display: block;
+                display: flex;
             }
 
             .nav-links {
@@ -734,20 +768,25 @@
                 display: flex;
             }
 
+            .nav-container {
+                padding: 0 1rem;
+            }
+
             .hero {
-                height: 50vh;
+                min-height: 50vh;
                 margin-top: 60px;
+                padding: 1rem;
             }
 
             .hero-content {
                 flex-direction: column;
-                max-width: 90%;
-                padding: 1rem;
+                max-width: 95%;
                 gap: 1rem;
             }
 
             .hero-image {
                 width: 20vh;
+                min-width: 120px;
                 margin: 0 auto;
                 margin-bottom: 1rem;
             }
@@ -802,6 +841,8 @@
             .instagram-photo {
                 width: 30vh;
                 height: 40vh;
+                min-width: 150px;
+                min-height: 200px;
             }
 
             .instagram-content h3 {
@@ -843,6 +884,7 @@
 
             .map-placeholder {
                 height: 300px;
+                font-size: 1.2rem;
             }
 
             .hours-section {
@@ -893,28 +935,49 @@
             .footer-section p {
                 font-size: 0.8rem;
             }
-
-            .ai-button {
-                padding: 8px 16px;
-                font-size: 1rem;
-                bottom: 10px;
-                right: 10px;
-            }
         }
 
         @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.8rem;
+                min-height: 50px;
+            }
+
+            .logo {
+                font-size: 3.5vh;
+                gap: 0.3rem;
+            }
+
+            .logo img {
+                width: 35px;
+                padding-top: 8px;
+            }
+
+            .logo h4 span {
+                padding: .5vh .3vh 0 .5vh;
+            }
+
+            .hamburger {
+                font-size: 1.1rem;
+                min-width: 35px;
+                min-height: 35px;
+            }
+
             .hero {
-                height: 40vh;
+                min-height: 40vh;
                 margin-top: 50px;
+                padding: 0.8rem;
             }
 
             .hero-content {
                 padding: 0.5rem;
                 gap: 0.5rem;
+                max-width: 98%;
             }
 
             .hero-image {
                 width: 15vh;
+                min-width: 100px;
             }
 
             .hero-title {
@@ -924,6 +987,10 @@
 
             .hero-subtitle {
                 font-size: 1.2rem;
+            }
+
+            .contact-info-section {
+                padding: 1.5rem 0.8rem;
             }
 
             .section-title {
@@ -937,9 +1004,15 @@
                 height: 2px;
             }
 
+            .instagram-featured {
+                padding: 1.2rem;
+            }
+
             .instagram-photo {
                 width: 25vh;
                 height: 35vh;
+                min-width: 120px;
+                min-height: 150px;
             }
 
             .instagram-content h3 {
@@ -952,11 +1025,16 @@
 
             .info-item {
                 padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
             }
 
             .info-icon {
                 font-size: 1.5rem;
-                width: 40px;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
             }
 
             .info-content h3 {
@@ -973,6 +1051,7 @@
 
             .map-placeholder {
                 height: 200px;
+                font-size: 1rem;
             }
 
             .hours-title {
@@ -992,7 +1071,7 @@
             }
 
             .agendeContato {
-                font-size: 1.5vh;
+                font-size: 2.5vh;
                 padding: 0.5rem 1rem;
             }
 
@@ -1006,6 +1085,636 @@
 
             .footer-bottom {
                 font-size: 0.7rem;
+                min-height: 3.5rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 7vh;
+            }
+        }
+
+        /* Responsividade para telas muito pequenas (320px) */
+        @media (max-width: 320px) {
+            .nav-container {
+                padding: 0 0.5rem;
+                min-height: 45px;
+            }
+
+            .logo {
+                font-size: 3vh;
+                gap: 0.2rem;
+            }
+
+            .logo img {
+                width: 30px;
+                padding-top: 6px;
+            }
+
+            .logo h4 span {
+                padding: .3vh .2vh 0 .3vh;
+            }
+
+            .hamburger {
+                font-size: 1rem;
+                min-width: 32px;
+                min-height: 32px;
+            }
+
+            .hero {
+                min-height: 35vh;
+                margin-top: 45px;
+                padding: 0.5rem;
+            }
+
+            .hero-content {
+                padding: 0.3rem;
+                gap: 0.3rem;
+                max-width: 100%;
+            }
+
+            .hero-image {
+                width: 12vh;
+                min-width: 80px;
+            }
+
+            .hero-title {
+                font-size: 1.2rem;
+                padding: 0.6rem 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .contact-info-section {
+                padding: 1.2rem 0.5rem;
+                margin-bottom: 12vh;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+                margin-top: 4vh;
+                margin-bottom: 3vh;
+            }
+
+            .section-title::after {
+                width: 30px;
+                height: 2px;
+            }
+
+            .instagram-featured {
+                padding: 1rem;
+                border-radius: 10px;
+            }
+
+            .instagram-photo {
+                width: 20vh;
+                height: 25vh;
+                min-width: 100px;
+                min-height: 120px;
+            }
+
+            .instagram-content h3 {
+                font-size: 1rem;
+            }
+
+            .instagram-content p {
+                font-size: 0.8rem;
+            }
+
+            .info-item {
+                padding: 0.8rem;
+                border-radius: 8px;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .info-icon {
+                font-size: 1.3rem;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.3rem;
+            }
+
+            .info-content h3 {
+                font-size: 0.8rem;
+            }
+
+            .info-content p {
+                font-size: 0.7rem;
+            }
+
+            .map-section {
+                padding: 2rem 0.5rem;
+            }
+
+            .map-title {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .map-container {
+                padding: 1rem;
+                border-radius: 10px;
+                margin-bottom: 8vh;
+            }
+
+            .map-placeholder {
+                height: 150px;
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+
+            .hours-section {
+                padding: 2rem 0.5rem;
+            }
+
+            .hours-title {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .hours-grid {
+                max-width: 100%;
+                gap: 1rem;
+            }
+
+            .hours-item {
+                padding: 0.8rem;
+                border-radius: 8px;
+            }
+
+            .hours-item h3 {
+                font-size: 0.8rem;
+            }
+
+            .hours-item p {
+                font-size: 0.9rem;
+            }
+
+            .agendeContato {
+                font-size: 2vh;
+                padding: 0.4rem 0.8rem;
+                margin-top: 3vh;
+                border-radius: 3vh;
+            }
+
+            footer {
+                padding: 2rem 0.5rem 1rem;
+            }
+
+            .footer-container {
+                padding: 0 0.5rem;
+                gap: 0.8rem;
+            }
+
+            .footer-section h4 {
+                font-size: 1rem;
+            }
+
+            .footer-section p {
+                font-size: 0.65rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 1rem;
+            }
+
+            .footer-bottom {
+                min-height: 3rem;
+                font-size: 0.6rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 5vh;
+            }
+
+            .footer-bottom p {
+                margin-top: 2vh;
+                padding: 0.3rem 0.5rem;
+            }
+        }
+
+        /* Responsividade para telas extremamente pequenas (280px) */
+        @media (max-width: 280px) {
+            .nav-container {
+                padding: 0 0.3rem;
+                min-height: 42px;
+            }
+
+            .logo {
+                font-size: 2.5vh;
+                gap: 0.1rem;
+            }
+
+            .logo img {
+                width: 25px;
+                padding-top: 4px;
+            }
+
+            .logo h4 span {
+                padding: .2vh .1vh 0 .2vh;
+            }
+
+            .hamburger {
+                font-size: 0.9rem;
+                min-width: 30px;
+                min-height: 30px;
+            }
+
+            .hero {
+                min-height: 30vh;
+                margin-top: 42px;
+                padding: 0.3rem;
+            }
+
+            .hero-content {
+                padding: 0.2rem;
+                gap: 0.2rem;
+                max-width: 100%;
+            }
+
+            .hero-image {
+                width: 10vh;
+                min-width: 70px;
+            }
+
+            .hero-title {
+                font-size: 1rem;
+                padding: 0.4rem 1rem;
+                letter-spacing: 0.5px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .contact-info-section {
+                padding: 1rem 0.3rem;
+                margin-bottom: 10vh;
+            }
+
+            .section-title {
+                font-size: 1rem;
+                margin-top: 3vh;
+                margin-bottom: 2vh;
+            }
+
+            .section-title::after {
+                width: 25px;
+                height: 1.5px;
+            }
+
+            .instagram-featured {
+                padding: 0.8rem;
+                border-radius: 8px;
+            }
+
+            .instagram-photo {
+                width: 18vh;
+                height: 22vh;
+                min-width: 90px;
+                min-height: 110px;
+            }
+
+            .instagram-content h3 {
+                font-size: 0.9rem;
+            }
+
+            .instagram-content p {
+                font-size: 0.7rem;
+            }
+
+            .info-item {
+                padding: 0.6rem;
+                border-radius: 6px;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.3rem;
+            }
+
+            .info-icon {
+                font-size: 1.1rem;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.2rem;
+            }
+
+            .info-content h3 {
+                font-size: 0.7rem;
+            }
+
+            .info-content p {
+                font-size: 0.6rem;
+            }
+
+            .map-section {
+                padding: 1.5rem 0.3rem;
+            }
+
+            .map-title {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                letter-spacing: 0.5px;
+            }
+
+            .map-container {
+                padding: 0.8rem;
+                border-radius: 8px;
+                margin-bottom: 6vh;
+            }
+
+            .map-placeholder {
+                height: 120px;
+                font-size: 0.8rem;
+                letter-spacing: 0.5px;
+            }
+
+            .hours-section {
+                padding: 1.5rem 0.3rem;
+            }
+
+            .hours-title {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                letter-spacing: 0.5px;
+            }
+
+            .hours-grid {
+                max-width: 100%;
+                gap: 0.8rem;
+            }
+
+            .hours-item {
+                padding: 0.6rem;
+                border-radius: 6px;
+            }
+
+            .hours-item h3 {
+                font-size: 0.7rem;
+            }
+
+            .hours-item p {
+                font-size: 0.8rem;
+            }
+
+            .agendeContato {
+                font-size: 1.8vh;
+                padding: 0.3rem 0.6rem;
+                margin-top: 2vh;
+                border-radius: 2vh;
+            }
+
+            footer {
+                padding: 1.5rem 0.3rem 0.8rem;
+            }
+
+            .footer-container {
+                padding: 0 0.3rem;
+                gap: 0.6rem;
+            }
+
+            .footer-section h4 {
+                font-size: 0.9rem;
+            }
+
+            .footer-section p {
+                font-size: 0.6rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 0.9rem;
+                margin: 0 0.3rem;
+            }
+
+            .footer-bottom {
+                min-height: 2.5rem;
+                font-size: 0.55rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 4vh;
+            }
+
+            .footer-bottom p {
+                margin-top: 3vh;
+                padding: 0.2rem 0.3rem;
+            }
+        }
+
+        /* Responsividade para telas de 240px */
+        @media (max-width: 240px) {
+            body {
+                min-width: 240px;
+            }
+
+            .nav-container {
+                padding: 0 0.2rem;
+                min-height: 40px;
+            }
+
+            .logo {
+                font-size: 2vh;
+                gap: 0.1rem;
+            }
+
+            .logo img {
+                width: 20px;
+                padding-top: 3px;
+            }
+
+            .logo h4 span {
+                padding: .1vh .05vh 0 .1vh;
+            }
+
+            .hamburger {
+                font-size: 0.8rem;
+                min-width: 28px;
+                min-height: 28px;
+                display: flex !important;
+            }
+
+            .hero {
+                min-height: 25vh;
+                margin-top: 40px;
+                padding: 0.2rem;
+            }
+
+            .hero-content {
+                padding: 0.1rem;
+                gap: 0.1rem;
+                max-width: 100%;
+            }
+
+            .hero-image {
+                width: 8vh;
+                min-width: 60px;
+            }
+
+            .hero-title {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+                letter-spacing: 0.3px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.7rem;
+            }
+
+            .contact-info-section {
+                padding: 0.8rem 0.2rem;
+                margin-bottom: 8vh;
+            }
+
+            .section-title {
+                font-size: 0.8rem;
+                margin-top: 2vh;
+                margin-bottom: 1.5vh;
+            }
+
+            .section-title::after {
+                width: 20px;
+                height: 1px;
+            }
+
+            .instagram-featured {
+                padding: 0.6rem;
+                border-radius: 6px;
+            }
+
+            .instagram-photo {
+                width: 15vh;
+                height: 18vh;
+                min-width: 80px;
+                min-height: 100px;
+            }
+
+            .instagram-content h3 {
+                font-size: 0.7rem;
+            }
+
+            .instagram-content p {
+                font-size: 0.6rem;
+            }
+
+            .info-item {
+                padding: 0.5rem;
+                border-radius: 5px;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.2rem;
+            }
+
+            .info-icon {
+                font-size: 1rem;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.2rem;
+            }
+
+            .info-content h3 {
+                font-size: 0.6rem;
+            }
+
+            .info-content p {
+                font-size: 0.55rem;
+            }
+
+            .map-section {
+                padding: 1rem 0.2rem;
+            }
+
+            .map-title {
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
+                letter-spacing: 0.3px;
+            }
+
+            .map-container {
+                padding: 0.6rem;
+                border-radius: 6px;
+                margin-bottom: 5vh;
+            }
+
+            .map-placeholder {
+                height: 100px;
+                font-size: 0.6rem;
+                letter-spacing: 0.3px;
+            }
+
+            .hours-section {
+                padding: 1rem 0.2rem;
+            }
+
+            .hours-title {
+                font-size: 0.8rem;
+                margin-bottom: 1rem;
+                letter-spacing: 0.3px;
+            }
+
+            .hours-grid {
+                max-width: 100%;
+                gap: 0.6rem;
+            }
+
+            .hours-item {
+                padding: 0.5rem;
+                border-radius: 5px;
+            }
+
+            .hours-item h3 {
+                font-size: 0.6rem;
+            }
+
+            .hours-item p {
+                font-size: 0.7rem;
+            }
+
+            .agendeContato {
+                font-size: 1.5vh;
+                padding: 0.25rem 0.4rem;
+                margin-top: 1.5vh;
+                border-radius: 1.5vh;
+            }
+
+            footer {
+                padding: 1rem 0.2rem 0.6rem;
+            }
+
+            .footer-container {
+                padding: 0 0.2rem;
+                gap: 0.5rem;
+            }
+
+            .footer-section h4 {
+                font-size: 0.7rem;
+            }
+
+            .footer-section p {
+                font-size: 0.5rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 0.8rem;
+                margin: 0 0.2rem;
+            }
+
+            .footer-bottom {
+                min-height: 2rem;
+                font-size: 0.45rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 3vh;
+            }
+
+            .footer-bottom p {
+                margin-top: 1vh;
+                padding: 0.1rem 0.2rem;
             }
         }
     </style>
@@ -1021,6 +1730,9 @@
             <button class="hamburger" id="hamburger">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Sobre Nós</a></li>
+                <li><a href="index.html">Galeria</a></li>
+                <li><a href="index.html">Feedbacks</a></li>
                 <li><a href="tatuadores.html">Tatuadores</a></li>
                 <li><a href="blog.com">Blog</a></li>
                 <li><a href="contato.com" class="active">Contato</a></li>
@@ -1160,8 +1872,6 @@
         </div>
     </footer>
 
-    <button class="ai-button">Crie com a IA</button>
-
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -1171,10 +1881,10 @@
 
         // Função para controlar a visibilidade da subnav
         function toggleSubnav() {
-            if (tatuadoresLink.classList.contains('active')) {
-                subnav.classList.add('active');
+            if (tatuadoresLink && tatuadoresLink.classList.contains('active')) {
+                if (subnav) subnav.classList.add('active');
             } else {
-                subnav.classList.remove('active');
+                if (subnav) subnav.classList.remove('active');
             }
         }
 
@@ -1190,7 +1900,7 @@
         closeBtn.addEventListener('click', () => {
             navLinks.classList.remove('active');
             hamburger.textContent = '☰';
-            subnav.classList.remove('active');
+            if (subnav) subnav.classList.remove('active');
         });
 
         // Resetar o menu mobile ao redimensionar para desktop
@@ -1198,7 +1908,7 @@
             if (window.innerWidth > 768) {
                 navLinks.classList.remove('active');
                 hamburger.textContent = '☰';
-                subnav.classList.remove('active');
+                if (subnav) subnav.classList.remove('active');
             }
         });
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Texto com fundo de texto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f9f9f9;
+    }
+
+    .text-box {
+      position: relative;
+      font-size: 32px;
+      font-weight: bold;
+      color: #222;
+      padding: 40px;
+    }
+
+    .text-box::before {
+      content: "TEXTO FUNDO";
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 120px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.08);
+      z-index: 0;
+      pointer-events: none;
+      transform: translate(-10px, -30px);
+      white-space: nowrap;
+    }
+
+    .text-box span {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text-box">
+    <span>Texto Principal</span>
+  </div>
+
+</body>
+</html>

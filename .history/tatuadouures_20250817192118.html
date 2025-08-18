@@ -36,7 +36,6 @@
             transition: var(--transition);
         }
 
-        /* Navegação */
         nav {
             position: fixed;
             top: 0;
@@ -58,7 +57,7 @@
         }
 
         .logo {
-            font-family: League Spartan, sans-serif;
+            font-family: 'League Spartan', sans-serif;
             font-size: 4.9vh;
             color: #1A1A1A;
             text-decoration: none;
@@ -82,7 +81,7 @@
 
         .logo img {
             width: 45px;
-            padding-top:10px ;
+            padding-top: 10px;
         }
 
         .logo::after {
@@ -317,7 +316,7 @@
         }
 
         .tatuador-card img {
-            width: 10px;
+            width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
@@ -376,38 +375,6 @@
                 transition: var(--transition);
             }
         }
-
-
-        @media (max-width: 480px) {
-    .nav-container {
-        padding: 0 0.8rem;
-        flex-wrap: wrap;
-    }
-    .hamburger {
-        font-size: clamp(1.3rem, 3.5vw, 1.5rem);
-        padding: 0.7rem;
-    }
-      .mostrar-tattoos h4{
-        margin-top:2vh;
-    }
-}
-
-@media (max-width: 360px) {
-    .nav-container {
-        padding: 0 0.5rem;
-    }
-    .mostrar-tattoos h4{
-        margin-top:2vh;
-        
-    }
-    .hamburger {
-        font-size: clamp(1.2rem, 3vw, 1.4rem);
-        padding: 0.6rem;
-    }
-}
-
-
-
 
         .tatuador-section {
             position: relative;
@@ -499,28 +466,7 @@
             object-fit: cover;
         }
 
-        @media (max-width: 768px) {
-            .tatuador-section {
-                min-height: 600px;
-                flex-direction: column;
-                gap: 1rem;
-                padding: 30px 20px;
-            }
-
-            .mostrar-tattoos {
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .tatuador-section-text, .tatuador-section-text-inverted {
-                padding-bottom: 80px;
-            }
-        }
-
-
-        /* footer  */
-         footer {
+        footer {
             background: var(--primary-yellow);
             color: #FFFFFF;
             padding: 4rem 2rem 2rem;
@@ -582,153 +528,47 @@
         }
 
         .footer-bottom {
-    margin-top: 2rem;
-    margin-bottom: 0.8vh;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.8rem;
-    color: #FFF;
-    position: relative;
-    overflow: visible;
-    min-height: 4.5rem; /* Aumentado para garantir espaço para o texto de fundo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent; /* Garante que o fundo do footer não interfira */
-}
+            margin-top: 2rem;
+            margin-bottom: 0.8vh;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.8rem;
+            color: #FFF;
+            position: relative;
+            overflow: visible;
+            min-height: 4.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
 
-.footer-bottom::before {
-    content: "YELLOW INK";
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'League Spartan', sans-serif;
-    font-size: 10vh;
-    font-weight: 700;
-    color: rgba(230, 241, 80, 0.301); 
-    /* Cor branca com opacidade ajustada para maior contraste */
-    z-index: 0;
-    pointer-events: none;
-    white-space: nowrap;
-    text-align: center;
-    text-transform: uppercase;
-}
+        .footer-bottom::before {
+            content: "YELLOW INK";
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'League Spartan', sans-serif;
+            font-size: 10vh;
+            font-weight: 700;
+            color: rgba(230, 241, 80, 0.301);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-align: center;
+            text-transform: uppercase;
+        }
 
-
-.footer-bottom p {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    font-weight: bold;
-    color: #FFF;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    margin-top: 4vh;
-}
-
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            nav {
-                background: none;
-            }
-
-            .nav-container {
-                background: var(--primary-yellow);
-            }
-
-            .intro {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .intro-text, .intro-image {
-                flex: 1 1 100%;
-                max-width: 100%;
-                margin: 10px 0;
-            }
-
-            .intro-text {
-                margin-left: 0;
-            }
-
-            .intro-image {
-                margin-right: 0;
-            }
-
-            .tatuadores {
-                margin-top: 17vh;
-            }
-
-            .tatuadores .tatuador-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .tatuador-card {
-                width: 250px;
-                min-height: 400px;
-                margin-bottom: -18vh;
-                gap: 0;
-            }
-
-            .tatuador-card h4 {
-                margin: 5px 0 0 0;
-                line-height: 1.1;
-                padding: 0;
-            }
-
-            .tatuador-card p {
-                margin: 2vh 0 0 0;
-                padding: 0;
-                line-height: 1.2;
-                flex-grow: 0;
-            }
-
-            .tatuador-card img {
-                width: 120px;
-                height: 120px;
-                margin: 0;
-            }
-
-            .tatuador-section {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 30px 20px;
-            }
-
-            .tatuador-section-text, .tatuador-section-image, .tatuador-section-text-inverted, .tatuador-section-image-inverted {
-                flex: fifty 100%;
-                max-width: 100%;
-                margin: 0;
-                padding: 0;
-            }
-
-            .tatuador-section-image, .tatuador-section-image-inverted {
-                order: -1;
-            }
-
-            .tatuador-section h3 {
-                font-size: 2.5em;
-                text-align: center;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
+        .footer-bottom p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-top: 4vh;
         }
 
         .font-test {
@@ -745,7 +585,6 @@
             margin-top: 5vh;
         }
 
-        /* Swiper styles for tatuador cards */
         .card-wrapper {
             max-width: 1300px;
             margin: 0 auto;
@@ -761,6 +600,9 @@
         .swiper-slide {
             list-style: none;
             flex: 0 0 250px;
+            width: 250px;
+            min-width: 250px;
+            box-sizing: border-box;
         }
 
         .swiper-slide .tatuador-card-link {
@@ -822,18 +664,6 @@
             color: #1A1A1A;
         }
 
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-            background: var(--accent-yellow);
-            color: #FFF;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .swiper-button-prev:hover::after,
-        .swiper-button-next:hover::after {
-            color: #FFF;
-        }
-
         .swiper-button-prev {
             left: 10px;
         }
@@ -842,7 +672,60 @@
             right: 10px;
         }
 
-        .tattoo-gallery .swiper-button-prev, .tattoo-gallery .swiper-button-next {
+        .tattoo-gallery {
+            display: none;
+            margin: 20px auto;
+            max-width: 1300px;
+            padding: 20px 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            position: relative;
+        }
+
+        .tattoo-gallery.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tattoo-gallery .swiper-wrapper {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .tattoo-gallery .swiper-slide {
+            list-style: none;
+            flex: 0 0 250px;
+            width: 250px;
+            min-width: 250px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tattoo-gallery .swiper-slide img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .tattoo-gallery .swiper-slide img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .tattoo-gallery .swiper-button-prev,
+        .tattoo-gallery .swiper-button-next {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -855,17 +738,28 @@
             font-size: 1.2rem;
             cursor: pointer;
             transition: var(--transition);
-            z-index: 10;
+            z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,.1);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .tattoo-gallery .swiper-button-prev:hover, .tattoo-gallery .swiper-button-next:hover {
+        .tattoo-gallery .swiper-button-prev::after,
+        .tattoo-gallery .swiper-button-next::after {
+            font-size: 1.2rem;
+            color: #1A1A1A;
+        }
+
+        .tattoo-gallery .swiper-button-prev:hover,
+        .tattoo-gallery .swiper-button-next:hover {
             background: var(--accent-yellow);
-            color: #FFF;
             transform: translateY(-50%) scale(1.1);
+        }
+
+        .tattoo-gallery .swiper-button-prev:hover::after,
+        .tattoo-gallery .swiper-button-next:hover::after {
+            color: #FFF;
         }
 
         .tattoo-gallery .swiper-button-prev {
@@ -875,196 +769,436 @@
         .tattoo-gallery .swiper-button-next {
             right: 10px;
         }
+
         .mostrar-tattoos {
+            position: absolute;
+            bottom: 40px;
+            text-transform: uppercase;
+            color: #000;
+            font-size: clamp(2.5vh, 4.5vw, 4.5vh);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: clamp(5px, 1vw, 10px);
+            transition: var(--transition);
+            margin: 0;
+            padding: 0;
             white-space: nowrap;
-    position: absolute;
-    bottom: 40px;
-    text-transform: uppercase;
-    color: #000;
-    font-size: clamp(2.5vh, 4.5vw, 4.5vh); /* Min 2.5vh em telas pequenas, max 4.5vh em grandes */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: clamp(5px, 1vw, 10px); /* Gap ajustável */
-    transition: var(--transition);
-    margin: 0; /* Remove margens padrão do h4 */
-    padding: 0;
-    white-space: nowrap; /* Evita quebra de linha em textos longos */
-}
-
-.mostrar-tattoos:hover {
-    font-size: clamp(2.7vh, 4.7vw, 4.7vh); /* Ajuste relativo ao base */
-}
-
-.mostrar-tattoos::after {
-    content: '▼';
-    font-size: 0.8em;
-    transition: var(--transition);
-}
-
-.mostrar-tattoos.active::after {
-    content: '▲';
-}
-        .tattoo-gallery {
-            display: none;
-            margin: 20px auto;
-            max-width: 1200px;
-            padding: 20px;
-            background: #f9f9f9;
         }
 
-        .tattoo-gallery.active {
-            display: block;
+        .mostrar-tattoos:hover {
+            font-size: clamp(2.7vh, 4.7vw, 4.7vh);
         }
 
-        .tattoo-gallery .swiper-slide img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
+        .mostrar-tattoos::after {
+            content: '▼';
+            font-size: 0.8em;
+            transition: var(--transition);
         }
 
+        .mostrar-tattoos.active::after {
+            content: '▲';
+        }
 
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
 
+            .nav-links {
+                display: none;
+            }
 
+            .nav-links.active {
+                display: flex;
+            }
 
+            nav {
+                background: none;
+            }
 
+            .nav-container {
+                background: var(--primary-yellow);
+            }
 
+            .intro {
+                flex-direction: column;
+                padding: 20px;
+            }
 
-  /* Media Queries para responsividade */
-@media (max-width: 768px) {
-    .tatuador-section-text .mostrar-tattoos,
-    .tatuador-section-text-inverted .mostrar-tattoos {
-        left: 50% !important;
-        right: auto !important;
-        transform: translateX(-50%) !important;
-        bottom: 30px !important; /* Reduz bottom para aproximar do texto */
-        text-align: center !important;
-        white-space: normal !important;
-        overflow: visible !important;
-        padding: 5px 10px !important;
-        margin: 0 auto !important;
-        max-width: 90% !important;
-        font-size: clamp(3vh, 3.5vw, 3.5vh) !important;
-    }
-    .mostrar-tattoos h4{
-        white-space: nowrap;
-    }
-    .tatuador-section-text,
-    .tatuador-section-text-inverted {
-        padding-bottom: 80px !important; /* Ajustado para dar espaço ao botão e galeria */
-        text-align: center !important;
-    }
+            .intro-text, .intro-image {
+                flex: 1 1 100%;
+                max-width: 100%;
+                margin: 10px 0;
+            }
 
-    .tatuador-section-text p,
-    .tatuador-section-text-inverted p {
-        margin-bottom: 0.3rem !important; /* Ainda menos espaçamento em mobile */
-    }
+            .intro-text {
+                margin-left: 0;
+            }
 
-    .tattoo-gallery {
-        margin-top: 10px !important; /* Reduz margem superior da galeria para ficar mais próxima */
-    }
-}
+            .intro-image {
+                margin-right: 0;
+            }
 
+            .tatuadores {
+                margin-top: 17vh;
+            }
 
+            .tatuadores .tatuador-grid {
+                flex-direction: column;
+                align-items: center;
+            }
 
-/* Media Query para 480px */
-@media (max-width: 480px) {
-    .nav-container {
-        padding: 0 0.8rem;
-        flex-wrap: wrap;
-    }
-    .hamburger {
-        font-size: clamp(1.3rem, 3.5vw, 1.5rem);
-        padding: 0.7rem;
-    }
-    .tatuador-section-text .mostrar-tattoos,
-    .tatuador-section-text-inverted .mostrar-tattoos {
-        bottom: 30px !important;
-        font-size: clamp(2.8vh, 3vw, 2.2vh) !important;
-        padding: 4px 8px !important;
-        max-width: 100% !important;
-        white-space: nowrap !important;
-        text-align: center !important;
-        overflow: visible !important;
-        left: 50% !important;
-        right: auto !important;
-        transform: translateX(-50%) !important;
-    }
-    .tatuador-section-text,
-    .tatuador-section-text-inverted {
-        padding-bottom: 70px !important;
-    }
-    .tatuador-section-text p,
-    .tatuador-section-text-inverted p {
-        margin-bottom: 0.2rem !important;
-    }
-    .tatuador-grid.swiper.card-wrapper {
-        max-width: 100% !important;
-        padding: 20px 5px !important;
-    }
-    .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: auto !important;
-        max-width: 100% !important;
-    }
-    .tatuador-card-link .card-image {
-        width: 130px !important;
-        height: 130px !important;
-        margin: 0 auto !important;
-        display: block;
-    }
-}
+            .tatuador-card h4 {
+                margin: 5px 0 0 0;
+                line-height: 1.1;
+                padding: 0;
+            }
 
-/* Media Query para 360px */
-@media (max-width: 360px) {
-    .nav-container {
-        padding: 0 0.5rem;
-    }
-    .hamburger {
-        font-size: clamp(1.2rem, 3vw, 1.4rem);
-        padding: 0.6rem;
-    }
-    .tatuador-section-text .mostrar-tattoos,
-    .tatuador-section-text-inverted .mostrar-tattoos {
-        bottom: 30px !important;
-        font-size: clamp(2.6vh, 2.8vw, 2vh) !important;
-        padding: 3px 6px !important;
-        max-width: 100% !important;
-        white-space: nowrap !important;
-        text-align: center !important;
-        overflow: visible !important;
-        left: 50% !important;
-        right: auto !important;
-        transform: translateX(-50%) !important;
-    }
-    .tatuador-section-text,
-    .tatuador-section-text-inverted {
-        padding-bottom: 60px !important;
-    }
-    .tatuador-section-text p,
-    .tatuador-section-text-inverted p {
-        margin-bottom: 0.1rem !important;
-    }
-    .tatuador-grid.swiper.card-wrapper {
-        max-width: 100% !important;
-        padding: 20px 5px !important;
-    }
-    .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: auto !important;
-        max-width: 100% !important;
-    }
-    .tatuador-card-link .card-image {
-        width: 120px !important;
-        height: 120px !important;
-        margin: 0 auto !important;
-        display: block;
-    }
-}
+            .tatuador-card p {
+                margin: 2vh 0 0 0;
+                padding: 0;
+                line-height: 1.2;
+                flex-grow: 0;
+            }
+
+            .tatuador-card img {
+                width: 120px;
+                height: 120px;
+                margin: 0;
+            }
+
+            .tatuador-section {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 30px 20px;
+            }
+
+            .tatuador-section-text, .tatuador-section-image, .tatuador-section-text-inverted, .tatuador-section-image-inverted {
+                flex: 1 1 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .tatuador-section-image, .tatuador-section-image-inverted {
+                order: -1;
+            }
+
+            .tatuador-section h3 {
+                font-size: 2.5em;
+                text-align: center;
+            }
+
+            .tatuador-section-text .mostrar-tattoos,
+            .tatuador-section-text-inverted .mostrar-tattoos {
+                left: 50% !important;
+                right: auto !important;
+                transform: translateX(-50%) !important;
+                bottom: 30px !important;
+                text-align: center !important;
+                white-space: normal !important;
+                overflow: visible !important;
+                padding: 5px 10px !important;
+                margin: 0 auto !important;
+                max-width: 90% !important;
+                font-size: clamp(3vh, 3.5vw, 3.5vh) !important;
+            }
+
+            .mostrar-tattoos h4 {
+                white-space: nowrap;
+            }
+
+            .tatuador-section-text,
+            .tatuador-section-text-inverted {
+                padding-bottom: 80px !important;
+                text-align: center !important;
+            }
+
+            .tatuador-section-text p,
+            .tatuador-section-text-inverted p {
+                margin-bottom: 0.3rem !important;
+            }
+
+            .tattoo-gallery {
+                max-width: 100%;
+                padding: 20px 10px;
+            }
+
+            .tattoo-gallery .swiper-slide {
+                flex: 0 0 50%;
+                width: 50%;
+                min-width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tattoo-gallery .swiper-slide img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .tattoo-gallery .swiper-button-prev,
+            .tattoo-gallery .swiper-button-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .tattoo-gallery .swiper-button-prev {
+                left: 5px;
+            }
+
+            .tattoo-gallery .swiper-button-next {
+                right: 5px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .swiper-slide {
+                flex: 0 0 50%;
+                width: 50%;
+                min-width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tatuador-card-link .card-image {
+                width: 120px !important;
+                height: 120px !important;
+                border-radius: 50% !important;
+                margin: 0 auto !important;
+                display: block;
+            }
+
+            .tatuador-card-link .card-title,
+            .tatuador-card-link .card-description {
+                text-align: center;
+            }
+
+            .tatuador-grid.swiper.card-wrapper {
+                max-width: 100% !important;
+                padding: 20px 10px !important;
+                display: flex;
+                justify-content: center;
+            }
+
+            .tatuador-card {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.8rem;
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                font-size: clamp(1.3rem, 3.5vw, 1.5rem);
+                padding: 0.7rem;
+            }
+
+            .tatuador-section-text .mostrar-tattoos,
+            .tatuador-section-text-inverted .mostrar-tattoos {
+                bottom: 30px !important;
+                font-size: clamp(2.8vh, 3vw, 2.2vh) !important;
+                padding: 4px 8px !important;
+                max-width: 100% !important;
+                white-space: nowrap !important;
+                text-align: center !important;
+                overflow: visible !important;
+                left: 50% !important;
+                right: auto !important;
+                transform: translateX(-50%) !important;
+            }
+
+            .tatuador-section-text,
+            .tatuador-section-text-inverted {
+                padding-bottom: 70px !important;
+            }
+
+            .tatuador-section-text p,
+            .tatuador-section-text-inverted p {
+                margin-bottom: 0.2rem !important;
+            }
+
+            .tatuador-grid.swiper.card-wrapper {
+                max-width: 100% !important;
+                padding: 20px 5px !important;
+            }
+
+            .swiper-slide {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tatuador-card-link .card-image {
+                width: 120px !important;
+                height: 120px !important;
+                border-radius: 50% !important;
+                margin: 0 auto !important;
+                display: block;
+                object-fit: cover;
+            }
+
+            .tatuador-card {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .tattoo-gallery .swiper-slide {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .tattoo-gallery .swiper-slide img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+
+            .hamburger {
+                font-size: clamp(1.2rem, 3vw, 1.4rem);
+                padding: 0.6rem;
+            }
+
+            .tatuador-section-text .mostrar-tattoos,
+            .tatuador-section-text-inverted .mostrar-tattoos {
+                bottom: 30px !important;
+                font-size: clamp(2.6vh, 2.8vw, 2vh) !important;
+                padding: 3px 6px !important;
+                max-width: 100% !important;
+                white-space: nowrap !important;
+                text-align: center !important;
+                overflow: visible !important;
+                left: 50% !important;
+                right: auto !important;
+                transform: translateX(-50%) !important;
+            }
+
+            .tatuador-section-text,
+            .tatuador-section-text-inverted {
+                padding-bottom: 60px !important;
+            }
+
+            .tatuador-section-text p,
+            .tatuador-section-text-inverted p {
+                margin-bottom: 0.1rem !important;
+            }
+
+            .tatuador-grid.swiper.card-wrapper {
+                max-width: 100% !important;
+                padding: 20px 5px !important;
+            }
+
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            .tatuador-card-link .card-image {
+                width: 120px !important;
+                height: 120px !important;
+                border-radius: 50% !important;
+                margin: 0 auto !important;
+                display: block;
+                object-fit: cover;
+            }
+
+            .tattoo-gallery .swiper-slide {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            .tattoo-gallery .swiper-slide img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (min-width: 360px) and (max-width: 769px) {
+            .tattoo-gallery .swiper-slide {
+                flex: 0 0 50%;
+                width: 50%;
+                min-width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tattoo-gallery .swiper-slide img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .tattoo-gallery .swiper-button-prev,
+            .tattoo-gallery .swiper-button-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .tattoo-gallery .swiper-button-prev {
+                left: 5px;
+            }
+
+            .tattoo-gallery .swiper-button-next {
+                right: 5px;
+            }
+
+            .tattoo-gallery {
+                max-width: 100% !important;
+                padding: 20px 10px !important;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1032px) {
+            .hero-section {
+                height: 430px;
+                max-width: 100%;
+                width: 888px;
+                padding: 10px;
+                z-index: 1;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+            .hero-content img {
+                max-width: 100%;
+                width: 900px;
+                height: 850px;
+            }
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .readmore-hero {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1190,12 +1324,12 @@
             </div>
         </div>
 
-        <section classs="section-tatuadores">
+        <section class="section-tatuadores">
             <h3 class="title-tatuadores">TATUADORES</h3>
             <div class="tatuador-section" id="tatuador-joao-silva">
                 <div class="tatuador-section-text">
                     <h3>João Silva</h3>
-                    <p>João Silva é um dos tatuadores mais respeitados da Yellow Ink, com mais de 8 anos de experiência na arte da tatuagem realista. Sua paixão por retratos e detalhes minuciosos o destaca,</p>
+                    <p>João Silva é um dos tatuadores mais respeitados da Yellow Ink, com mais de 8 anos de experiência na arte da tatuagem realista. Sua paixão por retratos e detalhes minuciosos o destaca.</p>
                     <p>Além de sua habilidade técnica, João é conhecido por sua abordagem acolhedora, dedicando tempo para entender as necessidades de cada cliente e transformar ideias em arte permanente. Disponível para consultas no estúdio de segunda a sábado, ele também oferece workshops ocasionais sobre técnicas de sombreamento. Entre em contato para agendar uma sessão ou saber mais sobre seus próximos projetos!</p>
                     <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
                 </div>
@@ -1206,22 +1340,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-joao-silva">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem João Silva 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem João Silva 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem João Silva 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem João Silva 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem João Silva 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem João Silva 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem João Silva 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem João Silva 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem João Silva 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem João Silva 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1242,22 +1388,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-maria-oliveira">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Maria Oliveira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Maria Oliveira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Maria Oliveira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Maria Oliveira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Maria Oliveira 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Maria Oliveira 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Maria Oliveira 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Maria Oliveira 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Maria Oliveira 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Maria Oliveira 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Maria Oliveira 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Maria Oliveira 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1278,22 +1436,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-carlos-mendes">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Carlos Mendes 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Carlos Mendes 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Carlos Mendes 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Carlos Mendes 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Carlos Mendes 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Carlos Mendes 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Carlos Mendes 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Carlos Mendes 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Carlos Mendes 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Carlos Mendes 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Carlos Mendes 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Carlos Mendes 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1314,22 +1484,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-nome">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem sem nome 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Nome 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem sem nome 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Nome 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Nome 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Nome 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Nome 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Nome 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Nome 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Nome 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Nome 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Nome 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1351,22 +1533,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-lucas-souza">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Lucas souza 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Lucas Souza 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Lucas souza 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Lucas Souza 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Lucas Souza 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Lucas Souza 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Lucas Souza 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Lucas Souza 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Lucas Souza 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Lucas Souza 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Lucas Souza 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Lucas Souza 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1388,22 +1582,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-ana-pereira">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Ana Pereira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Ana Pereira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Ana Pereira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Ana Pereira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Ana Pereira 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Ana Pereira 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Ana Pereira 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Ana Pereira 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Ana Pereira 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Ana Pereira 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Ana Pereira 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Ana Pereira 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1425,22 +1631,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-pedro-alves">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Pedro Alves 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Pedro Alves 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Pedro Alves 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Pedro Alves 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Pedro Alves 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Pedro Alves 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Pedro Alves 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Pedro Alves 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Pedro Alves 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Pedro Alves 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Pedro Alves 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Pedro Alves 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1462,22 +1680,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-rafael-santos">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem Rafael Santos 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Rafael Santos 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem Rafael Santos 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Rafael Santos 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Rafael Santos 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Rafael Santos 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Rafael Santos 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Rafael Santos 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Rafael Santos 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Rafael Santos 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Rafael Santos 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Rafael Santos 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1499,22 +1729,34 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-julia-ferreira">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem Julia Ferreira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Júlia Ferreira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem Julia Ferreira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Júlia Ferreira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Júlia Ferreira 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Júlia Ferreira 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Júlia Ferreira 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Júlia Ferreira 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Júlia Ferreira 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Júlia Ferreira 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Júlia Ferreira 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Júlia Ferreira 10">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1536,346 +1778,9 @@
             <div class="tattoo-gallery swiper card-wrapper" id="gallery-marcos-vieira">
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Marcos Vieira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Marcos Vieira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 1">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem Marcos Vieira 2">
-                    </li>
-                </ul>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
-    </div>
-
-     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Contato</h4>
-                <p>Email: info@yellowink.com</p>
-                <p>Telefone: +55 11 1234-5678</p>
-                <p>Endereço: Rua da Arte, 123, São Paulo - SP</p>
-            </div>
-            <div class="footer-section">
-                <h4>Siga-nos</h4>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Horário</h4>
-                <p>Segunda a Sexta: 10h - 20h</p>
-                <p>Sábado: 10h - 18h</p>
-                <p>Domingo: Fechado</p>
-            </div>
-            <div class="footer-section">
-                <h4>Trabalhe Conosco</h4>
-                <p>Envie seu portfólio para: jobs@yellowink.com</p>
-                <p>Ou seja um <a href="#" class="guest-a">Guest</a></p>
-                <p>Confira nossas vagas abertas!</p>
-                <p><a href="#" class="saibamais-a">Saiba mais</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Yellow Ink. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const closeBtn = document.querySelector('.close-btn');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.add('active');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-
-        function removeActiveClasses() {
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
-        }
-
-        // Eventos de clique para links da tatuador-card
-        document.querySelectorAll('.tatuador-card-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                removeActiveClasses();
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    navLinks.classList.remove('active');
-                    document.querySelector('.nav-links a[href="#tatuadores"]').classList.add('active');
-                }
-            });
-        });
-
-        const navObserverOptions = {
-            root: null,
-            threshold: 0.3,
-            rootMargin: '0px'
-        };
-
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    removeActiveClasses();
-                    const id = entry.target.getAttribute('id');
-                    const mainLink = document.querySelector(`.nav-links a[href="#${id}"]`);
-                    if (mainLink) {
-                        mainLink.classList.add('active');
-                    } else {
-                        document.querySelector('.nav-links a[href="#tatuadores"]').classList.add('active');
-                    }
-                }
-            });
-        }, navObserverOptions);
-
-        document.querySelectorAll('div[id], .intro[id]').forEach(section => {
-            navObserver.observe(section);
-        });
-
-        // Define o link "Tatuadores" como ativo por padrão
-        document.querySelector('.nav-links a[href="#tatuadores"]').classList.add('active');
-
-        // Initialize Swiper with infinite repetition
-        new Swiper('.card-wrapper', {
-            loop: true,
-            spaceBetween: 30,
-            slidesPerView: 'auto',
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: true
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            loopedSlides: 10,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1
-                },
-                480: {
-                    slidesPerView: 2
-                },
-                768: {
-                    slidesPerView: 3
-                },
-                1024: {
-                    slidesPerView: 5
-                }
-            }
-        });
-
-
-
-
-        
-        // Funcionalidade para mostrar/ocultar galerias de tatuagens com scroll ajustado
-        document.querySelectorAll('.mostrar-tattoos').forEach(button => {
-            button.addEventListener('click', function() {
-                console.log('Botão "mostrar-tattoos" clicado:', this); // Depuração
-                const parentSection = this.closest('.tatuador-section');
-                if (!parentSection) {
-                    console.error('Seção pai (.tatuador-section) não encontrada');
-                    return;
-                }
-                
-                const tatuadorId = parentSection.getAttribute('id');
-                console.log('ID da seção:', tatuadorId); // Depuração
-                const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
-                const gallery = document.getElementById(galleryId);
-                
-                if (!gallery) {
-                    console.error('Galeria não encontrada para o ID:', galleryId);
-                    return;
-                }
-                
-                // Fechar todas as outras galerias e botões ativos
-                document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
-                    if (g !== gallery) {
-                        g.classList.remove('active');
-                        console.log('Galeria fechada:', g.id); // Depuração
-                    }
-                });
-                document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
-                    if (b !== this) {
-                        b.classList.remove('active');
-                    }
-                });
-                
-                // Alternar a visibilidade da galeria
-                gallery.classList.toggle('active');
-                this.classList.toggle('active');
-                console.log('Galeria ativa:', gallery.classList.contains('active'), 'ID:', galleryId); // Depuração
-                
-                // Rolar para mostrar metade da tatuador-section e o início da galeria
-                if (gallery.classList.contains('active')) {
-                    setTimeout(() => {
-                        const sectionRect = parentSection.getBoundingClientRect();
-                        const windowHeight = window.innerHeight;
-                        // Rolar para a metade inferior da seção, ajustando para mostrar o topo da galeria
-                        const scrollTarget = window.scrollY + sectionRect.top + (sectionRect.height / 2) - (windowHeight / 11);
-                        window.scrollTo({
-                            top: scrollTarget,
-                            behavior: 'smooth'
-                        });
-                        console.log('Rolando para posição:', scrollTarget, 'Seção:', tatuadorId); // Depuração
-                    }, 100); // Atraso para garantir que a galeria esteja visível
-                }
-                
-                // Inicializar Swiper apenas quando a galeria for aberta, se ainda não foi inicializado
-                if (gallery.classList.contains('active') && !gallery.swiper) {
-                    console.log('Inicializando Swiper para:', galleryId); // Depuração
-                    new Swiper(gallery, {
-                        loop: true,
-                        spaceBetween: 30,
-                        slidesPerView: 'auto',
-                        autoplay: {
-                            delay: 3000,
-                            disableOnInteraction: false,
-                            pauseOnMouseEnter: true
-                        },
-                        pagination: {
-                            el: '.swiper-pagination',
-                            clickable: true,
-                            dynamicBullets: true
-                        },
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                        loopedSlides: 6,
-                        breakpoints: {
-                            0: { slidesPerView: 1 },
-                            480: { slidesPerView: 2 },
-                            768: { slidesPerView: 3 },
-                            1024: { slidesPerView: 5 }
-                        }
-                    });
-                }
-            });
-        });
-
-
-
-
-        document.querySelectorAll('.mostrar-tattoos').forEach(button => {
-    button.addEventListener('click', function() {
-        console.log('Botão "mostrar-tattoos" clicado:', this);
-        const parentSection = this.closest('.tatuador-section');
-        if (!parentSection) {
-            console.error('Seção pai (.tatuador-section) não encontrada');
-            return;
-        }
-        
-        const tatuadorId = parentSection.getAttribute('id');
-        console.log('ID da seção:', tatuadorId);
-        const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
-        const gallery = document.getElementById(galleryId);
-        
-        if (!gallery) {
-            console.error('Galeria não encontrada para o ID:', galleryId);
-            return;
-        }
-        
-        // Fechar todas as outras galerias e botões ativos
-        document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
-            if (g !== gallery) {
-                g.classList.remove('active');
-                console.log('Galeria fechada:', g.id);
-            }
-        });
-        document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
-            if (b !== this) {
-                b.classList.remove('active');
-            }
-        });
-        
-        // Alternar a visibilidade da galeria
-        gallery.classList.toggle('active');
-        this.classList.toggle('active');
-        console.log('Galeria ativa:', gallery.classList.contains('active'), 'ID:', galleryId);
-        
-        // Rolar para o topo da galeria
-        if (gallery.classList.contains('active')) {
-            setTimeout(() => {
-                const galleryRect = gallery.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                const adjustment = window.innerWidth <= 768 ? (windowHeight / 2) : (windowHeight / 2);
-                const scrollTarget = window.scrollY + galleryRect.top - adjustment;
-                window.scrollTo({
-                    top: scrollTarget,
-                    behavior: 'smooth'
-                });
-                console.log('Rolando para posição:', scrollTarget, 'Galeria:', galleryId);
-            }, 100);
-        }
-        
-        // Inicializar Swiper apenas quando a galeria for aberta, se ainda não foi inicializado
-        if (gallery.classList.contains('active') && !gallery.swiper) {
-            console.log('Inicializando Swiper para:', galleryId);
-            new Swiper(gallery, {
-                loop: true,
-                spaceBetween: 30,
-                slidesPerView: 'auto',
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    dynamicBullets: true
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                loopedSlides: 6,
-                breakpoints: {
-                    0: { slidesPerView: 1 },
-                    480: { slidesPerView: 2 },
-                    768: { slidesPerView: 3 },
-                    1024: { slidesPerView: 5 }
-                }
-            });
-        }
-    });
-});
-    </script>
-</body>

@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yellow Ink - Tattoo Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <style>
+        :root {
+            --primary-yellow: #D4AF37;
+            --secondary-yellow: #F4E4BC;
+            --accent-yellow: #B8860B;
+            --marble-white: #F8F8FF;
+            --stone-gray: #696969;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #FFFFFF;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-yellow);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 4.9vh;
+            color: #1A1A1A;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding-top: 0.5rem;
+        }
+
+        .logo h4 span {
+            background: #eaee0f;
+            padding: .7vh .5vh 0 .7vh;
+        }
+
+        .logo img {
+            width: 45px;
+            padding-top: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            padding-right: 4vh;
+        }
+
+        .nav-links a {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #f7de8d;
+            font-weight: 700;
+        }
+
+        .nav-links a.active::before {
+            width: 100%;
+            background: #f7de8d;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-links.active {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100vh;
+            background: var(--marble-white);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .nav-links .close-btn {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-links.active .close-btn {
+            display: block;
+        }
+
+        .tatuadores {
+            padding: 40px 20px;
+            margin-top: 20vh;
+            scroll-margin-top: 80px;
+        }
+
+        .tatuadores h3 {
+            margin: 0 0 3vh 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #000000;
+            font-family: 'League Spartan', sans-serif;
+            text-align: center;
+        }
+
+        .card-wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 10px;
+            overflow: hidden;
+        }
+
+        .swiper-wrapper {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide {
+            flex: 0 0 auto;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide .tatuador-card-link {
+            width: 100%;
+            user-select: none;
+            display: block;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .tatuador-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            min-height: 400px;
+            gap: 0;
+        }
+
+        .tatuador-card-link .card-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+
+        .tatuador-card-link .card-title {
+            font-size: 1.5em;
+            color: var(--stone-gray);
+            font-weight: 700;
+            font-family: 'League Spartan', sans-serif;
+            margin: 10px 0;
+        }
+
+        .tatuador-card-link .card-description {
+            font-size: 1em;
+            color: #555;
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.2;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .swiper-button-prev, .swiper-button-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-yellow);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #1A1A1A;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            font-size: 1.2rem;
+            color: #1A1A1A;
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+        }
+
+        .swiper-button-next {
+            right: 10px;
+        }
+
+        /* Estilos atualizados para .tattoo-gallery, idênticos ao código fornecido */
+        .tattoo-gallery {
+            display: none;
+            margin: 20px auto;
+            max-width: 1300px;
+            padding: 20px 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            position: relative;
+        }
+
+        .tattoo-gallery.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tattoo-gallery .swiper-wrapper {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .tattoo-gallery .swiper-slide {
+            list-style: none;
+            flex: 0 0 250px;
+            width: 250px;
+            min-width: 250px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tattoo-gallery .swiper-slide img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .tattoo-gallery .swiper-slide img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .tattoo-gallery .swiper-button-prev,
+        .tattoo-gallery .swiper-button-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-yellow);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #1A1A1A;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tattoo-gallery .swiper-button-prev::after,
+        .tattoo-gallery .swiper-button-next::after {
+            font-size: 1.2rem;
+            color: #1A1A1A;
+        }
+
+        .tattoo-gallery .swiper-button-prev:hover,
+        .tattoo-gallery .swiper-button-next:hover {
+            background: var(--accent-yellow);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .tattoo-gallery .swiper-button-prev:hover::after,
+        .tattoo-gallery .swiper-button-next:hover::after {
+            color: #FFF;
+        }
+
+        .tattoo-gallery .swiper-button-prev {
+            left: 10px;
+        }
+
+        .tattoo-gallery .swiper-button-next {
+            right: 10px;
+        }
+
+        .mostrar-tattoos {
+            position: absolute;
+            bottom: 40px;
+            text-transform: uppercase;
+            color: #000;
+            font-size: clamp(2.5vh, 4.5vw, 4.5vh);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: clamp(5px, 1vw, 10px);
+            transition: var(--transition);
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .mostrar-tattoos:hover {
+            font-size: clamp(2.7vh, 4.7vw, 4.7vh);
+        }
+
+        .mostrar-tattoos::after {
+            content: '▼';
+            font-size: 0.8em;
+            transition: var(--transition);
+        }
+
+        .mostrar-tattoos.active::after {
+            content: '▲';
+        }
+
+        .tatuador-section {
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background-color: #92919163;
+            margin: 20px auto;
+            max-width: 1200px;
+            scroll-margin-top: 80px;
+        }
+
+        .tatuador-section-text {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding-right: 40px;
+            color: #ffffff;
+        }
+
+        .tatuador-section-text-inverted {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding-left: 40px;
+            color: #ffffff;
+        }
+
+        .tatuador-section h3 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #e0a70a;
+            margin-bottom: 2rem;
+            font-family: 'League Spartan', sans-serif;
+            line-height: 1.1;
+        }
+
+        .tatuador-section-text p {
+            font-size: 1.1em;
+            color: #000000;
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .tatuador-section-text-inverted p {
+            font-size: 1.1em;
+            color: #000000;
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .tatuador-section-text .mostrar-tattoos {
+            left: 60px;
+        }
+
+        .tatuador-section-text-inverted .mostrar-tattoos {
+            right: 60px;
+        }
+
+        .tatuador-section-text, .tatuador-section-text-inverted {
+            padding-bottom: 60px;
+        }
+
+        .tatuador-section-image {
+            flex: 0 0 40%;
+            max-width: 40%;
+            margin-left: 40px;
+        }
+
+        .tatuador-section-image-inverted {
+            flex: 0 0 40%;
+            max-width: 40%;
+            margin-right: 40px;
+        }
+
+        .tatuador-section-image img,
+        .tatuador-section-image-inverted img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        footer {
+            background: var(--primary-yellow);
+            color: #FFFFFF;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            margin-top: 15vh;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section .social-links a {
+            color: #FFFFFF;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-section .social-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .guest-a, .saibamais-a {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+        .saibamais-a {
+            text-decoration: underline;
+        }
+
+        .guest-a:hover, .saibamais-a:hover {
+            color: #1A1A1A;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            margin-bottom: 0.8vh;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.8rem;
+            color: #FFF;
+            position: relative;
+            overflow: visible;
+            min-height: 4.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .footer-bottom::before {
+            content: "YELLOW INK";
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'League Spartan', sans-serif;
+            font-size: 10vh;
+            font-weight: 700;
+            color: rgba(230, 241, 80, 0.301);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .footer-bottom p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-top: 4vh;
+        }
+
+        .title-tatuadores {
+            font-family: 'League Spartan', sans-serif;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 5vh;
+            font-size: 6vh;
+            margin-top: 5vh;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-container {
+                background: var(--primary-yellow);
+            }
+
+            .tatuadores {
+                margin-top: 17vh;
+            }
+
+            .tatuador-card img {
+                width: 120px;
+                height: 120px;
+                margin: 0;
+            }
+
+            .tatuador-section {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 30px 20px;
+            }
+
+            .tatuador-section-text, .tatuador-section-image,
+            .tatuador-section-text-inverted, .tatuador-section-image-inverted {
+                flex: 1 1 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .tatuador-section-image, .tatuador-section-image-inverted {
+                order: -1;
+            }
+
+            .tatuador-section h3 {
+                font-size: 2.5em;
+                text-align: center;
+            }
+
+            .tatuador-section-text .mostrar-tattoos,
+            .tatuador-section-text-inverted .mostrar-tattoos {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                bottom: 30px;
+                text-align: center;
+                white-space: normal;
+                overflow: visible;
+                padding: 5px 10px;
+                margin: 0 auto;
+                max-width: 90%;
+                font-size: clamp(3vh, 3.5vw, 3.5vh);
+            }
+
+            .tatuador-section-text,
+            .tatuador-section-text-inverted {
+                padding-bottom: 80px;
+                text-align: center;
+            }
+
+            .tatuador-section-text p,
+            .tatuador-section-text-inverted p {
+                margin-bottom: 0.3rem;
+            }
+
+            .tattoo-gallery {
+                max-width: 100%;
+                padding: 20px 10px;
+            }
+
+            .tattoo-gallery .swiper-slide {
+                flex: 0 0 50%;
+                width: 50%;
+                min-width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tattoo-gallery .swiper-slide img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .tattoo-gallery .swiper-button-prev,
+            .tattoo-gallery .swiper-button-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .tattoo-gallery .swiper-button-prev {
+                left: 5px;
+            }
+
+            .tattoo-gallery .swiper-button-next {
+                right: 5px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .swiper-slide {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tatuador-card-link .card-image {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin: 0 auto;
+                display: block;
+                object-fit: cover;
+            }
+
+            .tatuador-card {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.8rem;
+            }
+
+            .hamburger {
+                font-size: clamp(1.3rem, 3.5vw, 1.5rem);
+                padding: 0.7rem;
+            }
+
+            .tatuador-section-text .mostrar-tattoos,
+            .tatuador-section-text-inverted .mostrar-tattoos {
+                bottom: 30px;
+                font-size: clamp(2.8vh, 3vw, 2.2vh);
+                padding: 4px 8px;
+                max-width: 100%;
+                white-space: nowrap;
+                text-align: center;
+                overflow: visible;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+
+            .tatuador-section-text,
+            .tatuador-section-text-inverted {
+                padding-bottom: 70px;
+            }
+
+            .tatuador-section-text p,
+            .tatuador-section-text-inverted p {
+                margin-bottom: 0.2rem;
+            }
+
+            .tatuador-grid.swiper.card-wrapper {
+                max-width: 100%;
+                padding: 20px 5px;
+            }
+
+            .swiper-slide {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tatuador-card-link .card-image {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin: 0 auto;
+                display: block;
+                object-fit: cover;
+            }
+
+            .tattoo-gallery .swiper-slide {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .tattoo-gallery .swiper-slide img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .tattoo-gallery .swiper-slide img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span><img src="https://via.placeholder.com/45x45/D4AF37/000000?text=YI" alt="Logo Yellow Ink"></span>
+                <h4>YELLOW<span>INK</span></h4>
+            </a>
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Sobre nós</a></li>
+                <li><a href="index.html">Galeria</a></li>
+                <li><a href="index.html">Feedbacks</a></li>
+                <li><a href="#tatuadores">Tatuadores</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="guest.html">Guest</a></li>
+                <button class="close-btn" id="closeBtn">✕</button>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="tatuadores" id="tatuadores">
+            <h3 class="title-tatuadores">TATUADORES</h3>
+            <div class="tatuador-grid swiper card-wrapper">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <a href="#tatuador-joao-silva" class="tatuador-card-link">
+                            <div class="tatuador-card">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Tatuador 1" class="card-image">
+                                <h4 class="card-title">João Silva</h4>
+                                <p class="card-description">Especialista em tatuagens realistas com mais de 8 anos de experiência.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#tatuador-maria-oliveira" class="tatuador-card-link">
+                            <div class="tatuador-card">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Tatuador 2" class="card-image">
+                                <h4 class="card-title">Maria Oliveira</h4>
+                                <p class="card-description">Artista versátil com foco em estilos geométricos e minimalistas.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#tatuador-carlos-mendes" class="tatuador-card-link">
+                            <div class="tatuador-card">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Tatuador 3" class="card-image">
+                                <h4 class="card-title">Carlos Mendes</h4>
+                                <p class="card-description">Expert em tatuagens tradicionais e neotradicionais.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <section class="section-tatuadores">
+            <div class="tatuador-section" id="tatuador-joao-silva">
+                <div class="tatuador-section-text">
+                    <h3>João Silva</h3>
+                    <p>João Silva é um dos tatuadores mais respeitados da Yellow Ink, com mais de 8 anos de experiência na arte da tatuagem realista.</p>
+                    <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
+                </div>
+                <div class="tatuador-section-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="João Silva">
+                </div>
+            </div>
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-joao-silva">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem João Silva 1">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem João Silva 2">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem João Silva 3">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem João Silva 4">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem João Silva 5">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem João Silva 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem João Silva 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem João Silva 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem João Silva 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem João Silva 10">
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <div class="tatuador-section" id="tatuador-maria-oliveira">
+                <div class="tatuador-section-image-inverted">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Maria Oliveira">
+                </div>
+                <div class="tatuador-section-text-inverted">
+                    <h3>Maria Oliveira</h3>
+                    <p>Artista versátil com foco em estilos geométricos e minimalistas.</p>
+                    <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
+                </div>
+            </div>
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-maria-oliveira">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Maria Oliveira 1">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Maria Oliveira 2">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Maria Oliveira 3">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Maria Oliveira 4">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Maria Oliveira 5">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Maria Oliveira 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Maria Oliveira 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Maria Oliveira 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Maria Oliveira 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Maria Oliveira 10">
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <div class="tatuador-section" id="tatuador-carlos-mendes">
+                <div class="tatuador-section-text">
+                    <h3>Carlos Mendes</h3>
+                    <p>Expert em tatuagens tradicionais e neotradicionais.</p>
+                    <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
+                </div>
+                <div class="tatuador-section-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Carlos Mendes">
+                </div>
+            </div>
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-carlos-mendes">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+1" alt="Tatuagem Carlos Mendes 1">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+2" alt="Tatuagem Carlos Mendes 2">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/333333?text=Tattoo+3" alt="Tatuagem Carlos Mendes 3">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+4" alt="Tatuagem Carlos Mendes 4">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/000000?text=Tattoo+5" alt="Tatuagem Carlos Mendes 5">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/000000?text=Tattoo+6" alt="Tatuagem Carlos Mendes 6">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/F4E4BC/000000?text=Tattoo+7" alt="Tatuagem Carlos Mendes 7">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/696969/FFFFFF?text=Tattoo+8" alt="Tatuagem Carlos Mendes 8">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo+9" alt="Tatuagem Carlos Mendes 9">
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="https://via.placeholder.com/200x200/B8860B/FFFFFF?text=Tattoo+10" alt="Tatuagem Carlos Mendes 10">
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: info@yellowink.com</p>
+                <p>Telefone: +55 11 1234-5678</p>
+                <p>Endereço: Rua da Arte, 123, São Paulo - SP</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Horário</h4>
+                <p>Segunda a Sexta: 10h - 20h</p>
+                <p>Sábado: 10h - 18h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+            <div class="footer-section">
+                <h4>Trabalhe Conosco</h4>
+                <p>Envie seu portfólio para: jobs@yellowink.com</p>
+                <p>Ou seja um <a href="#" class="guest-a">Guest</a></p>
+                <p>Confira nossas vagas abertas!</p>
+                <p><a href="#" class="saibamais-a">Saiba mais</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yellow Ink. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const closeBtn = document.querySelector('.close-btn');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+
+        function removeActiveClasses() {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+
+        document.querySelectorAll('.tatuador-card-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                removeActiveClasses();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                    document.querySelector('.nav-links a[href="#tatuadores"]').classList.add('active');
+                }
+            });
+        });
+
+        const navObserverOptions = {
+            root: null,
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    removeActiveClasses();
+                    const id = entry.target.getAttribute('id');
+                    const mainLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                    if (mainLink) {
+                        mainLink.classList.add('active');
+                    } else {
+                        document.querySelector('.nav-links a[href="#tatuadores"]').classList.add('active');
+                    }
+                }
+            });
+        }, navObserverOptions);
+
+        document.querySelectorAll('div[id], .intro[id]').forEach(section => {
+            navObserver.observe(section);
+        });
+
+        document.querySelector('.nav-links a[href="#tatuadores"]').classList.add('active');
+
+        // Swiper para cards de tatuadores
+        new Swiper('.tatuador-grid.swiper', {
+            loop: true,
+            spaceBetween: 30,
+            slidesPerView: 'auto',
+            freeMode: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    centeredSlides: true
+                },
+                481: {
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                    centeredSlides: false
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    centeredSlides: false
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    centeredSlides: false
+                }
+            }
+        });
+
+        // Inicializa Swipers para todas as galerias de tatuagens
+        const gallerySwipers = {};
+
+        document.querySelectorAll('.tattoo-gallery').forEach(gallery => {
+            const galleryId = gallery.getAttribute('id');
+            gallerySwipers[galleryId] = null;
+
+            gallery.addEventListener('transitionend', () => {
+                if (gallery.classList.contains('active') && gallerySwipers[galleryId]) {
+                    gallerySwipers[galleryId].update();
+                }
+            });
+        });
+
+        // Event listener para abrir/fechar galerias
+        document.querySelectorAll('.mostrar-tattoos').forEach(button => {
+            button.addEventListener('click', function() {
+                const parentSection = this.closest('.tatuador-section');
+                if (!parentSection) {
+                    console.error('Seção pai (.tatuador-section) não encontrada');
+                    return;
+                }
+                
+                const tatuadorId = parentSection.getAttribute('id');
+                const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
+                const gallery = document.getElementById(galleryId);
+                
+                if (!gallery) {
+                    console.error('Galeria não encontrada para o ID:', galleryId);
+                    return;
+                }
+                
+                // Fecha outras galerias
+                document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
+                    if (g !== gallery) {
+                        g.classList.remove('active');
+                        const gId = g.getAttribute('id');
+                        if (gallerySwipers[gId]) {
+                            gallerySwipers[gId].destroy(true, true);
+                            gallerySwipers[gId] = null;
+                        }
+                    }
+                });
+                document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
+                    if (b !== this) {
+                        b.classList.remove('active');
+                    }
+                });
+                
+                gallery.classList.toggle('active');
+                this.classList.toggle('active');
+                
+                if (gallery.classList.contains('active')) {
+                    setTimeout(() => {
+                        if (!gallerySwipers[galleryId]) {
+                            gallerySwipers[galleryId] = new Swiper(gallery, {
+                                loop: true,
+                                spaceBetween: 30,
+                                slidesPerView: 'auto',
+                                freeMode: true,
+                                speed: 400,
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                    pauseOnMouseEnter: true
+                                },
+                                pagination: {
+                                    el: gallery.querySelector('.swiper-pagination'),
+                                    clickable: true,
+                                    dynamicBullets: true
+                                },
+                                navigation: {
+                                    nextEl: gallery.querySelector('.swiper-button-next'),
+                                    prevEl: gallery.querySelector('.swiper-button-prev'),
+                                },
+                                loopedSlides: 10,
+                                breakpoints: {
+                                    0: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 10,
+                                        centeredSlides: true,
+                                        snapOnRelease: true
+                                    },
+                                    481: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 15,
+                                        centeredSlides: false
+                                    },
+                                    768: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 20,
+                                        centeredSlides: false
+                                    },
+                                    1024: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 30,
+                                        centeredSlides: false
+                                    }
+                                }
+                            });
+                        } else {
+                            gallerySwipers[galleryId].update();
+                        }
+                        gallerySwipers[galleryId].slideTo(0);
+                        const galleryRect = gallery.getBoundingClientRect();
+                        const windowHeight = window.innerHeight;
+                        const adjustment = window.innerWidth <= 768 ? (windowHeight / 2) : (windowHeight / 2);
+                        const scrollTarget = window.scrollY + galleryRect.top - adjustment;
+                        window.scrollTo({
+                            top: scrollTarget,
+                            behavior: 'smooth'
+                        });
+                    }, 150);
+                } else {
+                    if (gallerySwipers[galleryId]) {
+                        gallerySwipers[galleryId].destroy(true, true);
+                        gallerySwipers[galleryId] = null;
+                    }
+                }
+            });
+        });
+
+        // Força a inicialização dos botões de navegação
+        document.querySelectorAll('.tattoo-gallery .swiper-button-next, .tattoo-gallery .swiper-button-prev').forEach(button => {
+            button.addEventListener('click', () => {
+                const gallery = button.closest('.tattoo-gallery');
+                const galleryId = gallery.getAttribute('id');
+                if (gallerySwipers[galleryId]) {
+                    if (button.classList.contains('swiper-button-next')) {
+                        gallerySwipers[galleryId].slideNext();
+                    } else {
+                        gallerySwipers[galleryId].slidePrev();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
