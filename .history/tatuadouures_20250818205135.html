@@ -1954,7 +1954,7 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
                 if (!gallerySwipers[galleryId]) {
                     gallerySwipers[galleryId] = new Swiper(gallery, {
     loop: true,
-    spaceBetween: 10,
+    spaceBetween: 1,
     slidesPerView: 4,
     slidesPerGroup: 1,
     autoplay: {
@@ -1978,25 +1978,25 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
             slidesPerGroup: 1,
             centeredSlides: true,
             snapOnRelease: true,
-            spaceBetween: 10 /* Espaçamento menor em mobile */
+            spaceBetween: 1 /* Espaçamento menor em mobile */
         },
         481: { 
             slidesPerView: 2, 
             slidesPerGroup: 1,
             centeredSlides: false,
-            spaceBetween: 10
+            spaceBetween: 1
         },
         768: { 
             slidesPerView: 3, 
             slidesPerGroup: 1,
             centeredSlides: false,
-            spaceBetween: 15 /* Ligeiramente maior, mas ainda junto */
+            spaceBetween: 5 /* Ligeiramente maior, mas ainda junto */
         },
         1024: { 
             slidesPerView: 4, 
             slidesPerGroup: 1,
             centeredSlides: false,
-            spaceBetween: 10 /* Espaçamento reduzido em desktop */
+            spaceBetween: 5 /* Espaçamento reduzido em desktop */
         }
     }
 });
@@ -2022,6 +2022,111 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
         }
     });
 });
+// Event listener para galerias (corrigido para funcionar igual aos cards)
+// document.querySelectorAll('.mostrar-tattoos').forEach(button => {
+//     button.addEventListener('click', function() {
+//         const parentSection = this.closest('.tatuador-section');
+//         if (!parentSection) {
+//             console.error('Seção pai (.tatuador-section) não encontrada');
+//             return;
+//         }
+        
+//         const tatuadorId = parentSection.getAttribute('id');
+//         const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
+//         const gallery = document.getElementById(galleryId);
+        
+//         if (!gallery) {
+//             console.error('Galeria não encontrada para o ID:', galleryId);
+//             return;
+//         }
+        
+//         // Fecha outras galerias
+//         document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
+//             if (g !== gallery) {
+//                 g.classList.remove('active');
+//             }
+//         });
+//         document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
+//             if (b !== this) {
+//                 b.classList.remove('active');
+//             }
+//         });
+        
+//         gallery.classList.toggle('active');
+//         this.classList.toggle('active');
+        
+//         if (gallery.classList.contains('active')) {
+//             setTimeout(() => {
+//                 const galleryRect = gallery.getBoundingClientRect();
+//                 const windowHeight = window.innerHeight;
+//                 const adjustment = window.innerWidth <= 768 ? (windowHeight / 2) : (windowHeight / 2);
+//                 const scrollTarget = window.scrollY + galleryRect.top - adjustment;
+//                 window.scrollTo({
+//                     top: scrollTarget,
+//                     behavior: 'smooth'
+//                 });
+//             }, 100);
+//         }
+        
+//         // Inicialização do Swiper para galeria (config copiada dos cards, ajustada para imgs 200px)
+//         if (gallery.classList.contains('active') && !gallery.swiper) {
+//             setTimeout(() => {
+//                 gallery.swiper = new Swiper(gallery, {
+//                     loop: true,
+//                     spaceBetween: 30,
+//                     slidesPerView: 4,  // Ajustado para galerias (imgs menores)
+//                     slidesPerGroup: 1,
+//                     autoplay: {
+//                         delay: 3000,
+//                         disableOnInteraction: false,
+//                         pauseOnMouseEnter: true
+//                     },
+//                     pagination: {
+//                         el: gallery.querySelector('.swiper-pagination'),
+//                         clickable: true,
+//                         dynamicBullets: true
+//                     },
+//                     navigation: {
+//                         nextEl: gallery.querySelector('.swiper-button-next'),
+//                         prevEl: gallery.querySelector('.swiper-button-prev'),
+//                     },
+//                     breakpoints: {
+//                         0: { 
+//                             slidesPerView: 1, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: true,
+//                             snapOnRelease: true,
+//                             spaceBetween: 10
+//                         },
+//                         481: { 
+//                             slidesPerView: 2, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 15
+//                         },
+//                         768: { 
+//                             slidesPerView: 3, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 20
+//                         },
+//                         1024: { 
+//                             slidesPerView: 4, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 25
+//                         }
+//                     }
+//                 });
+//                 // Força update para recalcular layout e evitar brancos
+//                 gallery.swiper.update();
+//                 gallery.swiper.updateSlides();
+//                 gallery.swiper.updateProgress();
+//                 gallery.swiper.updateSlidesClasses();
+//             }, 200);  // Aumentado para garantir visibilidade
+//         }
+//     });
+// });
     </script>
 </body>
 </html>

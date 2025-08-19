@@ -672,27 +672,24 @@
             right: 10px;
         }
 
-.tattoo-gallery .swiper-slide {
-    flex: 0 0 auto;
-    width: auto;
-    min-width: auto;
-    max-width: auto;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .tattoo-gallery .swiper-slide {
+            flex: 0 0 auto;
+            width: 50%;
+            min-width: 150px;
+            max-width: none;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-      .tattoo-gallery .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    max-width: 150px; /* Tamanho pequeno em desktop */
-    max-height: 150px; /* Garante proporção quadrada */
-    aspect-ratio: 1/1; /* Força proporção 1:1 (quadrado) */
-    object-fit: cover; /* Mantém imagem sem distorção */
-    display: block;
-}
-
+        .tattoo-gallery .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
 
         .tattoo-gallery.active {
             display: block;
@@ -920,21 +917,18 @@
     .tattoo-gallery .swiper-button-next {
         right: 5px;
     }
-   .tattoo-gallery .swiper-slide {
+ .tattoo-gallery .swiper-slide {
         flex: 0 0 50%;
-        width: 50%;
-        min-width: 120px; /* Tamanho mínimo menor para mobile */
+        width:50%;
+        min-width: 50%;
         max-width: none;
     }  
 
     .tattoo-gallery .swiper-slide img {
         width: 100%;
-        height: 100%;
-        max-width: 120px; /* Menor em tablet/mobile */
-        max-height: 120px; /* Quadrado */
-        aspect-ratio: 1/1;
-        object-fit: cover;
-    }   
+        height: auto;
+    }
+    
 
 
             .footer-container {
@@ -1051,19 +1045,12 @@
     }
 
 
-    .tattoo-gallery .swiper-slide {
-        flex: 0 0 100%;
-        width: 100%;
-        min-width: 100%;
+     .tattoo-gallery .swiper-slide {
+        min-width: 130px !important;
     }
-
     .tattoo-gallery .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        max-width: 100px; /* Ainda menor em mobile pequeno */
-        max-height: 100px; /* Quadrado */
-        aspect-ratio: 1/1;
-        object-fit: cover;
+        width: 140px !important;
+        height: 140px !important;
     }
 
             }
@@ -1176,19 +1163,21 @@
         max-width: 100% !important;
         padding: 20px 10px !important;
     }
+
     .tattoo-gallery .swiper-slide {
-        flex: 0 0 auto;
+        flex: 0 0 auto; /* Tamanho reduzido para os slides */
         width: auto;
         min-width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .tattoo-gallery .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        max-width: 120px; /* Consistente com tablet */
-        max-height: 120px; /* Quadrado */
-        aspect-ratio: 1/1;
-        object-fit: cover;
+        width: 100%; /* Tamanho fixo para formato quadrado */
+        height: auto !important; /* Igual à largura para formato quadrado */
+        object-fit: cover !important; /* Preenche o espaço, cortando excesso */
+        border-radius: 5px; /* Opcional: leve arredondamento para estética */
     }
 
  
@@ -1231,25 +1220,20 @@
         padding: 10px !important;
         overflow: hidden !important;
     }
-    
+    .tattoo-gallery .swiper-slide {
+        flex: 0 0 auto;
+        width:auto;
+        min-width: auto;
+    }
     .tattoo-gallery .swiper-container {
         width: 100% !important;
         overflow: hidden !important;
     }
-    .tattoo-gallery .swiper-slide {
-        flex: 0 0 auto;
-        width: auto;
-        min-width: auto;
-    }
-
-    .tattoo-gallery .swiper-slide img {
+     .tattoo-gallery .swiper-slide img {
         width: 100%;
-        height: 100%;
-        max-width: 150px; /* Consistente com desktop */
-        max-height: 150px; /* Quadrado */
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        display: block;
+        height: 200px !important;
+        object-fit: cover !important;
+        display: block !important;
     }
 }
     </style>
@@ -1954,7 +1938,7 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
                 if (!gallerySwipers[galleryId]) {
                     gallerySwipers[galleryId] = new Swiper(gallery, {
     loop: true,
-    spaceBetween: 10,
+    spaceBetween: 10, /* Reduzido para 10, fotos mais juntas */
     slidesPerView: 4,
     slidesPerGroup: 1,
     autoplay: {
@@ -2022,6 +2006,111 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
         }
     });
 });
+// Event listener para galerias (corrigido para funcionar igual aos cards)
+// document.querySelectorAll('.mostrar-tattoos').forEach(button => {
+//     button.addEventListener('click', function() {
+//         const parentSection = this.closest('.tatuador-section');
+//         if (!parentSection) {
+//             console.error('Seção pai (.tatuador-section) não encontrada');
+//             return;
+//         }
+        
+//         const tatuadorId = parentSection.getAttribute('id');
+//         const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
+//         const gallery = document.getElementById(galleryId);
+        
+//         if (!gallery) {
+//             console.error('Galeria não encontrada para o ID:', galleryId);
+//             return;
+//         }
+        
+//         // Fecha outras galerias
+//         document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
+//             if (g !== gallery) {
+//                 g.classList.remove('active');
+//             }
+//         });
+//         document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
+//             if (b !== this) {
+//                 b.classList.remove('active');
+//             }
+//         });
+        
+//         gallery.classList.toggle('active');
+//         this.classList.toggle('active');
+        
+//         if (gallery.classList.contains('active')) {
+//             setTimeout(() => {
+//                 const galleryRect = gallery.getBoundingClientRect();
+//                 const windowHeight = window.innerHeight;
+//                 const adjustment = window.innerWidth <= 768 ? (windowHeight / 2) : (windowHeight / 2);
+//                 const scrollTarget = window.scrollY + galleryRect.top - adjustment;
+//                 window.scrollTo({
+//                     top: scrollTarget,
+//                     behavior: 'smooth'
+//                 });
+//             }, 100);
+//         }
+        
+//         // Inicialização do Swiper para galeria (config copiada dos cards, ajustada para imgs 200px)
+//         if (gallery.classList.contains('active') && !gallery.swiper) {
+//             setTimeout(() => {
+//                 gallery.swiper = new Swiper(gallery, {
+//                     loop: true,
+//                     spaceBetween: 30,
+//                     slidesPerView: 4,  // Ajustado para galerias (imgs menores)
+//                     slidesPerGroup: 1,
+//                     autoplay: {
+//                         delay: 3000,
+//                         disableOnInteraction: false,
+//                         pauseOnMouseEnter: true
+//                     },
+//                     pagination: {
+//                         el: gallery.querySelector('.swiper-pagination'),
+//                         clickable: true,
+//                         dynamicBullets: true
+//                     },
+//                     navigation: {
+//                         nextEl: gallery.querySelector('.swiper-button-next'),
+//                         prevEl: gallery.querySelector('.swiper-button-prev'),
+//                     },
+//                     breakpoints: {
+//                         0: { 
+//                             slidesPerView: 1, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: true,
+//                             snapOnRelease: true,
+//                             spaceBetween: 10
+//                         },
+//                         481: { 
+//                             slidesPerView: 2, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 15
+//                         },
+//                         768: { 
+//                             slidesPerView: 3, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 20
+//                         },
+//                         1024: { 
+//                             slidesPerView: 4, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 25
+//                         }
+//                     }
+//                 });
+//                 // Força update para recalcular layout e evitar brancos
+//                 gallery.swiper.update();
+//                 gallery.swiper.updateSlides();
+//                 gallery.swiper.updateProgress();
+//                 gallery.swiper.updateSlidesClasses();
+//             }, 200);  // Aumentado para garantir visibilidade
+//         }
+//     });
+// });
     </script>
 </body>
 </html>

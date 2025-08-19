@@ -672,27 +672,35 @@
             right: 10px;
         }
 
+        .tattoo-gallery .swiper-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+}
 .tattoo-gallery .swiper-slide {
     flex: 0 0 auto;
-    width: auto;
-    min-width: auto;
-    max-width: auto;
-    box-sizing: border-box;
+    width: auto !important;
+    min-width: unset !important;
+    max-width: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-      .tattoo-gallery .swiper-slide img {
+.tattoo-gallery .swiper-slide img {
     width: 100%;
-    height: 100%;
-    max-width: 150px; /* Tamanho pequeno em desktop */
-    max-height: 150px; /* Garante proporção quadrada */
-    aspect-ratio: 1/1; /* Força proporção 1:1 (quadrado) */
-    object-fit: cover; /* Mantém imagem sem distorção */
-    display: block;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
 }
-
 
         .tattoo-gallery.active {
             display: block;
@@ -920,21 +928,16 @@
     .tattoo-gallery .swiper-button-next {
         right: 5px;
     }
-   .tattoo-gallery .swiper-slide {
-        flex: 0 0 50%;
-        width: 50%;
-        min-width: 120px; /* Tamanho mínimo menor para mobile */
-        max-width: none;
-    }  
+  .tattoo-gallery .swiper-slide {
+        flex: 0 0 auto;
+        width: auto !important;
+        min-width: unset !important;
+    }
 
     .tattoo-gallery .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        max-width: 120px; /* Menor em tablet/mobile */
-        max-height: 120px; /* Quadrado */
-        aspect-ratio: 1/1;
-        object-fit: cover;
-    }   
+        max-width: 120px;
+        max-height: 120px;
+    }
 
 
             .footer-container {
@@ -1251,6 +1254,19 @@
         object-fit: cover;
         display: block;
     }
+}
+
+
+
+.tattoo-gallery .swiper-slide {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.tattoo-gallery .swiper-slide img {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
     </style>
 </head>
@@ -1907,11 +1923,6 @@ new Swiper('.card-wrapper', {
     }
 });
         
-
-
-
-
-
 const gallerySwipers = {};
 
 document.querySelectorAll('.mostrar-tattoos').forEach(button => {
@@ -1950,56 +1961,62 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
         this.classList.toggle('active');
         
         if (gallery.classList.contains('active')) {
+            // Aguardar a transição de visibilidade
             setTimeout(() => {
                 if (!gallerySwipers[galleryId]) {
                     gallerySwipers[galleryId] = new Swiper(gallery, {
-    loop: true,
-    spaceBetween: 10,
-    slidesPerView: 4,
-    slidesPerGroup: 1,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-    },
-    pagination: {
-        el: gallery.querySelector('.swiper-pagination'),
-        clickable: true,
-        dynamicBullets: true
-    },
-    navigation: {
-        nextEl: gallery.querySelector('.swiper-button-next'),
-        prevEl: gallery.querySelector('.swiper-button-prev'),
-    },
-    loopedSlides: 20, /* Aumentado para 20, garante loop contínuo sem blanks */
-    breakpoints: {
-        0: { 
-            slidesPerView: 1, 
-            slidesPerGroup: 1,
-            centeredSlides: true,
-            snapOnRelease: true,
-            spaceBetween: 10 /* Espaçamento menor em mobile */
-        },
-        481: { 
-            slidesPerView: 2, 
-            slidesPerGroup: 1,
-            centeredSlides: false,
-            spaceBetween: 10
-        },
-        768: { 
-            slidesPerView: 3, 
-            slidesPerGroup: 1,
-            centeredSlides: false,
-            spaceBetween: 15 /* Ligeiramente maior, mas ainda junto */
-        },
-        1024: { 
-            slidesPerView: 4, 
-            slidesPerGroup: 1,
-            centeredSlides: false,
-            spaceBetween: 10 /* Espaçamento reduzido em desktop */
-        }
-    }
-});
+                        loop: true,
+                        spaceBetween: 5, // Aumentado para garantir visibilidade
+                        slidesPerView: 4,
+                        slidesPerGroup: 1,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true
+                        },
+                        pagination: {
+                            el: gallery.querySelector('.swiper-pagination'),
+                            clickable: true,
+                            dynamicBullets: true
+                        },
+                        navigation: {
+                            nextEl: gallery.querySelector('.swiper-button-next'),
+                            prevEl: gallery.querySelector('.swiper-button-prev'),
+                        },
+                        loopedSlides: 20,
+                        breakpoints: {
+                            0: { 
+                                slidesPerView: 1, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false, // Desativado para evitar espaçamento extra
+                                snapOnRelease: true,
+                                spaceBetween: 5 // Ajustado para mobile
+                            },
+                            481: { 
+                                slidesPerView: 2, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false,
+                                spaceBetween: 5
+                            },
+                            768: { 
+                                slidesPerView: 3, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false,
+                                spaceBetween: 5
+                            },
+                            1024: { 
+                                slidesPerView: 4, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false,
+                                spaceBetween: 5
+                            }
+                        }
+                    });
+                    // Forçar recalculo do layout
+                    gallerySwipers[galleryId].update();
+                    gallerySwipers[galleryId].updateSlides();
+                    gallerySwipers[galleryId].updateProgress();
+                    gallerySwipers[galleryId].updateSlidesClasses();
                 } else {
                     gallerySwipers[galleryId].update();
                 }
@@ -2013,7 +2030,7 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
                     top: scrollTarget,
                     behavior: 'smooth'
                 });
-            }, 150);
+            }, 300); // Aumentado para garantir visibilidade
         } else {
             if (gallerySwipers[galleryId]) {
                 gallerySwipers[galleryId].destroy(true, true);
@@ -2022,6 +2039,239 @@ document.querySelectorAll('.mostrar-tattoos').forEach(button => {
         }
     });
 });
+
+
+
+
+// const gallerySwipers = {};
+
+// document.querySelectorAll('.mostrar-tattoos').forEach(button => {
+//     button.addEventListener('click', function() {
+//         const parentSection = this.closest('.tatuador-section');
+//         if (!parentSection) {
+//             console.error('Seção pai (.tatuador-section) não encontrada');
+//             return;
+//         }
+        
+//         const tatuadorId = parentSection.getAttribute('id');
+//         const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
+//         const gallery = document.getElementById(galleryId);
+        
+//         if (!gallery) {
+//             console.error('Galeria não encontrada para o ID:', galleryId);
+//             return;
+//         }
+        
+//         // Fechar outras galerias
+//         document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
+//             if (g !== gallery) {
+//                 g.classList.remove('active');
+//                 if (gallerySwipers[g.id]) {
+//                     gallerySwipers[g.id].destroy(true, true);
+//                     delete gallerySwipers[g.id];
+//                 }
+//             }
+//         });
+//         document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
+//             if (b !== this) b.classList.remove('active');
+//         });
+        
+//         // Alternar galeria atual
+//         gallery.classList.toggle('active');
+//         this.classList.toggle('active');
+        
+//         if (gallery.classList.contains('active')) {
+//             setTimeout(() => {
+//                 if (!gallerySwipers[galleryId]) {
+//                     gallerySwipers[galleryId] = new Swiper(gallery, {
+//     loop: true,
+//     spaceBetween: 50,
+//     slidesPerView: 4,
+//     slidesPerGroup: 1,
+//     autoplay: {
+//         delay: 3000,
+//         disableOnInteraction: false,
+//         pauseOnMouseEnter: true
+//     },
+//     pagination: {
+//         el: gallery.querySelector('.swiper-pagination'),
+//         clickable: true,
+//         dynamicBullets: true
+//     },
+//     navigation: {
+//         nextEl: gallery.querySelector('.swiper-button-next'),
+//         prevEl: gallery.querySelector('.swiper-button-prev'),
+//     },
+//     loopedSlides: 20, /* Aumentado para 20, garante loop contínuo sem blanks */
+//     breakpoints: {
+//         0: { 
+//             slidesPerView: 1, 
+//             slidesPerGroup: 1,
+//             centeredSlides: true,
+//             snapOnRelease: true,
+//             spaceBetween: 1 /* Espaçamento menor em mobile */
+//         },
+//         481: { 
+//             slidesPerView: 2, 
+//             slidesPerGroup: 1,
+//             centeredSlides: false,
+//             spaceBetween: 1
+//         },
+//         768: { 
+//             slidesPerView: 3, 
+//             slidesPerGroup: 1,
+//             centeredSlides: false,
+//             spaceBetween: 1 /* Ligeiramente maior, mas ainda junto */
+//         },
+//         1024: { 
+//             slidesPerView: 4, 
+//             slidesPerGroup: 1,
+//             centeredSlides: false,
+//             spaceBetween: 1 /* Espaçamento reduzido em desktop */
+//         }
+//     }
+// });
+//                 } else {
+//                     gallerySwipers[galleryId].update();
+//                 }
+                
+//                 // Rolar para a galeria
+//                 const galleryRect = gallery.getBoundingClientRect();
+//                 const windowHeight = window.innerHeight;
+//                 const adjustment = window.innerWidth <= 768 ? (windowHeight / 2) : (windowHeight / 2);
+//                 const scrollTarget = window.scrollY + galleryRect.top - adjustment;
+//                 window.scrollTo({
+//                     top: scrollTarget,
+//                     behavior: 'smooth'
+//                 });
+//             }, 150);
+//         } else {
+//             if (gallerySwipers[galleryId]) {
+//                 gallerySwipers[galleryId].destroy(true, true);
+//                 delete gallerySwipers[galleryId];
+//             }
+//         }
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Event listener para galerias (corrigido para funcionar igual aos cards)
+// document.querySelectorAll('.mostrar-tattoos').forEach(button => {
+//     button.addEventListener('click', function() {
+//         const parentSection = this.closest('.tatuador-section');
+//         if (!parentSection) {
+//             console.error('Seção pai (.tatuador-section) não encontrada');
+//             return;
+//         }
+        
+//         const tatuadorId = parentSection.getAttribute('id');
+//         const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
+//         const gallery = document.getElementById(galleryId);
+        
+//         if (!gallery) {
+//             console.error('Galeria não encontrada para o ID:', galleryId);
+//             return;
+//         }
+        
+//         // Fecha outras galerias
+//         document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
+//             if (g !== gallery) {
+//                 g.classList.remove('active');
+//             }
+//         });
+//         document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
+//             if (b !== this) {
+//                 b.classList.remove('active');
+//             }
+//         });
+        
+//         gallery.classList.toggle('active');
+//         this.classList.toggle('active');
+        
+//         if (gallery.classList.contains('active')) {
+//             setTimeout(() => {
+//                 const galleryRect = gallery.getBoundingClientRect();
+//                 const windowHeight = window.innerHeight;
+//                 const adjustment = window.innerWidth <= 768 ? (windowHeight / 2) : (windowHeight / 2);
+//                 const scrollTarget = window.scrollY + galleryRect.top - adjustment;
+//                 window.scrollTo({
+//                     top: scrollTarget,
+//                     behavior: 'smooth'
+//                 });
+//             }, 100);
+//         }
+        
+//         // Inicialização do Swiper para galeria (config copiada dos cards, ajustada para imgs 200px)
+//         if (gallery.classList.contains('active') && !gallery.swiper) {
+//             setTimeout(() => {
+//                 gallery.swiper = new Swiper(gallery, {
+//                     loop: true,
+//                     spaceBetween: 30,
+//                     slidesPerView: 4,  // Ajustado para galerias (imgs menores)
+//                     slidesPerGroup: 1,
+//                     autoplay: {
+//                         delay: 3000,
+//                         disableOnInteraction: false,
+//                         pauseOnMouseEnter: true
+//                     },
+//                     pagination: {
+//                         el: gallery.querySelector('.swiper-pagination'),
+//                         clickable: true,
+//                         dynamicBullets: true
+//                     },
+//                     navigation: {
+//                         nextEl: gallery.querySelector('.swiper-button-next'),
+//                         prevEl: gallery.querySelector('.swiper-button-prev'),
+//                     },
+//                     breakpoints: {
+//                         0: { 
+//                             slidesPerView: 1, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: true,
+//                             snapOnRelease: true,
+//                             spaceBetween: 10
+//                         },
+//                         481: { 
+//                             slidesPerView: 2, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 15
+//                         },
+//                         768: { 
+//                             slidesPerView: 3, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 20
+//                         },
+//                         1024: { 
+//                             slidesPerView: 4, 
+//                             slidesPerGroup: 1,
+//                             centeredSlides: false,
+//                             spaceBetween: 25
+//                         }
+//                     }
+//                 });
+//                 // Força update para recalcular layout e evitar brancos
+//                 gallery.swiper.update();
+//                 gallery.swiper.updateSlides();
+//                 gallery.swiper.updateProgress();
+//                 gallery.swiper.updateSlidesClasses();
+//             }, 200);  // Aumentado para garantir visibilidade
+//         }
+//     });
+// });
     </script>
 </body>
 </html>
