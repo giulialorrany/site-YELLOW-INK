@@ -540,17 +540,15 @@
             justify-content: center;
             align-items: center;
             background: transparent;
-            min-height: 8.5rem;
         }
-        .footer-bottom::before {
-    content: "YELLOW INK.";
+.footer-bottom::before {
+    content: "YELLOW INK";
     position: absolute;
-        margin-top: 2rem;
-    bottom: 5vh; /* Aumentado de 2vh para 5vh para criar o espaço acima do texto */
-    left: 9vh;
-    transform: translate(0, 50%);
+    bottom: 0;
+    left: 0;
+    transform: translate(0, 50%); /* Ajuste vertical para centralizar o texto na base */
     font-family: 'League Spartan', sans-serif;
-    font-size: 17vh;
+    font-size: 12vh; /* Aumento do tamanho da fonte */
     font-weight: 700;
     color: rgba(230, 241, 80, 0.301);
     z-index: 0;
@@ -558,24 +556,20 @@
     white-space: nowrap;
     text-align: left;
     text-transform: uppercase;
-    letter-spacing: 0.3em;
 }
-.footer-bottom p {
-    position: absolute;
-    padding-top: 9rem;
-    bottom: 31%; /* Alinha verticalmente ao centro do ::before */
-    left: 38%; /* Move para a metade da largura do contêiner */
-    transform: translate(-50%, 50%); /* Ajusta para o centro exato do texto "YELLOW INK" */
-    z-index: 1;
-    margin: 0;
-    font-weight: bold;
-    color: #FFF;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    font-size: 4vh;
-    border-radius: 5px;
-    white-space: nowrap;
-}        .font-test {
+        .footer-bottom p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-top: 4vh;
+        }
+
+        .font-test {
             font-family: 'League Spartan', sans-serif;
             font-weight: 900;
         }
