@@ -1,0 +1,26 @@
+FAZENDO: 
+0-footer padronizado
+
+
+
+
+1-btn video playeer em responsividade--
+1-btn-controls que precisam ser regulados no tamanho na tela 240px em index.html
+2-sidebar em responsividade blog
+3-redução de códigos
+
+
+2-
+
+
+
+IMPORTANTE! 
+Substitua SUA_CHAVE_DO_SITE no index.html pela sua Site Key.
+Substitua SUA_CHAVE_SECRETA no app.py pela sua Secret Key.
+
+
+
+
+
+
+
