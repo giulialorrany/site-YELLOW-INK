@@ -2,10 +2,9 @@ FAZENDO:
 0-responsividade footer 
 
 
-1-responsividade tatuadores.html
-3-redução de códigos
 
-5-colocar links direcionando para os conteudos em sidebar blog.html
+2-sidebar em responsividade blog
+3-redução de códigos
 
 
 color original =  color: rgba(119, 85, 11, 0.308); 

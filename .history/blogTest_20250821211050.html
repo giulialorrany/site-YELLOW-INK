@@ -1200,7 +1200,7 @@
         padding-top: 0 !important; /* Remove padding superior */
         width: 100% !important; /* Mantém largura total */
         max-width: 220px; /* Mantém consistência com o estilo existente */
-        height: 300px; /* Mantém altura definida */
+        height: 400px; /* Mantém altura definida */
     }
             .hero-title {
                 font-size: 20px;
@@ -1208,9 +1208,8 @@
 
             .hero-content img {
                 max-width: 100%;
-                width: 200px;
-                max-height: 100%;
-                height: 170px;
+                width: 220px;
+                height: 250px;
             }
 
             .hero-meta {
@@ -1988,111 +1987,26 @@
         text-align: center;
     }
 
-    /* HERO SECTION - Ajustes para garantir visibilidade completa */
+    /* Ajustes gerais para melhor experiência */
     .hero-section {
-        height: auto; /* Altura automática para acomodar conteúdo */
-        min-height: 45vh; /* Altura mínima */
+        height: 35vh; /* Altura ajustada */
         max-width: 100%;
         width: 100%;
-        padding: 15px 8px; /* Padding adequado */
+        padding: 10px 8px; /* Reduz padding */
         z-index: 1;
-        display: flex;
-        align-items: flex-end;
-        position: relative;
-        overflow: visible; /* Garante que nada seja cortado */
     }
 
-    /* Hero content container */
-    
-    /* Botão de ler mais do hero */
-    .readmore-hero {
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 14px; /* Tamanho menor */
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        padding: 5px 0;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .readmore-hero:hover {
-        color: #f7de8d;
-    }
-
-    /* Texto completo do hero expandido */
-    .fulltext-hero {
-        display: none;
-        color: #ffffff;
-        font-size: 13px;
-        margin-top: 15px;
-        text-align: left; /* Melhor para telas pequenas */
-        max-width: 100%;
-        line-height: 1.4;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .hero-content.expanded .fulltext-hero {
-        display: block;
-    }
-
-    /* Imagens dentro do texto completo do hero */
-    .fulltext-hero img {
-        display: block;
-        margin: 15px 0;
-        width: 100%;
-        max-width: 100%;
-        height: 20vh; /* Altura menor para telas pequenas */
-        border-radius: 4px;
-        object-fit: cover;
-    }
-
-    /* Subtítulos no texto completo do hero */
-    .fulltext-hero h3 {
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 8px;
-        text-align: left;
-        color: white;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    /* Parágrafos no texto completo do hero */
-    .fulltext-hero p {
+    .hero-title {
+        font-size: 16px; /* Reduz tamanho */
+        line-height: 1.3;
         margin-bottom: 12px;
-        text-align: left;
-        line-height: 1.4;
     }
 
-    /* Meta no texto completo do hero */
-    .fulltext-hero .post-meta {
-        font-size: 10px;
-        opacity: 0.9;
-        margin-top: 10px;
-        text-align: left;
-    }
-
-    /* Hero expandido - altura automática */
-    .hero-content.expanded ~ .hero-section,
-    .hero-section:has(.hero-content.expanded) {
-        height: auto;
-        min-height: auto;
-    }
-
-    /* Container principal - ajuste para não sobrepor hero */
-    .container {
-        margin-top: 85px; /* Garante espaço suficiente após navbar */
-        padding-top: 10px;
-    }
-
-    /* Ajuste para quando o hero está expandido */
-    .hero-content.expanded {
-        padding-bottom: 20px;
+    .hero-content img {
+        max-width: 100%;
+        width: 100%;
+        height: 30vh;
+        object-fit: cover;
     }
 }
     </style>

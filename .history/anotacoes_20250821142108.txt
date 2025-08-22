@@ -2,7 +2,8 @@ FAZENDO:
 0-responsividade footer 
 
 
-1-responsividade tatuadores.html
+
+2-sidebar em responsividade blog
 3-redução de códigos
 
 5-colocar links direcionando para os conteudos em sidebar blog.html
