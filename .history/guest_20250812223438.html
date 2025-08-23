@@ -33,9 +33,9 @@
             overflow-x: hidden;
             transition: var(--transition);
         }
-
-        /* Navegação */
-        nav {
+        
+            /* Navegação */
+                nav {
             position: fixed;
             top: 0;
             width: 100%;
@@ -56,38 +56,36 @@
             padding: 0 1.5rem;
         }
 
-        .logo {
-            font-family: 'League Spartan', sans-serif;
+           .logo {
+            font-family: League Spartan, sans-serif;
+          
             color: #1A1A1A;
             text-decoration: none;
             letter-spacing: 2px;
             position: relative;
-            transition: var(--transition);
+            transition: var(--t);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-        }
+            gap: .5rem;
 
-        .logo h4 {
-            font-size: clamp(1.5rem, 4.9vh, 2.5rem);
+        }
+        .logo h4{
+              font-size: 4.9vh;
             font-weight: 700;
         }
-
         .logo h4 span {
+            
             background: #eaee0f;
-            padding: 0.7vh 0.5vh 0vh 0.7vh;
+            padding: .7vh .5vh 0vh .7vh;
         }
-
         .logo.hidden {
             display: none;
         }
-
         .logo img {
-            width: clamp(30px, 45px, 50px);
+            width: 45px;
             margin-bottom: 0.5vh;
-            padding-bottom: 10px;
+            padding-bottom:10px ;
         }
-
         .logo::after {
             content: "";
             position: absolute;
@@ -96,13 +94,12 @@
             width: 0;
             height: 2px;
             background: #1A1A1A;
-            transition: var(--transition);
+            transition: var(--t);
         }
-
         .logo:hover::after {
             width: 100%;
         }
-
+        
         .nav-links {
             display: flex;
             list-style: none;
@@ -110,7 +107,7 @@
             align-items: center;
             font-family: 'Quicksand', sans-serif;
             padding-right: 4vh;
-            padding-top: 10px;
+            padding-top:10px ;
         }
 
         .nav-links a {
@@ -191,6 +188,7 @@
             display: block;
         }
 
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -199,6 +197,7 @@
             scroll-margin-top: 80px;
         }
 
+        /* Carousel específico */
         .hero .carousel {
             height: 100vh;
             position: absolute;
@@ -222,6 +221,7 @@
             object-fit: cover;
         }
 
+        /* Overlay para o carousel */
         .hero .carousel::after {
             content: '';
             position: absolute;
@@ -234,6 +234,7 @@
             pointer-events: none;
         }
 
+        /* Controles do carousel */
         .hero .carousel-control-prev,
         .hero .carousel-control-next {
             z-index: 3;
@@ -252,7 +253,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            max-width: min(1000px, 90vw);
+            max-width: 1000px;
             padding: 2rem;
             z-index: 2;
             color: white;
@@ -263,7 +264,7 @@
         }
 
         .hero-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-size: 2.5rem;
             margin-bottom: 2rem;
             font-weight: 900;
             text-transform: uppercase;
@@ -273,9 +274,9 @@
         }
 
         .hero-subtitle {
-            max-width: 100%;
+            width: 100vh;
             text-align: center;
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-size: 1.5rem;
             padding: 1vh 2vh;
             color: black;
             background-color: #fff;
@@ -291,52 +292,76 @@
             font-size: 1.1rem;
         }
 
-        .saiba-mais-link {
-            display: block;
-            color: white;
-            font-weight: 1000;
-            font-family: 'Inter', sans-serif;
-            font-size: 3vh;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.7s ease;
-        }
+.saiba-mais-link {
+    display: block;
+    color: white;
+    font-weight: 1000;
+    font-family: 'Inter', sans-serif;
+    font-size: 3vh;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 1.2s ease-out, color 1.2s ease-out; /* Transição mais longa e suave */
+    will-change: transform; /* Otimiza a animação */
+}
 
-        .saiba-mais-arrow {
-            display: block;
-            font-size: 3vh;
-            color: white;
-            margin-top: 0.1rem;
-            font-weight: 1000;
-            transition: all 0.7s ease;
-        }
+.saiba-mais-arrow {
+    display: block;
+    font-size: 3vh;
+    color: white;
+    margin-top: 0.1rem;
+    font-weight: 1000;
+    transition: transform 1.2s ease-out, color 1.2s ease-out; /* Transição mais longa e suave */
+    will-change: transform; /* Otimiza a animação */
+}
 
-        .saiba-mais-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 3rem;
-            cursor: pointer;
-        }
+.saiba-mais-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.saiba-mais-container:hover .saiba-mais-link {
+    transform: translateY(10vh); /* Deslizamento para baixo */
+    color: var(--primary-yellow);
+}
+
+.saiba-mais-container:hover .saiba-mais-arrow {
+    transform: translateY(10vh); /* Deslizamento para baixo */
+    color: var(--primary-yellow);
+}
+
 
         .saiba-mais-container:hover .saiba-mais-link {
-            transform: translateY(10vh);
-            color: var(--primary-yellow);
-            font-size: 3.5vh;
+            font-size: 3.5vh !important;
+            color: var(--primary-yellow) !important;
+            transform: translateY(10vh) !important;
         }
 
         .saiba-mais-container:hover .saiba-mais-arrow {
-            transform: translateY(10vh);
-            color: var(--primary-yellow);
+            transform: translateY(10vh) !important;
+            color: var(--primary-yellow) !important;
         }
 
-        .saiba-mais-link.fade-in-up,
-        .saiba-mais-arrow.fade-in-up {
-            animation: none;
+        .saiba-mais-link {
+            transition: all 0.7s ease !important;
         }
+
+        .saiba-mais-arrow {
+            transition: all 0.7s ease !important;
+        }
+
+
+
+.saiba-mais-link.fade-in-up,
+.saiba-mais-arrow.fade-in-up {
+    animation: none; /* Desativa a animação fade-in-up após a entrada inicial */
+}
 
         /* Guest Section */
         .guest-section {
+            
             border-bottom: 1px solid var(--primary-yellow);
             border-top: 1px solid var(--primary-yellow);
             padding: 4rem 2rem;
@@ -359,7 +384,7 @@
         }
 
         .guest-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-size: 2.5rem;
             margin-bottom: 2rem;
             font-weight: 900;
             text-transform: uppercase;
@@ -377,9 +402,9 @@
         }
 
         .guest-image-container {
-            margin-left: clamp(2vh, 11vh, 15vh);
+            margin-left: 11vh;
             flex: 0 0 auto;
-            width: min(380px, 90vw);
+            width: 380px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -391,16 +416,15 @@
         }
 
         .guest-image {
-            width: 100%;
-            max-width: 380px;
+            width: 380px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .guest-text {
-            margin-left: clamp(2vh, 5vh, 8vh);
-            margin-right: clamp(2vh, 11vh, 15vh);
+            margin-left: 5vh;
+            margin-right: 11vh;
             flex: 1;
             margin-top: 20vh;
             font-family: 'Quicksand', sans-serif;
@@ -431,31 +455,28 @@
         }
 
         .whatsapp-contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
             background: #25D366;
-            border: none;
-            border-radius: 8px;
+            border: 2px solid #1DA851;
+            border-radius: 12px;
             color: #fff;
             font-weight: 700;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            font-family: 'Quicksand', sans-serif;
             cursor: pointer;
             transition: var(--transition);
+            text-align: center;
             text-decoration: none;
         }
 
         .whatsapp-contact-btn:hover {
             background: #1DA851;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
         }
-
-        /* Footer */
-        footer {
+    
+        /* footer  */
+         footer {
             background: var(--primary-yellow);
             color: #FFFFFF;
             padding: 4rem 2rem 2rem;
@@ -465,6 +486,7 @@
         }
 
         .footer-container {
+            /* margin-bottom: 1vh; */
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
@@ -516,99 +538,177 @@
         .guest-a:hover, .saibamais-a:hover {
             color: #1A1A1A;
         }
-/* 
-        .footer-bottom {
-            margin-top: 1.3rem;
-            margin-bottom: 0.8vh;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
-            color: #FFF;
-            position: relative;
-            overflow: visible;
-            min-height: 4.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-        }
 
-        .footer-bottom::before {
-            content: "YELLOW INK";
-            position: absolute;
-            top: 80%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'League Spartan', sans-serif;
-            font-size: clamp(5vh, 10vh, 15vh);
-            font-weight: 700;
-            color: rgba(218, 152, 9, 0.979);
-            z-index: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .footer-bottom p {
-            position: relative;
-            z-index: 1;
-            margin: 0;
-            font-weight: bold;
-            color: #FFF;
-            text-align: center;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            margin-top: 4vh;
-        } */
-         
         .footer-bottom {
-            margin-top: 2rem;
-            margin-bottom: 0.8vh;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
-            color: #FFF;
-            position: relative;
-            overflow: visible;
-            min-height: 4.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-            min-height: 5.5rem;
-        }
-        .footer-bottom::before {
-    content: "YELLOW INK.";
+    margin-top: 1.3rem;
+    margin-bottom: 0.8vh;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    color: #FFF;
+    position: relative;
+    overflow: visible;
+    min-height: 4.5rem; /* Aumentado para garantir espaço para o texto de fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; /* Garante que o fundo do footer não interfira */
+}
+
+.footer-bottom::before {
+    content: "YELLOW INK";
     position: absolute;
-        margin-top: 2rem;
-    bottom: 2vh; /* Aumentado de 2vh para 5vh para criar o espaço acima do texto */
-    left: 9vh;
-    transform: translate(0, 50%);
-    font-family: 'League Spartan', sans-serif; 
-    font-size: 17vh;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'League Spartan', sans-serif;
+    font-size: 10vh;
     font-weight: 700;
-    color: rgba(230, 241, 80, 0.301);
+    color: rgba(218, 152, 9, 0.979); 
+    /* Cor branca com opacidade ajustada para maior contraste */
     z-index: 0;
     pointer-events: none;
     white-space: nowrap;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.3em;
 }
+
+
 .footer-bottom p {
-    position: absolute;
-    bottom: 10%; /* Alinha verticalmente ao centro do ::before */
-    left: 50%; /* Move para a metade da largura do contêiner */
-    transform: translate(-50%, 50%); /* Ajusta para o centro exato do texto "YELLOW INK" */
+    position: relative;
     z-index: 1;
     margin: 0;
     font-weight: bold;
     color: #FFF;
     text-align: center;
     padding: 0.5rem 1rem;
-    font-size: 3vh;
     border-radius: 5px;
-    white-space: nowrap;
-}        
+    margin-top: 4vh;
+}
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero .carousel,
+            .hero .carousel-inner,
+            .hero .carousel-item {
+                height: 60vh;
+            }
+
+            .hero .carousel-item img {
+                height: 60vh;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                padding: 1rem 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .guest-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .guest-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .guest-image-container {
+                margin-left: 0;
+                margin-bottom: 2rem;
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .guest-image {
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .guest-text {
+                margin-top: -5vh;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .whatsapp-contact-btn {
+                font-size: 3vh;
+            }
+
+
+            .saiba-mais-link {
+                font-size: 0.8rem;
+            }
+
+            .saiba-mais-arrow {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+            }
+
+            .hamburger {
+                display: none !important;
+            }
+
+            .nav-links.active {
+                position: static;
+                background: none;
+                padding: 0;
+                border-top: none;
+            }
+
+            .nav-links.active a {
+                padding: 0.5rem 0;
+                font-size: inherit;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
 
         /* Guest Section - Novo Layout */
         .guest-section {
@@ -634,7 +734,7 @@
         }
 
         .guest-main-title {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: 3.5rem;
             font-weight: 900;
             color: #1A1A1A;
             font-family: 'League Spartan', sans-serif;
@@ -661,6 +761,30 @@
             line-height: 1.7;
             margin-bottom: 2.5rem;
             font-family: 'Inter', sans-serif;
+        }
+
+        .whatsapp-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #25D366;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-contact-btn:hover {
+            background: #1DA851;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
         }
 
         .guest-images-grid {
@@ -715,6 +839,7 @@
             padding: 4rem 2rem;
             background: #f8f9fa;
             text-align: center;
+            
         }
 
         .quality-container {
@@ -723,7 +848,7 @@
         }
 
         .quality-main-title {
-            font-size: clamp(2rem, 6vw, 3rem);
+            font-size: 3rem;
             font-weight: 900;
             color: #1A1A1A;
             font-family: 'League Spartan', sans-serif;
@@ -744,7 +869,7 @@
 
         .quality-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
             margin-top: 4rem;
         }
@@ -758,7 +883,7 @@
 
         .quality-feature-icon {
             font-size: 3rem;
-            color: #808080;
+            color: #808080; /* Gray color for all icons */
             margin-bottom: 1.5rem;
         }
 
@@ -784,6 +909,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            
             border-bottom: 1px solid var(--primary-yellow);
         }
 
@@ -820,40 +946,39 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
-            padding: 0 2rem;
         }
 
         .future-work-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 5px;
-            padding: 0.7rem 1.5rem;
-            margin: 1vh 0;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    margin: 1vh 0vh 0 171.5vh; /* Mantém a posição exata */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Garante que o texto fique em uma única linha */
+}
+       
         .future-work-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: 4rem;
             color: black;
             font-family: 'League Spartan', sans-serif;
             line-height: 1.1;
             font-weight: bold;
-            margin: 4vh 0 9vh 0;
+            margin: 4vh 25vh 9vh 2.5rem;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             letter-spacing: -1px;
-            text-align: center;
+            text-align: right;
         }
 
         .future-work-container h2 {
             font-weight: 600;
-            margin: 0 0 2vh 0;
-            text-align: center;
+            margin: 0 0 2vh 23vh;
+            text-align: left;
             text-transform: uppercase;
             font-family: 'League Spartan', sans-serif;
         }
@@ -868,26 +993,99 @@
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            text-align: center;
+            text-align: left;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Seção Serviços */
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .future-work-title {
+                font-size: 3.5rem;
+            }
+
+            .future-work-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .future-work-section {
+                padding: 4rem 1rem;
+            }
+
+            .future-work-title {
+                font-size: 2.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .future-work-description {
+                font-size: 0.95rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .future-work-title {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+
+            .future-work-badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Animações de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .future-work-badge {
+            opacity: 0;
+            animation-delay: 0.2s;
+        }
+
+        .future-work-title {
+            opacity: 0;
+            animation-delay: 0.4s;
+        }
+
+        .future-work-description {
+            opacity: 0;
+            animation-delay: 0.6s;
+        }
+
+        /* SEÇÃO SERVIÇOS */
         .container-servicos {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            
             margin-bottom: 10vh;
         }
 
         .section-servicos {
+            
             text-align: left;
             margin-bottom: 60px;
         }
 
+   
         .section-title {
             margin-top: 10vh;
-            font-size: clamp(2rem, 6vw, 3rem);
+            font-size: 48px;
             font-weight: 700;
             color: black;
             margin-bottom: 20px;
@@ -905,8 +1103,8 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: min(80px, 5vw);
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             margin-top: 40px;
         }
 
@@ -924,7 +1122,7 @@
         }
 
         .service-title {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: 32px;
             font-weight: 600;
             color: rgba(0, 0, 0, 0.87);
         }
@@ -936,12 +1134,32 @@
             line-height: 1.6;
         }
 
-        /* Section Maps */
-        .section-maps {
-            border-top: 1px solid var(--primary-yellow);
-            background-color: #92919163;
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 36px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .service-image {
+                height: 220px;
+            }
+
+            .service-title {
+                font-size: 28px;
+            }
         }
 
+        /* Section Maps */
+        .section-maps{
+            
+            border-top: 1px solid var(--primary-yellow);
+            
+            background-color: #92919163;
+        }
         .maps-guest {
             max-width: 1200px;
             margin: 0 auto;
@@ -957,8 +1175,9 @@
         }
 
         .title-guest-maps {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: 3.5rem;
             font-weight: 700;
+            
             color: var(--primary-yellow);
             letter-spacing: 1px;
             font-family: 'League Spartan', sans-serif;
@@ -1072,178 +1291,26 @@
             font-weight: 500;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .future-work-badge {
-                margin: 1vh 0;
-                text-align: center;
-            }
-
-            .future-work-title {
-                text-align: center;
-                margin: 4vh 0 6vh 0;
-            }
-
-            .future-work-container h2 {
-                text-align: center;
-                margin: 0 0 2vh 0;
-            }
-
-            .future-work-description {
-                text-align: center;
-                padding: 0 1rem;
-            }
-
-            .guest-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .guest-text-content {
-                padding-right: 0;
-                text-align: center;
-            }
-
-            .guest-images-grid {
-                height: auto;
-                grid-template-rows: 200px 200px 250px;
-            }
-
-            .image-3 {
-                grid-column: 1 / -1;
-            }
-
+        @media (max-width: 768px) {
             .maps-guest {
                 grid-template-columns: 1fr;
                 gap: 40px;
+                padding: 40px 20px;
             }
 
             .content-guest-maps {
                 padding-right: 0;
                 text-align: center;
             }
-        }
 
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                padding-right: 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                font-size: 1.1rem;
-                padding: 1rem 0;
-            }
-
-            .hero {
-                height: 60vh;
-            }
-
-            .hero .carousel,
-            .hero .carousel-inner,
-            .hero .carousel-item {
-                height: 60vh;
-            }
-
-            .hero .carousel-item img {
-                height: 60vh;
-            }
-
-            .hero-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 1rem;
-                margin-top: 5vh;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-                padding: 1rem 2rem;
-                letter-spacing: 2px;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-                max-width: 90vw;
-            }
-
-            .guest-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 3rem 1rem;
-            }
-
-            .guest-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .guest-image-container {
-                margin-left: 0;
-                margin-bottom: 2rem;
-                width: 100%;
-                max-width: 380px;
-            }
-
-            .guest-image {
-                width: 100%;
-                max-width: 380px;
-            }
-
-            .guest-text {
-                margin-top: -2vh;
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            .whatsapp-contact-btn {
-                font-size: 1rem;
-                padding: 0.75rem 1.5rem;
-            }
-
-            .saiba-mais-link {
-                font-size: 2.5vh;
-            }
-
-            .saiba-mais-arrow {
-                font-size: 2.5vh;
-            }
-
-            .saiba-mais-container:hover .saiba-mais-link {
-                font-size: 3vh;
-            }
-
-            .quality-features {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .service-image {
-                height: 220px;
-            }
-
-            .service-title {
-                font-size: 1.5rem;
+            .title-guest-maps {
+                font-size: 2.5rem;
             }
 
             .map-container-guest {
                 height: 350px;
             }
-
+            
             .location-info-guest {
                 position: relative;
                 top: 0;
@@ -1251,463 +1318,12 @@
                 margin-top: 20px;
                 max-width: 100%;
             }
-
-            .footer-container {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .footer-section {
-                min-width: auto;
-            }
-
-
-
-
-
-
-
-
-
-
-            
-            .hero-subtitle {
-                font-size: 0.66rem;
-                /* margin-top:-2vh; */
-                margin-bottom: -7vh;
-            }
-            #planos-guest .guest-title {
-    margin-top: 2vh !important; /* Reduz o espaçamento */
-}
-    /* Ajustar o margin-top do .guest-title */
-    .guest-title {
-        font-size: 1.8rem;
-        margin-bottom: 2vh;
-        margin-top: 6rem !important; /* Aumentado para garantir espaço abaixo do header */
-    }
-
-
-    /* Garantir que o hero-content tenha espaço suficiente */
-    .hero-content {
-    margin-top: 0.01vh !important; /* Aumenta o espaço do topo */
-    padding: 0.01rem;
-}
-
-   
-
-            
-            .guest-section h2 {
-        margin-top: 5vh;
-    }
-     
-            .whatsapp-contact-btn {
-                font-size: 0.8rem;
-                white-space: nowrap;
-                margin-bottom: 1vh;
-                padding: 0.3rem 0.8rem;
-            }
-            .whatsapp-contact-container .whatsapp-contact-btn {
-                font-size: 1rem;
-            }
-            .saiba-mais-container{
-                margin-top: 3vh;
-                margin-bottom: -3vh;
-            }
-            .saiba-mais-container:hover{
-                color:yellow;
-            }
-           
-            .guest-images-grid{
-                margin-bottom: -45vh ;
-            }
-            .guest-main-title{
-                text-align: left;
-            }
-            .guest-description{
-                text-align: justify;
-            }
-            .guest-section .whatsapp-contact-btn{
-                font-size: 1.1rem;
-                padding: 0.3rem 0.6rem;
-            }
-            .guest-features{
-                text-align: justify;
-            }
-            .future-work-badge{
-                margin-left: 59vh;
-                text-align: right;
-            }
-            .future-work-container h2{
-                text-align: left;
-            }
-            .future-work-description{
-                text-align: justify;
-            }
-
-            .quality-section div{
-                text-align: justify;
-            }
-
-            .quality-section h1{
-                text-align: left;
-            }
-            .guest-section{
-                text-align: justify;
-            }
-            .guest-section h2{
-                margin-top:2vh;
-            }
-            .section-description{
-                text-align: justify;
-            }
-            .title-guest-maps{
-                text-align: left;
-            }
-          .description-guest-maps{
-            text-align: justify;
-          }
-          .btn-location-guest{
-            white-space: nowrap;
-            font-size: 1rem;
-            padding: 0.5vh 0.9vh;
-          }
-          .whatsapp-contact-btn{  
-            font-size: 1.5rem;
-            padding:0.6rem 0.6rem;
-          }
-            .footer-bottom::before {
-                font-size: 3rem;
-            }
-            .footer-bottom p{
-                margin-top:6vh;
-                font-size:0.9rem;
-                white-space: nowrap;
-
-            }
-        }
-
-        @media (min-width: 769px) {
-            .nav-links {
-                display: flex !important;
-            }
-
-            .hamburger {
-                display: none !important;
-            }
-
-            .nav-links.active {
-                position: static;
-                background: none;
-                padding: 0;
-                border-top: none;
-                width: auto;
-                height: auto;
-                flex-direction: row;
-                box-shadow: none;
-            }
-
-            .nav-links.active a {
-                padding: 0.5rem 0;
-                font-size: inherit;
-            }
-
-            .nav-links.active .close-btn {
-                display: none;
-            }
-            
-        }
-
-        @media (max-width: 480px) {
-            .hero-content {
-                padding: 0.5rem;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-                padding: 1vh;
-            }
-            .whatsapp-contact-btn{
-                font-size: 1rem;
-            }
-
-            .guest-section {
-                padding: 2rem 1rem;
-            }
-
-            .guest-text {
-                margin-top: 0;
-            }
-
-            .whatsapp-contact-btn {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
-            }
-
-            .future-work-title {
-                font-size: 2.2rem;
-                line-height: 1.2;
-            }
-
-            .future-work-badge {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .future-work-description {
-                font-size: 1rem;
-            }
-
-            .quality-main-title {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .nav-links a {
-                font-size: 1rem;
-            }
-
-            .logo h4 {
-                font-size: 1.5rem;
-            }
-
-            .logo img {
-                width: 35px;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.66rem;
-                margin-top:-2vh;
-                margin-bottom: -6vh;
-            }
-
-            .guest-title {
-                font-size: 1.8rem;
-                margin-bottom: 2vh;
-            }
-
-            .whatsapp-contact-btn {
-                font-size: 0.8rem;
-                white-space: nowrap;
-                margin-bottom: 2vh;
-                padding: 0.3rem 0.8rem;
-            }
-            .whatsapp-contact-container .whatsapp-contact-btn {
-                font-size: 1rem;
-            }
-            .saiba-mais-container{
-                margin-top: 3vh;
-                margin-bottom: -3vh;
-            }
-            .saiba-mais-container:hover{
-                color:yellow;
-            }
-           
-            .guest-images-grid{
-                margin-bottom: -45vh ;
-            }
-            .guest-main-title{
-                text-align: left;
-            }
-            .guest-description{
-                text-align: justify;
-            }
-            .guest-section .whatsapp-contact-btn{
-                font-size: 1.1rem;
-                padding: 0.3rem 0.6rem;
-            }
-            .guest-features{
-                text-align: justify;
-            }
-            .future-work-badge{
-                margin-left: 48vh;
-                text-align: right;
-            }
-            .future-work-container h2{
-                text-align: left;
-            }
-            .future-work-description{
-                text-align: justify;
-            }
-
-            .quality-section div{
-                text-align: justify;
-            }
-
-            .quality-section h1{
-                text-align: left;
-            }
-            .guest-section{
-                text-align: justify;
-            }
-            .guest-section h2{
-                margin-top:2vh;
-            }
-            .section-description{
-                text-align: justify;
-            }
-            .title-guest-maps{
-                text-align: left;
-            }
-          .description-guest-maps{
-            text-align: justify;
-          }
-          .btn-location-guest{
-            white-space: nowrap;
-            font-size: 1rem;
-            padding: 0.5vh 0.9vh;
-          }
-          .whatsapp-contact-btn{  
-            padding:0.3rem 0.3rem;
-          }
-            .footer-bottom::before {
-                font-size: 2rem;
-            }
-            .footer-bottom p{
-                margin-top:6vh;
-                font-size:0.9rem;
-                white-space: nowrap;
-
-            }
-        }
-
-        @media (max-width: 360px) {
-            .hero-title {
-                font-size: 1rem;
-                margin-top:2vh;
-            }
-
-            .hero-subtitle {
-                font-size: 0.66rem;
-                margin-top:-2vh;
-                margin-bottom: -6vh;
-            }
-
-            .guest-title {
-                font-size: 1.8rem;
-                margin-bottom: 2vh;
-            }
-
-            .whatsapp-contact-btn {
-                font-size: 0.8rem;
-                white-space: nowrap;
-                margin-bottom: 2vh;
-                padding: 0.3rem 0.8rem;
-            }
-            .whatsapp-contact-btn span{
-                font-size: 0.9rem;
-            }
-            .saiba-mais-container{
-                margin-top: 3vh;
-                margin-bottom: -3vh;
-            }
-            .saiba-mais-container:hover{
-                color:yellow;
-            }
-           
-            .guest-images-grid{
-                margin-bottom: -45vh ;
-            }
-            .guest-main-title{
-                text-align: left;
-            }
-            .guest-description{
-                text-align: justify;
-            }
-            .guest-features{
-                text-align: justify;
-            }
-            .future-work-badge{
-                margin-left: 15vh;
-                text-align: right;
-            }
-            .future-work-container h2{
-                text-align: left;
-            }
-            .future-work-description{
-                text-align: justify;
-            }
-
-            .quality-section div{
-                text-align: justify;
-            }
-
-            .quality-section h1{
-                text-align: left;
-            }
-            .guest-section{
-                text-align: justify;
-            }
-            .guest-section h2{
-                margin-top:2vh;
-            }
-            .section-description{
-                text-align: justify;
-            }
-            .title-guest-maps{
-                text-align: left;
-            }
-          .description-guest-maps{
-            text-align: justify;
-          }
-          .btn-location-guest{
-            white-space: nowrap;
-            font-size: 1rem;
-            padding: 0.5vh 0.9vh;
-          }
-          .whatsapp-contact-btn{
-            
-            padding:0.3rem 0.3rem;
-          }
-            .footer-bottom::before {
-                font-size: 5vh;
-            }
-            .footer-bottom p{
-                margin-top:6vh;
-                font-size:0.6rem;
-                white-space: nowrap;
-
-            }
-        }
-
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .future-work-badge {
-            animation-delay: 0.2s;
-        }
-
-        .future-work-title {
-            animation-delay: 0.4s;
-        }
-
-        .future-work-description {
-            animation-delay: 0.6s;
         }
     </style>
 </head>
 <body>
     <!-- Navegação -->
+    
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -1722,7 +1338,7 @@
                 <li><a href="index.html">Feedbacks</a></li>
                 <li><a href="tatuadores.html">Tatuadores</a></li>
                 <li><a href="blog.com">Blog</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="contato.html" >Contato</a></li>
                 <li><a href="guest.html" class="active">Guest</a></li>
                 <button class="close-btn" id="closeBtn">✕</button>
             </ul>
@@ -1755,11 +1371,12 @@
         <div class="hero-content">
             <h2 class="guest-title fade-in-up">Seja um Guest</h2>
             <p class="hero-subtitle fade-in-up">Alugue equipamentos e espaço para tatuar</p>
-            <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20planos%20Guest%20da%20Yellow%20Ink!" class="whatsapp-contact-btn fade-in-up" target="_blank"><i class="fab fa-whatsapp"></i> <span>Entre em contato</span></a>
-            <div class="saiba-mais-container fade-in-up">
-                <a href="#coworking-guest" class="saiba-mais-link slow-transition">Saiba Mais</a>
-                <span class="saiba-mais-arrow">↓</span>
-            </div>
+            <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20planos%20Guest%20da%20Yellow%20Ink!" class="whatsapp-contact-btn fade-in-up" target="_blank"><i class="fab fa-whatsapp"></i> Entre em contato</a>
+          
+          <div class="saiba-mais-container fade-in-up">
+            <a href="#coworking-guest" class="saiba-mais-link slow-transition">Saiba Mais</a>
+            <span class="saiba-mais-arrow">↓</span>
+        </div>
         </div>
     </section>
 
@@ -1772,17 +1389,21 @@
                     Para Você e <span class="highlight">Sua<br>
                     Empresa.</span>
                 </h1>
+                
                 <p class="guest-description">
                     Hangar 5 é um Coworking premium voltado para empresários, profissionais liberais e negócios que valorizam produtividade, networking e prosperidade.
                 </p>
+                
                 <p class="guest-features">
                     Novas possibilidades de networking são algumas das facilidades que você adquire quando opta por trazer sua empresa para o Hangar 5 Coworking.
                 </p>
+                
                 <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20agendar%20uma%20visita%20ao%20coworking!" class="whatsapp-contact-btn" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     Agendar agora
                 </a>
             </div>
+            
             <div class="guest-images-grid">
                 <div class="guest-image-item image-1">
                     <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=200&fit=crop&crop=center" alt="Mesa de café coworking" />
@@ -1799,10 +1420,18 @@
 
     <!-- Seção O Futuro do Trabalho -->
     <section class="future-work-section">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
         <div class="future-work-container">
             <div class="future-work-badge fade-in-up">
                 Visão geral
             </div>
+            
             <h1 class="future-work-title fade-in-up">
                 O futuro do trabalho<br>
                 está aqui!
@@ -1827,9 +1456,11 @@
                 Qualidade no Atendimento é<br>
                 Primordial para Nós!
             </h1>
+            
             <p class="quality-subtitle fade-in-up">
                 Ambiente de alto padrão, eventos de networking frequentes, comunidade próspera e suporte ao empresário
             </p>
+
             <div class="quality-features">
                 <div class="quality-feature">
                     <div class="quality-feature-icon">
@@ -1838,6 +1469,7 @@
                     <h3>Wifi e Internet Cabeada</h3>
                     <p>Temos Internet Link Dedicado para que você nunca fique sem rede durante o seu expediente.</p>
                 </div>
+
                 <div class="quality-feature">
                     <div class="quality-feature-icon">
                         <i class="fas fa-print"></i>
@@ -1845,6 +1477,7 @@
                     <h3>Equipamentos</h3>
                     <p>Temos equipamento completo de escritório: impressora, digitalizadora, televisão, tomadas, cabos, computadores e monitores.</p>
                 </div>
+
                 <div class="quality-feature">
                     <div class="quality-feature-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -1859,6 +1492,7 @@
                     <h3>Comunidade Ativa</h3>
                     <p>Participe de uma rede de profissionais engajados para networking e colaboração.</p>
                 </div>
+
                 <div class="quality-feature">
                     <div class="quality-feature-icon">
                         <i class="fas fa-calendar-alt"></i>
@@ -1866,6 +1500,7 @@
                     <h3>Eventos Regulares</h3>
                     <p>Participe de workshops e eventos exclusivos para crescimento profissional.</p>
                 </div>
+
                 <div class="quality-feature">
                     <div class="quality-feature-icon">
                         <i class="fas fa-headset"></i>
@@ -1887,8 +1522,10 @@
             <div class="guest-text">
                 <h3>Yellow Flex</h3>
                 <p>Descubra os planos exclusivos que a Yellow Ink oferece para tatuadores que desejam se tornar Guests. Com acesso a equipamentos de alta qualidade e um espaço profissional, você pode elevar seu trabalho a outro nível.</p>
+                
                 <h3>Yellow Pro</h3>
                 <p>Nossos planos incluem suporte técnico, materiais essenciais e a possibilidade de networking com outros artistas. Tudo pensado para facilitar sua jornada no mundo da tatuagem.</p>
+               
                 <h3>Yellow Master</h3>
                 <p>Escolha o plano que melhor se adapta às suas necessidades e comece a tatuar no ambiente ideal. Entre em contato para mais detalhes e comece hoje mesmo!</p>
             </div>
@@ -1904,6 +1541,7 @@
                 suas metas.
             </p>
         </div>
+
         <div class="services-grid">
             <div class="service-card">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=280&fit=crop&crop=center" 
@@ -1915,6 +1553,7 @@
                     garantindo credibilidade e presença no mercado.
                 </p>
             </div>
+
             <div class="service-card">
                 <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=280&fit=crop&crop=center" 
                      alt="Salas de Reunião" 
@@ -1926,6 +1565,7 @@
                 </p>
             </div>
         </div>
+
         <div class="services-grid">
             <div class="service-card">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=280&fit=crop&crop=center" 
@@ -1937,6 +1577,7 @@
                     garantindo credibilidade e presença no mercado.
                 </p>
             </div>
+
             <div class="service-card">
                 <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=280&fit=crop&crop=center" 
                      alt="Salas de Reunião" 
@@ -1948,7 +1589,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div>   
 
     <section class="section-maps">
         <div class="maps-guest">
@@ -1962,12 +1603,14 @@
                 </p>
                 <a href="#" class="btn-location-guest">Abrir Localização</a>
             </div>
+            
             <div class="map-container-guest">
                 <iframe 
                     class="map-frame-guest"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.8394584571967!2d-47.88967368468647!3d-15.834419689008147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a2d8b7d2d1d1d%3A0x1d1d1d1d1d1d1d1d!2sLago%20Sul%2C%20Bras%C3%ADlia%20-%20DF!5e0!3m2!1spt!2sbr!4v1643723456789!5m2!1spt!2sbr"
                     loading="lazy">
                 </iframe>
+                
                 <div class="location-info-guest">
                     <div class="location-name-guest">Coworking Hangar 5</div>
                     <div class="location-address-guest">
@@ -1985,7 +1628,6 @@
             </div>
         </div>
     </section>
-
     <!-- Section Trabalhe Conosco -->
     <section class="guest-trabalheConosco">
         <h2 class="guest-title fade-in-up" style="text-align: center;">Trabalhe Conosco</h2>
@@ -1995,7 +1637,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+     <footer>
         <div class="footer-container">
             <div class="footer-section">
                 <h4>Contato</h4>
@@ -2030,7 +1672,7 @@
             <p>&copy; 2025 Yellow Ink. Todos os direitos reservados.</p>
         </div>
     </footer>
-
+    
     <script>
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');

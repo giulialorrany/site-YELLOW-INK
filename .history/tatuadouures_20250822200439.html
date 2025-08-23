@@ -1129,14 +1129,14 @@
             }
 
 
-             .tatuador-card-link .card-image {
-        width: 120px !important; /* Tamanho fixo para proporção quadrada */
-        height: 120px !important; /* Igual à largura para formato circular */
-        border-radius: 50% !important; /* Garante formato circular */
+             /* .tatuador-card-link .card-image {
+        width: 120px !important; 
+        height: 120px !important; 
+        border-radius: 50% !important; 
         margin: 0 auto !important;
         display: block;
-        object-fit: cover; /* Preenche o espaço sem distorção */
-    }
+        object-fit: cover; 
+    } */
 
 
 
@@ -1151,6 +1151,9 @@
                 height: auto !important;
                 object-fit: contain;
             }
+
+
+
         }
 
         
@@ -1270,61 +1273,122 @@
     padding: 0 !important;
 }
 
-@media (max-width: 240px) {
-    .tatuadores .tatuador-grid {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 5px; /* Reduz o padding para caber na tela */
+
+/* Para telas de 240px até 360px */
+@media (max-width: 360px) {
+    .swiper-slide {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
     }
 
     .tatuador-card {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .tatuador-card-link .card-image {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .tatuador-card-link .card-title {
+        font-size: 1.2em !important;
+    }
+
+    .tatuador-card-link .card-description {
+        font-size: 0.9em !important;
+        padding: 0 10px;
+    }
+}
+
+/* Para telas de 361px até 480px */
+@media (min-width: 361px) and (max-width: 480px) {
+    .swiper-slide {
+        flex: 0 0 100%;
         width: 100%;
-        max-width: 180px; /* Reduz o tamanho máximo do card */
-        margin: 10px 0; /* Espaçamento vertical entre cards */
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 5px 0;
     }
 
-    .tatuador-card img {
-        width: 100px; /* Reduz o tamanho da imagem */
-        height: 100px;
+    .tatuador-card {
+        max-width: 250px;
+        margin: 0 auto;
     }
 
-    .tatuador-card h4 {
-        font-size: 1.2em; /* Reduz o tamanho do título */
+    .tatuador-card-link .card-image {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
+/* Para telas de 481px até 640px */
+@media (min-width: 481px) and (max-width: 640px) {
+    .swiper-slide {
+        flex: 0 0 50%;
+        width: 50%;
+        min-width: 200px;
+        display: flex;
+        justify-content: center;
     }
 
-    .tatuador-card p {
-        font-size: 0.9em; /* Reduz o tamanho do texto descritivo */
-        margin: 1vh 0 0 0;
+    .tatuador-card {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+/* Para telas de 641px até 900px */
+@media (min-width: 641px) and (max-width: 900px) {
+    .swiper-slide {
+        flex: 0 0 33.33%;
+        width: 33.33%;
+        min-width: 180px;
+        display: flex;
+        justify-content: center;
     }
 
     .tatuador-section {
-        flex-direction: column;
-        padding: 15px;
+        padding: 30px 15px;
     }
 
-    .tatuador-section-text, .tatuador-section-image {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
+    .tatuador-section h3 {
+        font-size: 2.2em;
     }
+}
 
-    .tatuador-section-image img {
-        width: 100%;
-        height: auto;
-    }
-
+/* Ajustes para telas muito pequenas */
+@media (max-width: 400px) {
     .mostrar-tattoos {
-        font-size: 2vh;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
+        font-size: clamp(2.2vh, 2.5vw, 2.8vh) !important;
+        padding: 3px 8px !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        white-space: nowrap !important;
+        text-align: center !important;
     }
 
+    .tatuador-section-text,
+    .tatuador-section-text-inverted {
+        padding-bottom: 55px !important;
+    }
     .tattoo-gallery .swiper-slide img {
-        max-width: 80px;
-        max-height: 80px;
+        max-width: 90px !important;
+        max-height: 90px !important;
+    }
+
+    .tattoo-gallery .swiper-button-prev,
+    .tattoo-gallery .swiper-button-next {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.9rem !important;
+        top: 45px !important;
     }
 }
 

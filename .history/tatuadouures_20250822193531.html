@@ -802,7 +802,7 @@
             object-fit: cover;
         }
 
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             .hamburger {
                 display: block;
             }
@@ -992,7 +992,7 @@
         height: 40px;
         font-size: 1rem;
     }
-        }
+        } */
 
         @media (max-width: 480px) {
             .nav-container {
@@ -1269,65 +1269,37 @@
     margin: 0 !important;
     padding: 0 !important;
 }
-
-@media (max-width: 240px) {
-    .tatuadores .tatuador-grid {
+@media (max-width: 1024px) {
+    .hamburger {
+        display: block; /* Mostra o botão hamburger */
+    }
+    .nav-links {
+        display: none; /* Esconde os links de navegação */
+    }
+    .nav-links.active {
+        display: flex; /* Mostra os links quando o menu está ativo */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background: var(--marble-white);
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding: 0 5px; /* Reduz o padding para caber na tela */
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
     }
-
-    .tatuador-card {
-        width: 100%;
-        max-width: 180px; /* Reduz o tamanho máximo do card */
-        margin: 10px 0; /* Espaçamento vertical entre cards */
+    .nav-links .close-btn {
+        display: block; /* Mostra o botão de fechar no menu ativo */
     }
-
-    .tatuador-card img {
-        width: 100px; /* Reduz o tamanho da imagem */
-        height: 100px;
+    .nav-container {
+        padding: 0 1rem; /* Ajusta o padding para telas menores */
     }
-
-    .tatuador-card h4 {
-        font-size: 1.2em; /* Reduz o tamanho do título */
-    }
-
-    .tatuador-card p {
-        font-size: 0.9em; /* Reduz o tamanho do texto descritivo */
-        margin: 1vh 0 0 0;
-    }
-
-    .tatuador-section {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .tatuador-section-text, .tatuador-section-image {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .tatuador-section-image img {
-        width: 100%;
-        height: auto;
-    }
-
-    .mostrar-tattoos {
-        font-size: 2vh;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-    }
-
-    .tattoo-gallery .swiper-slide img {
-        max-width: 80px;
-        max-height: 80px;
+    .logo {
+        font-size: 3.5vh; /* Reduz o tamanho do logo para melhor ajuste */
     }
 }
-
     </style>
 </head>
 <body>

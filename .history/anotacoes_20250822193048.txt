@@ -4,7 +4,7 @@ FAZENDO:
 
 1-responsividade tatuadores.html
 -btn sanduiche
--responsividade 240px
+-
 
 
 3-redução de códigos
