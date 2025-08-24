@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Yellow Ink - Estúdio de Tatuagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-yellow: #D4AF37;
+            --secondary-yellow: #F4E4BC;
+            --accent-yellow: #B8860B;
+            --marble-white: #F8F8FF;
+            --stone-gray: #696969;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            min-width: 240px;
+        }
+
+        /* NAVEGAÇÃO */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-yellow);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 4.9vh;
+            color: #1A1A1A;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding-top: 0.5rem;
+        }
+
+        .logo h4 span {
+            background: #eaee0f;
+            padding: .7vh .5vh 0 .7vh;
+        }
+
+        .logo img {
+            width: clamp(25px, 45px, 60px);
+            height: auto;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            padding-right: 4vh;
+        }
+
+        .nav-links a {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #f7de8d;
+            font-weight: 700;
+        }
+
+        .nav-links a.active::before {
+            width: 100%;
+            background: #f7de8d;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            font-size: clamp(1.2rem, 1.5rem, 1.8rem);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-links.active {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100vh;
+            background: var(--marble-white);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            display: flex;
+        }
+
+        .nav-links .close-btn {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-links.active .close-btn {
+            display: block;
+        }
+
+        /* Media query para hamburger e nav-links */
+        @media (min-width: 240px) and (max-width: 939px) {
+            nav {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                padding: 0.6rem 1rem;
+                min-height: 12vh;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 95%;
+                margin: 0 auto;
+            }
+
+            .logo {
+                left: -10px;
+                font-size: clamp(1.1rem, 1.3rem, 1.5rem);
+                gap: 0.3rem;
+            }
+
+            .logo img {
+                width: clamp(22px, 28px, 32px);
+            }
+
+            .hamburger {
+                display: block;
+                padding: 0.6rem;
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: clamp(1.1rem, 1.3rem, 1.5rem);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                width: min(90%, 260px);
+                gap: 1.5rem;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                background: var(--marble-white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links a {
+                font-size: clamp(0.9rem, 1rem, 1.1rem);
+                padding: 0.7rem;
+            }
+        }
+
+        @media (min-width: 940px) {
+            .hamburger {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.8rem;
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                font-size: clamp(1.3rem, 3.5vw, 1.5rem);
+                padding: 0.7rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+
+            .hamburger {
+                font-size: clamp(1.2rem, 3vw, 1.4rem);
+                padding: 0.6rem;
+            }
+        }
+
+        @media (max-width: 310px) {
+            .hamburger {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.5rem;
+            }
+        }
+
+        .container {
+            margin-top: 0 !important;
+            padding-top: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #d4af37cb;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+            scroll-margin-top: 70px;
+            padding: 2rem 1rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 1000px;
+            position: relative;
+            z-index: 2;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .hero-image {
+            width: 30vh;
+            min-width: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 0;
+            margin-bottom: 2vh;
+            flex-shrink: 0;
+        }
+
+        .yellow-fotocircle {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 50vh;
+            flex: 1;
+        }
+
+        .hero-title {
+            color: #a57704;
+            padding: 1.5rem 3rem;
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 0;
+            display: inline-block;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hero-subtitle {
+            text-align: center;
+            font-size: 38px;
+            color: #1A1A1A;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hero-subtitle .line-1 {
+            width: 80vh;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-subtitle .line-2 {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            min-height: 80vh;
+        }
+
+        .contact-info-section {
+            background: #fff;
+            color: #1A1A1A;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top: 1px solid var(--primary-yellow);
+            margin-bottom: 18vh;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            margin-top: 10vh;
+            margin-bottom: 8vh;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 80px;
+            height: 4px;
+            background: currentColor;
+            transform: translateX(-50%);
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: auto;
+            width: 100%;
+        }
+
+        .contact-info-insta {
+            max-width: 50vh;
+            margin: auto;
+            width: 100%;
+        }
+
+        .instagram-featured {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            transition: var(--transition);
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .instagram-featured:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .instagram-photo {
+            width: 40vh;
+            height: 50vh;
+            min-width: 200px;
+            min-height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border: 1px solid var(--primary-yellow);
+            background: var(--secondary-yellow);
+            position: relative;
+        }
+
+        .instagram-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-yellow);
+        }
+
+        .instagram-content {
+            text-align: center;
+        }
+
+        .instagram-content .info-icon {
+            font-size: 3rem;
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .instagram-content h3 {
+            color: #000000;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-family: 'League Spartan', sans-serif;
+            position: relative;
+        }
+
+        .instagram-content h3::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-yellow);
+        }
+
+        .instagram-content p {
+            color: #000000;
+            font-weight: 600;
+            font-size: 1.2rem;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .contact-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 10px;
+            transition: var(--transition);
+            border: 2px solid var(--primary-yellow);
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            margin-right: 1.5rem;
+            color: var(--primary-yellow);
+            width: 60px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            color: #000000;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .info-content p {
+            color: #000000;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Quicksand', sans-serif;
+            word-break: break-word;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .map-title {
+            color: var(--primary-yellow);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--secondary-yellow);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 11vh;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-yellow);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--primary-yellow);
+            position: relative;
+            overflow: hidden;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .map-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Hours Section */
+        .hours-section {
+            background: #d4af37cb;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hours-title {
+            color: #000000cb;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hours-item {
+            background: #fff;
+            color: #444444ce;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 3px solid var(--primary-yellow);
+            transition: var(--transition);
+        }
+
+        .hours-item h3 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hours-item p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .agendeContato {
+            font-size: 2.5vh;
+            margin-top: 4vh;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #25d3659a;
+            border: 2px solid #1DA851;
+            border-radius: 4vh;
+            color: #fff;
+            font-weight: 700;
+            font-family: 'League Spartan', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .agendeContato:hover {
+            background: #1DA851;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-yellow);
+            color: #FFFFFF;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section .social-links a {
+            color: #FFFFFF;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-section .social-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .guest-a, .saibamais-a {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+        .saibamais-a {
+            text-decoration: underline;
+        }
+
+        .guest-a:hover, .saibamais-a:hover {
+            color: #1A1A1A;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            margin-bottom: 0.8vh;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.8rem;
+            color: #FFF;
+            position: relative;
+            overflow: visible;
+            min-height: 4.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            min-height: 5.5rem;
+        }
+        
+        .footer-bottom::before {
+            content: "YELLOW INK.";
+            position: absolute;
+            margin-top: 2rem;
+            bottom: 2vh;
+            left: 9vh;
+            transform: translate(0, 50%);
+            font-family: 'League Spartan', sans-serif; 
+            font-size: 17vh;
+            font-weight: 700;
+             color: rgba(119, 85, 11, 0.308); 
+            /* color: rgba(230, 241, 80, 0.301); */
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        .footer-bottom p {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            z-index: 1;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-size: 3vh;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .nav-container {
+                max-width: 100%;
+                padding: 0 2rem;
+            }
+            
+            .hero-content {
+                max-width: 900px;
+            }
+            
+            .hero-text {
+                margin-left: 30vh;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-content {
+                max-width: 800px;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+
+            .hero-image {
+                width: 25vh;
+                min-width: 130px;
+            }
+
+            .hero-text {
+                margin-left: 20vh;
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                padding: 1.2rem 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 32px;
+            }
+
+            .hero-subtitle .line-1 {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-info {
+                max-width: 500px;
+            }
+
+            .contact-info-insta {
+                max-width: 45vh;
+            }
+
+            .instagram-photo {
+                width: 35vh;
+                height: 45vh;
+                min-width: 180px;
+                min-height: 230px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 911px) {
+            .nav-container {
+                padding: 0 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 0.4rem 0;
+            }
+
+            .hero {
+                min-height: 55vh;
+                padding: 1.8rem 1rem;
+            }
+
+            .hero-content {
+                max-width: 750px;
+                gap: 1.2rem;
+            }
+
+            .hero-image {
+                width: 22vh;
+                min-width: 120px;
+            }
+
+            .hero-text {
+                margin-left: 15vh;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+                padding: 1rem 2rem;
+                letter-spacing: 3px;
+            }
+
+            .hero-subtitle {
+                font-size: 28px;
+            }
+
+            .hero-subtitle .line-1,
+            .hero-subtitle .line-2 {
+                justify-content: center;
+            }
+
+            .contact-info-section {
+                padding: 2.5rem 1rem;
+                margin-bottom: 14vh;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-top: 8vh;
+                margin-bottom: 6vh;
+            }
+
+            .contact-info {
+                max-width: 450px;
+            }
+
+            .contact-info-insta {
+                max-width: 40vh;
+            }
+
+            .instagram-photo {
+                width: 32vh;
+                height: 42vh;
+                min-width: 160px;
+                min-height: 200px;
+            }
+
+            .instagram-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .instagram-content p {
+                font-size: 1.1rem;
+            }
+
+            .info-item {
+                padding: 1.3rem;
+            }
+
+            .info-icon {
+                font-size: 1.8rem;
+                margin-right: 1.2rem;
+            }
+
+            .info-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .info-content p {
+                font-size: 0.95rem;
+            }
+
+            .map-section,
+            .hours-section {
+                padding: 3.5rem 1rem;
+            }
+
+            .map-title,
+            .hours-title {
+                font-size: 2.2rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .map-container {
+                padding: 1.8rem;
+                margin-bottom: 9vh;
+            }
+
+            .map-placeholder {
+                height: 350px;
+                font-size: 1.3rem;
+            }
+
+            .hours-grid {
+                gap: 1.8rem;
+            }
+
+            .hours-item {
+                padding: 1.8rem;
+            }
+
+            .hours-item h3 {
+                font-size: 1rem;
+            }
+
+            .hours-item p {
+                font-size: 1.1rem;
+            }
+
+            .agendeContato {
+                font-size: 2.2vh;
+                padding: 0.7rem 1.3rem;
+                margin-top: 3.5vh;
+            }
+
+            .footer-container {
+                gap: 1.8rem;
+                padding: 0 1.5rem;
+            }
+
+            .footer-section h4 {
+                font-size: 1.3rem;
+            }
+
+            .footer-section p {
+                font-size: 0.85rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 1.1rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 14vh;
+                left: 50%;
+                transform: translate(-50%, 50%);
+            }
+
+            .footer-bottom p {
+                font-size: 2.8vh;
+            }
+        }
+
+        @media (max-width: 939px) {
+            .hero {
+                min-height: 50vh;
+                margin-top: 70px;
+                padding: 1.5rem 1rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                max-width: 95%;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .hero-image {
+                width: 22vh;
+                min-width: 140px;
+                margin: 0 auto 1rem;
+            }
+
+            .hero-text {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 5vw, 2.2rem);
+                padding: 1rem 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1.3rem, 4vw, 1.6rem);
+            }
+
+            .hero-subtitle .line-1,
+            .hero-subtitle .line-2 {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-info-section {
+                padding: 2rem 1rem;
+                margin-bottom: 12vh;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                margin-top: 6vh;
+                margin-bottom: 4vh;
+            }
+
+            .contact-info,
+            .contact-info-insta {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .instagram-featured {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .instagram-photo {
+                width: clamp(200px, 35vh, 300px);
+                height: clamp(250px, 42vh, 380px);
+            }
+
+            .info-item {
+                padding: 1.2rem;
+                border-radius: 8px;
+                flex-direction: row;
+                text-align: left;
+                gap: 1rem;
+            }
+
+            .info-icon {
+                font-size: 1.8rem;
+                width: 50px;
+                margin-right: 1rem;
+            }
+
+            .map-section,
+            .hours-section {
+                padding: 3rem 1rem;
+            }
+
+            .map-title,
+            .hours-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                margin-bottom: 2rem;
+            }
+
+            .map-container {
+                padding: 1.5rem;
+                margin-bottom: 8vh;
+            }
+
+            .map-placeholder {
+                height: 300px;
+                font-size: 1.2rem;
+            }
+
+            .hours-grid {
+                gap: 1.5rem;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .agendeContato {
+                font-size: clamp(14px, 3.5vw, 18px);
+                padding: 0.6rem 1.2rem;
+                margin-top: 3vh;
+            }
+
+            footer {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .footer-container {
+                gap: 2rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section {
+                min-width: auto;
+                flex: none;
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(8vh, 12vw, 12vh);
+                left: 50%;
+                transform: translate(-50%, 50%);
+                text-align: center;
+            }
+
+            .footer-bottom p {
+                font-size: clamp(12px, 2.5vh, 16px);
+                white-space: normal;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1rem 0.8rem;
+                min-height: 45vh;
+            }
+
+            .hero-image {
+                width: 18vh;
+                min-width: 120px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                padding: 0.8rem 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1.1rem, 5vw, 1.4rem);
+            }
+
+            .contact-info-section {
+                padding: 1.5rem 0.8rem;
+                margin-bottom: 8vh;
+            }
+
+            .section-title {
+                font-size: clamp(1.2rem, 6vw, 1.8rem);
+                margin-top: 4vh;
+                margin-bottom: 3vh;
+            }
+
+            .instagram-featured {
+                padding: 1rem;
+            }
+
+            .instagram-photo {
+                width: clamp(180px, 30vh, 250px);
+                height: clamp(220px, 38vh, 320px);
+            }
+
+            .info-item {
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+
+            .info-icon {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .map-section,
+            .hours-section {
+                padding: 2rem 0.8rem;
+            }
+
+            .map-title,
+            .hours-title {
+                font-size: clamp(1.2rem, 6vw, 1.8rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .map-container {
+                padding: 1rem;
+                margin-bottom: 6vh;
+            }
+
+            .map-placeholder {
+                height: 250px;
+                font-size: 1rem;
+            }
+
+            .hours-grid {
+                gap: 1rem;
+                grid-template-columns: 1fr;
+            }
+
+            .hours-item {
+                padding: 1rem;
+            }
+
+            .hours-item h3 {
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+            }
+
+            .hours-item p {
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+            }
+
+            .agendeContato {
+                font-size: clamp(12px, 3vw, 16px);
+                padding: 0.5rem 1rem;
+                margin-top: 2vh;
+            }
+
+            .footer-container {
+                padding: 0 0.8rem;
+                gap: 1.5rem;
+            }
+
+            .footer-section h4 {
+                font-size: clamp(1rem, 4vw, 1.3rem);
+            }
+
+            .footer-section p {
+                font-size: clamp(0.7rem, 3vw, 0.9rem);
+            }
+
+            .footer-section .social-links a {
+                font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(6vh, 10vw, 10vh);
+                left: 50%;
+                transform: translate(-50%, 50%);
+            }
+
+            .footer-bottom p {
+                font-size: clamp(10px, 2.5vw, 14px);
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 0.9rem 0.6rem;
+                min-height: 40vh;
+            }
+
+            .hero-content {
+                gap: 1.2rem;
+            }
+
+            .hero-image {
+                width: 16vh;
+                min-width: 110px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.4rem, 6vw, 1.8rem);
+                padding: 0.7rem 1.2rem;
+                letter-spacing: 1.5px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 5vw, 1.3rem);
+            }
+
+            .contact-info-section {
+                padding: 1.2rem 0.6rem;
+                margin-bottom: 7vh;
+            }
+
+            .section-title {
+                font-size: clamp(1.1rem, 5vw, 1.6rem);
+                margin-top: 3.5vh;
+                margin-bottom: 2.5vh;
+            }
+
+            .section-title::after {
+                width: 50px;
+                height: 2px;
+            }
+
+            .contact-info,
+            .contact-info-insta {
+                padding: 0 0.5rem;
+            }
+
+            .instagram-featured {
+                padding: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .instagram-photo {
+                width: clamp(160px, 28vh, 220px);
+                height: clamp(200px, 35vh, 280px);
+            }
+
+            .instagram-content h3 {
+                font-size: clamp(0.9rem, 4vw, 1rem);
+            }
+
+            .instagram-content p {
+                font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+            }
+
+            .info-item {
+                padding: 0.9rem;
+                border-radius: 7px;
+                gap: 0.7rem;
+            }
+
+            .info-icon {
+                font-size: 1.5rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .info-content h3 {
+                font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+            }
+
+            .info-content p {
+                font-size: clamp(0.7rem, 3vw, 0.8rem);
+            }
+
+            .map-section,
+            .hours-section {
+                padding: 1.5rem 0.6rem;
+            }
+
+            .map-title,
+            .hours-title {
+                font-size: clamp(1.1rem, 5vw, 1.6rem);
+                margin-bottom: 1.2rem;
+            }
+
+            .map-container {
+                padding: 0.9rem;
+                margin-bottom: 5vh;
+            }
+
+            .map-placeholder {
+                height: 220px;
+                font-size: clamp(0.9rem, 4vw, 1rem);
+            }
+
+            .hours-grid {
+                gap: 0.9rem;
+            }
+
+            .hours-item {
+                padding: 0.9rem;
+                border-radius: 7px;
+            }
+
+            .hours-item h3 {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+            }
+
+            .hours-item p {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+            }
+
+            .agendeContato {
+                font-size: clamp(11px, 2.8vw, 14px);
+                padding: 0.4rem 0.9rem;
+                margin-top: 1.8vh;
+            }
+
+            .footer-container {
+                padding: 0 0.6rem;
+                gap: 1.2rem;
+            }
+
+            .footer-section {
+                min-width: 140px;
+            }
+
+            .footer-section h4 {
+                font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+            }
+
+            .footer-section p {
+                font-size: clamp(0.6rem, 3vw, 0.8rem);
+            }
+
+            .footer-section .social-links a {
+                font-size: clamp(0.8rem, 3vw, 1rem);
+                margin: 0 0.3rem;
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(5vh, 8vw, 9vh);
+            }
+
+            .footer-bottom p {
+                font-size: clamp(9px, 2.2vw, 13px);
+                padding: 0.3rem 0.4rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero {
+                padding: 0.8rem 0.5rem;
+                min-height: 40vh;
+            }
+
+            .hero-content {
+                gap: 1rem;
+            }
+
+            .hero-image {
+                width: 15vh;
+                min-width: 100px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.3rem, 7vw, 1.8rem);
+                padding: 0.6rem 1rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 6vw, 1.3rem);
+            }
+
+            .contact-info-section {
+                padding: 1rem 0.5rem;
+                margin-bottom: 6vh;
+            }
+
+            .section-title {
+                font-size: clamp(1.2rem, 6vw, 1.6rem);
+                margin-top: 3vh;
+                margin-bottom: 2vh;
+            }
+
+            .section-title::after {
+                width: 50px;
+                height: 2px;
+            }
+
+            .instagram-featured {
+                padding: 0.8rem;
+            }
+
+            .instagram-photo {
+                width: clamp(150px, 25vh, 200px);
+                height: clamp(180px, 32vh, 250px);
+            }
+
+            .instagram-content h3 {
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+            }
+
+            .instagram-content p {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+            }
+
+            .info-item {
+                padding: 0.8rem;
+                border-radius: 6px;
+            }
+
+            .info-icon {
+                font-size: 1.2rem;
+            }
+
+            .info-content h3 {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+            }
+
+            .info-content p {
+                font-size: clamp(0.7rem, 3vw, 0.9rem);
+            }
+
+            .map-section,
+            .hours-section {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .map-title,
+            .hours-title {
+                font-size: clamp(1.2rem, 6vw, 1.6rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .map-container {
+                padding: 0.8rem;
+                margin-bottom: 4vh;
+            }
+
+            .map-placeholder {
+                height: 200px;
+                font-size: clamp(0.8rem, 4vw, 1rem);
+            }
+
+            .hours-item {
+                padding: 0.8rem;
+            }
+
+            .hours-item h3 {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+            }
+
+            .hours-item p {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+            }
+
+            .agendeContato {
+                font-size: clamp(10px, 2.8vw, 14px);
+                padding: 0.4rem 0.8rem;
+                margin-top: 1.5vh;
+            }
+
+            .footer-container {
+                padding: 0 0.5rem;
+                gap: 1rem;
+            }
+
+            .footer-section h4 {
+                font-size: clamp(0.9rem, 4vw, 1.2rem);
+            }
+
+            .footer-section p {
+                font-size: clamp(0.6rem, 3vw, 0.8rem);
+            }
+
+            .footer-section .social-links a {
+                font-size: clamp(0.8rem, 3.5vw, 1rem);
+                margin: 0 0.3rem;
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(4vh, 8vw, 8vh);
+            }
+
+            .footer-bottom p {
+                font-size: clamp(10px, 2.5vw, 14px);
+                padding: 0.3rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 280px) {
+            .hero {
+                padding: 0.5rem 0.3rem;
+                min-height: 35vh;
+            }
+
+            .hero-image {
+                width: 12vh;
+                min-width: 80px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.1rem, 8vw, 1.5rem);
+                padding: 0.5rem 0.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.9rem, 7vw, 1.2rem);
+            }
+
+            .contact-info-section {
+                padding: 0.8rem 0.3rem;
+                margin-bottom: 4vh;
+            }
+
+            .section-title {
+                font-size: clamp(1rem, 7vw, 1.4rem);
+                margin-top: 2vh;
+                margin-bottom: 1.5vh;
+            }
+
+            .section-title::after {
+                width: 40px;
+                height: 1px;
+            }
+
+            .instagram-featured {
+                padding: 0.6rem;
+            }
+
+            .instagram-photo {
+                width: clamp(120px, 20vh, 160px);
+                height: clamp(150px, 25vh, 200px);
+            }
+
+            .instagram-content h3 {
+                font-size: clamp(0.8rem, 5vw, 1rem);
+            }
+
+            .instagram-content p {
+                font-size: clamp(0.7rem, 4vw, 0.9rem);
+            }
+
+            .info-item {
+                padding: 0.6rem;
+                border-radius: 5px;
+            }
+
+            .info-icon {
+                font-size: 1rem;
+            }
+
+            .info-content h3 {
+                font-size: clamp(0.7rem, 4vw, 0.9rem);
+            }
+
+            .info-content p {
+                font-size: clamp(0.6rem, 3.5vw, 0.8rem);
+            }
+
+            .map-section,
+            .hours-section {
+                padding: 1rem 0.3rem;
+            }
+
+            .map-title,
+            .hours-title {
+                font-size: clamp(1rem, 7vw, 1.4rem);
+                margin-bottom: 1rem;
+            }
+
+            .map-container {
+                padding: 0.5rem;
+                margin-bottom: 3vh;
+            }
+
+            .map-placeholder {
+                height: 150px;
+                font-size: clamp(0.7rem, 4.5vw, 0.9rem);
+            }
+
+            .hours-item {
+                padding: 0.6rem;
+            }
+
+            .hours-item h3 {
+                font-size: clamp(0.7rem, 4vw, 0.9rem);
+            }
+
+            .hours-item p {
+                font-size: clamp(0.7rem, 4vw, 0.9rem);
+            }
+
+            .agendeContato {
+                font-size: clamp(8px, 2.5vw, 12px);
+                padding: 0.3rem 0.6rem;
+                margin-top: 1vh;
+            }
+
+            .footer-container {
+                padding: 0 0.3rem;
+                gap: 0.8rem;
+            }
+
+            .footer-section h4 {
+                font-size: clamp(0.8rem, 5vw, 1rem);
+            }
+
+            .footer-section p {
+                font-size: clamp(0.4rem, 3.5vw, 0.7rem);
+            }
+
+            .footer-section .social-links a {
+                font-size: clamp(0.6rem, 4vw, 0.9rem);
+                margin: 0 0.2rem;
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(3vh, 6vw, 6vh);
+            }
+
+            .footer-bottom p {
+                font-size: clamp(8px, 2vw, 12px);
+            }
+        }
+
+        @media (max-width: 240px) {
+            body {
+                font-size: 10px;
+            }
+
+            .hero {
+                padding: 0.3rem 0.2rem;
+                min-height: 30vh;
+            }
+
+            .hero-image {
+                width: 10vh;
+                min-width: 60px;
+            }
+
+            .hero-title {
+                font-size: clamp(0.9rem, 9vw, 1.2rem);
+                padding: 0.4rem 0.6rem;
+                letter-spacing: 0.5px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.8rem, 8vw, 1rem);
+            }
+
+            .contact-info-section {
+                padding: 0.5rem 0.2rem;
+                margin-bottom: 3vh;
+            }
+
+            .section-title {
+                font-size: clamp(0.9rem, 8vw, 1.2rem);
+                margin-top: 1.5vh;
+                margin-bottom: 1vh;
+            }
+
+            .section-title::after {
+                width: 30px;
+                height: 1px;
+            }
+
+            .instagram-featured {
+                padding: 0.4rem;
+            }
+
+            .instagram-photo {
+                width: clamp(100px, 18vh, 130px);
+                height: clamp(120px, 22vh, 160px);
+            }
+
+            .instagram-content h3 {
+                font-size: clamp(0.7rem, 6vw, 0.9rem);
+            }
+
+            .instagram-content p {
+                font-size: clamp(0.6rem, 5vw, 0.8rem);
+            }
+
+            .info-item {
+                padding: 0.4rem;
+                border-radius: 4px;
+            }
+
+            .info-icon {
+                font-size: 0.9rem;
+            }
+
+            .info-content h3 {
+                font-size: clamp(0.6rem, 5vw, 0.8rem);
+            }
+
+            .info-content p {
+                font-size: clamp(0.5rem, 4vw, 0.7rem);
+            }
+
+            .map-section,
+            .hours-section {
+                padding: 0.8rem 0.2rem;
+            }
+
+            .map-title,
+            .hours-title {
+                font-size: clamp(0.9rem, 8vw, 1.2rem);
+                margin-bottom: 0.8rem;
+            }
+
+            .map-container {
+                padding: 0.3rem;
+                margin-bottom: 2vh;
+            }
+
+            .map-placeholder {
+                height: 120px;
+                font-size: clamp(0.6rem, 5vw, 0.8rem);
+            }
+
+            .hours-item {
+                padding: 0.5rem;
+            }
+
+            .hours-item h3 {
+                font-size: clamp(0.6rem, 5vw, 0.8rem);
+            }
+
+            .hours-item p {
+                font-size: clamp(0.6rem, 5vw, 0.8rem);
+            }
+
+            .agendeContato {
+                font-size: clamp(7px, 2vw, 10px);
+                padding: 0.2rem 0.4rem;
+                margin-top: 0.5vh;
+            }
+
+            .footer-container {
+                padding: 0 0.2rem;
+                gap: 0.5rem;
+            }
+
+            .footer-section h4 {
+                font-size: clamp(0.7rem, 6vw, 0.9rem);
+            }
+
+            .footer-section p {
+                font-size: clamp(0.4rem, 4vw, 0.6rem);
+            }
+
+            .footer-section .social-links a {
+                font-size: clamp(0.6rem, 5vw, 0.8rem);
+                margin: 0 0.1rem;
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(2vh, 5vw, 5vh);
+            }
+
+            .footer-bottom p {
+                font-size: clamp(6px, 1.8vw, 10px);
+                padding: 0.1rem 0.2rem;
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 200px) {
+            body {
+                font-size: 8px;
+            }
+            
+            .nav-container {
+                padding: 0 0.1rem;
+            }
+            
+            .hamburger {
+                right: 0.1rem;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: clamp(0.8rem, 8vw, 1rem);
+            }
+            
+            .logo img {
+                width: clamp(12px, 4vw, 20px);
+            }
+            
+            .hero {
+                padding: 0.2rem 0.1rem;
+                min-height: 25vh;
+            }
+            
+            .hero-image {
+                width: 8vh;
+                min-width: 50px;
+            }
+            
+            .hero-title {
+                font-size: clamp(0.8rem, 10vw, 1rem);
+                padding: 0.3rem 0.4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: clamp(0.7rem, 9vw, 0.9rem);
+            }
+            
+            .section-title {
+                font-size: clamp(0.8rem, 9vw, 1rem);
+            }
+            
+            .instagram-photo {
+                width: clamp(80px, 15vh, 100px);
+                height: clamp(100px, 18vh, 120px);
+            }
+            
+            .map-placeholder {
+                height: 100px;
+                font-size: clamp(0.5rem, 6vw, 0.7rem);
+            }
+            
+            .agendeContato {
+                font-size: clamp(6px, 1.5vw, 8px);
+                padding: 0.1rem 0.3rem;
+            }
+        }
+
+        @media (max-width: 1067px) and (min-width: 940px){
+            .footer-bottom::before{
+                left:0px;
+            }
+        }
+        
+        @media (max-width: 941px) and (min-width: 660px){
+            .footer-bottom::before{
+                /* left:10vh; */
+                left: 300px;
+            }
+     
+    .footer-bottom p {
+        white-space: nowrap;
+    }
+        }
+         @media (max-width: 659px) and (min-width: 480px){
+               .footer-bottom::before{
+                /* left:10vh; */
+                top: 10%;
+                left: 250px;
+                font-size: 10vh; /* Mantém o tamanho de fonte existente */
+            }
+            .footer-bottom p {
+        white-space: nowrap; /* Corrigido de no-wrap para nowrap */
+    }
+         }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span><img src="img/plantaof.png" alt="Logo Yellow Ink" onerror="this.src='https://via.placeholder.com/45x45/D4AF37/000000?text=YI'"></span>
+                <h4>YELLOW<span>INK</span></h4>
+            </a>
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Sobre Nós</a></li>
+                <li><a href="index.html">Galeria</a></li>
+                <li><a href="index.html">Feedbacks</a></li>
+                <li><a href="tatuadores.html">Tatuadores</a></li>
+                <li><a href="blog.com" class="active">Blog</a></li>
+                <li><a href="contato.com">Contato</a></li>
+                <li><a href="guest.html">Guest</a></li>
+                <button class="close-btn" id="closeBtn">✕</button>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <section class="hero" id="contato">
+        <div class="hero-content">
+            <div class="hero-title fade-in-up">CONTATO</div>
+            <div class="hero-text">
+                <h2 class="hero-subtitle fade-in-up">
+                    <span class="line-1">Fale conosco</span>
+                    <span class="line-2">e tire suas dúvidas</span>
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <section class="contact-info-section">
+            <h2 class="section-title">Informações de Contato</h2>
+            <div class="contact-info">
+                <div class="instagram-featured fade-in-up contact-info-insta">
+                    <div class="hero-image fade-in-up">
+                        <img class="yellow-fotocircle" src="img/yellow-fotocircle.jpeg" alt="Imagem de contato" onerror="this.src='https://via.placeholder.com/200x250/D4AF37/000000?text=Yellow+Ink'">
+                    </div>
+                    <div class="instagram-content">
+                        <h3>Redes Sociais</h3>
+                        <p>@yellowink_tattoo</p>
+                    </div>
+                </div>
+
+                <div class="contact-column">
+                    <div class="info-item fade-in-up">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <h3>Endereço</h3>
+                            <p>JK Shopping - Brasília DF</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item fade-in-up">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info-content">
+                            <h3>Telefone</h3>
+                            <p>+55 61 1234-5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item fade-in-up">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-content">
+                            <h3>E-mail</h3>
+                            <p>info@yellowink.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="hours-section">
+        <h2 class="hours-title">Horário de Funcionamento</h2>
+        <div class="hours-grid">
+            <div class="hours-item">
+                <h3>Segunda a Sexta</h3>
+                <p>10:00 - 20:00</p>
+            </div>
+            <div class="hours-item">
+                <h3>Sábado</h3>
+                <p>10:00 - 18:00</p>
+            </div>
+            <div class="hours-item">
+                <h3>Domingo</h3>
+                <p>Fechado</p>
+            </div>
+        </div>
+        <a href="https://wa.me/5561123456789" class="agendeContato" target="_blank">
+            <i class="fab fa-whatsapp"></i> Agende um horário
+        </a>
+    </section>
+
+    <section class="map-section">
+        <h2 class="map-title">Localização</h2>
+        <div class="map-container">
+            <div class="map-placeholder">
+                <div class="map-text">
+                    <i class="fas fa-map"></i> Mapa Interativo<br>
+                    JK Shopping - Brasília DF
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: info@yellowink.com</p>
+                <p>Telefone: +55 61 1234-5678</p>
+                <p>Endereço: JK Shopping - Brasília DF</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Horário</h4>
+                <p>Segunda a Sexta: 10h - 20h</p>
+                <p>Sábado: 10h - 18h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+            <div class="footer-section">
+                <h4>Trabalhe Conosco</h4>
+                <p>Envie seu portfólio para: jobs@yellowink.com</p>
+                <p>Ou seja um <a href="guest.html" class="guest-a">Guest</a></p>
+                <p>Confira nossas vagas abertas!</p>
+                <p><a href="#" class="saibamais-a">Saiba mais</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yellow Ink. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const closeBtn = document.querySelector('#closeBtn');
+        const navOverlay = document.getElementById('navOverlay');
+
+        // Função para abrir menu mobile
+        function openMobileMenu() {
+            navLinks.classList.add('active');
+            navOverlay.classList.add('active');
+            hamburger.textContent = '✕';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Função para fechar menu mobile
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            hamburger.textContent = '☰';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Evento de clique no hamburger
+        hamburger.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Evento de clique no botão de fechar
+        closeBtn.addEventListener('click', closeMobileMenu);
+
+        // Evento de clique no overlay
+        navOverlay.addEventListener('click', closeMobileMenu);
+
+        // Fechar menu ao clicar em um link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Fechar menu ao pressionar ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Inicializar estado de navegação
+        function initializeNavigation() {
+            if (window.innerWidth < 940) {
+                hamburger.style.display = 'block';
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            } else {
+                hamburger.style.display = 'none';
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Chamar na inicialização
+        initializeNavigation();
+
+        // Ajustar estado ao redimensionar
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 940) {
+                hamburger.style.display = 'block';
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+                hamburger.textContent = '☰';
+                document.body.style.overflow = 'auto';
+            } else {
+                hamburger.style.display = 'none';
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Animação de entrada
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('fade-in-up');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hero-image, .info-item, .hours-item, .map-container, .instagram-featured').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Efeito de hover nos itens de contato
+        document.querySelectorAll('.info-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                if (window.innerWidth >= 940) {
+                    item.style.transform = 'translateY(-5px) scale(1.02)';
+                }
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                if (window.innerWidth >= 940) {
+                    item.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
