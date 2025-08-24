@@ -53,7 +53,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 1.5rem;
+            padding: 0 clamp(1rem, 3vw, 1.5rem);
         }
 
         .logo {
@@ -69,13 +69,13 @@
         }
 
         .logo h4 {
-            font-size: clamp(1.5rem, 4.9vh, 2.5rem);
+            font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 700;
         }
 
         .logo h4 span {
             background: #eaee0f;
-            padding: 0.7vh 0.5vh 0vh 0.7vh;
+            padding: 0.5vh 0.5vh 0 0.5vh;
         }
 
         .logo.hidden {
@@ -83,9 +83,9 @@
         }
 
         .logo img {
-            width: clamp(30px, 45px, 50px);
+            width: clamp(30px, 6vw, 45px);
+            height: auto;
             margin-bottom: 0.5vh;
-            padding-bottom: 10px;
         }
 
         .logo::after {
@@ -106,18 +106,17 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: clamp(1rem, 2vw, 1.5rem);
             align-items: center;
             font-family: 'Quicksand', sans-serif;
-            padding-right: 4vh;
-            padding-top: 10px;
+            padding-right: clamp(1rem, 3vw, 2rem);
         }
 
         .nav-links a {
             color: #1A1A1A;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             transition: var(--transition);
             position: relative;
             padding: 0.5rem 0;
@@ -153,7 +152,7 @@
             background: none;
             border: none;
             color: #1A1A1A;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             cursor: pointer;
             padding: 0.5rem;
             transition: var(--transition);
@@ -179,7 +178,7 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             background: none;
             border: none;
             color: #1A1A1A;
@@ -246,14 +245,14 @@
         }
 
         .hero-content {
-            margin-top: 9.5vh;
+            margin-top: clamp(5vh, 10vw, 9.5vh);
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             max-width: min(1000px, 90vw);
-            padding: 2rem;
+            padding: clamp(1rem, 3vw, 2rem);
             z-index: 2;
             color: white;
         }
@@ -263,8 +262,8 @@
         }
 
         .hero-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: clamp(1rem, 3vw, 2rem);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -275,8 +274,8 @@
         .hero-subtitle {
             max-width: 100%;
             text-align: center;
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            padding: 1vh 2vh;
+            font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+            padding: clamp(0.5vh, 2vw, 1vh) clamp(1vh, 3vw, 2vh);
             color: black;
             background-color: #fff;
             font-weight: 600;
@@ -287,8 +286,8 @@
         }
 
         .hero-content .whatsapp-contact-btn {
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
         }
 
         .saiba-mais-link {
@@ -296,7 +295,7 @@
             color: white;
             font-weight: 1000;
             font-family: 'Inter', sans-serif;
-            font-size: 3vh;
+            font-size: clamp(2vh, 3vw, 3vh);
             text-decoration: none;
             text-align: center;
             transition: all 0.7s ease;
@@ -304,7 +303,7 @@
 
         .saiba-mais-arrow {
             display: block;
-            font-size: 3vh;
+            font-size: clamp(2vh, 3vw, 3vh);
             color: white;
             margin-top: 0.1rem;
             font-weight: 1000;
@@ -315,14 +314,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 3rem;
+            margin-top: clamp(2rem, 4vw, 3rem);
             cursor: pointer;
         }
 
         .saiba-mais-container:hover .saiba-mais-link {
             transform: translateY(10vh);
             color: var(--primary-yellow);
-            font-size: 3.5vh;
+            font-size: clamp(2.5vh, 3.5vw, 3.5vh);
         }
 
         .saiba-mais-container:hover .saiba-mais-arrow {
@@ -339,7 +338,7 @@
         .guest-section {
             border-bottom: 1px solid var(--primary-yellow);
             border-top: 1px solid var(--primary-yellow);
-            padding: 4rem 2rem;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
             background-color: #d4af3794;
             display: flex;
             flex-direction: column;
@@ -354,13 +353,13 @@
         .guest-section h2 {
             color: black;
             text-align: center;
-            margin-bottom: 1rem;
-            margin-top: -5vh;
+            margin-bottom: clamp(0.5rem, 2vw, 1rem);
+            margin-top: clamp(-6vh, -2vw, -5vh);
         }
 
         .guest-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: clamp(1rem, 3vw, 2rem);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -371,13 +370,13 @@
         .guest-content {
             display: flex;
             align-items: flex-start;
-            gap: 2rem;
+            gap: clamp(1rem, 3vw, 2rem);
             width: 100%;
             max-width: 1400px;
         }
 
         .guest-image-container {
-            margin-left: clamp(2vh, 11vh, 15vh);
+            margin-left: clamp(1rem, 5vw, 15vh);
             flex: 0 0 auto;
             width: min(380px, 90vw);
             display: flex;
@@ -399,10 +398,10 @@
         }
 
         .guest-text {
-            margin-left: clamp(2vh, 5vh, 8vh);
-            margin-right: clamp(2vh, 11vh, 15vh);
+            margin-left: clamp(1rem, 3vw, 8vh);
+            margin-right: clamp(1rem, 5vw, 15vh);
             flex: 1;
-            margin-top: 20vh;
+            margin-top: clamp(10vh, 15vw, 20vh);
             font-family: 'Quicksand', sans-serif;
         }
 
@@ -411,37 +410,37 @@
         }
 
         .guest-text p {
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
         .guest-trabalheConosco {
             border-top: 1px solid var(--primary-yellow);
-            margin-bottom: 15vh;
+            margin-bottom: clamp(10vh, 15vw, 15vh);
         }
 
         .guest-trabalheConosco h2 {
-            margin-top: 10vh;
+            margin-top: clamp(5vh, 8vw, 10vh);
         }
 
         .whatsapp-contact-container {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: clamp(1rem, 3vw, 2rem);
         }
 
         .whatsapp-contact-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
             background: #25D366;
             border: none;
             border-radius: 8px;
             color: #fff;
             font-weight: 700;
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             cursor: pointer;
             transition: var(--transition);
             text-decoration: none;
@@ -458,37 +457,37 @@
         footer {
             background: var(--primary-yellow);
             color: #FFFFFF;
-            padding: 4rem 2rem 2rem;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 2vw, 2rem);
             text-align: center;
             font-family: 'Quicksand', sans-serif;
-            line-height: 2.7vh;
+            line-height: clamp(2vh, 3vw, 2.7vh);
         }
 
         .footer-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 clamp(1rem, 3vw, 2rem);
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            gap: 2rem;
+            gap: clamp(1rem, 3vw, 2rem);
         }
 
         .footer-section {
             flex: 1;
-            min-width: 200px;
+            min-width: clamp(180px, 30vw, 200px);
         }
 
         .footer-section h4 {
             font-family: 'League Spartan', sans-serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: bold;
             margin-bottom: 1rem;
             color: #1A1A1A;
         }
 
         .footer-section p {
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             color: #FFFFFF;
             margin-bottom: 0.5rem;
         }
@@ -496,7 +495,7 @@
         .footer-section .social-links a {
             color: #FFFFFF;
             margin: 0 0.5rem;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             transition: var(--transition);
         }
 
@@ -516,16 +515,16 @@
         .guest-a:hover, .saibamais-a:hover {
             color: #1A1A1A;
         }
-/* 
+
         .footer-bottom {
-            margin-top: 1.3rem;
-            margin-bottom: 0.8vh;
+            margin-top: clamp(1rem, 2vw, 2rem);
+            margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
             color: #FFF;
             position: relative;
             overflow: visible;
-            min-height: 4.5rem;
+            min-height: clamp(4rem, 8vw, 5.5rem);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -533,88 +532,44 @@
         }
 
         .footer-bottom::before {
-            content: "YELLOW INK";
+            content: "YELLOW INK.";
             position: absolute;
-            top: 80%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            bottom: clamp(1vh, 2vw, 2vh);
+            left: clamp(5%, 2vw, 9vh);
+            transform: translate(0, 50%);
             font-family: 'League Spartan', sans-serif;
-            font-size: clamp(5vh, 10vh, 15vh);
+            font-size: clamp(3rem, 15vw, 17vh);
             font-weight: 700;
-            color: rgba(218, 152, 9, 0.979);
+            color: rgba(230, 241, 80, 0.301);
             z-index: 0;
             pointer-events: none;
             white-space: nowrap;
-            text-align: center;
+            text-align: left;
             text-transform: uppercase;
+            letter-spacing: 0.3em;
         }
 
         .footer-bottom p {
-            position: relative;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, 50%);
             z-index: 1;
             margin: 0;
             font-weight: bold;
             color: #FFF;
             text-align: center;
-            padding: 0.5rem 1rem;
+            padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.8rem, 2.5vw, 3vh);
             border-radius: 5px;
-            margin-top: 4vh;
-        } */
-         
-        .footer-bottom {
-            margin-top: 2rem;
-            margin-bottom: 0.8vh;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
-            color: #FFF;
-            position: relative;
-            overflow: visible;
-            min-height: 4.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-            min-height: 5.5rem;
+            white-space: nowrap;
         }
-        .footer-bottom::before {
-    content: "YELLOW INK.";
-    position: absolute;
-        margin-top: 2rem;
-    bottom: 2vh; /* Aumentado de 2vh para 5vh para criar o espaço acima do texto */
-    left: 9vh;
-    transform: translate(0, 50%);
-    font-family: 'League Spartan', sans-serif; 
-    font-size: 17vh;
-    font-weight: 700;
-    color: rgba(230, 241, 80, 0.301);
-    z-index: 0;
-    pointer-events: none;
-    white-space: nowrap;
-    text-align: left;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-}
-.footer-bottom p {
-    position: absolute;
-    bottom: 10%; /* Alinha verticalmente ao centro do ::before */
-    left: 50%; /* Move para a metade da largura do contêiner */
-    transform: translate(-50%, 50%); /* Ajusta para o centro exato do texto "YELLOW INK" */
-    z-index: 1;
-    margin: 0;
-    font-weight: bold;
-    color: #FFF;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    font-size: 3vh;
-    border-radius: 5px;
-    white-space: nowrap;
-}        
 
         /* Guest Section - Novo Layout */
         .guest-section {
-            padding: 6rem 2rem;
+            padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
             background: #FFFFFF;
-            min-height: 100vh;
+            min-height: clamp(80vh, 100vw, 100vh);
             display: flex;
             align-items: center;
         }
@@ -625,50 +580,50 @@
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: clamp(2rem, 5vw, 4rem);
             align-items: center;
         }
 
         .guest-text-content {
-            padding-right: 2rem;
+            padding-right: clamp(1rem, 3vw, 2rem);
         }
 
         .guest-main-title {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 900;
             color: #1A1A1A;
             font-family: 'League Spartan', sans-serif;
             line-height: 1.1;
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1rem, 3vw, 2rem);
             letter-spacing: -1px;
         }
 
         .guest-main-title .highlight {
-            color: var(--blue-accent);
+            color: var(--accent-yellow);
         }
 
         .guest-description {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #666;
             line-height: 1.7;
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
             font-family: 'Inter', sans-serif;
         }
 
         .guest-features {
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             color: #666;
             line-height: 1.7;
-            margin-bottom: 2.5rem;
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
             font-family: 'Inter', sans-serif;
         }
 
         .guest-images-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 200px 300px;
-            gap: 1rem;
-            height: 520px;
+            grid-template-rows: clamp(150px, 25vw, 200px) clamp(200px, 35vw, 300px);
+            gap: clamp(0.8rem, 2vw, 1rem);
+            height: clamp(400px, 80vw, 520px);
         }
 
         .guest-image-item {
@@ -712,7 +667,7 @@
 
         /* Terceira Section - Qualidade no Atendimento */
         .quality-section {
-            padding: 4rem 2rem;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
             background: #f8f9fa;
             text-align: center;
         }
@@ -723,30 +678,30 @@
         }
 
         .quality-main-title {
-            font-size: clamp(2rem, 6vw, 3rem);
+            font-size: clamp(1.5rem, 4vw, 3rem);
             font-weight: 900;
             color: #1A1A1A;
             font-family: 'League Spartan', sans-serif;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
             text-transform: uppercase;
         }
 
         .quality-subtitle {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #666;
-            margin-bottom: 4rem;
+            margin-bottom: clamp(2rem, 4vw, 4rem);
             font-family: 'Inter', sans-serif;
-            max-width: 600px;
+            max-width: clamp(500px, 80vw, 600px);
             margin-left: auto;
             margin-right: auto;
         }
 
         .quality-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(1.5rem, 3vw, 3rem);
+            margin-top: clamp(2rem, 4vw, 4rem);
         }
 
         .quality-feature {
@@ -757,21 +712,21 @@
         }
 
         .quality-feature-icon {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             color: #808080;
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
         }
 
         .quality-feature h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: 700;
             color: #1A1A1A;
-            margin-bottom: 1rem;
+            margin-bottom: clamp(0.5rem, 2vw, 1rem);
             font-family: 'League Spartan', sans-serif;
         }
 
         .quality-feature p {
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
             color: #666;
             line-height: 1.6;
             font-family: 'Inter', sans-serif;
@@ -779,7 +734,7 @@
 
         /* Seção O Futuro do Trabalho */
         .future-work-section {
-            padding-bottom: 5vh;
+            padding-bottom: clamp(3vh, 5vw, 5vh);
             background-color: #c99d2d85;
             text-align: center;
             position: relative;
@@ -820,7 +775,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
-            padding: 0 2rem;
+            padding: 0 clamp(1rem, 3vw, 2rem);
         }
 
         .future-work-badge {
@@ -828,9 +783,9 @@
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 5px;
-            padding: 0.7rem 1.5rem;
-            margin: 1vh 0;
-            font-size: 0.9rem;
+            padding: clamp(0.5rem, 1.5vw, 0.7rem) clamp(1rem, 2vw, 1.5rem);
+            margin: clamp(0.5vh, 2vw, 1vh) 0;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             font-weight: 500;
             color: rgba(255, 255, 255, 0.9);
             letter-spacing: 0.5px;
@@ -839,12 +794,12 @@
         }
 
         .future-work-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             color: black;
             font-family: 'League Spartan', sans-serif;
             line-height: 1.1;
             font-weight: bold;
-            margin: 4vh 0 9vh 0;
+            margin: clamp(2vh, 5vw, 4vh) 0 clamp(5vh, 8vw, 9vh) 0;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             letter-spacing: -1px;
             text-align: center;
@@ -852,7 +807,7 @@
 
         .future-work-container h2 {
             font-weight: 600;
-            margin: 0 0 2vh 0;
+            margin: 0 0 clamp(1vh, 2vw, 2vh) 0;
             text-align: center;
             text-transform: uppercase;
             font-family: 'League Spartan', sans-serif;
@@ -860,12 +815,12 @@
 
         .future-work-description {
             font-family: 'Quicksand', sans-serif;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: rgba(53, 48, 48, 0.9);
             line-height: 1.7;
-            margin-bottom: 3rem;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
-            max-width: 900px;
+            max-width: clamp(700px, 80vw, 900px);
             margin-left: auto;
             margin-right: auto;
             text-align: center;
@@ -876,38 +831,38 @@
         .container-servicos {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-            margin-bottom: 10vh;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(5vh, 8vw, 10vh);
         }
 
         .section-servicos {
             text-align: left;
-            margin-bottom: 60px;
+            margin-bottom: clamp(40px, 8vw, 60px);
         }
 
         .section-title {
-            margin-top: 10vh;
-            font-size: clamp(2rem, 6vw, 3rem);
+            margin-top: clamp(5vh, 8vw, 10vh);
+            font-size: clamp(1.5rem, 4vw, 3rem);
             font-weight: 700;
             color: black;
-            margin-bottom: 20px;
+            margin-bottom: clamp(15px, 3vw, 20px);
             line-height: 1.2;
             letter-spacing: 1px;
             font-family: 'League Spartan', sans-serif;
         }
 
         .section-description {
-            font-size: 18px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #718096;
             line-height: 1.6;
-            max-width: 800px;
+            max-width: clamp(600px, 80vw, 800px);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: min(80px, 5vw);
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(40px, 5vw, 80px);
+            margin-top: clamp(20px, 4vw, 40px);
         }
 
         .service-card {
@@ -917,20 +872,20 @@
         .service-image {
             width: 100%;
             max-width: 400px;
-            height: 280px;
+            height: clamp(200px, 35vw, 280px);
             object-fit: cover;
-            margin-bottom: 10px;
+            margin-bottom: clamp(8px, 2vw, 10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .service-title {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 600;
             color: rgba(0, 0, 0, 0.87);
         }
 
         .service-description {
-            font-size: 16px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             color: #718096;
             text-align: justify;
             line-height: 1.6;
@@ -945,39 +900,39 @@
         .maps-guest {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: clamp(40px, 8vw, 60px) clamp(15px, 3vw, 20px);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: clamp(40px, 8vw, 60px);
             align-items: center;
         }
 
         .content-guest-maps {
-            padding-right: 40px;
+            padding-right: clamp(20px, 5vw, 40px);
         }
 
         .title-guest-maps {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             color: var(--primary-yellow);
             letter-spacing: 1px;
             font-family: 'League Spartan', sans-serif;
             line-height: 1.1;
-            margin-bottom: 40px;
+            margin-bottom: clamp(20px, 5vw, 40px);
         }
 
         .description-guest-maps {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             line-height: 1.6;
             color: rgba(0, 0, 0, 0.89);
-            margin-bottom: 40px;
+            margin-bottom: clamp(20px, 5vw, 40px);
         }
 
         .btn-location-guest {
             background: linear-gradient(135deg, #B8860B 0%, #d4af3794 100%);
             color: white;
-            padding: 16px 32px;
-            font-size: 1.1rem;
+            padding: clamp(12px, 3vw, 16px) clamp(24px, 5vw, 32px);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             font-weight: 600;
             border: none;
             border-radius: 8px;
@@ -998,7 +953,7 @@
 
         .btn-location-guest::after {
             content: "🚀";
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
         }
 
         .map-container-guest {
@@ -1006,7 +961,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            height: 450px;
+            height: clamp(300px, 60vw, 450px);
         }
 
         .map-frame-guest {
@@ -1021,22 +976,22 @@
             top: 20px;
             left: 20px;
             background: white;
-            padding: 16px;
+            padding: clamp(12px, 3vw, 16px);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            max-width: 280px;
+            max-width: clamp(250px, 50vw, 280px);
             z-index: 10;
         }
 
         .location-name-guest {
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 4px;
         }
 
         .location-address-guest {
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             color: #718096;
             line-height: 1.4;
             margin-bottom: 8px;
@@ -1056,47 +1011,62 @@
 
         .stars-guest {
             color: #fbbf24;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
         .reviews-guest {
             color: #4285f4;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             text-decoration: none;
         }
 
         .view-map-guest {
             color: #4285f4;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             text-decoration: none;
             font-weight: 500;
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .guest-container {
+                gap: clamp(1.5rem, 4vw, 3rem);
+            }
+
+            .guest-images-grid {
+                grid-template-rows: clamp(120px, 20vw, 180px) clamp(180px, 30vw, 250px);
+                height: clamp(350px, 70vw, 450px);
+            }
+
+            .maps-guest {
+                gap: clamp(30px, 6vw, 50px);
+            }
+        }
+
         @media (max-width: 1024px) {
             .future-work-badge {
-                margin: 1vh 0;
+                margin: clamp(0.5vh, 2vw, 1vh) 0;
                 text-align: center;
             }
 
             .future-work-title {
                 text-align: center;
-                margin: 4vh 0 6vh 0;
+                margin: clamp(2vh, 4vw, 4vh) 0 clamp(4vh, 6vw, 6vh) 0;
             }
 
             .future-work-container h2 {
                 text-align: center;
-                margin: 0 0 2vh 0;
+                margin: 0 0 clamp(1vh, 2vw, 2vh) 0;
             }
 
             .future-work-description {
                 text-align: center;
-                padding: 0 1rem;
+                padding: 0 clamp(0.5rem, 2vw, 1rem);
             }
 
             .guest-container {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: clamp(2rem, 5vw, 3rem);
             }
 
             .guest-text-content {
@@ -1106,7 +1076,7 @@
 
             .guest-images-grid {
                 height: auto;
-                grid-template-rows: 200px 200px 250px;
+                grid-template-rows: clamp(150px, 25vw, 200px) clamp(150px, 25vw, 200px) clamp(200px, 35vw, 250px);
             }
 
             .image-3 {
@@ -1115,7 +1085,7 @@
 
             .maps-guest {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: clamp(20px, 5vw, 40px);
             }
 
             .content-guest-maps {
@@ -1139,47 +1109,48 @@
             }
 
             .nav-links a {
-                font-size: 1.1rem;
-                padding: 1rem 0;
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+                padding: clamp(0.8rem, 2vw, 1rem) 0;
             }
 
             .hero {
-                height: 60vh;
+                height: clamp(50vh, 80vw, 60vh);
             }
 
             .hero .carousel,
             .hero .carousel-inner,
             .hero .carousel-item {
-                height: 60vh;
+                height: clamp(50vh, 80vw, 60vh);
             }
 
             .hero .carousel-item img {
-                height: 60vh;
+                height: clamp(50vh, 80vw, 60vh);
             }
 
             .hero-content {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
-                padding: 1rem;
-                margin-top: 5vh;
+                padding: clamp(0.5rem, 2vw, 1rem);
+                margin-top: clamp(3vh, 5vw, 5vh);
             }
 
             .hero-title {
-                font-size: 2rem;
-                padding: 1rem 2rem;
+                font-size: clamp(1.5rem, 4vw, 2rem);
+                padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
                 letter-spacing: 2px;
             }
 
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: clamp(0.66rem, 2vw, 0.8rem);
                 max-width: 90vw;
+                margin-bottom: clamp(-8vh, -10vw, -7vh);
             }
 
             .guest-section {
                 flex-direction: column;
                 text-align: center;
-                padding: 3rem 1rem;
+                padding: clamp(2rem, 4vw, 3rem) clamp(0.5rem, 2vw, 1rem);
             }
 
             .guest-content {
@@ -1189,7 +1160,7 @@
 
             .guest-image-container {
                 margin-left: 0;
-                margin-bottom: 2rem;
+                margin-bottom: clamp(1rem, 3vw, 2rem);
                 width: 100%;
                 max-width: 380px;
             }
@@ -1200,189 +1171,153 @@
             }
 
             .guest-text {
-                margin-top: -2vh;
+                margin-top: clamp(-3vh, -5vw, -2vh);
                 margin-left: 0;
                 margin-right: 0;
             }
 
             .whatsapp-contact-btn {
-                font-size: 1rem;
-                padding: 0.75rem 1.5rem;
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
             }
 
             .saiba-mais-link {
-                font-size: 2.5vh;
+                font-size: clamp(2vh, 3vw, 2.5vh);
             }
 
             .saiba-mais-arrow {
-                font-size: 2.5vh;
+                font-size: clamp(2vh, 3vw, 2.5vh);
             }
 
             .saiba-mais-container:hover .saiba-mais-link {
-                font-size: 3vh;
+                font-size: clamp(2.5vh, 3.5vw, 3vh);
             }
 
             .quality-features {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: clamp(1rem, 3vw, 2rem);
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: clamp(20px, 5vw, 40px);
             }
 
             .service-image {
-                height: 220px;
+                height: clamp(180px, 40vw, 220px);
             }
 
             .service-title {
-                font-size: 1.5rem;
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
             }
 
             .map-container-guest {
-                height: 350px;
+                height: clamp(250px, 60vw, 350px);
             }
 
             .location-info-guest {
                 position: relative;
                 top: 0;
                 left: 0;
-                margin-top: 20px;
+                margin-top: clamp(15px, 3vw, 20px);
                 max-width: 100%;
             }
 
             .footer-container {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: clamp(1rem, 3vw, 1.5rem);
             }
 
             .footer-section {
                 min-width: auto;
             }
 
-
-
-
-
-
-
-
-
-
-            
-            .hero-subtitle {
-                font-size: 0.66rem;
-                /* margin-top:-2vh; */
-                margin-bottom: -7vh;
-            }
-            #planos-guest .guest-title {
-    margin-top: 2vh !important; /* Reduz o espaçamento */
-}
-    /* Ajustar o margin-top do .guest-title */
-    .guest-title {
-        font-size: 1.8rem;
-        margin-bottom: 2vh;
-        margin-top: 6rem !important; /* Aumentado para garantir espaço abaixo do header */
-    }
-
-
-    /* Garantir que o hero-content tenha espaço suficiente */
-    .hero-content {
-    margin-top: 0.01vh !important; /* Aumenta o espaço do topo */
-    padding: 0.01rem;
-}
-
-   
-
-            
             .guest-section h2 {
-        margin-top: 5vh;
-    }
-     
-            .whatsapp-contact-btn {
-                font-size: 0.8rem;
-                white-space: nowrap;
-                margin-bottom: 1vh;
-                padding: 0.3rem 0.8rem;
+                margin-top: clamp(1vh, 2vw, 2vh);
             }
-            .whatsapp-contact-container .whatsapp-contact-btn {
-                font-size: 1rem;
+
+            .saiba-mais-container {
+                margin-top: clamp(2vh, 3vw, 3vh);
+                margin-bottom: clamp(-4vh, -5vw, -3vh);
             }
-            .saiba-mais-container{
-                margin-top: 3vh;
-                margin-bottom: -3vh;
+
+            .guest-images-grid {
+                margin-bottom: clamp(-50vh, -60vw, -45vh);
             }
-            .saiba-mais-container:hover{
-                color:yellow;
-            }
-           
-            .guest-images-grid{
-                margin-bottom: -45vh ;
-            }
-            .guest-main-title{
+
+            .guest-main-title {
                 text-align: left;
             }
-            .guest-description{
+
+            .guest-description {
                 text-align: justify;
             }
-            .guest-section .whatsapp-contact-btn{
-                font-size: 1.1rem;
-                padding: 0.3rem 0.6rem;
+
+            .guest-section .whatsapp-contact-btn {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.5rem, 1.5vw, 0.6rem);
             }
-            .guest-features{
+
+            .guest-features {
                 text-align: justify;
             }
-            .future-work-badge{
-                margin-left: 59vh;
+
+            .future-work-badge {
+                margin-left: clamp(40vw, 50vw, 59vh);
                 text-align: right;
             }
-            .future-work-container h2{
+
+            .future-work-container h2 {
                 text-align: left;
             }
-            .future-work-description{
+
+            .future-work-description {
                 text-align: justify;
             }
 
-            .quality-section div{
+            .quality-section div {
                 text-align: justify;
             }
 
-            .quality-section h1{
+            .quality-section h1 {
                 text-align: left;
             }
-            .guest-section{
+
+            .guest-section {
                 text-align: justify;
             }
-            .guest-section h2{
-                margin-top:2vh;
-            }
-            .section-description{
+
+            .section-description {
                 text-align: justify;
             }
-            .title-guest-maps{
+
+            .title-guest-maps {
                 text-align: left;
             }
-          .description-guest-maps{
-            text-align: justify;
-          }
-          .btn-location-guest{
-            white-space: nowrap;
-            font-size: 1rem;
-            padding: 0.5vh 0.9vh;
-          }
-          .whatsapp-contact-btn{  
-            font-size: 1.5rem;
-            padding:0.6rem 0.6rem;
-          }
-            .footer-bottom::before {
-                font-size: 3rem;
+
+            .description-guest-maps {
+                text-align: justify;
             }
-            .footer-bottom p{
-                margin-top:6vh;
-                font-size:0.9rem;
+
+            .btn-location-guest {
                 white-space: nowrap;
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.3vh, 1vw, 0.5vh) clamp(0.7vh, 2vw, 0.9vh);
+            }
 
+            .whatsapp-contact-btn {
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.2rem, 1vw, 0.3rem);
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .footer-bottom p {
+                margin-top: clamp(5vh, 8vw, 6vh);
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+                white-space: nowrap;
             }
         }
 
@@ -1414,266 +1349,262 @@
             .nav-links.active .close-btn {
                 display: none;
             }
-            
         }
 
         @media (max-width: 480px) {
             .hero-content {
-                padding: 0.5rem;
+                padding: clamp(0.3rem, 1.5vw, 0.5rem);
             }
 
             .hero-title {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
+                font-size: clamp(1.2rem, 3vw, 1.8rem);
+                margin-bottom: clamp(0.5rem, 2vw, 1rem);
             }
 
             .hero-subtitle {
-                font-size: 1rem;
-                padding: 1vh;
+                font-size: clamp(0.66rem, 2vw, 0.8rem);
+                padding: clamp(0.5vh, 1vw, 1vh);
+                margin-top: clamp(-3vh, -5vw, -2vh);
+                margin-bottom: clamp(-7vh, -10vw, -6vh);
             }
-            .whatsapp-contact-btn{
-                font-size: 1rem;
+
+            .whatsapp-contact-btn {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+                padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
             }
 
             .guest-section {
-                padding: 2rem 1rem;
+                padding: clamp(1.5rem, 4vw, 2rem) clamp(0.5rem, 2vw, 1rem);
             }
 
             .guest-text {
                 margin-top: 0;
             }
 
-            .whatsapp-contact-btn {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
-            }
-
             .future-work-title {
-                font-size: 2.2rem;
+                font-size: clamp(1.8rem, 5vw, 2.2rem);
                 line-height: 1.2;
             }
 
             .future-work-badge {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
+                padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+                font-size: clamp(0.7rem, 2vw, 0.8rem);
             }
 
             .future-work-description {
-                font-size: 1rem;
+                font-size: clamp(0.9rem, 2vw, 1rem);
             }
 
             .quality-main-title {
-                font-size: 1.8rem;
+                font-size: clamp(1.5rem, 4vw, 1.8rem);
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: clamp(1.5rem, 4vw, 2rem);
             }
 
             .nav-links a {
-                font-size: 1rem;
+                font-size: clamp(0.8rem, 2.5vw, 1rem);
             }
 
             .logo h4 {
-                font-size: 1.5rem;
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
             }
 
             .logo img {
-                width: 35px;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.66rem;
-                margin-top:-2vh;
-                margin-bottom: -6vh;
+                width: clamp(30px, 8vw, 35px);
             }
 
             .guest-title {
-                font-size: 1.8rem;
-                margin-bottom: 2vh;
+                font-size: clamp(1.5rem, 4vw, 1.8rem);
+                margin-bottom: clamp(1vh, 2vw, 2vh);
+            }
+
+            .whatsapp-contact-btn span {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+            }
+
+            .saiba-mais-container {
+                margin-top: clamp(2vh, 3vw, 3vh);
+                margin-bottom: clamp(-4vh, -5vw, -3vh);
+            }
+
+            .guest-images-grid {
+                margin-bottom: clamp(-50vh, -60vw, -45vh);
+            }
+
+            .guest-main-title {
+                text-align: left;
+            }
+
+            .guest-description {
+                text-align: justify;
+            }
+
+            .guest-features {
+                text-align: justify;
+            }
+
+            .future-work-badge {
+                margin-left: clamp(30vw, 40vw, 48vh);
+                text-align: right;
+            }
+
+            .future-work-container h2 {
+                text-align: left;
+            }
+
+            .future-work-description {
+                text-align: justify;
+            }
+
+            .quality-section div {
+                text-align: justify;
+            }
+
+            .quality-section h1 {
+                text-align: left;
+            }
+
+            .guest-section {
+                text-align: justify;
+            }
+
+            .section-description {
+                text-align: justify;
+            }
+
+            .title-guest-maps {
+                text-align: left;
+            }
+
+            .description-guest-maps {
+                text-align: justify;
+            }
+
+            .btn-location-guest {
+                white-space: nowrap;
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.3vh, 1vw, 0.5vh) clamp(0.7vh, 2vw, 0.9vh);
             }
 
             .whatsapp-contact-btn {
-                font-size: 0.8rem;
-                white-space: nowrap;
-                margin-bottom: 2vh;
-                padding: 0.3rem 0.8rem;
-            }
-            .whatsapp-contact-container .whatsapp-contact-btn {
-                font-size: 1rem;
-            }
-            .saiba-mais-container{
-                margin-top: 3vh;
-                margin-bottom: -3vh;
-            }
-            .saiba-mais-container:hover{
-                color:yellow;
-            }
-           
-            .guest-images-grid{
-                margin-bottom: -45vh ;
-            }
-            .guest-main-title{
-                text-align: left;
-            }
-            .guest-description{
-                text-align: justify;
-            }
-            .guest-section .whatsapp-contact-btn{
-                font-size: 1.1rem;
-                padding: 0.3rem 0.6rem;
-            }
-            .guest-features{
-                text-align: justify;
-            }
-            .future-work-badge{
-                margin-left: 48vh;
-                text-align: right;
-            }
-            .future-work-container h2{
-                text-align: left;
-            }
-            .future-work-description{
-                text-align: justify;
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.2rem, 1vw, 0.3rem);
             }
 
-            .quality-section div{
-                text-align: justify;
-            }
-
-            .quality-section h1{
-                text-align: left;
-            }
-            .guest-section{
-                text-align: justify;
-            }
-            .guest-section h2{
-                margin-top:2vh;
-            }
-            .section-description{
-                text-align: justify;
-            }
-            .title-guest-maps{
-                text-align: left;
-            }
-          .description-guest-maps{
-            text-align: justify;
-          }
-          .btn-location-guest{
-            white-space: nowrap;
-            font-size: 1rem;
-            padding: 0.5vh 0.9vh;
-          }
-          .whatsapp-contact-btn{  
-            padding:0.3rem 0.3rem;
-          }
             .footer-bottom::before {
-                font-size: 2rem;
+                font-size: clamp(1.5rem, 6vw, 2rem);
             }
-            .footer-bottom p{
-                margin-top:6vh;
-                font-size:0.9rem;
-                white-space: nowrap;
 
+            .footer-bottom p {
+                margin-top: clamp(5vh, 8vw, 6vh);
+                font-size: clamp(0.7rem, 2vw, 0.9rem);
+                white-space: nowrap;
             }
         }
 
         @media (max-width: 360px) {
             .hero-title {
-                font-size: 1rem;
-                margin-top:2vh;
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                margin-top: clamp(1vh, 2vw, 2vh);
             }
 
             .hero-subtitle {
-                font-size: 0.66rem;
-                margin-top:-2vh;
-                margin-bottom: -6vh;
+                font-size: clamp(0.5rem, 2vw, 0.66rem);
+                margin-top: clamp(-3vh, -5vw, -2vh);
+                margin-bottom: clamp(-7vh, -10vw, -6vh);
             }
 
             .guest-title {
-                font-size: 1.8rem;
-                margin-bottom: 2vh;
+                font-size: clamp(1.2rem, 3vw, 1.8rem);
+                margin-bottom: clamp(1vh, 2vw, 2vh);
             }
 
             .whatsapp-contact-btn {
-                font-size: 0.8rem;
-                white-space: nowrap;
-                margin-bottom: 2vh;
-                padding: 0.3rem 0.8rem;
+                font-size: clamp(0.7rem, 2vw, 0.8rem);
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.5rem, 1.5vw, 0.8rem);
             }
-            .whatsapp-contact-btn span{
-                font-size: 0.9rem;
+
+            .whatsapp-contact-btn span {
+                font-size: clamp(0.7rem, 2vw, 0.9rem);
             }
-            .saiba-mais-container{
-                margin-top: 3vh;
-                margin-bottom: -3vh;
+
+            .saiba-mais-container {
+                margin-top: clamp(2vh, 3vw, 3vh);
+                margin-bottom: clamp(-4vh, -5vw, -3vh);
             }
-            .saiba-mais-container:hover{
-                color:yellow;
+
+            .guest-images-grid {
+                margin-bottom: clamp(-50vh, -60vw, -45vh);
             }
-           
-            .guest-images-grid{
-                margin-bottom: -45vh ;
-            }
-            .guest-main-title{
+
+            .guest-main-title {
                 text-align: left;
             }
-            .guest-description{
+
+            .guest-description {
                 text-align: justify;
             }
-            .guest-features{
+
+            .guest-features {
                 text-align: justify;
             }
-            .future-work-badge{
-                margin-left: 15vh;
+
+            .future-work-badge {
+                margin-left: clamp(10vw, 20vw, 15vh);
                 text-align: right;
             }
-            .future-work-container h2{
+
+            .future-work-container h2 {
                 text-align: left;
             }
-            .future-work-description{
+
+            .future-work-description {
                 text-align: justify;
             }
 
-            .quality-section div{
+            .quality-section div {
                 text-align: justify;
             }
 
-            .quality-section h1{
+            .quality-section h1 {
                 text-align: left;
             }
-            .guest-section{
+
+            .guest-section {
                 text-align: justify;
             }
-            .guest-section h2{
-                margin-top:2vh;
-            }
-            .section-description{
+
+            .section-description {
                 text-align: justify;
             }
-            .title-guest-maps{
+
+            .title-guest-maps {
                 text-align: left;
             }
-          .description-guest-maps{
-            text-align: justify;
-          }
-          .btn-location-guest{
-            white-space: nowrap;
-            font-size: 1rem;
-            padding: 0.5vh 0.9vh;
-          }
-          .whatsapp-contact-btn{
-            
-            padding:0.3rem 0.3rem;
-          }
-            .footer-bottom::before {
-                font-size: 5vh;
+
+            .description-guest-maps {
+                text-align: justify;
             }
-            .footer-bottom p{
-                margin-top:6vh;
-                font-size:0.6rem;
+
+            .btn-location-guest {
                 white-space: nowrap;
+                font-size: clamp(0.7rem, 2vw, 1rem);
+                padding: clamp(0.3vh, 1vw, 0.5vh) clamp(0.7vh, 2vw, 0.9vh);
+            }
 
+            .whatsapp-contact-btn {
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.2rem, 1vw, 0.3rem);
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(3vh, 8vw, 5vh);
+            }
+
+            .footer-bottom p {
+                margin-top: clamp(5vh, 8vw, 6vh);
+                font-size: clamp(0.5rem, 2vw, 0.6rem);
+                white-space: nowrap;
             }
         }
 
@@ -2009,21 +1940,25 @@
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-section">
-                <h4>Horário</h4>
-                <p>Segunda a Sexta: 10h - 20h</p>
-                <p>Sábado: 10h - 18h</p>
-                <p>Domingo: Fechado</p>
+                <h4>Navegação</h4>
+                <p><a href="index.html" class="guest-a">Home</a></p>
+                <p><a href="index.html" class="guest-a">Sobre Nós</a></p>
+                <p><a href="index.html" class="guest-a">Galeria</a></p>
+                <p><a href="index.html" class="guest-a">Feedbacks</a></p>
+                <p><a href="tatuadores.html" class="guest-a">Tatuadores</a></p>
+                <p><a href="blog.com" class="guest-a">Blog</a></p>
+                <p><a href="contato.html" class="guest-a">Contato</a></p>
+                <p><a href="guest.html" class="guest-a">Guest</a></p>
             </div>
             <div class="footer-section">
-                <h4>Trabalhe Conosco</h4>
-                <p>Envie seu portfólio para: jobs@yellowink.com</p>
-                <p>Ou seja um <a href="#" class="guest-a">Guest</a></p>
-                <p>Confira nossas vagas abertas!</p>
-                <p><a href="#" class="saibamais-a">Saiba mais</a></p>
+                <h4>Saiba Mais</h4>
+                <p><a href="#coworking-guest" class="saibamais-a">Coworking</a></p>
+                <p><a href="#planos-guest" class="saibamais-a">Planos Guest</a></p>
+                <p><a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20trabalhar%20na%20Yellow%20Ink!" class="saibamais-a" target="_blank">Trabalhe Conosco</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -2031,59 +1966,55 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const closeBtn = document.getElementById('closeBtn');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            hamburger.style.display = navLinks.classList.contains('active') ? 'none' : 'block';
         });
 
-        // Reset mobile menu on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                hamburger.textContent = '☰';
-            }
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.style.display = 'block';
         });
 
-        // Smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth Scroll for Saiba Mais
+        document.querySelectorAll('.saiba-mais-link').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    navLinks.classList.remove('active');
-                    hamburger.textContent = '☰';
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
 
-        // IntersectionObserver for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        // Fade-in Animation on Scroll
+        const faders = document.querySelectorAll('.fade-in-up');
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in-up');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, appearOptions);
 
-        document.querySelectorAll('.hero-title, .hero-subtitle, .guest-title, .whatsapp-contact-btn, .saiba-mais-link, .saiba-mais-arrow').forEach(el => {
-            observer.observe(el);
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

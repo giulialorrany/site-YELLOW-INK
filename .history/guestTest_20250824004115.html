@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest - Yellow Ink</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <style>
+        :root {
+            --primary-yellow: #D4AF37;
+            --secondary-yellow: #F4E4BC;
+            --accent-yellow: #B8860B;
+            --marble-white: #F8F8FF;
+            --stone-gray: #696969;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Navegação */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-yellow);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-family: 'League Spartan', sans-serif;
+            color: #1A1A1A;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo h4 {
+            font-size: clamp(1.5rem, 4.9vh, 2.5rem);
+            font-weight: 700;
+        }
+
+        .logo h4 span {
+            background: #eaee0f;
+            padding: 0.7vh 0.5vh 0vh 0.7vh;
+        }
+
+        .logo.hidden {
+            display: none;
+        }
+
+        .logo img {
+            width: clamp(30px, 45px, 50px);
+            margin-bottom: 0.5vh;
+            padding-bottom: 10px;
+        }
+
+ Cómo generar el UUID único para el artifact_id
+
+Para generar un UUID único para el `artifact_id` en el tag `<xaiArtifact>`, puedes usar una herramienta o biblioteca que genere UUIDs version 4 (aleatorios). Aquí tienes algunas opciones para generar un UUID válido:
+
+### 1. **Usar una herramienta online**
+   - Sitios como [uuidgenerator.net](https://www.uuidgenerator.net/) o [uuid.tools](https://uuid.tools/) te permiten generar UUIDs rápidamente.
+   - Ejemplo de UUID generado: `e8e616e0-d894-4936-a3f5-391682ee794c`
+
+### 2. **Usar JavaScript (en el navegador o Node.js)**
+   Si estás trabajando en un entorno con JavaScript, puedes generar un UUID usando la biblioteca `uuid` o una función personalizada. Aquí un ejemplo con la biblioteca `uuid`:
+
+   ```bash
+   npm install uuid
+   ```
+
+   ```javascript
+   const { v4: uuidv4 } = require('uuid');
+   console.log(uuidv4()); // Ejemplo: e8e616e0-d894-4936-a3f5-391682ee794c
+   ```
+
+   O, sin dependencias, una función simple para generar un UUID v4:
+
+   ```javascript
+   function generateUUID() {
+       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+           const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+           return v.toString(16);
+       });
+   }
+   console.log(generateUUID()); // Ejemplo: a1b2c3d4-e5f6-4g7h-8i9j-0k1l2m3n4o5p
+   ```
+
+### 3. **Usar Python**
+   Si prefieres Python, el módulo `uuid` está integrado en la biblioteca estándar:
+
+   ```python
+   import uuid
+   print(uuid.uuid4()) # Ejemplo: e8e616e0-d894-4936-a3f5-391682ee794c
+   ```
+
+### 4. **Usar un comando en la terminal**
+   En sistemas Unix/Linux/MacOS, puedes usar el comando `uuidgen`:
+
+   ```bash
+   uuidgen
+   # Ejemplo de salida: e8e616e0-d894-4936-a3f5-391682ee794c
+   ```
+
+### 5. **Usar PHP**
+   Si trabajas con PHP, puedes usar la función `uniqid` o una biblioteca como `ramsey/uuid`:
+
+   ```bash
+   composer require ramsey/uuid
+   ```
+
+   ```php
+   require 'vendor/autoload.php';
+   use Ramsey\Uuid\Uuid;
+   $uuid = Uuid::uuid4();
+   echo $uuid->toString(); // Ejemplo: e8e616e0-d894-4936-a3f5-391682ee794c
+   ```
+
+### Consideraciones
+- **Unicidad**: Asegúrate de que el `artifact_id` sea único para cada nuevo artefacto. Si estás modificando un artefacto existente, reutiliza el mismo `artifact_id` como se indica en las instrucciones.
+- **Formato**: Un UUID válido sigue el formato `8-4-4-4-12` (por ejemplo, `e8e616e0-d894-4936-a3f5-391682ee794c`).
+- **Herramientas locales**: Si necesitas generar UUIDs frecuentemente, considera instalar una biblioteca como `uuid` en tu entorno de desarrollo para automatizar el proceso.
+
+En el caso del código proporcionado, el `artifact_id` usado (`e8e616e0-d894-4936-a3f5-391682ee794c`) es un ejemplo válido. Si necesitas un nuevo UUID para otro artefacto, usa una de las herramientas o métodos anteriores para generar uno único.

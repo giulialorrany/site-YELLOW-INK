@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Yellow Ink - Estúdio de Tatuagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-yellow: #D4AF37;
+            --secondary-yellow: #F4E4BC;
+            --accent-yellow: #B8860B;
+            --marble-white: #F8F8FF;
+            --stone-gray: #696969;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            min-width: 240px;
+        }
+
+        /* NAVEGAÇÃO - VERSÃO LIMPA E CORRIGIDA */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-yellow);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+            min-height: 60px;
+        }
+
+        .logo {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 4.9vh;
+            color: #1A1A1A;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding-top: 0.5rem;
+        }
+
+        .logo h4 span {
+            background: #eaee0f;
+            padding: .7vh .5vh 0 .7vh;
+        }
+
+        .logo img {
+            width: clamp(25px, 45px, 60px); 
+            height: auto;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        /* NAVEGAÇÃO DESKTOP */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            padding-right: 4vh;
+        }
+
+        .nav-links a {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #f7de8d;
+            font-weight: 700;
+        }
+
+        .nav-links a.active::before {
+            width: 100%;
+            background: #f7de8d;
+        }
+
+        /* BOTÃO HAMBÚRGUER - OCULTO NO DESKTOP */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+            border-radius: 4px;
+            align-self: center;
+        }
+
+        .hamburger:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* BOTÃO FECHAR - OCULTO POR PADRÃO */
+        .close-btn {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .close-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            margin-top: 0 !important;
+            padding-top: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #d4af37cb;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+            scroll-margin-top: 70px;
+            padding: 2rem 1rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 1000px;
+            position: relative;
+            z-index: 2;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .hero-image {
+            width: 30vh;
+            min-width: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 0;
+            margin-bottom: 2vh;
+            flex-shrink: 0;
+        }
+
+        .yellow-fotocircle {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 50vh;
+            flex: 1;
+        }
+
+        .hero-title {
+            color: #a57704;
+            padding: 1.5rem 3rem;
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 0;
+            display: inline-block;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hero-subtitle {
+            text-align: center;
+            font-size: 38px;
+            color: #1A1A1A;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hero-subtitle .line-1 {
+            width: 80vh;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-subtitle .line-2 {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            min-height: 80vh;
+        }
+
+        .contact-info-section {
+            background: #fff;
+            color: #1A1A1A;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top: 1px solid var(--primary-yellow);
+            margin-bottom: 18vh;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            margin-top: 10vh;
+            margin-bottom: 8vh;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 80px;
+            height: 4px;
+            background: currentColor;
+            transform: translateX(-50%);
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: auto;
+            width: 100%;
+        }
+
+        .contact-info-insta {
+            max-width: 50vh;
+            margin: auto;
+            width: 100%;
+        }
+
+        .instagram-featured {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            transition: var(--transition);
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .instagram-featured:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .instagram-photo {
+            width: 40vh;
+            height: 50vh;
+            min-width: 200px;
+            min-height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border: 1px solid var(--primary-yellow);
+            background: var(--secondary-yellow);
+            position: relative;
+        }
+
+        .instagram-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-yellow);
+        }
+
+        .instagram-content {
+            text-align: center;
+        }
+
+        .instagram-content .info-icon {
+            font-size: 3rem;
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .instagram-content h3 {
+            color: #000000;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-family: 'League Spartan', sans-serif;
+            position: relative;
+        }
+
+        .instagram-content h3::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-yellow);
+        }
+
+        .instagram-content p {
+            color: #000000;
+            font-weight: 600;
+            font-size: 1.2rem;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .contact-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 10px;
+            transition: var(--transition);
+            border: 2px solid var(--primary-yellow);
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            margin-right: 1.5rem;
+            color: var(--primary-yellow);
+            width: 60px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            color: #000000;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .info-content p {
+            color: #000000;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Quicksand', sans-serif;
+            word-break: break-word;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .map-title {
+            color: var(--primary-yellow);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--secondary-yellow);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 11vh;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-yellow);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--primary-yellow);
+            position: relative;
+            overflow: hidden;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .map-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Hours Section */
+        .hours-section {
+            background: #d4af37cb;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hours-title {
+            color: #000000cb;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hours-item {
+            background: #fff;
+            color: #444444ce;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 3px solid var(--primary-yellow);
+            transition: var(--transition);
+        }
+
+        .hours-item h3 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hours-item p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .agendeContato {
+            font-size: 2.5vh;
+            margin-top: 4vh;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #25d3659a;
+            border: 2px solid #1DA851;
+            border-radius: 4vh;
+            color: #fff;
+            font-weight: 700;
+            font-family: 'League Spartan', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .agendeContato:hover {
+            background: #1DA851;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-yellow);
+            color: #FFFFFF;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section .social-links a {
+            color: #FFFFFF;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-section .social-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .guest-a, .saibamais-a {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+        .saibamais-a {
+            text-decoration: underline;
+        }
+
+        .guest-a:hover, .saibamais-a:hover {
+            color: #1A1A1A;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            margin-bottom: 0.8vh;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.8rem;
+            color: #FFF;
+            position: relative;
+            overflow: visible;
+            min-height: 4.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            min-height: 5.5rem;
+        }
+        
+        .footer-bottom::before {
+            content: "YELLOW INK.";
+            position: absolute;
+            margin-top: 2rem;
+            bottom: 2vh;
+            left: 9vh;
+            transform: translate(0, 50%);
+            font-family: 'League Spartan', sans-serif; 
+            font-size: 17vh;
+            font-weight: 700;
+            color: rgba(230, 241, 80, 0.301);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        .footer-bottom p {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            z-index: 1;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-size: 3vh;
+            border-radius: 5px;
+            white-space: nowrap;
+        }        
+
+        /* ============ MEDIA QUERIES CORRIGIDAS ============ */
+
+        /* TABLET (1024px and below) */
+        @media (max-width: 1024px) {
+            .hero-content {
+                max-width: 800px;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+
+            .hero-image {
+                width: 25vh;
+                min-width: 130px;
+            }
+
+            .hero-text {
+                margin-left: 0;
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                padding: 1.2rem 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 32px;
+            }
+
+            .hero-subtitle .line-1 {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-info {
+                max-width: 500px;
+            }
+
+            .contact-info-insta {
+                max-width: 45vh;
+            }
+
+            .instagram-photo {
+                width: 35vh;
+                height: 45vh;
+                min-width: 180px;
+                min-height: 230px;
+            }
+        }
+
+        /* MOBILE (768px and below) */
+        @media (max-width: 768px) {
+            /* MOSTRAR HAMBÚRGUER EM MOBILE */
+            .hamburger {
+                display: block !important;
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+
+            /* OCULTAR MENU DESKTOP */
+            .nav-links {
+                display: none;
+            }
+
+            /* MENU MOBILE ATIVO */
+            .nav-links.active {
+                display: flex !important;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 80%;
+                max-width: 280px;
+                height: 100vh;
+                background: var(--marble-white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+                z-index: 1001;
+                gap: 1.5rem;
+            }
+
+            /* MOSTRAR BOTÃO FECHAR QUANDO MENU ATIVO */
+            .nav-links.active .close-btn {
+                display: block !important;
+            }
+
+            .nav-links.active a {
+                font-size: 1.1rem;
+                padding: 1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hero {
+                min-height: 50vh;
+                margin-top: 70px;
+                padding: 1rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                max-width: 95%;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                width: 20vh;
+                min-width: 120px;
+                margin: 0 auto;
+                margin-bottom: 1rem;
+            }
+
+            .hero-text {
+                margin-left: 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                padding: 1rem 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .hero-subtitle .line-1,
+            .hero-subtitle .line-2 {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-info-section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-top: 8vh;
+                margin-bottom: 6vh;
+            }
+
+            .section-title::after {
+                width: 60px;
+                height: 3px;
+            }
+
+            .contact-info {
+                max-width: 100%;
+            }
+
+            .contact-info-insta {
+                max-width: 100%;
+            }
+
+            .instagram-featured {
+                padding: 1.5rem;
+            }
+
+            .instagram-photo {
+                width: 30vh;
+                height: 40vh;
+                min-width: 150px;
+                min-height: 200px;
+            }
+
+            .instagram-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .instagram-content p {
+                font-size: 1rem;
+            }
+
+            .info-item {
+                padding: 1rem;
+                border-radius: 8px;
+                flex-direction: row;
+                text-align: left;
+                gap: 1rem;
+            }
+
+            .info-icon {
+                font-size: 1.5rem;
+                width: 40px;
+                margin-right: 1rem;
+                margin-bottom: 0;
+            }
+
+            .info-content h3 {
+                font-size: 1rem;
+            }
+
+            .info-content p {
+                font-size: 0.9rem;
+            }
+
+            .map-section {
+                padding: 2rem 1rem;
+            }
+
+            .map-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+                letter-spacing: 2px;
+            }
+
+            .map-container {
+                padding: 1rem;
+                border-radius: 10px;
+                margin-bottom: 8vh;
+            }
+
+            .map-placeholder {
+                height: 300px;
+                font-size: 1.2rem;
+                letter-spacing: 1.5px;
+            }
+
+            .hours-section {
+                padding: 2rem 1rem;
+            }
+
+            .hours-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hours-grid {
+                max-width: 100%;
+                gap: 1rem;
+            }
+
+            .hours-item {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            .hours-item h3 {
+                font-size: 1rem;
+            }
+
+            .hours-item p {
+                font-size: 1rem;
+            }
+
+            .agendeContato {
+                font-size: 2vh;
+                padding: 0.5rem 1rem;
+                margin-top: 2vh;
+                border-radius: 2vh;
+            }
+
+            footer {
+                padding: 2rem 1rem 1rem;
+            }
+
+            .footer-container {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .footer-section h4 {
+                font-size: 1.2rem;
+            }
+
+            .footer-section p {
+                font-size: 0.8rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 1rem;
+                margin: 0 0.3rem;
+            }
+
+            .footer-bottom {
+                min-height: 3rem;
+                font-size: 0.7rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 10vh;
+                left: 5vh;
+            }
+
+            .footer-bottom p {
+                font-size: 2vh;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+        /* SMALL MOBILE (400px and below) */
+        @media (max-width: 400px) {
+            body {
+                font-size: 13px;
+            }
+
+            .nav-container {
+                padding: 0 0.4rem;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hamburger {
+                margin-right: 0.4rem;
+                font-size: 1.1rem;
+                padding: 0.3rem;
+            }
+
+            .logo {
+                font-size: 3.2vh;
+            }
+
+            .logo img {
+                width: clamp(18px, 32px, 38px);
+            }
+
+            .nav-links.active {
+                width: 100%;
+                max-width: none;
+            }
+
+            .nav-links.active a {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+
+            .close-btn {
+                font-size: 1.1rem;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+
+            .hero {
+                min-height: 45vh;
+                padding: 0.8rem;
+            }
+
+            .hero-content {
+                gap: 0.8rem;
+            }
+
+            .hero-image {
+                width: 18vh;
+                min-width: 110px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+                padding: 0.9rem 1.8rem;
+                letter-spacing: 1.8px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .contact-info-section {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin-top: 7vh;
+                margin-bottom: 5vh;
+            }
+
+            .section-title::after {
+                width: 55px;
+                height: 2px;
+            }
+
+            .contact-info {
+                padding: 0 0.8rem;
+            }
+
+            .contact-info-insta {
+                max-width: 95%;
+            }
+
+            .instagram-featured {
+                padding: 1.2rem;
+            }
+
+            .instagram-photo {
+                width: 28vh;
+                height: 35vh;
+                min-width: 140px;
+                min-height: 180px;
+            }
+
+            .instagram-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .instagram-content p {
+                font-size: 0.95rem;
+            }
+
+            .info-item {
+                padding: 0.9rem;
+                border-radius: 7px;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+
+            .info-icon {
+                font-size: 1.3rem;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.6rem;
+            }
+
+            .info-content h3 {
+                font-size: 0.95rem;
+            }
+
+            .info-content p {
+                font-size: 0.85rem;
+            }
+
+            .map-section {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .map-title {
+                font-size: 1.6rem;
+                margin-bottom: 1.2rem;
+                letter-spacing: 1.8px;
+            }
+
+            .map-container {
+                padding: 0.8rem;
+                border-radius: 9px;
+                margin-bottom: 7vh;
+            }
+
+            .map-placeholder {
+                height: 250px;
+                font-size: 1.1rem;
+                letter-spacing: 1.2px;
+            }
+
+            .hours-section {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .hours-title {
+                font-size: 1.6rem;
+                margin-bottom: 1.8rem;
+                letter-spacing: 1.8px;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .hours-item {
+                padding: 0.9rem;
+                border-radius: 7px;
+            }
+
+            .hours-item h3 {
+                font-size: 0.95rem;
+            }
+
+            .hours-item p {
+                font-size: 0.95rem;
+            }
+
+            .agendeContato {
+                font-size: 1.9vh;
+                padding: 0.45rem 0.9rem;
+                margin-top: 1.8vh;
+                border-radius: 1.8vh;
+            }
+
+            footer {
+                padding: 1.5rem 0.8rem 0.8rem;
+            }
+
+            .footer-container {
+                padding: 0 0.8rem;
+                gap: 0.9rem;
+            }
+
+            .footer-section {
+                min-width: 140px;
+            }
+
+            .footer-section h4 {
+                font-size: 1.1rem;
+            }
+
+            .footer-section p {
+                font-size: 0.75rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 0.95rem;
+                margin: 0 0.25rem;
+            }
+
+            .footer-bottom {
+                min-height: 2.8rem;
+                font-size: 0.65rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 9vh;
+                left: 3vh;
+            }
+
+            .footer-bottom p {
+                font-size: 1.9vh;
+                padding: 0.25rem 0.5rem;
+            }
+        }
+
+        /* SMALL MOBILE (360px and below) */
+        @media (max-width: 360px) {
+            body {
+                font-size: 12px;
+            }
+
+            .nav-container {
+                padding: 0 0.3rem;
+            }
+
+            .hamburger {
+                margin-right: 0.3rem;
+                font-size: 1rem;
+            }
+
+            .logo {
+                font-size: 3vh;
+            }
+
+            .logo img {
+                width: clamp(15px, 30px, 35px);
+            }
+
+            .nav-links.active a {
+                font-size: 0.9rem;
+                padding: 0.6rem;
+            }
+
+            .close-btn {
+                font-size: 1rem;
+            }
+
+            .hero {
+                min-height: 35vh;
+                padding: 0.3rem;
+            }
+
+            .hero-image {
+                width: 12vh;
+                min-width: 80px;
+            }
+
+            .hero-title {
+                font-size: 1.2rem;
+                padding: 0.6rem 1rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+                margin-top: 5vh;
+                margin-bottom: 3vh;
+            }
+
+            .section-title::after {
+                width: 40px;
+                height: 2px;
+            }
+
+            .instagram-photo {
+                width: 20vh;
+                height: 25vh;
+                min-width: 100px;
+                min-height: 120px;
+            }
+
+            .instagram-content h3 {
+                font-size: 0.9rem;
+            }
+
+            .instagram-content p {
+                font-size: 0.8rem;
+            }
+
+            .info-item {
+                padding: 0.6rem;
+                border-radius: 5px;
+            }
+
+            .info-icon {
+                font-size: 1rem;
+            }
+
+            .info-content h3 {
+                font-size: 0.8rem;
+            }
+
+            .info-content p {
+                font-size: 0.7rem;
+            }
+
+            .map-title {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .map-placeholder {
+                height: 150px;
+                font-size: 0.8rem;
+                letter-spacing: 0.8px;
+            }
+
+            .hours-title {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .hours-item {
+                padding: 0.6rem;
+            }
+
+            .hours-item h3 {
+                font-size: 0.8rem;
+            }
+
+            .hours-item p {
+                font-size: 0.8rem;
+            }
+
+            .agendeContato {
+                font-size: 1.5vh;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .footer-section {
+                min-width: 120px;
+            }
+
+            .footer-section h4 {
+                font-size: 0.9rem;
+            }
+
+            .footer-section p {
+                font-size: 0.6rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 0.8rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 6vh;
+                left: 1vh;
+            }
+
+            .footer-bottom p {
+                font-size: 1.5vh;
+                padding: 0.15rem 0.3rem;
+            }
+        }
+
+        /* ULTRA SMALL MOBILE (240px and below) */
+        @media (max-width: 240px) {
+            body {
+                font-size: 10px;
+            }
+
+            .nav-container {
+                padding: 0 0.2rem;
+            }
+
+            .hamburger {
+                margin-right: 0.2rem;
+                font-size: 0.9rem;
+                padding: 0.2rem;
+            }
+
+            .logo {
+                font-size: 2.5vh;
+            }
+
+            .logo img {
+                width: clamp(12px, 25px, 30px);
+            }
+
+            .nav-links.active a {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+            }
+
+            .close-btn {
+                font-size: 0.9rem;
+                top: 0.3rem;
+                right: 0.3rem;
+            }
+
+            .hero {
+                min-height: 30vh;
+                padding: 0.2rem;
+            }
+
+            .hero-image {
+                width: 10vh;
+                min-width: 60px;
+            }
+
+            .hero-title {
+                font-size: 1rem;
+                padding: 0.5rem 0.8rem;
+                letter-spacing: 0.8px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1rem;
+                margin-top: 4vh;
+                margin-bottom: 2vh;
+            }
+
+            .section-title::after {
+                width: 30px;
+                height: 1px;
+            }
+
+            .instagram-photo {
+                width: 15vh;
+                height: 20vh;
+                min-width: 80px;
+                min-height: 100px;
+            }
+
+            .instagram-content h3 {
+                font-size: 0.8rem;
+            }
+
+            .instagram-content p {
+                font-size: 0.7rem;
+            }
+
+            .info-item {
+                padding: 0.5rem;
+                border-radius: 4px;
+            }
+
+            .info-icon {
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .info-content h3 {
+                font-size: 0.7rem;
+            }
+
+            .info-content p {
+                font-size: 0.6rem;
+            }
+
+            .map-section {
+                padding: 0.5rem 0.3rem;
+            }
+
+            .map-title {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+                letter-spacing: 0.8px;
+            }
+
+            .map-container {
+                padding: 0.3rem;
+                border-radius: 6px;
+                margin-bottom: 4vh;
+            }
+
+            .map-placeholder {
+                height: 120px;
+                font-size: 0.7rem;
+                letter-spacing: 0.5px;
+            }
+
+            .hours-section {
+                padding: 0.5rem 0.3rem;
+            }
+
+            .hours-title {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                letter-spacing: 0.8px;
+            }
+
+            .hours-grid {
+                gap: 0.5rem;
+            }
+
+            .hours-item {
+                padding: 0.5rem;
+                border-radius: 5px;
+            }
+
+            .hours-item h3 {
+                font-size: 0.7rem;
+            }
+
+            .hours-item p {
+                font-size: 0.7rem;
+            }
+
+            .agendeContato {
+                font-size: 1.2vh;
+                padding: 0.2rem 0.5rem;
+                margin-top: 1vh;
+                border-radius: 1vh;
+            }
+
+            footer {
+                padding: 0.5rem 0.3rem 0.3rem;
+            }
+
+            .footer-container {
+                padding: 0 0.3rem;
+                gap: 0.5rem;
+            }
+
+            .footer-section {
+                min-width: 100px;
+            }
+
+            .footer-section h4 {
+                font-size: 0.8rem;
+            }
+
+            .footer-section p {
+                font-size: 0.5rem;
+            }
+
+            .footer-section .social-links a {
+                font-size: 0.7rem;
+                margin: 0 0.1rem;
+            }
+
+            .footer-bottom {
+                min-height: 2rem;
+                font-size: 0.5rem;
+            }
+
+            .footer-bottom::before {
+                font-size: 5vh;
+                left: 0.5vh;
+            }
+
+            .footer-bottom p {
+                font-size: 1.2vh;
+                padding: 0.1rem 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span><img src="img/plantaof.png" alt="Logo Yellow Ink" onerror="this.src='https://via.placeholder.com/45x45/D4AF37/000000?text=YI'"></span>
+                <h4>YELLOW<span>INK</span></h4>
+            </a>
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <button class="close-btn" id="closeBtn">✕</button>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="index.html#galeria">Galeria</a></li>
+                <li><a href="index.html#feedbacks">Feedbacks</a></li>
+                <li><a href="tatuadores.html">Tatuadores</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+                <li><a href="guest.html">Guest</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="contato">
+        <div class="hero-content">
+            <div class="hero-title fade-in-up">CONTATO</div>
+            <div class="hero-text">
+                <h2 class="hero-subtitle fade-in-up">
+                    <span class="line-1">Fale conosco</span>
+                    <span class="line-2">e tire suas dúvidas</span>
+                </h2>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Contact Info Section -->
+        <section class="contact-info-section">
+            <h2 class="section-title">Informações de Contato</h2>
+            <div class="contact-info">
+                <!-- Instagram em destaque -->
+                <div class="instagram-featured fade-in-up contact-info-insta">
+                    <div class="hero-image fade-in-up">
+                        <img class="yellow-fotocircle" src="img/yellow-fotocircle.jpeg" alt="Imagem de contato" onerror="this.src='https://via.placeholder.com/200x250/D4AF37/000000?text=Yellow+Ink'">
+                    </div>
+                    <div class="instagram-content">
+                        <h3>Redes Sociais</h3>
+                        <p>@yellowink_tattoo</p>
+                    </div>
+                </div>
+
+                <!-- Coluna com outros contatos -->
+                <div class="contact-column">
+                    <div class="info-item fade-in-up">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <h3>Endereço</h3>
+                            <p>JK Shopping - Brasília DF</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item fade-in-up">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info-content">
+                            <h3>Telefone</h3>
+                            <p>+55 61 1234-5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item fade-in-up">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-content">
+                            <h3>E-mail</h3>
+                            <p>info@yellowink.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hours Section -->
+    <section class="hours-section">
+        <h2 class="hours-title">Horário de Funcionamento</h2>
+        <div class="hours-grid">
+            <div class="hours-item">
+                <h3>Segunda a Sexta</h3>
+                <p>10:00 - 20:00</p>
+            </div>
+            <div class="hours-item">
+                <h3>Sábado</h3>
+                <p>10:00 - 18:00</p>
+            </div>
+            <div class="hours-item">
+                <h3>Domingo</h3>
+                <p>Fechado</p>
+            </div>
+        </div>
+        <a href="https://wa.me/5561123456789" class="agendeContato" target="_blank">
+            <i class="fab fa-whatsapp"></i> Agende um horário
+        </a>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2 class="map-title">Localização</h2>
+        <div class="map-container">
+            <div class="map-placeholder">
+                <div class="map-text">
+                    <i class="fas fa-map"></i> Mapa Interativo<br>
+                    JK Shopping - Brasília DF
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: info@yellowink.com</p>
+                <p>Telefone: +55 61 1234-5678</p>
+                <p>Endereço: JK Shopping - Brasília DF</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Horário</h4>
+                <p>Segunda a Sexta: 10h - 20h</p>
+                <p>Sábado: 10h - 18h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+            <div class="footer-section">
+                <h4>Trabalhe Conosco</h4>
+                <p>Envie seu portfólio para: jobs@yellowink.com</p>
+                <p>Ou seja um <a href="guest.html" class="guest-a">Guest</a></p>
+                <p>Confira nossas vagas abertas!</p>
+                <p><a href="#" class="saibamais-a">Saiba mais</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yellow Ink. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Selecionar elementos
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // Função para abrir menu mobile
+        function openMobileMenu() {
+            navLinks.classList.add('active');
+            hamburger.style.display = 'none';
+            document.body.style.overflow = 'hidden'; // Previne scroll quando menu aberto
+        }
+
+        // Função para fechar menu mobile
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            hamburger.style.display = 'block';
+            document.body.style.overflow = 'auto'; // Restaura scroll
+        }
+
+        // Event listeners
+        hamburger.addEventListener('click', openMobileMenu);
+        closeBtn.addEventListener('click', closeMobileMenu);
+
+        // Fechar menu ao clicar em um link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Fechar menu ao clicar fora dele
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Resetar menu ao redimensionar para desktop
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+                hamburger.style.display = 'none'; // Ocultar no desktop
+            } else {
+                if (!navLinks.classList.contains('active')) {
+                    hamburger.style.display = 'block'; // Mostrar no mobile
+                }
+            }
+        });
+
+        // Inicializar estado correto baseado no tamanho da tela
+        function initializeNavigation() {
+            if (window.innerWidth <= 768) {
+                hamburger.style.display = 'block';
+            } else {
+                hamburger.style.display = 'none';
+                closeMobileMenu();
+            }
+        }
+
+        // Chamar na inicialização
+        initializeNavigation();
+
+        // Smooth scrolling para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Animação de entrada dos elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hero-image, .info-item, .hours-item, .map-container, .instagram-featured').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Adicionar efeito de hover nos itens de contato
+        document.querySelectorAll('.info-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

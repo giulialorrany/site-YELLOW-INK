@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest - Yellow Ink</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <style>
+        :root {
+            --primary-yellow: #D4AF37;
+            --secondary-yellow: #F4E4BC;
+            --accent-yellow: #B8860B;
+            --marble-white: #F8F8FF;
+            --stone-gray: #696969;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Navegação */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-yellow);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 clamp(1rem, 3vw, 1.5rem);
+        }
+
+        .logo {
+            font-family: 'League Spartan', sans-serif;
+            color: #1A1A1A;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo h4 {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+        }
+
+        .logo h4 span {
+            background: #eaee0f;
+            padding: 0.5vh 0.5vh 0 0.5vh;
+        }
+
+        .logo.hidden {
+            display: none;
+        }
+
+        .logo img {
+            width: clamp(30px, 6vw, 45px);
+            height: auto;
+            margin-bottom: 0.5vh;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            padding-right: clamp(1rem, 3vw, 2rem);
+        }
+
+        .nav-links a {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1A1A1A;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #f7de8d;
+            font-weight: 700;
+        }
+
+        .nav-links a.active::before {
+            width: 100%;
+            background: #f7de8d;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-links.active {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100vh;
+            background: var(--marble-white);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .nav-links .close-btn {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            background: none;
+            border: none;
+            color: #1A1A1A;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-links.active .close-btn {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 80px;
+        }
+
+        .hero .carousel {
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .hero .carousel-inner {
+            height: 100vh;
+        }
+
+        .hero .carousel-item {
+            height: 100vh;
+        }
+
+        .hero .carousel-item img {
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .hero .carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero .carousel-control-prev,
+        .hero .carousel-control-next {
+            z-index: 3;
+            opacity: 0.8;
+        }
+
+        .hero .carousel-control-prev:hover,
+        .hero .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        .hero-content {
+            margin-top: clamp(5vh, 10vw, 9.5vh);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            max-width: min(1000px, 90vw);
+            padding: clamp(1rem, 3vw, 2rem);
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-content h2 {
+            margin-top: 0;
+        }
+
+        .hero-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-yellow);
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .hero-subtitle {
+            max-width: 100%;
+            text-align: center;
+            font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+            padding: clamp(0.5vh, 2vw, 1vh) clamp(1vh, 3vw, 2vh);
+            color: black;
+            background-color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'League Spartan', sans-serif;
+            display: inline-block;
+        }
+
+        .hero-content .whatsapp-contact-btn {
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        .saiba-mais-link {
+            display: block;
+            color: white;
+            font-weight: 1000;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2vh, 3vw, 3vh);
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.7s ease;
+        }
+
+        .saiba-mais-arrow {
+            display: block;
+            font-size: clamp(2vh, 3vw, 3vh);
+            color: white;
+            margin-top: 0.1rem;
+            font-weight: 1000;
+            transition: all 0.7s ease;
+        }
+
+        .saiba-mais-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: clamp(2rem, 4vw, 3rem);
+            cursor: pointer;
+        }
+
+        .saiba-mais-container:hover .saiba-mais-link {
+            transform: translateY(10vh);
+            color: var(--primary-yellow);
+            font-size: clamp(2.5vh, 3.5vw, 3.5vh);
+        }
+
+        .saiba-mais-container:hover .saiba-mais-arrow {
+            transform: translateY(10vh);
+            color: var(--primary-yellow);
+        }
+
+        .saiba-mais-link.fade-in-up,
+        .saiba-mais-arrow.fade-in-up {
+            animation: none;
+        }
+
+        /* Guest Section */
+        .guest-section {
+            border-bottom: 1px solid var(--primary-yellow);
+            border-top: 1px solid var(--primary-yellow);
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+            background-color: #d4af3794;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .guest-section#planos-guest {
+            background-color: #92919163;
+        }
+
+        .guest-section h2 {
+            color: black;
+            text-align: center;
+            margin-bottom: clamp(0.5rem, 2vw, 1rem);
+            margin-top: clamp(-6vh, -2vw, -5vh);
+        }
+
+        .guest-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-yellow);
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .guest-content {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(1rem, 3vw, 2rem);
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .guest-image-container {
+            margin-left: clamp(1rem, 5vw, 15vh);
+            flex: 0 0 auto;
+            width: min(380px, 90vw);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .guest-image-container .guest-title {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .guest-image {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .guest-text {
+            margin-left: clamp(1rem, 3vw, 8vh);
+            margin-right: clamp(1rem, 5vw, 15vh);
+            flex: 1;
+            margin-top: clamp(10vh, 15vw, 20vh);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .guest-text h3 {
+            color: #a57704;
+        }
+
+        .guest-text p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .guest-trabalheConosco {
+            border-top: 1px solid var(--primary-yellow);
+            margin-bottom: clamp(10vh, 15vw, 15vh);
+        }
+
+        .guest-trabalheConosco h2 {
+            margin-top: clamp(5vh, 8vw, 10vh);
+        }
+
+        .whatsapp-contact-container {
+            text-align: center;
+            margin-top: clamp(1rem, 3vw, 2rem);
+        }
+
+        .whatsapp-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            background: #25D366;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-contact-btn:hover {
+            background: #1DA851;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-yellow);
+            color: #FFFFFF;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 2vw, 2rem);
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            line-height: clamp(2vh, 3vw, 2.7vh);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: clamp(1rem, 3vw, 2rem);
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: clamp(180px, 30vw, 200px);
+        }
+
+        .footer-section h4 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        .footer-section p {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section .social-links a {
+            color: #FFFFFF;
+            margin: 0 0.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            transition: var(--transition);
+        }
+
+        .footer-section .social-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .guest-a, .saibamais-a {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+        .saibamais-a {
+            text-decoration: underline;
+        }
+
+        .guest-a:hover, .saibamais-a:hover {
+            color: #1A1A1A;
+        }
+
+        .footer-bottom {
+            margin-top: clamp(1rem, 2vw, 2rem);
+            margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
+            color: #FFF;
+            position: relative;
+            overflow: visible;
+            min-height: clamp(4rem, 8vw, 5.5rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .footer-bottom::before {
+            content: "YELLOW INK.";
+            position: absolute;
+            bottom: clamp(1vh, 2vw, 2vh);
+            left: clamp(5%, 2vw, 9vh);
+            transform: translate(0, 50%);
+            font-family: 'League Spartan', sans-serif;
+            font-size: clamp(3rem, 15vw, 17vh);
+            font-weight: 700;
+            color: rgba(230, 241, 80, 0.301);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        .footer-bottom p {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            z-index: 1;
+            margin: 0;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+            padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+            font-size: clamp(0.8rem, 2.5vw, 3vh);
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        /* Guest Section - Novo Layout */
+        .guest-section {
+            padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
+            background: #FFFFFF;
+            min-height: clamp(80vh, 100vw, 100vh);
+            display: flex;
+            align-items: center;
+        }
+
+        .guest-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: center;
+        }
+
+        .guest-text-content {
+            padding-right: clamp(1rem, 3vw, 2rem);
+        }
+
+        .guest-main-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: #1A1A1A;
+            font-family: 'League Spartan', sans-serif;
+            line-height: 1.1;
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+            letter-spacing: -1px;
+        }
+
+        .guest-main-title .highlight {
+            color: var(--accent-yellow);
+        }
+
+        .guest-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .guest-features {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .guest-images-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: clamp(150px, 25vw, 200px) clamp(200px, 35vw, 300px);
+            gap: clamp(0.8rem, 2vw, 1rem);
+            height: clamp(400px, 80vw, 520px);
+        }
+
+        .guest-image-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .guest-image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .guest-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .guest-image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-1 {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .image-2 {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .image-3 {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* Terceira Section - Qualidade no Atendimento */
+        .quality-section {
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .quality-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .quality-main-title {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #1A1A1A;
+            font-family: 'League Spartan', sans-serif;
+            line-height: 1.2;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            text-transform: uppercase;
+        }
+
+        .quality-subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #666;
+            margin-bottom: clamp(2rem, 4vw, 4rem);
+            font-family: 'Inter', sans-serif;
+            max-width: clamp(500px, 80vw, 600px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quality-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(1.5rem, 3vw, 3rem);
+            margin-top: clamp(2rem, 4vw, 4rem);
+        }
+
+        .quality-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .quality-feature-icon {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #808080;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .quality-feature h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: clamp(0.5rem, 2vw, 1rem);
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .quality-feature p {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: #666;
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Seção O Futuro do Trabalho */
+        .future-work-section {
+            padding-bottom: clamp(3vh, 5vw, 5vh);
+            background-color: #c99d2d85;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--primary-yellow);
+        }
+
+        .future-work-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+
+        .future-work-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .future-work-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+
+        .future-work-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            padding: clamp(0.5rem, 1.5vw, 0.7rem) clamp(1rem, 2vw, 1.5rem);
+            margin: clamp(0.5vh, 2vw, 1vh) 0;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .future-work-title {
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: black;
+            font-family: 'League Spartan', sans-serif;
+            line-height: 1.1;
+            font-weight: bold;
+            margin: clamp(2vh, 5vw, 4vh) 0 clamp(5vh, 8vw, 9vh) 0;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        .future-work-container h2 {
+            font-weight: 600;
+            margin: 0 0 clamp(1vh, 2vw, 2vh) 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .future-work-description {
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: rgba(53, 48, 48, 0.9);
+            line-height: 1.7;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            max-width: clamp(700px, 80vw, 900px);
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Seção Serviços */
+        .container-servicos {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(5vh, 8vw, 10vh);
+        }
+
+        .section-servicos {
+            text-align: left;
+            margin-bottom: clamp(40px, 8vw, 60px);
+        }
+
+        .section-title {
+            margin-top: clamp(5vh, 8vw, 10vh);
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700;
+            color: black;
+            margin-bottom: clamp(15px, 3vw, 20px);
+            line-height: 1.2;
+            letter-spacing: 1px;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        .section-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #718096;
+            line-height: 1.6;
+            max-width: clamp(600px, 80vw, 800px);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(40px, 5vw, 80px);
+            margin-top: clamp(20px, 4vw, 40px);
+        }
+
+        .service-card {
+            text-align: center;
+        }
+
+        .service-image {
+            width: 100%;
+            max-width: 400px;
+            height: clamp(200px, 35vw, 280px);
+            object-fit: cover;
+            margin-bottom: clamp(8px, 2vw, 10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-title {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        .service-description {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #718096;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* Section Maps */
+        .section-maps {
+            border-top: 1px solid var(--primary-yellow);
+            background-color: #92919163;
+        }
+
+        .maps-guest {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(40px, 8vw, 60px) clamp(15px, 3vw, 20px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 8vw, 60px);
+            align-items: center;
+        }
+
+        .content-guest-maps {
+            padding-right: clamp(20px, 5vw, 40px);
+        }
+
+        .title-guest-maps {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary-yellow);
+            letter-spacing: 1px;
+            font-family: 'League Spartan', sans-serif;
+            line-height: 1.1;
+            margin-bottom: clamp(20px, 5vw, 40px);
+        }
+
+        .description-guest-maps {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.6;
+            color: rgba(0, 0, 0, 0.89);
+            margin-bottom: clamp(20px, 5vw, 40px);
+        }
+
+        .btn-location-guest {
+            background: linear-gradient(135deg, #B8860B 0%, #d4af3794 100%);
+            color: white;
+            padding: clamp(12px, 3vw, 16px) clamp(24px, 5vw, 32px);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        .btn-location-guest:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+            color: white;
+        }
+
+        .btn-location-guest::after {
+            content: "🚀";
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .map-container-guest {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            height: clamp(300px, 60vw, 450px);
+        }
+
+        .map-frame-guest {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .location-info-guest {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: clamp(12px, 3vw, 16px);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: clamp(250px, 50vw, 280px);
+            z-index: 10;
+        }
+
+        .location-name-guest {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .location-address-guest {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            color: #718096;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .rating-guest {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .rating-number-guest {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .stars-guest {
+            color: #fbbf24;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        .reviews-guest {
+            color: #4285f4;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            text-decoration: none;
+        }
+
+        .view-map-guest {
+            color: #4285f4;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .guest-container {
+                gap: clamp(1.5rem, 4vw, 3rem);
+            }
+
+            .guest-images-grid {
+                grid-template-rows: clamp(120px, 20vw, 180px) clamp(180px, 30vw, 250px);
+                height: clamp(350px, 70vw, 450px);
+            }
+
+            .maps-guest {
+                gap: clamp(30px, 6vw, 50px);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .future-work-badge {
+                margin: clamp(0.5vh, 2vw, 1vh) 0;
+                text-align: center;
+            }
+
+            .future-work-title {
+                text-align: center;
+                margin: clamp(2vh, 4vw, 4vh) 0 clamp(4vh, 6vw, 6vh) 0;
+            }
+
+            .future-work-container h2 {
+                text-align: center;
+                margin: 0 0 clamp(1vh, 2vw, 2vh) 0;
+            }
+
+            .future-work-description {
+                text-align: center;
+                padding: 0 clamp(0.5rem, 2vw, 1rem);
+            }
+
+            .guest-container {
+                grid-template-columns: 1fr;
+                gap: clamp(2rem, 5vw, 3rem);
+            }
+
+            .guest-text-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .guest-images-grid {
+                height: auto;
+                grid-template-rows: clamp(150px, 25vw, 200px) clamp(150px, 25vw, 200px) clamp(200px, 35vw, 250px);
+            }
+
+            .image-3 {
+                grid-column: 1 / -1;
+            }
+
+            .maps-guest {
+                grid-template-columns: 1fr;
+                gap: clamp(20px, 5vw, 40px);
+            }
+
+            .content-guest-maps {
+                padding-right: 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                padding-right: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+                padding: clamp(0.8rem, 2vw, 1rem) 0;
+            }
+
+            .hero {
+                height: clamp(50vh, 80vw, 60vh);
+            }
+
+            .hero .carousel,
+            .hero .carousel-inner,
+            .hero .carousel-item {
+                height: clamp(50vh, 80vw, 60vh);
+            }
+
+            .hero .carousel-item img {
+                height: clamp(50vh, 80vw, 60vh);
+            }
+
+            .hero-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: clamp(0.5rem, 2vw, 1rem);
+                margin-top: clamp(3vh, 5vw, 5vh);
+            }
+
+            .hero-title {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+                padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.66rem, 2vw, 0.8rem);
+                max-width: 90vw;
+                margin-bottom: clamp(-8vh, -10vw, -7vh);
+            }
+
+            .guest-section {
+                flex-direction: column;
+                text-align: center;
+                padding: clamp(2rem, 4vw, 3rem) clamp(0.5rem, 2vw, 1rem);
+            }
+
+            .guest-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .guest-image-container {
+                margin-left: 0;
+                margin-bottom: clamp(1rem, 3vw, 2rem);
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .guest-image {
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .guest-text {
+                margin-top: clamp(-3vh, -5vw, -2vh);
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .whatsapp-contact-btn {
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+            }
+
+            .saiba-mais-link {
+                font-size: clamp(2vh, 3vw, 2.5vh);
+            }
+
+            .saiba-mais-arrow {
+                font-size: clamp(2vh, 3vw, 2.5vh);
+            }
+
+            .saiba-mais-container:hover .saiba-mais-link {
+                font-size: clamp(2.5vh, 3.5vw, 3vh);
+            }
+
+            .quality-features {
+                grid-template-columns: 1fr;
+                gap: clamp(1rem, 3vw, 2rem);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: clamp(20px, 5vw, 40px);
+            }
+
+            .service-image {
+                height: clamp(180px, 40vw, 220px);
+            }
+
+            .service-title {
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
+            }
+
+            .map-container-guest {
+                height: clamp(250px, 60vw, 350px);
+            }
+
+            .location-info-guest {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-top: clamp(15px, 3vw, 20px);
+                max-width: 100%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: clamp(1rem, 3vw, 1.5rem);
+            }
+
+            .footer-section {
+                min-width: auto;
+            }
+
+            .guest-section h2 {
+                margin-top: clamp(1vh, 2vw, 2vh);
+            }
+
+            .saiba-mais-container {
+                margin-top: clamp(2vh, 3vw, 3vh);
+                margin-bottom: clamp(-4vh, -5vw, -3vh);
+            }
+
+            .guest-images-grid {
+                margin-bottom: clamp(-50vh, -60vw, -45vh);
+            }
+
+            .guest-main-title {
+                text-align: left;
+            }
+
+            .guest-description {
+                text-align: justify;
+            }
+
+            .guest-section .whatsapp-contact-btn {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.5rem, 1.5vw, 0.6rem);
+            }
+
+            .guest-features {
+                text-align: justify;
+            }
+
+            .future-work-badge {
+                margin-left: clamp(40vw, 50vw, 59vh);
+                text-align: right;
+            }
+
+            .future-work-container h2 {
+                text-align: left;
+            }
+
+            .future-work-description {
+                text-align: justify;
+            }
+
+            .quality-section div {
+                text-align: justify;
+            }
+
+            .quality-section h1 {
+                text-align: left;
+            }
+
+            .guest-section {
+                text-align: justify;
+            }
+
+            .section-description {
+                text-align: justify;
+            }
+
+            .title-guest-maps {
+                text-align: left;
+            }
+
+            .description-guest-maps {
+                text-align: justify;
+            }
+
+            .btn-location-guest {
+                white-space: nowrap;
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.3vh, 1vw, 0.5vh) clamp(0.7vh, 2vw, 0.9vh);
+            }
+
+            .whatsapp-contact-btn {
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.2rem, 1vw, 0.3rem);
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .footer-bottom p {
+                margin-top: clamp(5vh, 8vw, 6vh);
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+                white-space: nowrap;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+            }
+
+            .hamburger {
+                display: none !important;
+            }
+
+            .nav-links.active {
+                position: static;
+                background: none;
+                padding: 0;
+                border-top: none;
+                width: auto;
+                height: auto;
+                flex-direction: row;
+                box-shadow: none;
+            }
+
+            .nav-links.active a {
+                padding: 0.5rem 0;
+                font-size: inherit;
+            }
+
+            .nav-links.active .close-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: clamp(0.3rem, 1.5vw, 0.5rem);
+            }
+
+            .hero-title {
+                font-size: clamp(1.2rem, 3vw, 1.8rem);
+                margin-bottom: clamp(0.5rem, 2vw, 1rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.66rem, 2vw, 0.8rem);
+                padding: clamp(0.5vh, 1vw, 1vh);
+                margin-top: clamp(-3vh, -5vw, -2vh);
+                margin-bottom: clamp(-7vh, -10vw, -6vh);
+            }
+
+            .whatsapp-contact-btn {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+                padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
+            }
+
+            .guest-section {
+                padding: clamp(1.5rem, 4vw, 2rem) clamp(0.5rem, 2vw, 1rem);
+            }
+
+            .guest-text {
+                margin-top: 0;
+            }
+
+            .future-work-title {
+                font-size: clamp(1.8rem, 5vw, 2.2rem);
+                line-height: 1.2;
+            }
+
+            .future-work-badge {
+                padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+                font-size: clamp(0.7rem, 2vw, 0.8rem);
+            }
+
+            .future-work-description {
+                font-size: clamp(0.9rem, 2vw, 1rem);
+            }
+
+            .quality-main-title {
+                font-size: clamp(1.5rem, 4vw, 1.8rem);
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+            }
+
+            .nav-links a {
+                font-size: clamp(0.8rem, 2.5vw, 1rem);
+            }
+
+            .logo h4 {
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
+            }
+
+            .logo img {
+                width: clamp(30px, 8vw, 35px);
+            }
+
+            .guest-title {
+                font-size: clamp(1.5rem, 4vw, 1.8rem);
+                margin-bottom: clamp(1vh, 2vw, 2vh);
+            }
+
+            .whatsapp-contact-btn span {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+            }
+
+            .saiba-mais-container {
+                margin-top: clamp(2vh, 3vw, 3vh);
+                margin-bottom: clamp(-4vh, -5vw, -3vh);
+            }
+
+            .guest-images-grid {
+                margin-bottom: clamp(-50vh, -60vw, -45vh);
+            }
+
+            .guest-main-title {
+                text-align: left;
+            }
+
+            .guest-description {
+                text-align: justify;
+            }
+
+            .guest-features {
+                text-align: justify;
+            }
+
+            .future-work-badge {
+                margin-left: clamp(30vw, 40vw, 48vh);
+                text-align: right;
+            }
+
+            .future-work-container h2 {
+                text-align: left;
+            }
+
+            .future-work-description {
+                text-align: justify;
+            }
+
+            .quality-section div {
+                text-align: justify;
+            }
+
+            .quality-section h1 {
+                text-align: left;
+            }
+
+            .guest-section {
+                text-align: justify;
+            }
+
+            .section-description {
+                text-align: justify;
+            }
+
+            .title-guest-maps {
+                text-align: left;
+            }
+
+            .description-guest-maps {
+                text-align: justify;
+            }
+
+            .btn-location-guest {
+                white-space: nowrap;
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                padding: clamp(0.3vh, 1vw, 0.5vh) clamp(0.7vh, 2vw, 0.9vh);
+            }
+
+            .whatsapp-contact-btn {
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.2rem, 1vw, 0.3rem);
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+
+            .footer-bottom p {
+                margin-top: clamp(5vh, 8vw, 6vh);
+                font-size: clamp(0.7rem, 2vw, 0.9rem);
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                margin-top: clamp(1vh, 2vw, 2vh);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.5rem, 2vw, 0.66rem);
+                margin-top: clamp(-3vh, -5vw, -2vh);
+                margin-bottom: clamp(-7vh, -10vw, -6vh);
+            }
+
+            .guest-title {
+                font-size: clamp(1.2rem, 3vw, 1.8rem);
+                margin-bottom: clamp(1vh, 2vw, 2vh);
+            }
+
+            .whatsapp-contact-btn {
+                font-size: clamp(0.7rem, 2vw, 0.8rem);
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.5rem, 1.5vw, 0.8rem);
+            }
+
+            .whatsapp-contact-btn span {
+                font-size: clamp(0.7rem, 2vw, 0.9rem);
+            }
+
+            .saiba-mais-container {
+                margin-top: clamp(2vh, 3vw, 3vh);
+                margin-bottom: clamp(-4vh, -5vw, -3vh);
+            }
+
+            .guest-images-grid {
+                margin-bottom: clamp(-50vh, -60vw, -45vh);
+            }
+
+            .guest-main-title {
+                text-align: left;
+            }
+
+            .guest-description {
+                text-align: justify;
+            }
+
+            .guest-features {
+                text-align: justify;
+            }
+
+            .future-work-badge {
+                margin-left: clamp(10vw, 20vw, 15vh);
+                text-align: right;
+            }
+
+            .future-work-container h2 {
+                text-align: left;
+            }
+
+            .future-work-description {
+                text-align: justify;
+            }
+
+            .quality-section div {
+                text-align: justify;
+            }
+
+            .quality-section h1 {
+                text-align: left;
+            }
+
+            .guest-section {
+                text-align: justify;
+            }
+
+            .section-description {
+                text-align: justify;
+            }
+
+            .title-guest-maps {
+                text-align: left;
+            }
+
+            .description-guest-maps {
+                text-align: justify;
+            }
+
+            .btn-location-guest {
+                white-space: nowrap;
+                font-size: clamp(0.7rem, 2vw, 1rem);
+                padding: clamp(0.3vh, 1vw, 0.5vh) clamp(0.7vh, 2vw, 0.9vh);
+            }
+
+            .whatsapp-contact-btn {
+                padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.2rem, 1vw, 0.3rem);
+            }
+
+            .footer-bottom::before {
+                font-size: clamp(3vh, 8vw, 5vh);
+            }
+
+            .footer-bottom p {
+                margin-top: clamp(5vh, 8vw, 6vh);
+                font-size: clamp(0.5rem, 2vw, 0.6rem);
+                white-space: nowrap;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .future-work-badge {
+            animation-delay: 0.2s;
+        }
+
+        .future-work-title {
+            animation-delay: 0.4s;
+        }
+
+        .future-work-description {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span><img src="img/plantaof.png" alt="Logo Yellow Ink" onerror="this.src='https://via.placeholder.com/45x45/D4AF37/000000?text=YI'"></span>
+                <h4>YELLOW<span>INK</span></h4>
+            </a>
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Sobre Nós</a></li>
+                <li><a href="index.html">Galeria</a></li>
+                <li><a href="index.html">Feedbacks</a></li>
+                <li><a href="tatuadores.html">Tatuadores</a></li>
+                <li><a href="blog.com">Blog</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="guest.html" class="active">Guest</a></li>
+                <button class="close-btn" id="closeBtn">✕</button>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3700">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/fotoguest1.jpeg" class="d-block w-100" alt="Guest Tattoo 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/fotoguest5.jpeg" class="d-block w-100" alt="Guest Tattoo 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/fotoguest4.jpeg" class="d-block w-100" alt="Guest Tattoo 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="hero-content">
+            <h2 class="guest-title fade-in-up">Seja um Guest</h2>
+            <p class="hero-subtitle fade-in-up">Alugue equipamentos e espaço para tatuar</p>
+            <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20planos%20Guest%20da%20Yellow%20Ink!" class="whatsapp-contact-btn fade-in-up" target="_blank"><i class="fab fa-whatsapp"></i> <span>Entre em contato</span></a>
+            <div class="saiba-mais-container fade-in-up">
+                <a href="#coworking-guest" class="saiba-mais-link slow-transition">Saiba Mais</a>
+                <span class="saiba-mais-arrow">↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Guest - Coworking -->
+    <section class="guest-section" id="coworking-guest">
+        <div class="guest-container">
+            <div class="guest-text-content">
+                <h1 class="guest-main-title">
+                    O Coworking Ideal<br>
+                    Para Você e <span class="highlight">Sua<br>
+                    Empresa.</span>
+                </h1>
+                <p class="guest-description">
+                    Hangar 5 é um Coworking premium voltado para empresários, profissionais liberais e negócios que valorizam produtividade, networking e prosperidade.
+                </p>
+                <p class="guest-features">
+                    Novas possibilidades de networking são algumas das facilidades que você adquire quando opta por trazer sua empresa para o Hangar 5 Coworking.
+                </p>
+                <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20agendar%20uma%20visita%20ao%20coworking!" class="whatsapp-contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Agendar agora
+                </a>
+            </div>
+            <div class="guest-images-grid">
+                <div class="guest-image-item image-1">
+                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=200&fit=crop&crop=center" alt="Mesa de café coworking" />
+                </div>
+                <div class="guest-image-item image-2">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop&crop=center" alt="Sala de reunião moderna" />
+                </div>
+                <div class="guest-image-item image-3">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=300&fit=crop&crop=center" alt="Ambiente coworking completo" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção O Futuro do Trabalho -->
+    <section class="future-work-section">
+        <div class="future-work-container">
+            <div class="future-work-badge fade-in-up">
+                Visão geral
+            </div>
+            <h1 class="future-work-title fade-in-up">
+                O futuro do trabalho<br>
+                está aqui!
+            </h1>
+            <h2>Como Funciona?</h2>
+            <p class="future-work-description fade-in-up">
+                Coworking Premium com foco em conectar pessoas e negócios, criando um ambiente onde 
+                empresários e profissionais prosperam juntos. O Coworking Hangar 5 oferece espaço físico, 
+                internet rápida e todo o suporte necessário para atender suas necessidades e de sua empresa. 
+                Além de não se preocupar com despesas gerais como aluguel, contas de consumo e insumos, 
+                você e sua empresa podem... compartilhar várias áreas em comum como espaço de 
+                convivência, copa, salas de reunião, recepção e, o mais interessante, trocar experiências com 
+                outros profissionais e empresas e ampliar a sua rede de relacionamento, o famoso Networking.
+            </p>
+        </div>
+    </section>
+
+    <!-- Terceira Section - Qualidade no Atendimento -->
+    <section class="quality-section">
+        <div class="quality-container">
+            <h1 class="quality-main-title fade-in-up">
+                Qualidade no Atendimento é<br>
+                Primordial para Nós!
+            </h1>
+            <p class="quality-subtitle fade-in-up">
+                Ambiente de alto padrão, eventos de networking frequentes, comunidade próspera e suporte ao empresário
+            </p>
+            <div class="quality-features">
+                <div class="quality-feature">
+                    <div class="quality-feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Wifi e Internet Cabeada</h3>
+                    <p>Temos Internet Link Dedicado para que você nunca fique sem rede durante o seu expediente.</p>
+                </div>
+                <div class="quality-feature">
+                    <div class="quality-feature-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Equipamentos</h3>
+                    <p>Temos equipamento completo de escritório: impressora, digitalizadora, televisão, tomadas, cabos, computadores e monitores.</p>
+                </div>
+                <div class="quality-feature">
+                    <div class="quality-feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Endereço Fiscal</h3>
+                    <p>Utilizado na documentação da empresa, como referência para questões de contabilidade. Incluso o gerenciamento de correspondências.</p>
+                </div>
+                <div class="quality-feature">
+                    <div class="quality-feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidade Ativa</h3>
+                    <p>Participe de uma rede de profissionais engajados para networking e colaboração.</p>
+                </div>
+                <div class="quality-feature">
+                    <div class="quality-feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Eventos Regulares</h3>
+                    <p>Participe de workshops e eventos exclusivos para crescimento profissional.</p>
+                </div>
+                <div class="quality-feature">
+                    <div class="quality-feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte Dedicado</h3>
+                    <p>Equipe disponível para ajudar com suas necessidades operacionais e estratégicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Guest - Planos Guest -->
+    <section class="guest-section" id="planos-guest">
+        <div class="guest-content">
+            <div class="guest-image-container">
+                <h2 class="guest-title fade-in-up">Planos Guest</h2>
+                <img src="img/planosguest.jpeg" alt="Planos Guest" class="guest-image">
+            </div>
+            <div class="guest-text">
+                <h3>Yellow Flex</h3>
+                <p>Descubra os planos exclusivos que a Yellow Ink oferece para tatuadores que desejam se tornar Guests. Com acesso a equipamentos de alta qualidade e um espaço profissional, você pode elevar seu trabalho a outro nível.</p>
+                <h3>Yellow Pro</h3>
+                <p>Nossos planos incluem suporte técnico, materiais essenciais e a possibilidade de networking com outros artistas. Tudo pensado para facilitar sua jornada no mundo da tatuagem.</p>
+                <h3>Yellow Master</h3>
+                <p>Escolha o plano que melhor se adapta às suas necessidades e comece a tatuar no ambiente ideal. Entre em contato para mais detalhes e comece hoje mesmo!</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-servicos">
+        <div class="section-servicos">
+            <h2 class="section-title">Alguns dos nossos serviços</h2>
+            <p class="section-description">
+                O Coworking Hangar 5 está localizado no Lago Sul, o bairro mais nobre de Brasília, ao lado do Gilberto 
+                Salomão e perto do aeroporto. Com uma infraestrutura moderna e completa, nós ajudamos você a atingir 
+                suas metas.
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=280&fit=crop&crop=center" 
+                     alt="Endereço Fiscal" 
+                     class="service-image">
+                <h3 class="service-title">Endereço Fiscal</h3>
+                <p class="service-description">
+                    Utilize nosso endereço comercial premium para sua empresa, 
+                    garantindo credibilidade e presença no mercado.
+                </p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=280&fit=crop&crop=center" 
+                     alt="Salas de Reunião" 
+                     class="service-image">
+                <h3 class="service-title">Salas de Reunião</h3>
+                <p class="service-description">
+                    Espaços modernos e equipados para suas reuniões profissionais, 
+                    com toda infraestrutura necessária para o sucesso dos seus negócios.
+                </p>
+            </div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=280&fit=crop&crop=center" 
+                     alt="Endereço Fiscal" 
+                     class="service-image">
+                <h3 class="service-title">Endereço de casa</h3>
+                <p class="service-description">
+                    Utilize nosso endereço comercial premium para sua empresa, 
+                    garantindo credibilidade e presença no mercado.
+                </p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=280&fit=crop&crop=center" 
+                     alt="Salas de Reunião" 
+                     class="service-image">
+                <h3 class="service-title">Salas de jogos</h3>
+                <p class="service-description">
+                    Espaços modernos e equipados para suas reuniões profissionais, 
+                    com toda infraestrutura necessária para o sucesso dos seus negócios.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-maps">
+        <div class="maps-guest">
+            <div class="content-guest-maps">
+                <h1 class="title-guest-maps">Excelente<br>Localização</h1>
+                <p class="description-guest-maps">
+                    O Coworking Hangar 5 está estrategicamente situado no Lago Sul, o bairro 
+                    mais nobre de Brasília. Sua localização privilegiada ao lado do Gilberto 
+                    Salomão e a proximidade com o aeroporto garantem conveniência e 
+                    facilidade de acesso para todos os frequentadores.
+                </p>
+                <a href="#" class="btn-location-guest">Abrir Localização</a>
+            </div>
+            <div class="map-container-guest">
+                <iframe 
+                    class="map-frame-guest"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.8394584571967!2d-47.88967368468647!3d-15.834419689008147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a2d8b7d2d1d1d%3A0x1d1d1d1d1d1d1d1d!2sLago%20Sul%2C%20Bras%C3%ADlia%20-%20DF!5e0!3m2!1spt!2sbr!4v1643723456789!5m2!1spt!2sbr"
+                    loading="lazy">
+                </iframe>
+                <div class="location-info-guest">
+                    <div class="location-name-guest">Coworking Hangar 5</div>
+                    <div class="location-address-guest">
+                        St. de Habitações Individuais Sul QI 5<br>
+                        Edifício Hangar 5, Bloco D Sala 10 -<br>
+                        Lago Sul, Brasília - DF, 71615-485
+                    </div>
+                    <div class="rating-guest">
+                        <span class="rating-number-guest">4,5</span>
+                        <span class="stars-guest">★★★★★</span>
+                        <a href="#" class="reviews-guest">312 avaliações</a>
+                    </div>
+                    <a href="#" class="view-map-guest">Ver mapa ampliado</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Trabalhe Conosco -->
+    <section class="guest-trabalheConosco">
+        <h2 class="guest-title fade-in-up" style="text-align: center;">Trabalhe Conosco</h2>
+        <div class="whatsapp-contact-container">
+            <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20trabalhar%20na%20Yellow%20Ink!" class="whatsapp-contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> Entre em contato pelo WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: info@yellowink.com</p>
+                <p>Telefone: +55 11 1234-5678</p>
+                <p>Endereço: Rua da Arte, 123, São Paulo - SP</p>
+            </div>
+            <div class="footer-section">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-y
