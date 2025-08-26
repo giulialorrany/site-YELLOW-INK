@@ -2258,7 +2258,6 @@ new Swiper('.card-wrapper', {
 document.querySelectorAll('.tattoo-gallery').forEach(gallery => {
     const galleryId = gallery.id;
     
-
 gallerySwipers[galleryId] = new Swiper(gallery, {
         loop: true,
         spaceBetween: 20,
@@ -2309,9 +2308,12 @@ gallerySwipers[galleryId] = new Swiper(gallery, {
             }
         }
     });
-
-
 });
+
+
+  
+
+
 // Atualização no redimensionamento da janela
 window.addEventListener('resize', () => {
     Object.values(gallerySwipers).forEach(swiper => {

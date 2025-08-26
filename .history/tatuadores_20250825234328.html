@@ -2259,6 +2259,58 @@ document.querySelectorAll('.tattoo-gallery').forEach(gallery => {
     const galleryId = gallery.id;
     
 
+// gallerySwipers[galleryId] = new Swiper(gallery, {
+//         loop: true,
+//         spaceBetween: 20,
+//         slidesPerView: 5,
+//         slidesPerGroup: 1, // Mudança principal: sempre passar de 1 em 1
+//         loopFillGroupWithBlank: true,
+//         loopAdditionalSlides: 2, 
+//         centeredSlides: false, 
+
+//         autoplay: {
+//             delay: 3000,
+//             disableOnInteraction: false,
+//             pauseOnMouseEnter: true
+//         },
+//         pagination: {
+//             el: gallery.querySelector('.swiper-pagination'),
+//             clickable: true,
+//             dynamicBullets: true
+//         },
+//         navigation: {
+//             nextEl: gallery.querySelector('.swiper-button-next'),
+//             prevEl: gallery.querySelector('.swiper-button-prev'),
+//         },
+//         breakpoints: {
+//             0: { 
+//                 slidesPerView: 1, 
+//                 slidesPerGroup: 1, // Mantém 1 em 1 no mobile
+//                 centeredSlides: true,
+//                 spaceBetween: 10
+//             },
+//             481: { 
+//                 slidesPerView: 2, 
+//                 slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 2
+//                 centeredSlides: false,
+//                 spaceBetween: 15
+//             },
+//             768: { 
+//                 slidesPerView: 3, 
+//                 slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 3
+//                 centeredSlides: false,
+//                 spaceBetween: 20
+//             },
+//             1024: { 
+//                 slidesPerView: 5, 
+//                 slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 5
+//                 centeredSlides: false,
+//                 spaceBetween: 20 
+//             }
+//         }
+//     });
+
+
 gallerySwipers[galleryId] = new Swiper(gallery, {
         loop: true,
         spaceBetween: 20,
@@ -2282,22 +2334,18 @@ gallerySwipers[galleryId] = new Swiper(gallery, {
             nextEl: gallery.querySelector('.swiper-button-next'),
             prevEl: gallery.querySelector('.swiper-button-prev'),
         },
-        breakpoints: {
-            0: { 
-                slidesPerView: 1, 
-                slidesPerGroup: 1, // Mantém 1 em 1 no mobile
-                centeredSlides: true,
-                spaceBetween: 10
-            },
-            481: { 
-                slidesPerView: 2, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 2
-                centeredSlides: false,
+
                 spaceBetween: 15
             },
             768: { 
                 slidesPerView: 3, 
                 slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 3
+                centeredSlides: false,
+                spaceBetween: 20
+            },
+            933: { 
+                slidesPerView: 4, 
+                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 4
                 centeredSlides: false,
                 spaceBetween: 20
             },
@@ -2308,10 +2356,9 @@ gallerySwipers[galleryId] = new Swiper(gallery, {
                 spaceBetween: 20 
             }
         }
-    });
+    });  
 
 
-});
 // Atualização no redimensionamento da janela
 window.addEventListener('resize', () => {
     Object.values(gallerySwipers).forEach(swiper => {

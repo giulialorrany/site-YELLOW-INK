@@ -684,16 +684,41 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-     gap: 20px !important;
     transition: transform 0.3s ease;
 }
+
+
+
+
+
+
+.tattoo-gallery .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.tattoo-gallery .swiper-slide img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/*
 .tattoo-gallery .swiper-slide {
     flex: 0 0 auto;
     width: auto !important;
     min-width: unset !important;
     max-width: unset !important;
-    /* margin: 0 !important; */
-    /* padding: 0 !important; */
+    margin: 0 !important;
+    padding: 0 !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -707,11 +732,10 @@
     aspect-ratio: 1/1;
     object-fit: cover;
     margin: 0 !important;
-    padding: 0 10px !important; /* Adiciona espaço horizontal */
     padding: 0 !important;
     border: none !important;
 }
-
+*/
         .tattoo-gallery.active {
             display: block;
             opacity: 1;
@@ -784,7 +808,6 @@
         }
 
         .tattoo-gallery {
-
             display: none;
             margin: 20px auto;
             max-width: 1200px;
@@ -941,16 +964,21 @@
     .tattoo-gallery .swiper-button-next {
         right: 5px;
     }
+    
   .tattoo-gallery .swiper-slide {
         flex: 0 0 auto;
         width: auto !important;
         min-width: unset !important;
     }
-
     .tattoo-gallery .swiper-slide img {
         max-width: 120px;
         max-height: 120px;
     }
+
+    /* .tattoo-gallery .swiper-slide img {
+        max-width: 120px;
+        max-height: 120px;
+    } */
 
 
             .footer-container {
@@ -1077,6 +1105,10 @@
         max-width: 100px;
         max-height: 100px;
     }
+    /* .tattoo-gallery .swiper-slide img {
+        max-width: 100px;
+        max-height: 100px;
+    } */
 
             }
 
@@ -1176,11 +1208,17 @@
                 min-width: 100% !important;
             }
 
+
+
             .tattoo-gallery .swiper-slide img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+            /* .tattoo-gallery .swiper-slide img {
                 width: 100% !important;
                 height: auto !important;
                 object-fit: contain;
-            }
+            } */
         }
 
         
@@ -1469,19 +1507,7 @@
             }
         }
 
-    @media (max-width: 429px) {
-    .tattoo-gallery .swiper-slide {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
     
-    .tattoo-gallery .swiper-slide img {
-        max-width: 60% !important;
-        height: auto !important;
-        margin: 0 auto !important;
-    }
-}
   
     </style>
 </head>
@@ -1621,7 +1647,7 @@
                     <img src="img/tatuador-1.jpeg" alt="João Silva">
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-joao-silva">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-joao-silva">
                 <ul class="swiper-wrapper">
                      <li class="swiper-slide">
                         <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
@@ -1669,37 +1695,25 @@
                     <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-maria-oliveira">
-     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-maria-oliveira">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Maria Oliveira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tatto2.jpeg" alt="Tatuagem Maria Oliveira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Maria Oliveira 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Maria Oliveira 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Maria Oliveira 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Maria Oliveira 6">
                     </li>
                 </ul>
                 <div class="swiper-pagination"></div>
@@ -1717,40 +1731,27 @@
                     <img src="img/tatuador-3.jpeg" alt="Carlos Mendes">
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-carlos-mendes">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-carlos-mendes">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Carlos Mendes 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Carlos Mendes 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Carlos Mendes 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Carlos Mendes 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Carlos Mendes 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Carlos Mendes 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -1766,40 +1767,27 @@
                     <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-nome">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-nome">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Nome 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Nome 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Nome 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Nome 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Nome 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Nome 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -1816,40 +1804,27 @@
                     <img src="img/tatuador-2.jpeg" alt="Lucas Souza">
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-lucas-souza">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-lucas-souza">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Lucas Souza 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Lucas Souza 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Lucas Souza 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Lucas Souza 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Lucas Souza 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Lucas Souza 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -1866,40 +1841,27 @@
                     <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-ana-pereira">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-ana-pereira">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Ana Pereira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Ana Pereira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Ana Pereira 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Ana Pereira 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Ana Pereira 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Ana Pereira 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -1916,40 +1878,27 @@
                     <img src="img/tatuador-1.jpeg" alt="Pedro Alves">
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-pedro-alves">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-pedro-alves">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Pedro Alves 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Pedro Alves 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Pedro Alves 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Pedro Alves 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Pedro Alves 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Pedro Alves 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -1966,40 +1915,27 @@
                     <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-rafael-santos">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-rafael-santos">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Rafael Santos 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Rafael Santos 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Rafael Santos 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Rafael Santos 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Rafael Santos 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Rafael Santos 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -2016,40 +1952,27 @@
                     <img src="img/tatuador-3.jpeg" alt="Júlia Ferreira">
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-julia-ferreira">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-julia-ferreira">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Júlia Ferreira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Júlia Ferreira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Júlia Ferreira 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Júlia Ferreira 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Júlia Ferreira 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Júlia Ferreira 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -2066,40 +1989,27 @@
                     <h4 class="mostrar-tattoos">Mostrar Tatuagens</h4>
                 </div>
             </div>
-            <div class="tattoo-gallery swiper card-wrapper active" id="gallery-marcos-vieira">
-                     <ul class="swiper-wrapper">
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+            <div class="tattoo-gallery swiper card-wrapper" id="gallery-marcos-vieira">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Marcos Vieira 1">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Marcos Vieira 2">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Marcos Vieira 3">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 1" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo1.jpeg" alt="Tatuagem Marcos Vieira 4">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 2" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo2.jpeg" alt="Tatuagem Marcos Vieira 5">
                     </li>
                     <li class="swiper-slide">
-                        <img src="img/tattoo1.jpeg" alt="Tatuagem João Silva 3" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 4" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto2.jpeg" alt="Tatuagem João Silva 5" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
-                    </li>
-                    <li class="swiper-slide">
-                        <img src="img/tatto3.jpeg" alt="Tatuagem João Silva 6" onerror="this.src='https://via.placeholder.com/200x200/D4AF37/FFFFFF?text=Tattoo'">
+                        <img src="img/tattoo3.jpeg" alt="Tatuagem Marcos Vieira 6">
                     </li>
                 </ul>
-
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -2210,109 +2120,426 @@
         
       
 // Swiper para cards (mantido igual, funcionando)
-new Swiper('.card-wrapper', {
-    loop: true,
-    spaceBetween: 30,
-    slidesPerView: 5,
-    slidesPerGroup: 1,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        dynamicBullets: true
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        0: { 
-            slidesPerView: 1, 
+// new Swiper('.card-wrapper', {
+//     loop: true,
+//     spaceBetween: 30,
+//     slidesPerView: 5,
+//     slidesPerGroup: 1,
+//     autoplay: {
+//         delay: 3000,
+//         disableOnInteraction: false,
+//         pauseOnMouseEnter: true
+//     },
+//     pagination: {
+//         el: '.swiper-pagination',
+//         clickable: true,
+//         dynamicBullets: true
+//     },
+//     navigation: {
+//         nextEl: '.swiper-button-next',
+//         prevEl: '.swiper-button-prev',
+//     },
+//     breakpoints: {
+//         0: { 
+//             slidesPerView: 1, 
+//             slidesPerGroup: 1,
+//             centeredSlides: true,
+//             snapOnRelease: true
+//         },
+//         481: { 
+//             slidesPerView: 2, 
+//             slidesPerGroup: 1,
+//             centeredSlides: false 
+//         },
+//         768: { 
+//             slidesPerView: 3, 
+//             slidesPerGroup: 1,
+//             centeredSlides: false 
+//         },
+//         1024: { 
+//             slidesPerView: 5, 
+//             slidesPerGroup: 1,
+//             centeredSlides: false 
+//         }
+//     }
+// });
+//   const gallerySwipers = {};
+
+
+
+
+
+
+
+
+
+
+//   document.querySelectorAll('.mostrar-tattoos').forEach(button => {
+//     button.addEventListener('click', function() {
+//         const parentSection = this.closest('.tatuador-section');
+//         if (!parentSection) {
+//             console.error('Seção pai (.tatuador-section) não encontrada');
+//             return;
+//         }
+        
+//         const tatuadorId = parentSection.getAttribute('id');
+//         const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
+//         const gallery = document.getElementById(galleryId);
+        
+//         if (!gallery) {
+//             console.error('Galeria não encontrada para o ID:', galleryId);
+//             return;
+//         }
+        
+//         // Fechar outras galerias
+//         document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
+//             if (g !== gallery) {
+//                 g.classList.remove('active');
+//                 if (gallerySwipers[g.id]) {
+//                     gallerySwipers[g.id].destroy(true, true);
+//                     delete gallerySwipers[g.id];
+//                 }
+//             }
+//         });
+//         document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
+//             if (b !== this) b.classList.remove('active');
+//         });
+        
+//         // Alternar galeria atual
+//         gallery.classList.toggle('active');
+//         this.classList.toggle('active');
+        
+//         if (gallery.classList.contains('active')) {
+//             // Inicializar Swiper para a galeria
+//             if (!gallerySwipers[galleryId]) {
+//                gallerySwipers[galleryId] = new Swiper(gallery, {
+//     loop: true,
+//     spaceBetween: 2,
+//     slidesPerView: 4,
+//     slidesPerGroup: 1,
+//     autoplay: {
+//         delay: 3000,
+//         disableOnInteraction: false,
+//         pauseOnMouseEnter: true
+//     },
+//     pagination: {
+//         el: gallery.querySelector('.swiper-pagination'),
+//         clickable: true,
+//         dynamicBullets: true
+//     },
+//     navigation: {
+//         nextEl: gallery.querySelector('.swiper-button-next'),
+//         prevEl: gallery.querySelector('.swiper-button-prev'),
+//     },
+//     loopedSlides: 10, // Ajuste conforme o número máximo de slides
+//     breakpoints: {
+//         0: { 
+//             slidesPerView: 1, 
+//             slidesPerGroup: 1,
+//             centeredSlides: true, // Centraliza o slide único em telas pequenas
+//             spaceBetween: 5
+//         },
+//         480: { 
+//             slidesPerView: 2, 
+//             slidesPerGroup: 1,
+//             spaceBetween: 10
+//         },
+//         768: { 
+//             slidesPerView: 3, 
+//             slidesPerGroup: 1,
+//             spaceBetween: 15
+//         },
+//         1024: { 
+//             slidesPerView: 4, 
+//             slidesPerGroup: 1,
+//             spaceBetween: 20
+//         }
+//     }
+// });
+if (gallery.classList.contains('active')) {
+    // Garantir visibilidade antes de inicializar
+    gallery.style.display = 'block';
+    gallery.style.opacity = '1';
+    gallery.style.visibility = 'visible';
+
+    // Inicializar ou atualizar Swiper
+    if (!gallerySwipers[galleryId]) {
+        gallerySwipers[galleryId] = new Swiper(gallery, {
+            loop: true,
+            spaceBetween: 2,
+            slidesPerView: 4,
             slidesPerGroup: 1,
-            centeredSlides: true,
-            snapOnRelease: true
-        },
-        481: { 
-            slidesPerView: 2, 
-            slidesPerGroup: 1,
-            centeredSlides: false 
-        },
-        768: { 
-            slidesPerView: 3, 
-            slidesPerGroup: 1,
-            centeredSlides: false 
-        },
-        1024: { 
-            slidesPerView: 5, 
-            slidesPerGroup: 1,
-            centeredSlides: false 
-        }
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            pagination: {
+                el: gallery.querySelector('.swiper-pagination'),
+                clickable: true,
+                dynamicBullets: true
+            },
+            navigation: {
+                nextEl: gallery.querySelector('.swiper-button-next'),
+                prevEl: gallery.querySelector('.swiper-button-prev'),
+            },
+            loopedSlides: 10, // Ajuste conforme o número máximo de slides
+            breakpoints: {
+                0: { 
+                    slidesPerView: 1, 
+                    slidesPerGroup: 1,
+                    centeredSlides: true,
+                    spaceBetween: 5
+                },
+                480: { 
+                    slidesPerView: 2, 
+                    slidesPerGroup: 1,
+                    spaceBetween: 10
+                },
+                768: { 
+                    slidesPerView: 3, 
+                    slidesPerGroup: 1,
+                    spaceBetween: 15
+                },
+                1024: { 
+                    slidesPerView: 4, 
+                    slidesPerGroup: 1,
+                    spaceBetween: 20
+                }
+            }
+        });
+    } else {
+        gallerySwipers[galleryId].update();
     }
-});
-  const gallerySwipers = {};
 
-document.querySelectorAll('.tattoo-gallery').forEach(gallery => {
-    const galleryId = gallery.id;
-    
+    // Forçar recalculo do layout
+    setTimeout(() => {
+        gallerySwipers[galleryId].update();
+        gallerySwipers[galleryId].updateSlides();
+        gallerySwipers[galleryId].updateProgress();
+        gallerySwipers[galleryId].updateSlidesClasses();
+    }, 100);
 
-gallerySwipers[galleryId] = new Swiper(gallery, {
-        loop: true,
-        spaceBetween: 20,
-        slidesPerView: 5,
-        slidesPerGroup: 1, // Mudança principal: sempre passar de 1 em 1
-        loopFillGroupWithBlank: true,
-        loopAdditionalSlides: 2, 
-        centeredSlides: false, 
-
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
-        },
-        pagination: {
-            el: gallery.querySelector('.swiper-pagination'),
-            clickable: true,
-            dynamicBullets: true
-        },
-        navigation: {
-            nextEl: gallery.querySelector('.swiper-button-next'),
-            prevEl: gallery.querySelector('.swiper-button-prev'),
-        },
-        breakpoints: {
-            0: { 
-                slidesPerView: 1, 
-                slidesPerGroup: 1, // Mantém 1 em 1 no mobile
-                centeredSlides: true,
-                spaceBetween: 10
-            },
-            481: { 
-                slidesPerView: 2, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 2
-                centeredSlides: false,
-                spaceBetween: 15
-            },
-            768: { 
-                slidesPerView: 3, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 3
-                centeredSlides: false,
-                spaceBetween: 20
-            },
-            1024: { 
-                slidesPerView: 5, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 5
-                centeredSlides: false,
-                spaceBetween: 20 
+    // Rolar para a galeria
+    const navHeight = document.querySelector('nav').offsetHeight || 60;
+    const galleryRect = gallery.getBoundingClientRect();
+    const scrollTarget = window.scrollY + galleryRect.top - navHeight - 20;
+    window.scrollTo({
+        top: scrollTarget,
+        behavior: 'smooth'
+      });
+}
+                /* gallerySwipers[galleryId] = new Swiper(gallery, {
+                    loop: true,
+                    spaceBetween: 2,
+                    slidesPerView: 4,
+                    slidesPerGroup: 1,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    },
+                    pagination: {
+                        el: gallery.querySelector('.swiper-pagination'),
+                        clickable: true,
+                        dynamicBullets: true
+                    },
+                    navigation: {
+                        nextEl: gallery.querySelector('.swiper-button-next'),
+                        prevEl: gallery.querySelector('.swiper-button-prev'),
+                    },
+                    loopedSlides: 10,
+                    breakpoints: {
+                        0: { 
+                            slidesPerView: 1, 
+                            slidesPerGroup: 1,
+                            centeredSlides: false,
+                            snapOnRelease: true,
+                            spaceBetween: 2
+                        },
+                        481: { 
+                            slidesPerView: 2, 
+                            slidesPerGroup: 1,
+                            centeredSlides: false,
+                            spaceBetween: 2
+                        },
+                        768: { 
+                            slidesPerView: 3, 
+                            slidesPerGroup: 1,
+                            centeredSlides: false,
+                            spaceBetween: 2
+                        },
+                        1024: { 
+                            slidesPerView: 4, 
+                            slidesPerGroup: 1,
+                            centeredSlides: false,
+                            spaceBetween: 2
+                        }
+                    }
+                }); */
+            }
+            
+            // Forçar recalculo do layout
+            gallerySwipers[galleryId].update();
+            gallerySwipers[galleryId].updateSlides();
+            gallerySwipers[galleryId].updateProgress();
+            gallerySwipers[galleryId].updateSlidesClasses();
+            
+            // Garantir que a galeria esteja visível antes de rolar
+            gallery.style.display = 'block';
+            gallery.style.opacity = '1';
+            gallery.style.visibility = 'visible';
+            
+            // Calcular posição para rolagem
+            const navHeight = document.querySelector('nav').offsetHeight || 60; // Altura da nav fixa
+            const galleryRect = gallery.getBoundingClientRect();
+            const scrollTarget = window.scrollY + galleryRect.top - navHeight - 20; // 20px de margem adicional
+            
+            // Rolar para a galeria
+            window.scrollTo({
+                top: scrollTarget,
+                behavior: 'smooth'
+            });
+            
+            // Fallback com setTimeout para garantir rolagem
+            setTimeout(() => {
+                const currentRect = gallery.getBoundingClientRect();
+                if (currentRect.top < navHeight || currentRect.bottom > window.innerHeight) {
+                    window.scrollTo({
+                        top: window.scrollY + currentRect.top - navHeight - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300); // 300ms para coincidir com a duração da transição
+        } else {
+            if (gallerySwipers[galleryId]) {
+                gallerySwipers[galleryId].destroy(true, true);
+                delete gallerySwipers[galleryId];
             }
         }
     });
-
-
 });
-// Atualização no redimensionamento da janela
+  /*
+document.querySelectorAll('.mostrar-tattoos').forEach(button => {
+    button.addEventListener('click', function() {
+        const parentSection = this.closest('.tatuador-section');
+        if (!parentSection) {
+            console.error('Seção pai (.tatuador-section) não encontrada');
+            return;
+        }
+        
+        const tatuadorId = parentSection.getAttribute('id');
+        const galleryId = tatuadorId.replace('tatuador-', 'gallery-');
+        const gallery = document.getElementById(galleryId);
+        
+        if (!gallery) {
+            console.error('Galeria não encontrada para o ID:', galleryId);
+            return;
+        }
+        
+        // Fechar outras galerias
+        document.querySelectorAll('.tattoo-gallery.active').forEach(g => {
+            if (g !== gallery) {
+                g.classList.remove('active');
+                if (gallerySwipers[g.id]) {
+                    gallerySwipers[g.id].destroy(true, true);
+                    delete gallerySwipers[g.id];
+                }
+            }
+        });
+        document.querySelectorAll('.mostrar-tattoos.active').forEach(b => {
+            if (b !== this) b.classList.remove('active');
+        });
+        
+        // Alternar galeria atual
+        gallery.classList.toggle('active');
+        this.classList.toggle('active');
+        
+        if (gallery.classList.contains('active')) {
+            // Usar transitionend para garantir visibilidade
+            gallery.addEventListener('transitionend', function handler() {
+                if (!gallerySwipers[galleryId]) {
+                    gallerySwipers[galleryId] = new Swiper(gallery, {
+                        loop: true,
+                        spaceBetween: 2, // Espaçamento pequeno e visível
+                        slidesPerView: 4,
+                        slidesPerGroup: 1,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true
+                        },
+                        pagination: {
+                            el: gallery.querySelector('.swiper-pagination'),
+                            clickable: true,
+                            dynamicBullets: true
+                        },
+                        navigation: {
+                            nextEl: gallery.querySelector('.swiper-button-next'),
+                            prevEl: gallery.querySelector('.swiper-button-prev'),
+                        },
+                        loopedSlides: 10, // Igual ao número de slides por galeria
+                        breakpoints: {
+                            0: { 
+                                slidesPerView: 1, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false,
+                                snapOnRelease: true,
+                                spaceBetween: 2
+                            },
+                            481: { 
+                                slidesPerView: 2, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false,
+                                spaceBetween: 2
+                            },
+                            768: { 
+                                slidesPerView: 3, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false,
+                                spaceBetween: 2
+                            },
+                            1024: { 
+                                slidesPerView: 4, 
+                                slidesPerGroup: 1,
+                                centeredSlides: false,
+                                spaceBetween: 2
+                            }
+                        }
+                    });
+                    // Forçar recalculo do layout
+                    gallerySwipers[galleryId].update();
+                    gallerySwipers[galleryId].updateSlides();
+                    gallerySwipers[galleryId].updateProgress();
+                    gallerySwipers[galleryId].updateSlidesClasses();
+                } else {
+                    gallerySwipers[galleryId].update();
+                }
+                
+                // Rolar para a galeria
+                const galleryRect = gallery.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const adjustment = window.innerWidth <= 768 ? (windowHeight / 2) : (windowHeight / 2);
+                const scrollTarget = window.scrollY + galleryRect.top - adjustment;
+                window.scrollTo({
+                    top: scrollTarget,
+                    behavior: 'smooth'
+                });
+
+                // Remover o evento após execução
+                gallery.removeEventListener('transitionend', handler);
+            }, { once: true });
+        } else {
+            if (gallerySwipers[galleryId]) {
+                gallerySwipers[galleryId].destroy(true, true);
+                delete gallerySwipers[galleryId];
+            }
+        }
+    });
+});
+   
+*/
+
 window.addEventListener('resize', () => {
     Object.values(gallerySwipers).forEach(swiper => {
         if (swiper) {
@@ -2320,30 +2547,6 @@ window.addEventListener('resize', () => {
             swiper.updateSlides();
             swiper.updateProgress();
             swiper.updateSlidesClasses();
-        }
-    });
-});
-
-
-// Adicionar funcionalidade de toggle para mostrar/ocultar galerias
-document.querySelectorAll('.mostrar-tattoos').forEach(button => {
-    button.addEventListener('click', function() {
-        const tatuadorSection = this.closest('.tatuador-section');
-        const tatuadorId = tatuadorSection.id;
-        const galleryId = 'gallery-' + tatuadorId.replace('tatuador-', '');
-        const gallery = document.getElementById(galleryId);
-        
-        if (gallery) {
-            gallery.classList.toggle('active');
-            this.classList.toggle('active');
-            
-            // Atualizar swiper quando mostrar
-            if (gallery.classList.contains('active') && gallerySwipers[galleryId]) {
-                setTimeout(() => {
-                    gallerySwipers[galleryId].update();
-                    gallerySwipers[galleryId].slideTo(0, 0);
-                }, 100);
-            }
         }
     });
 });

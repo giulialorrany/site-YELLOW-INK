@@ -1,4 +1,6 @@
 FAZENDO: 
+0-responsividade footer 
+
 0-padronizar footer e header 
 -500px ate 455px 475px  min 400px   660 ate 680
 

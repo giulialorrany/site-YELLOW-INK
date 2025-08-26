@@ -2257,8 +2257,67 @@ new Swiper('.card-wrapper', {
 
 document.querySelectorAll('.tattoo-gallery').forEach(gallery => {
     const galleryId = gallery.id;
+    // gallery.classList.add('active'); // Torna todas as galerias visíveis por padrão
+    // gallery.style.display = 'block';
+    // gallery.style.opacity = '1';
+    // gallery.style.visibility = 'visible';
     
+    // gallerySwipers[galleryId] = new Swiper(gallery, {
+    //     loop: true,
+    //     spaceBetween: 90,
+    //     slidesPerView: 5,
+    //     slidesPerGroup: 5,
+    //     loopFillGroupWithBlank: true,
+    //      loopAdditionalSlides: 2, 
+    // centeredSlides: false, 
 
+    //     autoplay: {
+    //         delay: 3000,
+    //         disableOnInteraction: false,
+    //         pauseOnMouseEnter: true
+    //     },
+    //     pagination: {
+    //         el: gallery.querySelector('.swiper-pagination'),
+    //         clickable: true,
+    //         dynamicBullets: true
+    //     },
+    //     navigation: {
+    //         nextEl: gallery.querySelector('.swiper-button-next'),
+    //         prevEl: gallery.querySelector('.swiper-button-prev'),
+    //     },
+    //     breakpoints: {
+    //         0: { 
+    //             slidesPerView: 1, 
+    //             slidesPerGroup: 1,
+    //             centeredSlides: true,
+    //             // snapOnRelease: true
+    //             snapOnRelease: 10
+    //         },
+    //         481: { 
+    //             slidesPerView: 2, 
+    //             slidesPerGroup: 1,
+    //             centeredSlides: false,
+    //             spaceBetween: 15
+    //         },
+    //         768: { 
+    //             slidesPerView: 3, 
+    //             slidesPerGroup: 1,
+    //             centeredSlides: false,
+    //                spaceBetween: 20
+    //         },
+    //         1024: { 
+    //             slidesPerView: 5, 
+    //             slidesPerGroup: 1,
+    //             centeredSlides: false,
+    //              spaceBetween: 20 
+    //         }
+    //     }
+    // });
+    //  setTimeout(() => {
+    //     gallerySwipers[galleryId].update();
+    //     gallerySwipers[galleryId].slideTo(0, 0);
+    // }, 100);
+// });
 gallerySwipers[galleryId] = new Swiper(gallery, {
         loop: true,
         spaceBetween: 20,
@@ -2310,8 +2369,9 @@ gallerySwipers[galleryId] = new Swiper(gallery, {
         }
     });
 
+  
 
-});
+
 // Atualização no redimensionamento da janela
 window.addEventListener('resize', () => {
     Object.values(gallerySwipers).forEach(swiper => {

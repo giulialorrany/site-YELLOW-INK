@@ -684,20 +684,33 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-     gap: 20px !important;
     transition: transform 0.3s ease;
 }
+   
 .tattoo-gallery .swiper-slide {
     flex: 0 0 auto;
     width: auto !important;
     min-width: unset !important;
     max-width: unset !important;
-    /* margin: 0 !important; */
-    /* padding: 0 !important; */
+    margin: 0; /* Remova o !important para permitir que o Swiper aplique o spaceBetween */
+    padding: 0 !important;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
+/* .tattoo-gallery .swiper-slide {
+    flex: 0 0 auto;
+    width: auto !important;
+    min-width: unset !important;
+    max-width: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 .tattoo-gallery .swiper-slide img {
     width: 100%;
@@ -707,7 +720,6 @@
     aspect-ratio: 1/1;
     object-fit: cover;
     margin: 0 !important;
-    padding: 0 10px !important; /* Adiciona espaço horizontal */
     padding: 0 !important;
     border: none !important;
 }
@@ -784,7 +796,17 @@
         }
 
         .tattoo-gallery {
-
+    display: none;
+    margin: 20px auto;
+    max-width: 1400px; /* Aumentado para acomodar mais espaço */
+    padding: 20px 30px; /* Aumenta o padding lateral */
+    background: #f9f9f9;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+        /* .tattoo-gallery {
             display: none;
             margin: 20px auto;
             max-width: 1200px;
@@ -794,7 +816,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
+        } */
 
         .tattoo-gallery.active {
             display: block;
@@ -802,11 +824,23 @@
             visibility: visible;
         }
 
+
         .tattoo-gallery .swiper-slide img {
+    width: 100%;
+    height: auto;
+    max-width: 150px; /* Tamanho fixo para desktop */
+    max-height: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin: 0; /* Remova o !important para evitar conflitos */
+    padding: 0;
+    border: none;
+}
+        /* .tattoo-gallery .swiper-slide img {
             width: 200px;
             height: 200px;
             object-fit: cover;
-        }
+        } */
 
 
         
@@ -1469,19 +1503,7 @@
             }
         }
 
-    @media (max-width: 429px) {
-    .tattoo-gallery .swiper-slide {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
     
-    .tattoo-gallery .swiper-slide img {
-        max-width: 60% !important;
-        height: auto !important;
-        margin: 0 auto !important;
-    }
-}
   
     </style>
 </head>
@@ -2257,17 +2279,16 @@ new Swiper('.card-wrapper', {
 
 document.querySelectorAll('.tattoo-gallery').forEach(gallery => {
     const galleryId = gallery.id;
+    gallery.classList.add('active'); // Torna todas as galerias visíveis por padrão
+    gallery.style.display = 'block';
+    gallery.style.opacity = '1';
+    gallery.style.visibility = 'visible';
     
-
-gallerySwipers[galleryId] = new Swiper(gallery, {
+    gallerySwipers[galleryId] = new Swiper(gallery, {
         loop: true,
-        spaceBetween: 20,
+        spaceBetween: 90,
         slidesPerView: 5,
-        slidesPerGroup: 1, // Mudança principal: sempre passar de 1 em 1
-        loopFillGroupWithBlank: true,
-        loopAdditionalSlides: 2, 
-        centeredSlides: false, 
-
+        slidesPerGroup: 1,
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
@@ -2285,33 +2306,29 @@ gallerySwipers[galleryId] = new Swiper(gallery, {
         breakpoints: {
             0: { 
                 slidesPerView: 1, 
-                slidesPerGroup: 1, // Mantém 1 em 1 no mobile
+                slidesPerGroup: 1,
                 centeredSlides: true,
-                spaceBetween: 10
+                snapOnRelease: true
             },
             481: { 
                 slidesPerView: 2, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 2
-                centeredSlides: false,
-                spaceBetween: 15
+                slidesPerGroup: 1,
+                centeredSlides: false 
             },
             768: { 
                 slidesPerView: 3, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 3
-                centeredSlides: false,
-                spaceBetween: 20
+                slidesPerGroup: 1,
+                centeredSlides: false 
             },
             1024: { 
                 slidesPerView: 5, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 5
-                centeredSlides: false,
-                spaceBetween: 20 
+                slidesPerGroup: 1,
+                centeredSlides: false 
             }
         }
     });
-
-
 });
+
 // Atualização no redimensionamento da janela
 window.addEventListener('resize', () => {
     Object.values(gallerySwipers).forEach(swiper => {
@@ -2324,29 +2341,6 @@ window.addEventListener('resize', () => {
     });
 });
 
-
-// Adicionar funcionalidade de toggle para mostrar/ocultar galerias
-document.querySelectorAll('.mostrar-tattoos').forEach(button => {
-    button.addEventListener('click', function() {
-        const tatuadorSection = this.closest('.tatuador-section');
-        const tatuadorId = tatuadorSection.id;
-        const galleryId = 'gallery-' + tatuadorId.replace('tatuador-', '');
-        const gallery = document.getElementById(galleryId);
-        
-        if (gallery) {
-            gallery.classList.toggle('active');
-            this.classList.toggle('active');
-            
-            // Atualizar swiper quando mostrar
-            if (gallery.classList.contains('active') && gallerySwipers[galleryId]) {
-                setTimeout(() => {
-                    gallerySwipers[galleryId].update();
-                    gallerySwipers[galleryId].slideTo(0, 0);
-                }, 100);
-            }
-        }
-    });
-});
     </script>
 </body>
 </html>

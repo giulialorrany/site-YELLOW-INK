@@ -1,11 +1,11 @@
 FAZENDO: 
-0-padronizar footer e header 
--500px ate 455px 475px  min 400px   660 ate 680
+0-responsividade footer 
 
 
-1-responsividade tatuadores.html          fazer com que telas de 430px e 932px passem de 1 por 1 img 
+1-responsividade tatuadores.html          f
 -btn sanduiche
 -responsividade 240px
+
 
 3-redução de códigos
 
@@ -17,6 +17,7 @@ cor de .footer-bottom::before:color: rgba(230, 241, 80, 0.301);
 
 
 
+-500px ate 455px 475px  min 400px   660 ate 680
 
 IMPORTANTE! 
 Substitua SUA_CHAVE_DO_SITE no index.html pela sua Site Key.

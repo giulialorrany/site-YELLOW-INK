@@ -1469,7 +1469,7 @@
             }
         }
 
-    @media (max-width: 429px) {
+    @media (max-width: 42px) {
     .tattoo-gallery .swiper-slide {
         display: flex !important;
         justify-content: center !important;
@@ -2257,16 +2257,19 @@ new Swiper('.card-wrapper', {
 
 document.querySelectorAll('.tattoo-gallery').forEach(gallery => {
     const galleryId = gallery.id;
+    // gallery.classList.add('active'); // Torna todas as galerias visíveis por padrão
+    // gallery.style.display = 'block';
+    // gallery.style.opacity = '1';
+    // gallery.style.visibility = 'visible';
     
-
-gallerySwipers[galleryId] = new Swiper(gallery, {
+    gallerySwipers[galleryId] = new Swiper(gallery, {
         loop: true,
-        spaceBetween: 20,
+        spaceBetween: 90,
         slidesPerView: 5,
-        slidesPerGroup: 1, // Mudança principal: sempre passar de 1 em 1
+        slidesPerGroup: 5,
         loopFillGroupWithBlank: true,
-        loopAdditionalSlides: 2, 
-        centeredSlides: false, 
+         loopAdditionalSlides: 2, 
+    centeredSlides: false, 
 
         autoplay: {
             delay: 3000,
@@ -2285,33 +2288,41 @@ gallerySwipers[galleryId] = new Swiper(gallery, {
         breakpoints: {
             0: { 
                 slidesPerView: 1, 
-                slidesPerGroup: 1, // Mantém 1 em 1 no mobile
+                slidesPerGroup: 1,
                 centeredSlides: true,
-                spaceBetween: 10
+                // snapOnRelease: true
+                snapOnRelease: 10
             },
             481: { 
                 slidesPerView: 2, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 2
+                slidesPerGroup: 1,
                 centeredSlides: false,
                 spaceBetween: 15
             },
             768: { 
                 slidesPerView: 3, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 3
+                slidesPerGroup: 1,
                 centeredSlides: false,
-                spaceBetween: 20
+                   spaceBetween: 20
             },
             1024: { 
                 slidesPerView: 5, 
-                slidesPerGroup: 1, // Passa de 1 em 1 mesmo mostrando 5
+                slidesPerGroup: 1,
                 centeredSlides: false,
-                spaceBetween: 20 
+                 spaceBetween: 20 
             }
         }
     });
-
-
+    //  setTimeout(() => {
+    //     gallerySwipers[galleryId].update();
+    //     gallerySwipers[galleryId].slideTo(0, 0);
+    // }, 100);
 });
+
+
+  
+
+
 // Atualização no redimensionamento da janela
 window.addEventListener('resize', () => {
     Object.values(gallerySwipers).forEach(swiper => {
