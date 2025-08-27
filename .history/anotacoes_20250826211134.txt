@@ -1,0 +1,32 @@
+FAZENDO: 
+0-padronizar footer e header 
+-500px ate 455px 475px  min 400px   660 ate 680
+
+
+
+
+1-responsividade tatuadores.html          fazer com que telas de 430px e 932px passem de 1 por 1 img 
+-btn sanduiche
+-responsividade 240px
+
+3-redução de códigos
+
+5-colocar links direcionando para os conteudos em sidebar blog.html
+
+
+color original =  color: rgba(119, 85, 11, 0.308); 
+cor de .footer-bottom::before:color: rgba(230, 241, 80, 0.301);
+
+
+
+
+IMPORTANTE! 
+Substitua SUA_CHAVE_DO_SITE no index.html pela sua Site Key.
+Substitua SUA_CHAVE_SECRETA no app.py pela sua Secret Key.
+
+
+
+
+
+
+

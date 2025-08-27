@@ -1,0 +1,31 @@
+FAZENDO: 
+0-padronizar footer e header 
+-500px ate 455px 475px  min 400px   660 ate 680
+
+1-deixar h1 content-row e article-section responsivo pra 280px(entenda como a tataugem...) até 340px
+2-tirar espaçamento entre header e hero content 240px e 675px. quando estar entre 769px e 939px o btn sanduiche aparece, o que nao deve acontecer
+3-em contato 1024px ate
+
+
+
+3-redução de códigos
+
+5-colocar links direcionando para os conteudos em sidebar blog.html
+
+
+color original =  color: rgba(119, 85, 11, 0.308); 
+cor de .footer-bottom::before:color: rgba(230, 241, 80, 0.301);
+
+
+
+
+IMPORTANTE! 
+Substitua SUA_CHAVE_DO_SITE no index.html pela sua Site Key.
+Substitua SUA_CHAVE_SECRETA no app.py pela sua Secret Key.
+
+
+
+
+
+
+
