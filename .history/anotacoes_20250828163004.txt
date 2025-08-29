@@ -1,0 +1,33 @@
+FAZENDO: 
+0-padronizar footer e header 
+-500px ate 455px 475px  min 400px   660 ate 680
+
+270px ate 380px o
+
+
+1-deixar h1 content-row e article-section responsivo pra 280px(entenda como a tataugem...) até 340px em blog.html
+2-tirar zoom de post de sidebar blog.html 
+3-240px até 257px  358px ate 700px   1025px pra cima 
+4-foto cortando em hero em index.html e ao ficar em tamanho mobile o yellow ink deve aparecer no header 
+
+3-redução de códigos
+
+5-colocar links direcionando para os conteudos em sidebar blog.html
+
+
+color original =  color: rgba(119, 85, 11, 0.308); 
+cor de .footer-bottom::before:color: rgba(230, 241, 80, 0.301);
+
+
+
+
+IMPORTANTE! 
+Substitua SUA_CHAVE_DO_SITE no index.html pela sua Site Key.
+Substitua SUA_CHAVE_SECRETA no app.py pela sua Secret Key.
+
+
+
+
+
+
+

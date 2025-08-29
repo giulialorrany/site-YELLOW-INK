@@ -212,161 +212,11 @@
             padding: 1rem;
         }
 
-        /* nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--primary-yellow);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.3);
-            transition: var(--transition);
-        } */
 
                     .container {
         margin-top: 0 !important; /* Remove o margin-top */
         padding-top: 0; /* Remove padding superior */
     }
-
-        /* .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1.5rem;
-        }
-
-        .logo {
-            font-family: 'League Spartan', sans-serif;
-            font-size: 4.9vh;
-            color: #1A1A1A;
-            text-decoration: none;
-            letter-spacing: 2px;
-            position: relative;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            padding-top: 0.5rem;
-        }
-
-        .logo h4 span {
-            background: #eaee0f;
-            padding: .7vh .5vh 0 .7vh;
-        }
-
-        .logo.hidden {
-            display: none;
-        }
-
-        .logo img {
-            
-            width: clamp(25px, 45px, 60px); 
-         height: auto;
-        }
-
-        .logo::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1A1A1A;
-            transition: var(--transition);
-        }
-
-        .logo:hover::after {
-            width: 100%;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-            font-family: 'Quicksand', sans-serif;
-            padding-right: 4vh;
-        }
-
-        .nav-links a {
-            color: #1A1A1A;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1A1A1A;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: #f7de8d;
-            font-weight: 700;
-        }
-
-        .nav-links a.active::before {
-            width: 100%;
-            background: #f7de8d;
-        }
-
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: #1A1A1A;
-            font-size: clamp(1.2rem, 1.5rem, 1.8rem);
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .nav-links.active {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 80%;
-            height: 100vh;
-            background: var(--marble-white);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: var(--transition);
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-            z-index: 1001;
-        }
-
-        .nav-links .close-btn {
-            display: none;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.2rem;
-            background: none;
-            border: none;
-            color: #1A1A1A;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .nav-links.active .close-btn {
-            display: block;
-        } */
 
         .filters {
             display: flex;
@@ -476,17 +326,62 @@
             margin-top: 1vh;
             margin-bottom: 1vh;
         }
+        /* Solução 2: Ajustar o post-content para melhor distribuição */
+.sidebar .post-card .post-content {
+    padding: 6px 10px 10px 10px;
+     /* padding: 8px 12px 12px 12px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+     height: calc(18vh - 13vh); /* Mude para: calc(18vh - 13vh) */
+    min-height: 80px; /* Altura mínima para garantir espaço */
+}
 
-        .sidebar .post-card {
-            background: #f9f9f9;
-            overflow: hidden;
-            margin-bottom: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-            position: relative;
-            height: 27vh;
-            width: 100%;
-        }
+.sidebar .post-card .post-title {
+    font-size: 14px; /* Tamanho de fonte ajustado */
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 8px 0; /* Margem otimizada */
+    line-height: 1.3; /* Altura de linha para melhor legibilidade */
+    overflow: visible; /* Permite o texto aparecer completamente */
+    word-wrap: break-word; /* Quebra palavras longas */
+    hyphens: auto; /* Adiciona hifenização automática */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a 3 linhas máximo */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+/* Solução 4: Ajustar post-meta para ocupar menos espaço */
+.sidebar .post-card .post-meta {
+    font-size: 11px;
+    color: #718096;
+    margin-top: auto; /* Empurra para o final */
+    opacity: 0.8;
+    flex-shrink: 0; /* Impede que encolha */
+}
+.sidebar .post-card {
+    background: #f9f9f9;
+    overflow: hidden;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    position: relative;
+    min-height: 18vh; 
+    height: auto; 
+    width: 100%;
+}
+/* Ajustar .post-card globalmente */
+.sidebar .post-card {
+    min-height: 22vh; /* Reduz de 27vh para 22vh */
+    height: auto; /* Mantém flexibilidade */
+    width: 100%;
+    background: #f9f9f9;
+    overflow: hidden;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    position: relative;
+}
 
         .sidebar .post-card:hover {
             transform: translateY(-2px);
@@ -1031,23 +926,7 @@
         }
 
         @media (max-width: 900px) {
-            /* .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
             
-
-            .nav-container {
-                background: var(--primary-yellow);
-            } */
 .container {
                 padding: 0 16px;
                 z-index: 1;
@@ -1155,16 +1034,6 @@
             .nav-links.active {
                 width: 90vw;
             }
-             /* .nav-container {
-                padding: 0 0.8rem;
-                flex-wrap: wrap;
-            }
-
-            .hamburger {
-                font-size: clamp(1.3rem, 3.5vw, 1.5rem);
-                padding: 0.7rem;
-            } */
-
             .hero-section {
                 height: 380px;
                 width: 100%;
@@ -1247,14 +1116,61 @@
                 padding: 0.4rem 0.7rem;
                 top: 85px;
             }
+            @media (max-width: 480px) {
+    .sidebar .post-card {
+        min-height: 20vh;
+    }
+    
+    .sidebar .post-card .post-content {
+        height: calc(20vh - 13vh);
+        min-height: 70px;
+        padding: 4px 8px 10px 10px;
+    }
+    
+    .sidebar .post-card .post-title {
+        font-size: 13px;
+        line-height: 1.2;
+        -webkit-line-clamp: 2; /* Reduz para 2 linhas em mobile */
+    }
+    
+    .sidebar .post-card .post-meta {
+        font-size: 10px;
+    }
+}
+            .title-container .content-row h1 {
+        font-size: clamp(1.2rem, 3.5vw, 2rem); /* Menor tamanho de fonte */
+    }
 
-            .sidebar .post-card {
-                width: 100%;
-                position: relative;
-            }
+    .articles-section {
+        padding: 0 8px; /* Preenchimento mínimo */
+    }
+
+    .post-article {
+        padding: 8px; /* Preenchimento mínimo */
+        gap: 8px; /* Gap mínimo */
+    }
+
+    .title-article {
+        font-size: clamp(1rem, 3vw, 1.2rem); /* Menor tamanho de fonte */
+    }
+
+    .excerpt-article {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Menor tamanho de fonte */
+    }
+
+    .postimage-article {
+        max-width: 100%; /* Largura total */
+        height: auto; /* Mantém a proporção */
+    }
         }
+        
+@media (max-width: 380px) {
 
-        @media (max-width: 360px) {
+            .hero-title{
+                margin-right: 10px;
+            }
+}
+@media (max-width: 360px) {
        
              .nav-container {
                 padding: 0.4rem 0.6rem;
@@ -1280,14 +1196,6 @@
                 padding: 0.3rem;
             }
 
-             /* .nav-container {
-                padding: 0 0.5rem;
-            }
-
-            .hamburger {
-                font-size: clamp(1.2rem, 3vw, 1.4rem);
-                padding: 0.6rem;
-            } */
             .sidebar {
                 position: fixed !important;
                 width: 70%;
@@ -1623,6 +1531,7 @@
             }
 
             .hero-title {
+                margin-left: 10px;
                 font-size: 21px;
             }
 
@@ -1721,6 +1630,25 @@
             }}
              @media (min-width: 940px) and (max-width: 1024px) {
           
+                .articles-section {
+        margin-right: 0; /* Remove a margem para telas menores */
+        padding: 0 12px; /* Ajusta o preenchimento */
+    }
+
+    .post-article {
+        flex-direction: column; /* Empilha o conteúdo verticalmente */
+        padding: 15px; /* Preenchimento reduzido */
+        gap: 15px; /* Gap reduzido */
+    }
+
+    .postimage-article {
+        max-width: 100%; /* Largura total para imagens */
+        height: auto; /* Mantém a proporção */
+    }
+
+    .title-container .content-row h1 {
+        font-size: clamp(1.8rem, 4.5vw, 3rem); /* Fonte um pouco menor */
+    }
             .hero-section {
                 height: 470px;
                 max-width: 100%;
@@ -1739,12 +1667,27 @@
                 height: 600px;
             }}
         @media (max-width: 270px) {
-            /* .hamburger {
-                display: block;
-                font-size: 0.9rem;
-                padding: 0.3rem 0.5rem;
-            } */
+            
+            .title-container .content-row h1 {
+        font-size: clamp(1rem, 3vw, 1.8rem); /* Tamanho mínimo de fonte */
+    }
 
+    .articles-section {
+        padding: 0 6px; /* Preenchimento mínimo */
+    }
+
+    .post-article {
+        padding: 6px; /* Preenchimento mínimo */
+        gap: 6px; /* Gap mínimo */
+    }
+
+    .title-article {
+        font-size: clamp(0.9rem, 2.8vw, 1.1rem); /* Tamanho mínimo de fonte */
+    }
+
+    .excerpt-article {
+        font-size: clamp(0.75rem, 2.3vw, 0.85rem); /* Tamanho mínimo de fonte */
+    }
             .container {
         margin-top: 0 !important; /* Remove o margin-top */
         padding-top: 0; /* Remove padding superior */
@@ -1906,11 +1849,70 @@
             z-index: 1;
         }
 
-        .articles-section {
+        /* .articles-section {
             margin-right: 16vh;
             z-index: 1;
-        }
+        } */
+/* Ajustar h1 em .content-row para responsividade */
+.title-container .content-row h1 {
+    font-size: clamp(2rem, 5vw, 4.5rem); /* Escala o tamanho da fonte suavemente */
+    line-height: 1.2; /* Melhora a legibilidade */
+    word-break: break-word; /* Evita transbordo */
+    overflow-wrap: break-word; /* Garante que o texto quebre corretamente */
+    margin: 0; /* Mantém a margem original */
+    text-align: left; /* Mantém o alinhamento original */
+    color: #000000; /* Mantém a cor original */
+}
 
+/* Ajustar .articles-section para responsividade */
+.articles-section {
+    margin-right: 16vh; /* Margem original para telas maiores */
+    width: 100%; /* Garante largura total */
+    max-width: 1200px; /* Mantém a largura máxima original */
+    padding: 0 16px; /* Adiciona preenchimento para telas menores */
+    box-sizing: border-box; /* Evita overflow devido ao preenchimento */
+    z-index: 1; /* Mantém o z-index original */
+}
+
+/* Ajustar .post-article para responsividade */
+.post-article {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px; /* Preenchimento levemente reduzido para consistência */
+    gap: 20px; /* Gap reduzido para telas menores */
+    flex-direction: row-reverse; /* Mantém o layout original */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    background-color: #55555515; /* Mantém o fundo original */
+}
+
+/* Ajustar .postimage-article para responsividade */
+.postimage-article {
+    width: 100%; /* Largura total em telas menores */
+    max-width: 200px; /* Mantém a largura máxima original */
+    height: auto; /* Mantém a proporção */
+    object-fit: cover; /* Mantém o object-fit original */
+    border-radius: 6px; /* Mantém o border-radius original */
+    transition: all 0.3s ease; /* Mantém a transição original */
+}
+
+/* Ajustar .title-article para responsividade */
+.title-article {
+    font-size: clamp(1.2rem, 4vw, 1.5rem); /* Escala o tamanho da fonte */
+    font-weight: 600; /* Mantém o peso original */
+    color: #2c3e50; /* Mantém a cor original */
+    margin-bottom: 15px; /* Mantém a margem original */
+    text-align: center; /* Mantém o alinhamento original */
+    line-height: 1.3; /* Melhora a legibilidade */
+}
+
+/* Ajustar .excerpt-article para responsividade */
+.excerpt-article {
+    font-size: clamp(0.9rem, 3vw, 1rem); /* Escala o tamanho da fonte */
+    color: #666; /* Mantém a cor original */
+    margin-bottom: 20px; /* Mantém a margem original */
+    text-align: justify; /* Mantém o alinhamento original */
+    line-height: 1.4; /* Melhora a legibilidade */
+}
         .article {
             background: white;
             margin-bottom: 40px;
@@ -1921,7 +1923,7 @@
             z-index: 1;
         }
 
-        .post-article {
+        /* .post-article {
             display: flex;
             align-items: flex-start;
             padding: 30px;
@@ -1929,7 +1931,7 @@
             flex-direction: row-reverse;
             flex-wrap: wrap;
             background-color: #55555515;
-        }
+        } */
 
         .article.expanded .post-article {
             display: flex;
@@ -1961,20 +1963,20 @@
             text-align: justify;
         }
 
-        .title-article {
+        /* .title-article {
             font-size: 24px;
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 15px;
             text-align: center;
-        }
+        } */
 
-        .excerpt-article {
+        /* .excerpt-article {
             color: #666;
             font-size: 16px;
             margin-bottom: 20px;
             text-align: justify;
-        }
+        } */
 
         .fulltext-article {
             display: none;
@@ -2011,13 +2013,13 @@
             text-align: center;
         }
 
-        .postimage-article {
+        /* .postimage-article {
             width: 200px;
             height: 140px;
             object-fit: cover;
             border-radius: 6px;
             transition: all 0.3s ease;
-        }
+        } */
 
         .readmore-btn, .readless-btn {
             border-radius: 5px;
@@ -2071,14 +2073,14 @@
             flex-wrap: wrap;
         }
 
-        .title-container .content-row h1 {
+        /* .title-container .content-row h1 {
             flex: 1;
             text-align: left;
             margin: 0;
             order: 1;
             font-size: 7vh;
             color: #000000;
-        }
+        } */
 
         .title-container .content-row img {
             flex: 0 0 auto;
@@ -2204,9 +2206,9 @@
                 align-items: flex-start;
             }
 
-            .title-container .content-row h1 {
+            /* .title-container .content-row h1 {
                 order: 1;
-            }
+            } */
 
             .title-container .content-row img {
                 order: 2;
@@ -2241,423 +2243,125 @@
             .title-container.expanded .fulltext-lermais.alternancia > div {
                 order: 1;
             }
+            .title-container .content-row h1 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem); /* Fonte ainda menor */
+        text-align: left; /* Mantém o alinhamento */
+    }
+
+    .articles-section {
+        padding: 0 10px; /* Preenchimento ainda mais reduzido */
+    }
+
+    .post-article {
+        padding: 10px; /* Preenchimento mínimo */
+        gap: 10px; /* Gap mínimo */
+    }
+
+    .title-article {
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem); /* Fonte menor */
+    }
+
+    .excerpt-article {
+        font-size: clamp(0.85rem, 2.8vw, 0.95rem); /* Fonte menor */
+    }
         }
         /* Media query específica para telas entre 240px e 270px */
-@media (min-width: 240px) and (max-width: 270px) {
-    
-    /* Container principal dos artigos */
-    .container-article {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 2vh 8px; /* Reduz padding lateral */
-        z-index: 1;
-    }
 
-    /* Seção de artigos */
+        @media (min-width: 240px) and (max-width: 270px) {
+    /* Ajustar .articles-section para alinhar com .hero-section */
     .articles-section {
-        margin-right: 0; /* Remove margem direita */
-        z-index: 1;
-        width: 100%;
-        padding: 0 4px; /* Padding mínimo */
+        margin-right: 0; /* Remove margem direita para alinhar com hero-section */
+        width: 100%; /* Mesma largura do hero-section */
+        max-width: 220px; /* Alinha com hero-section (width: 220px) */
+        padding: 15px 8px; /* Mesmo padding do hero-section */
+        box-sizing: border-box; /* Garante que padding não cause overflow */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        z-index: 1; /* Mantém z-index original */
     }
 
-    /* Container do título principal */
+    /* Garantir que container-article respeite limites */
+    .container-article {
+        max-width: 100%; /* Ocupa toda a largura disponível */
+        padding: 2vh 8px; /* Mesmo padding do hero-section */
+        margin: 0; /* Remove margens para alinhamento */
+    }
+
+    /* Ajustar title-container para evitar cortes */
     .title-container {
-        max-width: 100%;
-        margin: 1vh auto;
-        padding: 2vh 8px; /* Reduz padding */
-        display: flex;
-        flex-direction: column;
-        gap: 15px; /* Reduz gap */
-        z-index: 1;
+        max-width: 100%; /* Ocupa toda a largura disponível */
+        margin: 1vh 0; /* Reduz margem vertical */
+        padding: 2vh 8px; /* Mesmo padding do hero-section */
+        gap: 10px; /* Reduz gap para caber */
     }
 
-    /* Row de conteúdo do título */
+    /* Ajustar content-row para evitar cortes */
     .title-container .content-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 15px; /* Reduz gap */
-        flex-wrap: wrap;
+        flex-direction: column; /* Mantém vertical */
+        gap: 10px; /* Reduz gap */
+        align-items: flex-start; /* Alinha à esquerda */
+        justify-content: flex-start; /* Começa do topo */
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
     }
 
-    /* Título principal */
+    /* Ajustar h1 para caber e manter legibilidade */
     .title-container .content-row h1 {
-        flex: 1;
-        text-align: left;
-        margin: 0;
-        order: 1;
-        font-size: 4.5vh; /* Reduz tamanho da fonte */
-        color: #000000;
-        line-height: 1.2; /* Melhora legibilidade */
-        word-break: break-word; /* Quebra palavras longas */
+        font-size: clamp(1rem, 5vw, 1.8rem); /* Menor que original, alinha com hero-title (20px) */
+        line-height: 1.1; /* Compacta texto */
+        word-break: break-word; /* Evita overflow */
+        text-align: left; /* Alinha com hero-title */
+        margin: 0; /* Remove margens extras */
     }
 
-    /* Imagem do título */
+    /* Ajustar imagem para não cortar */
     .title-container .content-row img {
-        flex: 0 0 auto;
-        max-width: 100%;
-        width: 100%;
-        height: 25vh; /* Reduz altura */
-        order: 2;
-        object-fit: cover; /* Mantém proporção */
-        border-radius: 4px;
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
+        height: auto; /* Mantém proporção */
+        border-radius: 4px; /* Mantém estilo */
     }
 
-    /* Container dos botões "Ler mais" */
-    .lermais-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 8px; /* Reduz gap */
-        order: 1;
-        width: 100%;
-    }
-
-    /* Botões de ler mais/menos */
-    .readmore-lermais, .readless-lermais {
-        border-radius: 4px;
-        background: transparent;
-        border: 1px solid rgba(0, 0, 0, 0.158);
-        color: #3498db;
-        font-weight: 600;
-        font-size: 12px; /* Reduz tamanho da fonte */
-        cursor: pointer;
-        padding: 6px 8px; /* Reduz padding */
-        transition: color 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.3px; /* Reduz espaçamento */
-        width: fit-content;
-        max-width: 100%;
-    }
-
-    /* Texto completo expandido */
-    .fulltext-lermais {
-        display: none;
-        color: #555;
-        font-size: 14px; /* Reduz tamanho da fonte */
-        margin-top: 15px;
-        text-align: justify;
-        max-width: 100%;
-        order: 3;
-        line-height: 1.4; /* Melhora legibilidade */
-    }
-
-    /* Texto expandido - layout flex */
-    .title-container.expanded .fulltext-lermais {
-        display: flex;
-        flex-direction: column; /* Força layout vertical */
-        gap: 15px;
-        align-items: center;
-    }
-
-    /* Imagens no texto expandido */
-    .title-container.expanded .fulltext-lermais img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        border-radius: 4px;
-        margin: 0;
-        order: 1;
-    }
-
-    /* Texto do conteúdo expandido */
-    .title-container.expanded .fulltext-lermais > div {
-        order: 2;
-        flex: 1;
-        width: 100%;
-        text-align: justify;
-    }
-
-    /* Layout alternativo - também vertical em telas pequenas */
-    .title-container.expanded .fulltext-lermais.alternancia {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .title-container.expanded .fulltext-lermais.alternancia img {
-        order: 1; /* Imagem sempre primeiro */
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        border-radius: 4px;
-        margin: 0;
-    }
-
-    .title-container.expanded .fulltext-lermais.alternancia > div {
-        order: 2; /* Texto sempre segundo */
-        flex: 1;
-        width: 100%;
-    }
-
-    /* Artigos individuais */
-    .article {
-        background: white;
-        margin-bottom: 25px; /* Reduz margem */
-        border-radius: 6px; /* Reduz border-radius */
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        z-index: 1;
-        width: 100%;
-    }
-
-    /* Post dentro do artigo */
+    /* Ajustar post-article para evitar cortes */
     .post-article {
-        display: flex;
-        align-items: flex-start;
-        padding: 15px; /* Reduz padding */
-        gap: 15px; /* Reduz gap */
-        flex-direction: column; /* Força layout vertical */
-        flex-wrap: wrap;
-        background-color: #55555515;
+        flex-direction: column; /* Mantém vertical */
+        padding: 10px; /* Reduz padding para caber */
+        gap: 10px; /* Reduz gap */
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
     }
 
-    /* Artigo expandido */
-    .article.expanded .post-article {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 15px; /* Reduz padding */
-    }
-
-    /* Imagem do post */
+    /* Ajustar imagem do post */
     .postimage-article {
-        width: 100%; /* Largura total */
-        max-width: 100%;
-        height: 20vh; /* Altura fixa responsiva */
-        object-fit: cover;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        order: 1; /* Imagem primeiro */
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
+        height: auto; /* Mantém proporção */
+        border-radius: 4px; /* Mantém estilo */
     }
 
-    /* Imagem expandida */
-    .article.expanded .postimage-article {
-        width: 100%;
-        max-width: 100%;
-        height: 25vh; /* Altura maior quando expandido */
-        order: -1;
-        margin: 0 auto 15px auto;
-        display: block;
-    }
-
-    /* Texto do artigo */
-    .text-article {
-        flex: 1;
-        width: 100%;
-        order: 2;
-    }
-
-    /* Texto expandido */
-    .article.expanded .text-article {
-        flex: none;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        order: 1;
-        text-align: left; /* Melhora legibilidade */
-    }
-
-    /* Título do artigo */
+    /* Ajustar título do artigo */
     .title-article {
-        font-size: 18px; /* Reduz tamanho */
-        font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 10px;
-        text-align: left; /* Alinha à esquerda */
-        line-height: 1.3;
+        font-size: clamp(0.9rem, 4vw, 1.1rem); /* Alinha com hero-title */
+        text-align: left; /* Alinha com hero-title */
+        margin-bottom: 10px; /* Reduz margem */
+        line-height: 1.3; /* Mantém legibilidade */
     }
 
-    /* Excerpt do artigo */
+    /* Ajustar excerpt do artigo */
     .excerpt-article {
-        color: #666;
-        font-size: 14px; /* Reduz tamanho */
-        margin-bottom: 15px;
-        text-align: left; /* Melhora legibilidade */
-        line-height: 1.4;
+        font-size: clamp(0.75rem, 3.5vw, 0.85rem); /* Menor para caber */
+        text-align: left; /* Alinha com hero-content */
+        line-height: 1.4; /* Mantém legibilidade */
     }
 
-    /* Texto completo do artigo */
+    /* Ajustar texto completo para evitar cortes */
     .fulltext-article {
-        display: none;
-        color: #555;
-        font-size: 14px; /* Reduz tamanho */
-        margin-bottom: 15px;
-        text-align: left;
-        line-height: 1.4;
-    }
-
-    /* Texto completo expandido */
-    .article.expanded .fulltext-article {
-        display: block;
-        max-width: 100%;
-        margin: 0 auto;
-        text-align: left; /* Melhora legibilidade */
-    }
-
-    /* Subtítulos no texto completo */
-    .article.expanded .fulltext-article h3 {
-        font-size: 16px; /* Reduz tamanho */
-        color: #2d3748;
-        margin-bottom: 8px;
-        font-weight: 500;
-        text-align: left; /* Alinha à esquerda */
-        line-height: 1.3;
-    }
-
-    /* Parágrafos no texto completo */
-    .article.expanded .fulltext-article p {
-        text-align: left; /* Melhora legibilidade */
-        margin-bottom: 12px;
-        line-height: 1.4;
-    }
-
-    /* Meta informações */
-    .article.expanded .fulltext-article .post-meta {
-        font-size: 11px; /* Reduz tamanho */
-        color: #718096;
-        margin-top: 8px;
-        text-align: left; /* Alinha à esquerda */
-    }
-
-    /* Botões de ler mais/menos dos artigos */
-    .readmore-btn, .readless-btn {
-        border-radius: 4px;
-        background: transparent;
-        border: 1px solid rgba(0, 0, 0, 0.158);
-        color: #3498db;
-        font-weight: 600;
-        font-size: 12px; /* Reduz tamanho */
-        cursor: pointer;
-        padding: 6px 8px; /* Reduz padding */
-        transition: color 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-        width: fit-content;
-        margin-top: 10px;
-    }
-
-    /* Botão de ler menos centralizado */
-    .article.expanded .readless-btn {
-        display: block;
-        margin: 15px auto 0 auto;
-        text-align: center;
-    }
-
-    /* HERO SECTION - Ajustes para garantir visibilidade completa */
-    .hero-section {
-        height: auto; /* Altura automática para acomodar conteúdo */
-        min-height: 45vh; /* Altura mínima */
-        max-width: 100%;
-        width: 100%;
-        padding: 15px 8px; /* Padding adequado */
-        z-index: 1;
-        display: flex;
-        align-items: flex-end;
-        position: relative;
-        overflow: visible; /* Garante que nada seja cortado */
-    }
-
-    /* Hero content container */
-    
-    /* Botão de ler mais do hero */
-    .readmore-hero {
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 14px; /* Tamanho menor */
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        padding: 5px 0;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .readmore-hero:hover {
-        color: #f7de8d;
-    }
-
-    /* Texto completo do hero expandido */
-    .fulltext-hero {
-        display: none;
-        color: #ffffff;
-        font-size: 13px;
-        margin-top: 15px;
-        text-align: left; /* Melhor para telas pequenas */
-        max-width: 100%;
-        line-height: 1.4;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .hero-content.expanded .fulltext-hero {
-        display: block;
-    }
-
-    /* Imagens dentro do texto completo do hero */
-    .fulltext-hero img {
-        display: block;
-        margin: 15px 0;
-        width: 100%;
-        max-width: 100%;
-        height: 20vh; /* Altura menor para telas pequenas */
-        border-radius: 4px;
-        object-fit: cover;
-    }
-
-    /* Subtítulos no texto completo do hero */
-    .fulltext-hero h3 {
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 8px;
-        text-align: left;
-        color: white;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    /* Parágrafos no texto completo do hero */
-    .fulltext-hero p {
-        margin-bottom: 12px;
-        text-align: left;
-        line-height: 1.4;
-    }
-
-    /* Meta no texto completo do hero */
-    .fulltext-hero .post-meta {
-        font-size: 10px;
-        opacity: 0.9;
-        margin-top: 10px;
-        text-align: left;
-    }
-
-    /* Hero expandido - altura automática */
-    .hero-content.expanded ~ .hero-section,
-    .hero-section:has(.hero-content.expanded) {
-        height: auto;
-        min-height: auto;
-    }
-
-    /* Container principal - ajuste para não sobrepor hero */
-    .container {
-        margin-top: 85px; /* Garante espaço suficiente após navbar */
-        padding-top: 10px;
-    }
-
-    /* Ajuste para quando o hero está expandido */
-    .hero-content.expanded {
-        padding-bottom: 20px;
+        font-size: 13px; /* Alinha com fulltext-hero */
+        max-width: 100%; /* Evita transbordo */
+        text-align: left; /* Alinha com hero-content */
     }
 }
 
-   @media (max-width: 280px) {
+        @media (max-width: 280px) {
             .nav-container {
                 padding: 0.3rem 0.5rem;
                 min-height: 50px;
@@ -2696,70 +2400,351 @@
             }
         }
 
+        @media (min-width: 240px) and (max-width: 380px) {
+    .title-container .content-row {
+        flex-direction: column; /* Muda de row para column para empilhar elementos verticalmente, evitando overflow em telas estreitas. */
+        align-items: flex-start; /* Alinha à esquerda para melhor legibilidade em mobile. */
+        justify-content: flex-start; /* Começa do topo, sem espaçamento desnecessário. */
+        gap: 10px; /* Reduz o gap entre elementos para caber mais conteúdo na tela pequena. */
+    }
 
- @media (min-width: 240px) and (max-width: 768px) {
-            /* nav {
-                position: fixed;
-                width: 100%;
-                top: 0;
-                padding: 0.6rem 1rem;
-                min-height: 12vh;
-            }
+    .title-container .content-row h1 {
+        font-size: clamp(1.2rem, 6vw, 2rem); /* Menor que o original: min 1.2rem (para legibilidade), preferido 6vw (maior que 5vw para escalar melhor em telas minúsculas), max 2rem (evita crescimento excessivo). */
+        line-height: 1.1; /* Reduz o espaçamento entre linhas para compactar o texto. */
+        word-break: break-word; /* Garante que palavras longas quebrem e não causem overflow. */
+        text-align: left; /* Alinha à esquerda para mobile. */
+    }
 
-            .nav-container {
-                padding: 0 1rem;
-                justify-content: space-between;
-                align-items: center;
-                max-width: 95%;
-                margin: 0 auto;
-            }
+    .title-container .content-row img {
+        width: 100%; /* Faz a imagem ocupar toda a largura disponível, mantendo responsividade. */
+        height: auto; /* Mantém proporção. */
+    }
+}
 
-            .logo {
-                left:-10px;
-                font-size: clamp(1.1rem, 1.3rem, 1.5rem);
-                gap: 0.3rem;
-            }
+@media (min-width: 820px) and (max-width: 1016px) {
+    .title-container .content-row {
+        flex-direction: row; /* Mantém row (original), mas permite wrap se necessário. */
+        flex-wrap: wrap; /* Permite que elementos quebrem para a linha de baixo se a tela for muito estreita nessa faixa. */
+        align-items: center; /* Centraliza verticalmente para equilíbrio. */
+        justify-content: space-between; /* Distribui espaço entre h1 e imagem. */
+        gap: 15px; /* Gap médio, menor que o original para caber melhor. */
+    }
 
-            .logo img {
-                width: clamp(22px, 28px, 32px);
-            }
+    .title-container .content-row h1 {
+        font-size: clamp(1.8rem, 4.5vw, 3.5rem); /* Ajuste intermediário: min 1.8rem (maior que em telas pequenas), preferido 4.5vw (menor que 5vw para encolher um pouco), max 3.5rem (limita crescimento). */
+        line-height: 1.2; /* Mantém legibilidade. */
+        word-break: break-word; /* Previne overflow em palavras longas. */
+        text-align: left; /* Mantém original. */
+    }
 
-            .hamburger {
-                display: block;
-                padding: 0.6rem;
-                position: absolute;
-                right: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: clamp(1.1rem, 1.3rem, 1.5rem);
-            }
+    .title-container .content-row img {
+        max-width: 45%; /* Limita a imagem a 45% da largura para não dominar o row em telas médias. */
+        height: auto;
+    }
+}
 
-            .nav-links {
-                display: none;
-            }
+@media (min-width: 1080px) {
+    .title-container .content-row {
+        flex-direction: row; /* Mantém row original. */
+        flex-wrap: nowrap; /* Impede wrap, já que há espaço suficiente. */
+        align-items: center; /* Centraliza verticalmente. */
+        justify-content: space-between; /* Distribui bem o espaço em telas largas. */
+        gap: 30px; /* Aumenta o gap para preencher melhor o espaço amplo. */
+    }
 
-            .nav-links.active {
-                display: flex;
-                width: min(90%, 260px);
-                gap: 1.5rem;
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100vh;
-                background: var(--marble-white);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-            }
+    .title-container .content-row h1 {
+        font-size: clamp(2.5rem, 4vw, 5rem); /* Maior que o original: min 2.5rem (para presença), preferido 4vw (menor que 5vw para escalar suavemente em ultra-wide), max 5rem (aumenta o limite para telas grandes). */
+        line-height: 1.3; /* Aumenta ligeiramente para melhor leitura em fontes grandes. */
+        word-break: normal; /* Não precisa quebrar palavras em telas grandes. */
+        text-align: left; /* Mantém original. */
+    }
 
-            .nav-links a {
-                font-size: clamp(0.9rem, 1rem, 1.1rem);
-                padding: 0.7rem;
-            } */
+    .title-container .content-row img {
+        max-width: 50%; /* Aumenta um pouco a imagem para equilibrar com o h1 maior. */
+        height: auto;
+    }
+}
+/* Media query para 311px a 360px - Alinhamento com hero-section */
+@media (min-width: 311px) and (max-width: 360px) {
+    /* Ajustar .articles-section para alinhar com .hero-section */
+    .articles-section {
+        margin-right: 0; /* Remove margem direita */
+        width: 100%; /* Mesma largura do hero-section */
+        max-width: 315px; /* Alinha com hero-section (width: 315px) */
+        padding: 10px; /* Mesmo padding do hero-section */
+        box-sizing: border-box; /* Evita overflow */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        z-index: 1; /* Mantém z-index original */
+    }
 
-        }
-    </style>
+    /* Garantir que container-article respeite limites */
+    .container-article {
+        max-width: 100%; /* Ocupa toda a largura */
+        padding: 2vh 10px; /* Mesmo padding do hero-section */
+        margin: 0; /* Remove margens */
+    }
+
+    /* Ajustar title-container para evitar cortes */
+    .title-container {
+        max-width: 100%; /* Ocupa toda a largura */
+        margin: 1vh 0; /* Reduz margem vertical */
+        padding: 2vh 10px; /* Mesmo padding do hero-section */
+        gap: 15px; /* Reduz gap */
+    }
+
+    /* Ajustar content-row para evitar cortes */
+    .title-container .content-row {
+        flex-direction: column; /* Mantém vertical */
+        gap: 15px; /* Reduz gap */
+        align-items: flex-start; /* Alinha à esquerda */
+        justify-content: flex-start; /* Começa do topo */
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
+    }
+
+    /* Ajustar h1 para caber e manter legibilidade */
+    .title-container .content-row h1 {
+        font-size: clamp(1.2rem, 5vw, 2rem); /* Alinha com hero-title (21px) */
+        line-height: 1.1; /* Compacta texto */
+        word-break: break-word; /* Evita overflow */
+        text-align: left; /* Alinha com hero-title */
+        margin: 0; /* Remove margens extras */
+    }
+
+    /* Ajustar imagem para não cortar */
+    .title-container .content-row img {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
+        height: auto; /* Mantém proporção */
+        border-radius: 4px; /* Mantém estilo */
+    }
+
+    /* Ajustar post-article para evitar cortes */
+    .post-article {
+        flex-direction: column; /* Mantém vertical */
+        padding: 15px; /* Reduz padding */
+        gap: 15px; /* Reduz gap */
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
+    }
+
+    /* Ajustar imagem do post */
+    .postimage-article {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; /* Evita transbordo */
+        height: auto; /* Mantém proporção */
+        border-radius: 4px; /* Mantém estilo */
+    }
+
+    /* Ajustar título do artigo */
+    .title-article {
+        font-size: clamp(1rem, 4vw, 1.2rem); /* Alinha com hero-title */
+        text-align: left; /* Alinha com hero-title */
+        margin-bottom: 10px; /* Reduz margem */
+        line-height: 1.3; /* Mantém legibilidade */
+    }
+
+    /* Ajustar excerpt do artigo */
+    .excerpt-article {
+        font-size: clamp(0.8rem, 3.5vw, 0.9rem); /* Menor para caber */
+        text-align: left; /* Alinha com hero-content */
+        line-height: 1.4; /* Mantém legibilidade */
+    }
+
+    /* Ajustar texto completo para evitar cortes */
+    .fulltext-article {
+        font-size: 14px; /* Alinha com fulltext-hero */
+        max-width: 100%; /* Evita transbordo */
+        text-align: left; /* Alinha com hero-content */
+    }
+}
+/* Media query para 271px a 310px - Preenchendo lacuna */
+@media (min-width: 271px) and (max-width: 310px) {
+    .articles-section {
+        margin-right: 0;
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 10px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    .container-article {
+        max-width: 100%;
+        padding: 2vh 10px;
+        margin: 0;
+    }
+
+    .title-container {
+        max-width: 100%;
+        margin: 1vh 0;
+        padding: 2vh 10px;
+        gap: 12px;
+    }
+
+    .title-container .content-row {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .title-container .content-row h1 {
+        font-size: clamp(1.1rem, 5vw, 1.9rem);
+        line-height: 1.1;
+        word-break: break-word;
+        text-align: left;
+        margin: 0;
+    }
+
+    .title-container .content-row img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .post-article {
+        flex-direction: column;
+        padding: 12px;
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .postimage-article {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .title-article {
+        font-size: clamp(0.95rem, 4vw, 1.15rem);
+        text-align: left;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .excerpt-article {
+        font-size: clamp(0.77rem, 3.5vw, 0.87rem);
+        text-align: left;
+        line-height: 1.4;
+    }
+
+    .fulltext-article {
+        font-size: 13.5px;
+        max-width: 100%;
+        text-align: left;
+    }
+}
+
+/* Media query para 361px a 380px - Correção para cortes no post-article */
+@media (min-width: 361px) and (max-width: 380px) {
+    .articles-section {
+        margin-right: 0;
+        width: 100%;
+        max-width: 370px; /* Aumenta para acomodar telas maiores */
+        padding: 15px 12px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    .container-article {
+        max-width: 100%;
+        padding: 2vh 12px;
+        margin: 0;
+    }
+
+    .title-container {
+        max-width: 100%;
+        margin: 1vh 0;
+        padding: 2vh 12px;
+        gap: 18px;
+    }
+
+    .title-container .content-row {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .title-container .content-row h1 {
+        font-size: clamp(1.3rem, 5vw, 2.1rem); /* Ligeiramente maior para telas maiores */
+        line-height: 1.1;
+        word-break: break-word;
+        text-align: left;
+        margin: 0;
+    }
+
+    .title-container .content-row img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .post-article {
+        flex-direction: column;
+        padding: 18px; /* Mais padding para telas maiores */
+        gap: 18px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto; /* Centraliza o elemento */
+    }
+
+    .postimage-article {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .title-article {
+        font-size: clamp(1.05rem, 4vw, 1.25rem);
+        text-align: left;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    .excerpt-article {
+        font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+        text-align: left;
+        line-height: 1.4;
+        margin-bottom: 15px; /* Adiciona margem inferior */
+    }
+
+    .fulltext-article {
+        font-size: 14.5px;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    /* Ajuste específico para text-article dentro do post-article */
+    .text-article {
+        width: 100%;
+        max-width: 100%;
+        flex: none; /* Remove flex para evitar cortes */
+    }
+
+    /* Garante que botões não sejam cortados */
+    .readmore-btn, .readless-btn {
+        margin-top: 10px;
+        display: block;
+        width: fit-content;
+    }
+}
+.post-title {
+    padding: 0 4px 3px 5px;
+}
+</style>
 </head>
 <body>
     <nav>
