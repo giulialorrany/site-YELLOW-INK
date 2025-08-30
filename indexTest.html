@@ -386,8 +386,31 @@
             line-height: 1.6;
             margin-bottom: 1rem;
         }
-
         .nosso-espaco {
+    border-bottom: 1px solid var(--primary-yellow);
+    margin-top: 0; /* IMPORTANTE: Definir como 0 na regra base */
+    padding: clamp(2rem, 2rem, 4rem);
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 2rem, 3rem);
+    min-height: 80vh;
+}
+
+/* 3. SUBSTITUA a regra base do .nosso-espaco h1 por esta: */
+.nosso-espaco h1 {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: clamp(1px, 2px, 3px);
+    color: #1A1A1A;
+    font-family: League Spartan, sans-serif;
+    margin-top: 0; /* IMPORTANTE: Remover qualquer margin-top */
+    margin-bottom: 1rem; /* Manter apenas margin-bottom */
+}
+
+        /* .nosso-espaco {
             border-bottom: 1px solid var(--primary-yellow);
             margin-top: 10vh;
             padding: clamp(2rem, 2rem, 4rem);
@@ -406,7 +429,7 @@
             letter-spacing: clamp(1px, 2px, 3px);
             color: #1A1A1A;
             font-family: League Spartan, sans-serif;
-        }
+        } */
 
         .nosso-espaco-subtitle {
             font-size: clamp(1rem, 1.2rem, 1.4rem);
@@ -889,11 +912,15 @@
                 justify-content: center;
             }
 
-            .nosso-espaco h1 {
+                       .nosso-espaco h1 {
+        margin-top: 0 !important; /* Sobrescreve qualquer conflito */
+        padding-top: 0 !important;
+    }
+            /* .nosso-espaco h1 {
                 font-size: clamp(1.6rem, 4.5vw, 2.2rem);
                 text-align: center;
                 margin-top: 2.5vh;
-            }
+            } */
 
             .nosso-espaco-subtitle {
                 font-size: clamp(0.9rem, 1rem, 1.1rem);
@@ -1381,6 +1408,12 @@
             .nosso-espaco {
                 min-height: 70vh;
             }
+            
+            .nosso-espaco-image-container {
+                width: clamp(250px, 80vw, 400px);
+                height: clamp(140px, 27vw, 300px);
+            }
+
 
             .about-content {
                 flex-direction: column-reverse;
@@ -1898,47 +1931,46 @@
     }
 }
 
-/* Ajustes em media queries conflitantes para .nosso-espaco h1 */
-@media (min-width: 240px) and (max-width: 768px) {
-    .nosso-espaco h1 {
-        margin-top: 0; /* Sobrescreve margin-top: 2.5vh para consistência */
-        margin-bottom: 0.5vh;
-    }
-}
-
 @media (max-width: 360px) {
-    .nosso-espaco h1 {
-        margin-top: 0; /* Sobrescreve margin-top: 3vh para consistência */
-        margin-bottom: 0.5vh;
+    
+      .nosso-espaco h1 {
+        margin-top: 0 !important; /* Sobrescreve qualquer conflito */
+        padding-top: 0 !important;
     }
 } 
 
-
- @media (min-width: 200px) and (max-width: 769px) {
-    
-    /* .logo, .logo.hidden {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: auto !important;
-        height: auto !important;
-        margin: auto !important;
-        padding: auto !important;
-        overflow: visible !important;
-    } */
-    /* nav {
-        height: 80px;
+@media (min-width: 200px) and (max-width: 769px) {
+     .about-section {
+        margin-bottom: 0; /* Remove espaço inferior */
+        padding-bottom: 1rem; /* Padding mínimo */
     }
-    nav.expanded {
-        height: 80px;
-    } */
-
-    /* .nosso-espaco h1{
-        margin-bottom: 2vh;
-    } */
+    .nosso-espaco {
+        margin-top: 0; /* Força margin-top zero */
+        padding: clamp(1rem, 1.5rem, 2rem); /* Padding menor */
+        gap: clamp(0.5rem, 1rem, 1.5rem); /* Gap menor */
+        min-height: 60vh; /* Altura menor */
+    }
+    
+    .nosso-espaco h1 {
+        font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+        margin-top: 0 !important; /* Força com !important */
+        margin-bottom: 0.5rem;
+        padding-top: 0; /* Remove qualquer padding superior */
+    }
+    
+    .nosso-espaco-subtitle {
+        font-size: clamp(0.9rem, 1rem, 1.1rem);
+        margin-top: 0; /* Remove margin-top negativo */
+        margin-bottom: 1rem;
+    }
 }
 
 
+@media (min-width: 360px) and (max-width: 423px) {
+.nosso-espaco h1{
+    text-align: center;
+}
+}
     </style>
 </head>
 <body>

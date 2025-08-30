@@ -359,7 +359,6 @@
 
         /* Guest Section */
         .guest-section {
-            border-bottom: 1px solid var(--primary-yellow);
             border-top: 1px solid var(--primary-yellow);
             padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
             background-color: #d4af3794;
@@ -367,6 +366,7 @@
             flex-direction: column;
             align-items: center;
             gap: 0;
+            margin-bottom: 5vh;
         }
 
         .guest-section#planos-guest {
@@ -451,31 +451,34 @@
             text-align: center;
             margin-top: clamp(1rem, 3vw, 2rem);
         }
+.whatsapp-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(1rem, 1.8vw, 1.2rem); /* Reduzido padding horizontal máximo */
+    max-width: 100%; /* Garante que não exceda o contêiner */
+    width: fit-content; /* Ajusta exatamente ao conteúdo */
+    background: #25D366;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap; /* Impede quebra de linha no texto */
+}
 
-        .whatsapp-contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
-            background: #25D366;
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-weight: 700;
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .whatsapp-contact-btn:hover {
-            background: #1DA851;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-        }
-
+.whatsapp-contact-btn:hover {
+    background: #1DA851;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
         /* Footer */
         footer {
             background: var(--primary-yellow);
@@ -588,106 +591,111 @@
             white-space: nowrap;
         }
 
-        /* Guest Section - Novo Layout */
-        .guest-section {
-            padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
-            background: #FFFFFF;
-            min-height: clamp(80vh, 100vw, 100vh);
-            display: flex;
-            align-items: center;
-        }
+        /* Guest Section - Layout Principal */
+.guest-section {
+    padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
+    background: #FFFFFF;
+    min-height: auto; /* Removido altura fixa */
+    display: flex;
+    align-items: center;
+}
 
-        .guest-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(2rem, 5vw, 4rem);
-            align-items: center;
-        }
+.guest-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start; /* Mudado de center para start */
+}
 
-        .guest-text-content {
-            padding-right: clamp(1rem, 3vw, 2rem);
-        }
+.guest-text-content {
+    padding-right: clamp(1rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
-        .guest-main-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            color: #1A1A1A;
-            font-family: 'League Spartan', sans-serif;
-            line-height: 1.1;
-            margin-bottom: clamp(1rem, 3vw, 2rem);
-            letter-spacing: -1px;
-        }
+.guest-main-title {
+    font-size: clamp(1.8rem, 4.5vw, 3.5rem); /* Ajustado range */
+    font-weight: 900;
+    color: #1A1A1A;
+    font-family: 'League Spartan', sans-serif;
+    line-height: 1.1;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    letter-spacing: -1px;
+}
 
-        .guest-main-title .highlight {
-            color: var(--accent-yellow);
-        }
+.guest-main-title .highlight {
+    color: var(--accent-yellow);
+}
 
-        .guest-description {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: clamp(1rem, 2vw, 1.5rem);
-            font-family: 'Inter', sans-serif;
-        }
+.guest-description {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    font-family: 'Inter', sans-serif;
+}
 
-        .guest-features {
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-            font-family: 'Inter', sans-serif;
-        }
+.guest-features {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    font-family: 'Inter', sans-serif;
+}
 
-        .guest-images-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: clamp(150px, 25vw, 200px) clamp(200px, 35vw, 300px);
-            gap: clamp(0.8rem, 2vw, 1rem);
-            height: clamp(400px, 80vw, 520px);
-        }
+.guest-images-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: clamp(120px, 20vw, 200px) clamp(180px, 30vw, 300px);
+    gap: clamp(0.8rem, 2vw, 1rem);
+    height: auto; /* Removido altura fixa */
+    min-height: clamp(320px, 60vw, 520px);
+}
 
-        .guest-image-item {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: var(--transition);
-        }
+.guest-image-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    height: 100%;
+}
 
-        .guest-image-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
+.guest-image-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
 
-        .guest-image-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
+.guest-image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
 
-        .guest-image-item:hover img {
-            transform: scale(1.05);
-        }
+.guest-image-item:hover img {
+    transform: scale(1.05);
+}
 
-        .image-1 {
-            grid-column: 1;
-            grid-row: 1;
-        }
+.image-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
 
-        .image-2 {
-            grid-column: 2;
-            grid-row: 1;
-        }
+.image-2 {
+    grid-column: 2;
+    grid-row: 1;
+}
 
-        .image-3 {
-            grid-column: 1 / -1;
-            grid-row: 2;
-        }
-
+.image-3 {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
         /* Terceira Section - Qualidade no Atendimento */
         .quality-section {
             padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
@@ -757,6 +765,8 @@
 
         /* Seção O Futuro do Trabalho */
         .future-work-section {
+
+            border-top: 1px solid var(--primary-yellow);
             padding-bottom: clamp(3vh, 5vw, 5vh);
             background-color: #c99d2d85;
             text-align: center;
@@ -1053,13 +1063,22 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .guest-container {
+        gap: clamp(1.5rem, 4vw, 3rem);
+        grid-template-columns: 1fr 1fr; /* Mantém 2 colunas */
+    }
+
+    .guest-images-grid {
+        grid-template-rows: clamp(100px, 18vw, 180px) clamp(160px, 28vw, 250px);
+        min-height: clamp(280px, 50vw, 450px);
+    }
+            /* .guest-container {
                 gap: clamp(1.5rem, 4vw, 3rem);
             }
 
             .guest-images-grid {
                 grid-template-rows: clamp(120px, 20vw, 180px) clamp(180px, 30vw, 250px);
                 height: clamp(350px, 70vw, 450px);
-            }
+            } */
 
             .maps-guest {
                 gap: clamp(30px, 6vw, 50px);
@@ -1094,6 +1113,7 @@
                 padding: 0 clamp(0.5rem, 2vw, 1rem);
             }
 
+            
             .guest-container {
                 grid-template-columns: 1fr;
                 gap: clamp(2rem, 5vw, 3rem);
@@ -1109,10 +1129,10 @@
                 grid-template-rows: clamp(150px, 25vw, 200px) clamp(150px, 25vw, 200px) clamp(200px, 35vw, 250px);
             }
 
-            .image-3 {
+           
+             .image-3 {
                 grid-column: 1 / -1;
             }
-
             .maps-guest {
                 grid-template-columns: 1fr;
                 gap: clamp(20px, 5vw, 40px);
@@ -1124,66 +1144,113 @@
             }
         }
 
-        @media (max-width: 768px) {
-                        .hamburger {
-                display: block;
-            }
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
 
-            .nav-links {
-                display: none;
-            }
+    .nav-links {
+        display: none;
+    }
 
-            .nav-links.active {
-                display: flex;
-            }
+    .nav-links.active {
+        display: flex;
+    }
 
-            .nav-container {
-                padding: 0.6rem 1rem;
-            }
+    .nav-container {
+        padding: 0.6rem 1rem;
+    }
 
-            .logo {
-                font-size: 1.4rem;
-            }
+    .logo {
+        font-size: 1.4rem;
+    }
 
-            .logo img {
-                width: 30px;
-            }
-    
-            .hero {
-                height: clamp(50vh, 80vw, 60vh);
-            }
+    .logo img {
+        width: 30px;
+    }
 
-            .hero .carousel,
-            .hero .carousel-inner,
-            .hero .carousel-item {
-                height: clamp(50vh, 80vw, 60vh);
-            }
+    .hero {
+        height: clamp(50vh, 80vw, 60vh);
+    }
 
-            .hero .carousel-item img {
-                height: clamp(50vh, 80vw, 60vh);
-            }
+    .hero .carousel,
+    .hero .carousel-inner,
+    .hero .carousel-item {
+        height: clamp(50vh, 80vw, 60vh);
+    }
 
-            .hero-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: clamp(0.5rem, 2vw, 1rem);
-                margin-top: clamp(3vh, 5vw, 5vh);
-            }
+    .hero .carousel-item img {
+        height: clamp(50vh, 80vw, 60vh);
+    }
 
-            .hero-title {
-                font-size: clamp(1.5rem, 4vw, 2rem);
-                padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
-                letter-spacing: 2px;
-            }
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: clamp(0.5rem, 2vw, 1rem);
+        margin-top: clamp(3vh, 5vw, 5vh);
+    }
 
-            .hero-subtitle {
-                font-size: clamp(0.66rem, 2vw, 0.8rem);
-                max-width: 90vw;
-                margin-bottom: clamp(-8vh, -10vw, -7vh);
-            }
-            
-          }
+    .hero-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+        letter-spacing: 2px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.66rem, 2vw, 0.8rem);
+        max-width: 90vw;
+        margin-bottom: clamp(-8vh, -10vw, -7vh);
+    }
+
+    .guest-section {
+        padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 1.5rem);
+    }
+
+    .guest-container {
+        gap: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .guest-main-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        margin-bottom: clamp(0.8rem, 3vw, 1.5rem);
+        line-height: 1.2;
+    }
+
+    .guest-description {
+        text-align: left;
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+    }
+
+    .guest-features {
+        text-align: left;
+        font-size: clamp(0.85rem, 3vw, 0.95rem);
+        margin-bottom: clamp(1.2rem, 3vw, 2rem);
+    }
+
+    .guest-images-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, clamp(180px, 40vw, 250px));
+        gap: clamp(1rem, 3vw, 1.5rem);
+        min-height: auto;
+        max-width: 100%;
+        /* Neutraliza o margin-bottom negativo */
+        margin-bottom: 0; /* Sobrescreve clamp(-50vh, -60vw, -45vh) */
+    }
+
+    .image-1,
+    .image-2,
+    .image-3 {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    /* Ajuste reforçado para garantir espaçamento inferior */
+    .guest-section {
+        margin-bottom: clamp(3rem, 8vw, 5rem) !important; /* Valor mais robusto com !important para prioridade */
+    }
+}
             .guest-section {
                 flex-direction: column;
                 text-align: center;
@@ -1279,7 +1346,7 @@
             }
 
             .guest-images-grid {
-                margin-bottom: clamp(-50vh, -60vw, -45vh);
+                margin-bottom: 0;
             }
 
             .guest-main-title {
@@ -1403,12 +1470,35 @@
             }
 
             .guest-section {
+        padding: clamp(1.5rem, 5vw, 2.5rem) clamp(0.8rem, 3vw, 1.2rem);
+    }
+
+    .guest-container {
+        gap: clamp(1.2rem, 4vw, 2rem);
+    }
+
+    .guest-main-title {
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+        margin-bottom: clamp(0.6rem, 2vw, 1rem);
+    }
+
+    .guest-description,
+    .guest-features {
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+        margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+    }
+
+    .guest-images-grid {
+        grid-template-rows: repeat(3, clamp(150px, 35vw, 200px));
+        gap: clamp(0.8rem, 2vw, 1.2rem);
+    }
+            /* .guest-section {
                 padding: clamp(1.5rem, 4vw, 2rem) clamp(0.5rem, 2vw, 1rem);
             }
 
             .guest-text {
                 margin-top: 0;
-            }
+            } */
 
             .future-work-title {
                 font-size: clamp(1.8rem, 5vw, 2.2rem);
@@ -1433,7 +1523,7 @@
             }
 
 
-            .guest-title {
+            /* .guest-title {
                 font-size: clamp(1.5rem, 4vw, 1.8rem);
                 margin-bottom: clamp(1vh, 2vw, 2vh);
             }
@@ -1461,7 +1551,7 @@
 
             .guest-features {
                 text-align: justify;
-            }
+            } */
 
             .future-work-badge {
                 margin-left: clamp(30vw, 40vw, 48vh);
@@ -1576,7 +1666,26 @@
                 margin-bottom: clamp(-4vh, -5vw, -3vh);
             }
 
-            .guest-images-grid {
+             .guest-section {
+        padding: clamp(1.2rem, 4vw, 2rem) clamp(0.6rem, 2vw, 1rem);
+    }
+
+    .guest-main-title {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+        line-height: 1.1;
+    }
+
+    .guest-description,
+    .guest-features {
+        font-size: clamp(0.75rem, 3vw, 0.85rem);
+        line-height: 1.6;
+    }
+
+    .guest-images-grid {
+        grid-template-rows: repeat(3, clamp(130px, 32vw, 180px));
+        gap: clamp(0.6rem, 2vw, 1rem);
+    }
+            /* .guest-images-grid {
                 margin-bottom: clamp(-50vh, -60vw, -45vh);
             }
 
@@ -1590,7 +1699,7 @@
 
             .guest-features {
                 text-align: justify;
-            }
+            } */
 
             .future-work-badge {
                 margin-left: clamp(10vw, 20vw, 15vh);
@@ -1735,6 +1844,19 @@
                 margin-top: 1vh;
             }
           }
+
+          @media (min-width: 1320px) {
+    .guest-images-grid {
+        margin-bottom: clamp(2rem, 3vw, 4rem);
+    }
+}
+
+       @media (min-width: 769px) and (max-width: 1024px) {
+    .guest-section {
+        margin-bottom: -20vh; /* Reduzido de -9vh para -4vh */
+    }
+}
+
 
     </style>
 </head>
