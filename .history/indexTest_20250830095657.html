@@ -311,22 +311,35 @@
         }
 
         .hero-image-container {
-    width: clamp(200px, 40vw, 400px); /* Largura responsiva */
-    max-width: 100%; /* Garante que não exceda a largura da tela */
-    height: auto; /* Altura automática para respeitar proporções */
-    display: flex;
+    width: clamp(200px, 40vw, 400px); /* Mantém a largura responsiva */
+    max-width: 100%; /* Garante que o contêiner não exceda a largura da tela */
+    height: auto; /* Remove altura fixa para respeitar proporções */
+    display: flex; /* Para centralizar a imagem */
     justify-content: center;
     align-items: center;
-    margin-right: clamp(0, 10vh, 5rem); /* Margem ajustada */
-    margin-top: clamp(-1vh, -3vh, -5vh); /* Margem superior para alinhamento */
 }
 
 .hero-image {
-    width: 100%; /* Ocupa toda a largura do contêiner */
+    width: 100%; /* Garante que a imagem ocupe a largura do contêiner */
     height: auto; /* Altura automática para manter proporção */
     object-fit: contain; /* Exibe a imagem inteira sem cortes */
+    margin-right: clamp(0, 10vh, 5rem);
+    margin-top: clamp(-1vh, -3vh, -5vh);
     transition: var(--transition);
 }
+        /* .hero-image-container {
+            width: clamp(200px, 40vw, 400px);
+        } */
+
+        /* .hero-image {
+            width: 100%;
+            height: clamp(250px, 50vw, 500px);
+            object-fit: cover;
+            margin-right: clamp(0, 10vh, 5rem);
+            margin-top: clamp(-1vh, -3vh, -5vh);
+            transition: var(--transition);
+        }
+ */
         .about-section {
             border: 1px solid var(--primary-yellow);
             padding: clamp(2rem, 2.5rem, 4rem) clamp(1rem, 2rem, 3rem);
@@ -826,20 +839,21 @@
                 font-size: clamp(0.8rem, 0.9rem, 1rem);
                 padding: clamp(0.6rem, 0.7rem, 0.8rem) clamp(1.2rem, 1.3rem, 1.5rem);
             }
+
             .hero-image-container {
-        width: clamp(180px, 85vw, 350px); /* Aumenta a largura relativa para telas menores */
+        width: clamp(180px, 85vw, 500px);
+        height: auto; /* Altura automática para respeitar proporções */
         max-width: 100%;
-        height: auto;
-        margin-right: 0; /* Remove margem à direita para centralizar */
-        margin-top: 1.5vh;
         order: 1;
-    }
+}
+    
 
     .hero-image {
         width: 100%;
-        height: auto;
-        object-fit: contain;
+        height: auto; /* Remove altura fixa */
+        object-fit: contain; /* Exibe a imagem inteira */
         margin-right: 0;
+        margin-top: 1.5vh;
     }
             .about-section {
                 min-height: 65vh;
@@ -1048,17 +1062,6 @@
             }
 
             .hero-image-container {
-        width: clamp(200px, 70vw, 320px); /* Ajuste fino para telas intermediárias */
-        max-width: 100%;
-        height: auto;
-    }
-
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-            /* .hero-image-container {
                 width: clamp(240px, 70vw, 320px);
                 order: 1;
             }
@@ -1066,7 +1069,7 @@
             .hero-image {
                 height: clamp(200px, 45vw, 280px);
                 margin-right: 0;
-            } */
+            }
 
             .about-section {
                 min-height: 70vh;
@@ -1169,24 +1172,13 @@
             }
 
             .hero-image-container {
-        width: clamp(250px, 70vw, 400px); /* Ajuste para telas maiores no intervalo */
-        max-width: 100%;
-        height: auto;
-    }
-
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-            /* .hero-image-container {
                 width: clamp(320px, 70vw, 450px);
                 order: 1;
-            } */
+            }
 
-            /* .hero-image {
+            .hero-image {
                 height: clamp(280px, 50vw, 400px);
-            } */
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -1227,25 +1219,13 @@
             }
 
             .hero-image-container {
-        width: clamp(300px, 45vw, 500px); /* Ajuste para telas intermediárias */
-        max-width: 100%;
-        height: auto;
-        margin-right: 2rem;
-    }
-
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-            /* .hero-image-container {
                 width: clamp(500px, 45vw, 600px);
             }
 
             .hero-image {
                 height: clamp(200px, 40vw, 400px);
                 margin-right: 2rem;
-            } */
+            }
 
             .about-section {
                 min-height: 70vh;
@@ -1474,17 +1454,6 @@
                 gap: 1rem;
             }
             .hero-image-container {
-        width: clamp(160px, 70vw, 260px);
-        max-width: 100%;
-        height: auto;
-    }
-
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-            /* .hero-image-container {
         width: clamp(180px, 70vw, 260px);
         height: auto;
         max-width: 100%;
@@ -1495,7 +1464,14 @@
         height: auto;
         object-fit: contain;
         margin-right: 0;
-    } */
+    }
+            /* .hero-image-container {
+                width: clamp(200px, 75vw, 300px);
+            }
+
+            .hero-image {
+                height: clamp(180px, 40vw, 280px);
+            } */
 
             .about-section,
             .nosso-espaco {
@@ -1642,24 +1618,13 @@
                 width: clamp(160px, 65vw, 220px);
             }
 
-            .hero-image-container {
-        width: clamp(140px, 65vw, 220px);
-        max-width: 100%;
-        height: auto;
-    }
-
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-            /* .hero-image {
+            .hero-image {
                 height: clamp(140px, 30vw, 200px);
             }
 
             .about-image-container {
                 width: clamp(160px, 65vw, 220px);
-            } */
+            }
 
             .about-image {
                 height: clamp(120px, 25vw, 180px);
@@ -1707,18 +1672,15 @@
             }
 
             .hero-image-container {
-        width: clamp(180px, 35vw, 280px);
-        max-width: 100%;
-        height: auto;
-        margin-right: clamp(1rem, 2rem, 3rem);
-    }
+                order: 2;
+                width: clamp(200px, 35vw, 300px);
+            }
 
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-            
+            .hero-image {
+                height: clamp(180px, 40vh, 280px);
+                margin-right: clamp(1rem, 2rem, 3rem);
+            }
+
             .about-content {
                 flex-direction: row;
             }
@@ -1738,21 +1700,9 @@
                 margin-left: 8rem;
             }
 
-            .hero-image-container {
-        width: clamp(400px, 40vw, 600px);
-        max-width: 100%;
-        height: auto;
-        margin-right: 8rem;
-    }
-
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-            /* .hero-image {
+            .hero-image {
                 margin-right: 8rem;
-            } */
+            }
 
             .gallery-carousel-container {
                 padding: 30px 20px;
@@ -1837,46 +1787,10 @@
 
         
 
-/* Ajustes para .nosso-espaco na faixa de 200px a 769px */
-@media (min-width: 200px) and (max-width: 769px) {
-    .nosso-espaco {
-        border-bottom: 1px solid var(--primary-yellow);
-        /* margin-top: clamp(1vh, 2vh, 3vh); Reduzido ainda mais de clamp(2vh, 3vh, 4vh) */
-         padding: clamp(0.5rem, 0.8rem, 1rem); 
-        background: #FFF;
-         margin-bottom: 0.5vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: clamp(0.5rem, 0.8rem, 1rem); /* Reduzido para menos espaço entre elementos */
-        min-height: 65vh;
-    }
+ 
 
-    .nosso-espaco h1 {
-        font-size: clamp(1.6rem, 4.5vw, 2.2rem);
-        text-align: center;
-        margin-top: 2vh; 
-        margin-bottom: 0.5vh; 
-    }
 
-    .nosso-espaco-subtitle {
-        font-size: clamp(0.9rem, 1rem, 1.1rem);
-        margin: clamp(-2vh, -3vh, -4vh) 0 clamp(-0.5vh, -1vh, -1.5vh) 0; /* Ajustado para reduzir espaço */
-    }
-
-    .about-section {
-        border: 1px solid var(--primary-yellow);
-        
-        padding-bottom: 0.5rem;
-        padding: clamp(0.8rem, 1rem, 1.2rem); /* Reduzido para menos espaço no topo e base */
-        margin-bottom: 0; /* Garante nenhum espaço extra abaixo */
-        background: #c4a62173;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: clamp(0.5rem, 0.8rem, 1rem); /* Reduzido para menos espaço interno */
-        min-height: 65vh;
-    }
+ @media (min-width: 240px) and (max-width: 769px) {
 
     .logo, .logo.hidden {
         display: flex !important;
@@ -1888,57 +1802,17 @@
         padding: auto !important;
         overflow: visible !important;
     }
-
     nav {
         height: 80px;
     }
-
     nav.expanded {
         height: 80px;
     }
-}
 
-/* Ajustes em media queries conflitantes para .nosso-espaco h1 */
-@media (min-width: 240px) and (max-width: 768px) {
-    .nosso-espaco h1 {
-        margin-top: 0; /* Sobrescreve margin-top: 2.5vh para consistência */
-        margin-bottom: 0.5vh;
-    }
-}
-
-@media (max-width: 360px) {
-    .nosso-espaco h1 {
-        margin-top: 0; /* Sobrescreve margin-top: 3vh para consistência */
-        margin-bottom: 0.5vh;
-    }
-} 
-
-
- @media (min-width: 200px) and (max-width: 769px) {
-    
-    /* .logo, .logo.hidden {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: auto !important;
-        height: auto !important;
-        margin: auto !important;
-        padding: auto !important;
-        overflow: visible !important;
-    } */
-    /* nav {
-        height: 80px;
-    }
-    nav.expanded {
-        height: 80px;
-    } */
-
-    /* .nosso-espaco h1{
+    .nosso -espaco h1{
         margin-bottom: 2vh;
-    } */
+    }
 }
-
-
     </style>
 </head>
 <body>

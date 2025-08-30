@@ -1841,10 +1841,9 @@
 @media (min-width: 200px) and (max-width: 769px) {
     .nosso-espaco {
         border-bottom: 1px solid var(--primary-yellow);
-        /* margin-top: clamp(1vh, 2vh, 3vh); Reduzido ainda mais de clamp(2vh, 3vh, 4vh) */
-         padding: clamp(0.5rem, 0.8rem, 1rem); 
+        margin-top: clamp(1vh, 2vh, 3vh); /* Reduzido ainda mais de clamp(2vh, 3vh, 4vh) */
+        padding: clamp(0.8rem, 1rem, 1.2rem); /* Reduzido ainda mais para minimizar espaço interno */
         background: #FFF;
-         margin-bottom: 0.5vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1852,12 +1851,16 @@
         min-height: 65vh;
     }
 
-    .nosso-espaco h1 {
+      .nosso-espaco h1 {
+        margin-top: 2vh; /* !important garante que sobrescreva outras regras */
+        margin-bottom: 0.5vh;
+    }
+    /* .nosso-espaco h1 {
         font-size: clamp(1.6rem, 4.5vw, 2.2rem);
         text-align: center;
-        margin-top: 2vh; 
+        margin-top: 0; 
         margin-bottom: 0.5vh; 
-    }
+    } */
 
     .nosso-espaco-subtitle {
         font-size: clamp(0.9rem, 1rem, 1.1rem);
@@ -1866,8 +1869,6 @@
 
     .about-section {
         border: 1px solid var(--primary-yellow);
-        
-        padding-bottom: 0.5rem;
         padding: clamp(0.8rem, 1rem, 1.2rem); /* Reduzido para menos espaço no topo e base */
         margin-bottom: 0; /* Garante nenhum espaço extra abaixo */
         background: #c4a62173;

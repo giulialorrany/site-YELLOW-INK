@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home - Yellow Ink--atualizado</title>
+    <title>Home - Yellow Ink</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@400;700;900&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
@@ -311,22 +311,24 @@
         }
 
         .hero-image-container {
-            width: clamp(200px, 40vw, 400px);
-        }
+    width: clamp(200px, 40vw, 400px); /* Largura responsiva */
+    max-width: 100%; /* Garante que não exceda a largura da tela */
+    height: auto; /* Altura automática para respeitar proporções */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: clamp(0, 10vh, 5rem); /* Margem ajustada */
+    margin-top: clamp(-1vh, -3vh, -5vh); /* Margem superior para alinhamento */
+}
 
-        .hero-image {
-            width: 100%;
-            height: clamp(250px, 50vw, 500px);
-            object-fit: cover;
-            margin-right: clamp(0, 10vh, 5rem);
-            margin-top: clamp(-1vh, -3vh, -5vh);
-            transition: var(--transition);
-        }
-
+.hero-image {
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    height: auto; /* Altura automática para manter proporção */
+    object-fit: contain; /* Exibe a imagem inteira sem cortes */
+    transition: var(--transition);
+}
         .about-section {
-            
-               border-bottom: 1px solid var(--primary-yellow);
-            /* border: 1px solid var(--primary-yellow); */
+            border: 1px solid var(--primary-yellow);
             padding: clamp(2rem, 2.5rem, 4rem) clamp(1rem, 2rem, 3rem);
             background: #c4a62173;
             display: flex;
@@ -386,8 +388,8 @@
         }
 
         .nosso-espaco {
-            /* border-bottom: 1px solid var(--primary-yellow); */
-            margin-top: 5vh;
+            border-bottom: 1px solid var(--primary-yellow);
+            margin-top: 10vh;
             padding: clamp(2rem, 2rem, 4rem);
             background: #FFF;
             display: flex;
@@ -464,7 +466,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: var(--transition);
+            transition: var(--transition);  
         }
 
         .video-control-btn:hover {
@@ -524,8 +526,6 @@
         }
 
         .gallery-section {
-            margin-top: -20vh;
-            border-top: 1px solid var(--primary-yellow);
             margin-bottom: 5vh;
             padding: clamp(1.5rem, 2rem, 3rem);
             background: #FFF;
@@ -826,18 +826,21 @@
                 font-size: clamp(0.8rem, 0.9rem, 1rem);
                 padding: clamp(0.6rem, 0.7rem, 0.8rem) clamp(1.2rem, 1.3rem, 1.5rem);
             }
-
             .hero-image-container {
-                width: clamp(180px, 85vw, 500px);
-                order: 1;
-            }
+        width: clamp(180px, 85vw, 350px); /* Aumenta a largura relativa para telas menores */
+        max-width: 100%;
+        height: auto;
+        margin-right: 0; /* Remove margem à direita para centralizar */
+        margin-top: 1.5vh;
+        order: 1;
+    }
 
-            .hero-image {
-                height: clamp(160px, 40vw, 400px);
-                margin-right: 0;
-                margin-top: 1.5vh;
-            }
-
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-right: 0;
+    }
             .about-section {
                 min-height: 65vh;
                 padding: clamp(1.5rem, 2rem, 2.5rem) 1rem;
@@ -1045,6 +1048,17 @@
             }
 
             .hero-image-container {
+        width: clamp(200px, 70vw, 320px); /* Ajuste fino para telas intermediárias */
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+            /* .hero-image-container {
                 width: clamp(240px, 70vw, 320px);
                 order: 1;
             }
@@ -1052,7 +1066,7 @@
             .hero-image {
                 height: clamp(200px, 45vw, 280px);
                 margin-right: 0;
-            }
+            } */
 
             .about-section {
                 min-height: 70vh;
@@ -1086,7 +1100,6 @@
             }
 
             .nosso-espaco h1 {
-                margin-bottom: 2vh;
                 font-size: clamp(1.8rem, 5vw, 2.8rem);
             }
 
@@ -1156,16 +1169,24 @@
             }
 
             .hero-image-container {
+        width: clamp(250px, 70vw, 400px); /* Ajuste para telas maiores no intervalo */
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+            /* .hero-image-container {
                 width: clamp(320px, 70vw, 450px);
                 order: 1;
-            }
+            } */
 
-            .hero-image {
+            /* .hero-image {
                 height: clamp(280px, 50vw, 400px);
-            }
-            .nosso-espaco h1{
-                margin-bottom: 2vh;
-            }
+            } */
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -1206,13 +1227,25 @@
             }
 
             .hero-image-container {
+        width: clamp(300px, 45vw, 500px); /* Ajuste para telas intermediárias */
+        max-width: 100%;
+        height: auto;
+        margin-right: 2rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+            /* .hero-image-container {
                 width: clamp(500px, 45vw, 600px);
             }
 
             .hero-image {
                 height: clamp(200px, 40vw, 400px);
                 margin-right: 2rem;
-            }
+            } */
 
             .about-section {
                 min-height: 70vh;
@@ -1237,9 +1270,6 @@
                 padding: 2rem;
             }
 
-            .gallery-section{
-                margin-top: -20vh;
-            }
             .nosso-espaco-image-container {
                 width: clamp(300px, 50vw, 600px);
                 height: clamp(170px, 30vw, 360px);
@@ -1289,7 +1319,6 @@
         }
 
         @media (max-width: 768px) {
-
             .hamburger {
                 display: block;
             }
@@ -1347,14 +1376,10 @@
                 margin-right: 0;
                 margin-top: 1.5vh;
             }
+
             .about-section,
             .nosso-espaco {
                 min-height: 70vh;
-            }
-
-            .nosso-espaco {
-                min-height: 70vh;
-                padding: 2rem;
             }
 
             .about-content {
@@ -1380,9 +1405,7 @@
                 width: clamp(250px, 80vw, 400px);
                 height: clamp(140px, 27vw, 300px);
             }
-            .nosso-espaco h1{
-                margin-top: -40vh;
-            }
+
             .video-controls {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -1450,24 +1473,36 @@
                 padding: 0.8rem;
                 gap: 1rem;
             }
-
             .hero-image-container {
-                width: clamp(200px, 75vw, 300px);
-            }
+        width: clamp(160px, 70vw, 260px);
+        max-width: 100%;
+        height: auto;
+    }
 
-            .hero-image {
-                height: clamp(180px, 40vw, 280px);
-            }
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+            /* .hero-image-container {
+        width: clamp(180px, 70vw, 260px);
+        height: auto;
+        max-width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-right: 0;
+    } */
 
             .about-section,
             .nosso-espaco {
                 padding: clamp(1.5rem, 2rem, 2.5rem) 0.8rem;
                 min-height: 65vh;
             }
-            
-            /* .nosso-espaco h1{
-                margin-top: -100vh;
-            } */
+
             .about-image-container {
                 width: clamp(200px, 75vw, 300px);
             }
@@ -1543,8 +1578,7 @@
             }
 
             .nosso-espaco h1 {
-                margin-top: -35vh;
-                margin-bottom: 3vh;
+                margin-top: 3vh;
                 text-align: center;
             }
 
@@ -1608,13 +1642,24 @@
                 width: clamp(160px, 65vw, 220px);
             }
 
-            .hero-image {
+            .hero-image-container {
+        width: clamp(140px, 65vw, 220px);
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+            /* .hero-image {
                 height: clamp(140px, 30vw, 200px);
             }
 
             .about-image-container {
                 width: clamp(160px, 65vw, 220px);
-            }
+            } */
 
             .about-image {
                 height: clamp(120px, 25vw, 180px);
@@ -1623,7 +1668,6 @@
             .nosso-espaco-image-container {
                 width: clamp(160px, 65vw, 240px);
                 height: clamp(90px, 18vw, 160px);
-                margin-bottom: -50vh;
             }
 
             .swiper-slide,
@@ -1663,15 +1707,18 @@
             }
 
             .hero-image-container {
-                order: 2;
-                width: clamp(200px, 35vw, 300px);
-            }
+        width: clamp(180px, 35vw, 280px);
+        max-width: 100%;
+        height: auto;
+        margin-right: clamp(1rem, 2rem, 3rem);
+    }
 
-            .hero-image {
-                height: clamp(180px, 40vh, 280px);
-                margin-right: clamp(1rem, 2rem, 3rem);
-            }
-
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+            
             .about-content {
                 flex-direction: row;
             }
@@ -1691,9 +1738,21 @@
                 margin-left: 8rem;
             }
 
-            .hero-image {
+            .hero-image-container {
+        width: clamp(400px, 40vw, 600px);
+        max-width: 100%;
+        height: auto;
+        margin-right: 8rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+            /* .hero-image {
                 margin-right: 8rem;
-            }
+            } */
 
             .gallery-carousel-container {
                 padding: 30px 20px;
@@ -1775,6 +1834,111 @@
                 overflow: hidden !important;
             }
         }
+
+        
+
+/* Ajustes para .nosso-espaco na faixa de 200px a 769px */
+@media (min-width: 200px) and (max-width: 769px) {
+    .nosso-espaco {
+        border-bottom: 1px solid var(--primary-yellow);
+        /* margin-top: clamp(1vh, 2vh, 3vh); Reduzido ainda mais de clamp(2vh, 3vh, 4vh) */
+         padding: clamp(0.5rem, 0.8rem, 1rem); 
+        background: #FFF;
+         margin-bottom: 0.5vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.5rem, 0.8rem, 1rem); /* Reduzido para menos espaço entre elementos */
+        min-height: 65vh;
+    }
+
+    .nosso-espaco h1 {
+        font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+        text-align: center;
+        margin-top: 2vh; 
+        margin-bottom: 0.5vh; 
+    }
+
+    .nosso-espaco-subtitle {
+        font-size: clamp(0.9rem, 1rem, 1.1rem);
+        margin: clamp(-2vh, -3vh, -4vh) 0 clamp(-0.5vh, -1vh, -1.5vh) 0; /* Ajustado para reduzir espaço */
+    }
+
+    .about-section {
+        border: 1px solid var(--primary-yellow);
+        
+        padding-bottom: 0.5rem;
+        padding: clamp(0.8rem, 1rem, 1.2rem); /* Reduzido para menos espaço no topo e base */
+        margin-bottom: 0; /* Garante nenhum espaço extra abaixo */
+        background: #c4a62173;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.5rem, 0.8rem, 1rem); /* Reduzido para menos espaço interno */
+        min-height: 65vh;
+    }
+
+    .logo, .logo.hidden {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: auto !important;
+        height: auto !important;
+        margin: auto !important;
+        padding: auto !important;
+        overflow: visible !important;
+    }
+
+    nav {
+        height: 80px;
+    }
+
+    nav.expanded {
+        height: 80px;
+    }
+}
+
+/* Ajustes em media queries conflitantes para .nosso-espaco h1 */
+@media (min-width: 240px) and (max-width: 768px) {
+    .nosso-espaco h1 {
+        margin-top: 0; /* Sobrescreve margin-top: 2.5vh para consistência */
+        margin-bottom: 0.5vh;
+    }
+}
+
+@media (max-width: 360px) {
+    .nosso-espaco h1 {
+        margin-top: 0; /* Sobrescreve margin-top: 3vh para consistência */
+        margin-bottom: 0.5vh;
+    }
+} 
+
+
+ @media (min-width: 200px) and (max-width: 769px) {
+    
+    /* .logo, .logo.hidden {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: auto !important;
+        height: auto !important;
+        margin: auto !important;
+        padding: auto !important;
+        overflow: visible !important;
+    } */
+    /* nav {
+        height: 80px;
+    }
+    nav.expanded {
+        height: 80px;
+    } */
+
+    /* .nosso-espaco h1{
+        margin-bottom: 2vh;
+    } */
+}
+
+
     </style>
 </head>
 <body>
