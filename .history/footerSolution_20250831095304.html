@@ -1,0 +1,213 @@
+/* SOLUÇÃO RESPONSIVA PARA FOOTER-BOTTOM */
+
+.footer-bottom {
+    margin-top: clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    left: 0px;
+    min-height: clamp(4rem, 8vw, 5.5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* IMAGEM DE FUNDO RESPONSIVA */
+    background-image: url('img/footerOF.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Cobre toda a área mantendo proporção */
+    
+    /* ALTERNATIVA: usar contain se quiser mostrar a imagem completa */
+    /* background-size: contain; */
+    
+    overflow: hidden;
+}
+
+/* OVERLAY OPCIONAL PARA MELHORAR LEGIBILIDADE DO TEXTO */
+.footer-bottom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Escurece levemente a imagem */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.footer-bottom p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: clamp(0.5rem, 1vw, 1rem);
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    
+    /* SOMBRA NO TEXTO PARA MELHORAR LEGIBILIDADE */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    
+    /* FUNDO SEMI-TRANSPARENTE OPCIONAL */
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+}
+
+/* MEDIA QUERIES ESPECÍFICAS PARA DIFERENTES TAMANHOS */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .footer-bottom {
+        min-height: clamp(3rem, 6vw, 4rem);
+        background-size: cover; /* Mantém cobertura total */
+    }
+    
+    .footer-bottom p {
+        font-size: clamp(0.7rem, 2.5vw, 1rem);
+        padding: clamp(0.3rem, 1vw, 0.6rem);
+    }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+    .footer-bottom {
+        min-height: clamp(2.5rem, 8vw, 3.5rem);
+        /* Para telas muito pequenas, pode usar contain se a imagem ficar muito cortada */
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .footer-bottom p {
+        font-size: clamp(0.6rem, 3vw, 0.9rem);
+        padding: clamp(0.2rem, 1vw, 0.4rem);
+    }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 320px) {
+    .footer-bottom {
+        min-height: clamp(2rem, 10vw, 3rem);
+        background-size: cover;
+    }
+    
+    .footer-bottom p {
+        font-size: clamp(0.5rem, 4vw, 0.8rem);
+    }
+}
+
+/* Telas grandes */
+@media (min-width: 1200px) {
+    .footer-bottom {
+        min-height: clamp(5rem, 6vw, 7rem);
+        background-size: cover;
+    }
+    
+    .footer-bottom p {
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
+    }
+}
+
+/* ALTERNATIVAS DE BACKGROUND-SIZE BASEADAS NO TAMANHO DA TELA */
+
+/* Se a imagem ficar muito cortada em telas pequenas, use esta abordagem: */
+/*
+@media (max-width: 480px) {
+    .footer-bottom {
+        background-size: contain;
+        background-color: var(--primary-yellow); 
+    }
+}
+*/
+
+/* DICA PARA IMAGENS ESPECÍFICAS POR TAMANHO DE TELA */
+/*
+@media (max-width: 768px) {
+    .footer-bottom {
+        background-image: url('img/footerOF-mobile.png');
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-bottom {
+        background-image: url('img/footerOF-small.png');
+    }
+}
+*/
+
+
+prompt 3 abaixo
+
+
+/* CORREÇÃO PARA TELAS MUITO PEQUENAS (220px-310px) */
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        min-height: clamp(3rem, 6vw, 4rem);
+        background-size: cover; /* Mantém cover para tablets */
+    }
+    
+    .footer-bottom p {
+        font-size: clamp(0.7rem, 2.5vw, 1rem);
+        padding: clamp(0.3rem, 1vw, 0.6rem);
+    }
+}
+
+/* CORREÇÃO ESPECÍFICA PARA TELAS 310px-480px */
+@media (max-width: 480px) and (min-width: 311px) {
+    .footer-bottom {
+        background-size: cover; /* Volta para cover ao invés de contain */
+        background-color: var(--primary-yellow);
+        background-position: center center;
+        min-height: clamp(2.5rem, 8vw, 3.5rem);
+    }
+}
+
+/* CORREÇÃO PARA TELAS MUITO PEQUENAS 220px-310px */
+@media (max-width: 310px) {
+    .footer-bottom {
+        /* OPÇÃO 1: Força cover com altura maior */
+        background-size: cover;
+        background-color: var(--primary-yellow);
+        background-position: center center;
+        min-height: clamp(3rem, 12vw, 4rem); /* Altura maior para mostrar mais da imagem */
+        
+        /* OPÇÃO 2: Se ainda não funcionar, use contain com altura fixa */
+        /* background-size: contain;
+        min-height: 60px;
+        background-repeat: no-repeat; */
+        
+        /* OPÇÃO 3: Como último recurso, apenas cor de fundo */
+        /* background-image: none;
+        background-color: var(--primary-yellow);
+        min-height: 40px; */
+    }
+    
+    .footer-bottom p {
+        font-size: clamp(0.5rem, 4vw, 0.8rem);
+        padding: clamp(0.2rem, 1vw, 0.4rem);
+        /* Garante que o texto seja visível */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 3px;
+    }
+}
+
+/* TESTE: Se nada funcionar, use esta abordagem alternativa */
+/* 
+@media (max-width: 310px) {
+    .footer-bottom {
+        background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--accent-yellow) 100%);
+        background-image: none;
+        min-height: 40px;
+        border-top: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .footer-bottom p {
+        color: #1A1A1A;
+        text-shadow: none;
+        background: transparent;
+    }
+}
+*/

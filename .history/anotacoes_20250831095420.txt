@@ -3,7 +3,7 @@ FAZENDO:
 -500px ate 455px 475px  min 400px   660 ate 680
 
 
-apartir de 320px a img fica cortando 
+apartir de 320px o
 
 1-arrumar foto em hero-content de blog.html aumentar height em alguma responsividade
 2-responsividade em mostrar tatuagens in tatuadores.html

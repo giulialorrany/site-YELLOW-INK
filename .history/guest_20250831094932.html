@@ -1955,6 +1955,9 @@
 
  /* Tablets */
 @media (max-width: 768px) {
+     /* .footer-bottom {
+        background-image: url('img/footerOF-mobile.png');
+    } */
     .footer-bottom {
         min-height: clamp(3rem, 6vw, 4rem);
         background-size: cover; 
@@ -1967,16 +1970,23 @@
 }
 
 @media (max-width: 480px) {
-       
+        /* .footer-bottom {
+        background-image: url('img/footerOF-small.png');
+    } */
 
-    .footer-bottom {
+    /* .footer-bottom {
         background-size: contain;
         background-color: var(--primary-yellow); 
-    }
+    } */
 }
 /* Smartphones */
 @media (max-width: 480px) {
     
+    /* .footer-bottom {
+        min-height: clamp(2.5rem, 8vw, 3.5rem);
+        background-size: cover;
+        background-position: center center;
+    } */
     
     .footer-bottom p {
         font-size: clamp(0.6rem, 3vw, 0.9rem);
@@ -1985,7 +1995,7 @@
 }
 
 /* Telas muito pequenas */
-/* @media (max-width: 320px) {
+@media (max-width: 320px) {
     .footer-bottom {
         min-height: clamp(2rem, 10vw, 3rem);
         background-size: cover;
@@ -1994,109 +2004,7 @@
     .footer-bottom p {
         font-size: clamp(0.5rem, 4vw, 0.8rem);
     }
-} */
-/* @media (max-width: 300px) and (min-width: 201px) {
-    .footer-bottom {
-        background-size: contain;
-        background-color: var(--primary-yellow);
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 10px;
-    }} */
-/* @media (max-width: 400px) and (min-width: 201px) {
-    .footer-bottom {
-        background-size: contain;
-        background-color: var(--primary-yellow);
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 45px; 
-    }
-    
-    .footer-bottom p {
-        font-size: clamp(0.6rem, 3vw, 0.8rem);
-        padding: clamp(0.2rem, 1vw, 0.4rem);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 3px;
-    }
-} */
-@media (max-width: 400px) {
-    .footer-bottom {
-        background-size: contain;
-        background-color: var(--primary-yellow);
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 40px !important; /* Força altura baixa */
-        max-height: 50px; /* Limita altura máxima */
-    }
-    
-    .footer-bottom p {
-        font-size: clamp(0.6rem, 3vw, 0.8rem);
-        padding: clamp(0.1rem, 0.5vw, 0.3rem);
-        line-height: 1.2; /* Reduz espaçamento vertical do texto */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 3px;
-    }
 }
-@media (max-width: 330px) {
-    .footer-bottom {
-        background-size: contain;
-        background-color: var(--primary-yellow);
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 30px !important; /* Força altura baixa */
-        max-height: 30px; /* Limita altura máxima */
-    }
-    
-    .footer-bottom p {
-        font-size: clamp(0.6rem, 3vw, 0.8rem);
-        padding: clamp(0.1rem, 0.5vw, 0.3rem);
-        line-height: 1.2; /* Reduz espaçamento vertical do texto */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 3px;
-    }
-}
-@media (max-width: 200px) {
-    .footer-bottom {
-        background-size: contain;
-        background-color: var(--primary-yellow);
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 35px; /* ALTURA MÍNIMA */
-    }
-    
-    .footer-bottom p {
-        font-size: clamp(0.5rem, 4vw, 0.7rem);
-        padding: clamp(0.1rem, 1vw, 0.3rem);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 3px;
-    }
-}
-@media (max-width: 310px) {
-    .footer-bottom {
-        /* OPÇÃO 1: Força cover com altura maior */
-        background-size: contain;
-        background-color: var(--primary-yellow);
-        background-position: center center;
-        min-height: 60px;
-        background-repeat: no-repeat;
-        /* min-height: clamp(3rem, 12vw, 4rem); Altura maior para mostrar mais da imagem */
-    }
-      .footer-bottom p {
-        font-size: clamp(0.5rem, 4vw, 0.8rem);
-        padding: clamp(0.2rem, 1vw, 0.4rem);
-        /* Garante que o texto seja visível */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 3px;
-    }
-}
-
-
-
 
 /* Telas grandes */
 @media (min-width: 1200px) {
