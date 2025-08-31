@@ -722,7 +722,7 @@
             color: #1A1A1A;
         }
 
-        /* .footer-bottom {
+        .footer-bottom {
             margin-top: 2rem;
             margin-bottom: 0.8vh;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -754,40 +754,7 @@
             text-align: left;
             text-transform: uppercase;
             letter-spacing: 0.3em;
-        } */
-         .footer-bottom {
-    margin-top: 2rem;
-    margin-bottom: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.8rem;
-    color: #FFF;
-    position: relative;
-    overflow: visible;
-    min-height: 2rem; /* MUDANÇA AQUI */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-}
-
-.footer-bottom::before {
-    content: "YELLOW INK.";
-    position: absolute;
-    margin-top: 0; /* MUDANÇA AQUI */
-    bottom: 0; /* MUDANÇA AQUI */
-    left: 50%;
-    transform: translate(-50%, 20px); /* MUDANÇA AQUI */
-    font-family: 'League Spartan', sans-serif; 
-    font-size: 17vh;
-    font-weight: 700;
-    color: rgba(119, 85, 11, 0.308);
-    z-index: 0;
-    pointer-events: none;
-    white-space: nowrap;
-    text-align: center; /* MUDANÇA AQUI */
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-}
+        }
 
         .footer-bottom p {
             position: absolute;
@@ -2170,47 +2137,32 @@
                 width: 24px;
             }
         }
- 
- @media (min-width: 1400px) {
-    .footer-bottom {
-        min-height: 2rem;
-    }
-    
-    .footer-bottom::before {
-        bottom: 0;
-        transform: translate(-50%, 15px);
-        font-size: 15vh;
-    }
-}
-        /* @media (min-width: 1025px) {
+        @media (min-width: 1025px) {
     footer {
-        position: relative;
-        margin: 0;
-        padding-bottom: 1rem !important;
+        margin-bottom: 0 !important;
     }
     
     .footer-bottom {
-        min-height: auto !important;
-        height: 2rem !important;
-        overflow: hidden;
-        position: relative;
+        min-height: 2rem !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
     
     .footer-bottom::before {
-        position: absolute;
-        bottom: 0 !important;
-        top: auto !important;
-        margin: 0 !important;
-        transform: translate(-50%, -20px) !important;
+        bottom: 10px !important;
+        transform: translate(-50%, 0) !important;
+        margin-top: 0 !important;
     }
     
     .footer-bottom p {
-        position: absolute;
         bottom: 5px !important;
-        top: auto !important;
-        margin: 0 !important;
+        margin-bottom: 0 !important;
     }
-} */
+    
+    body {
+        margin-bottom: 0 !important;
+    }
+}
     </style>
 </head>
 <body>

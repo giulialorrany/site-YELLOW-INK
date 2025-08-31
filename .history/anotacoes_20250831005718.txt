@@ -2,9 +2,7 @@ FAZENDO:
 0-padronizar footer e header 
 -500px ate 455px 475px  min 400px   660 ate 680
 
-1-arrumar foto em hero-content de blog.html aumentar height em alguma responsividade
-2-responsividade em mostrar tatuagens in tatuadores.html
-3-990px pra baixo deixar responsivo a imf footer-bottom
+1-arrumar foto em hero
 
 3-redução de códigos
 

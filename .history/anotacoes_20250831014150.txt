@@ -4,7 +4,7 @@ FAZENDO:
 
 1-arrumar foto em hero-content de blog.html aumentar height em alguma responsividade
 2-responsividade em mostrar tatuagens in tatuadores.html
-3-990px pra baixo deixar responsivo a imf footer-bottom
+3-
 
 3-redução de códigos
 
