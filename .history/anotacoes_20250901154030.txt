@@ -1,0 +1,24 @@
+FAZENDO: 
+0-padronizar header 
+
+ 
+
+1-arrumar foto em hero-content de blog.html aumentar height em alguma responsividade
+2-responsividade em mostrar tatuagens in tatuadores.html
+3-redução de códigos
+4-ARRUMAR sidebar em blog.html depois de arrumar o footer
+
+5-colocar links direcionando para os conteudos em sidebar blog.html
+
+
+color original =  color: rgba(119, 85, 11, 0.308); 
+cor de .footer-bottom::before:color: rgba(230, 241, 80, 0.301);
+
+
+
+
+IMPORTANTE! 
+
+
+
+

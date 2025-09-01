@@ -631,6 +631,69 @@
             color: #1A1A1A;
         }
 
+        @media (max-width: 480px) {
+    .footer-bottom {
+        background-size: contain;
+        background-color: var(--primary-yellow);
+    }
+}
+
+@media (max-width: 400px) {
+    .footer-bottom {
+        background-size: contain;
+        background-color: var(--primary-yellow);
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 40px !important; /* Força altura baixa */
+        max-height: 50px; /* Limita altura máxima */
+    }
+}
+
+@media (max-width: 330px) {
+    .footer-bottom {
+        background-size: contain;
+        background-color: var(--primary-yellow);
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 30px !important; /* Força altura baixa */
+        max-height: 30px; /* Limita altura máxima */
+    }
+}
+
+@media (max-width: 200px) {
+    .footer-bottom {
+        background-size: contain;
+        background-color: var(--primary-yellow);
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 35px; /* ALTURA MÍNIMA */
+    }
+}
+
+@media (max-width: 310px) {
+    .footer-bottom {
+        background-size: contain;
+        background-color: var(--primary-yellow);
+        background-position: center center;
+        min-height: 60px;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        min-height: clamp(3rem, 6vw, 4rem);
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1200px) {
+    .footer-bottom {
+        min-height: clamp(5rem, 6vw, 7rem);
+        background-size: cover;
+    }
+}
+/* 
         .footer-bottom {
             margin-top: 2rem;
             margin-bottom: 0.8vh;
@@ -645,42 +708,37 @@
             align-items: center;
             background: transparent;
             min-height: 5.5rem;
-        }
+        } */
 
-        .footer-bottom::before {
-            content: "YELLOW INK.";
-            position: absolute;
-            margin-top: 2rem;
-            bottom: 2vh;
-            left: 9vh;
-            transform: translate(0, 50%);
-            font-family: 'League Spartan', sans-serif;
-            font-size: 17vh;
-            font-weight: 700;
-            color: rgba(230, 241, 80, 0.301);
-            z-index: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            text-align: left;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-        }
+        
 
-        .footer-bottom p {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translate(-50%, 50%);
-            z-index: 1;
-            margin: 0;
-            font-weight: bold;
-            color: #FFF;
-            text-align: center;
-            padding: 0.5rem 1rem;
-            font-size: 3vh;
-            border-radius: 5px;
-            white-space: nowrap;
-        }
+        .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
+    position: relative;
+    left: 0;
+    min-height: clamp(4rem, 10vw, 6rem); /* Altura mínima aumentada para melhor escalonamento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('img/footerOF.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Usa cover para melhor preenchimento */
+    overflow: hidden;
+}
+.footer-bottom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+        
 
         body::after {
             content: '';
@@ -1077,25 +1135,11 @@
                 margin: 0 0.3rem;
             }
 
-            .footer-bottom {
+            /* .footer-bottom {
                 min-height: 3.5rem;
-            }
+            } */
 
-            .footer-bottom::before {
-                font-size: 10vh;
-                bottom: 1.5vh;
-                left: 0;
-                transform: translate(0, 50%);
-                text-align: center;
-                width: 100%;
-            }
-
-            .footer-bottom p {
-                font-size: 2vh;
-                padding: 0.3rem 0.6rem;
-                bottom: 0;
-            }
-
+            
             .sidebar {
                 position: fixed !important;
                 width: 70%;
@@ -1218,7 +1262,7 @@
             }
 
             .hero-section {
-                height: 330px;
+                height: 350px;
                 max-width: 100%;
                 width: 350px;
                 padding: 11px;
@@ -1232,7 +1276,7 @@
             .hero-content img {
                 max-width: 100%;
                 width: 320px;
-                height: 350px;
+                height: 380px;
             }
 
             .hero-meta {
@@ -1320,7 +1364,7 @@
                 overflow-y: auto;
             } */
             .hero-section {
-                height: 330px;
+                height: 360px;
                 max-width: 100%;
                 width: 250px;
                 padding: 10px;
@@ -1334,7 +1378,7 @@
             .hero-content img {
                 max-width: 100%;
                 width: 250px;
-                height: 250px;
+                height: 222px;
             }
 
             .hero-meta {
@@ -1365,9 +1409,9 @@
                 margin: 0 0.15rem;
             }
 
-            .footer-bottom {
+            /* .footer-bottom {
                 min-height: 2.5rem;
-            }
+            } */
 
             .footer-bottom::before {
                 font-size: 7vh;
@@ -1384,10 +1428,47 @@
                 bottom: 0;
             }
         }
+
+        /* Media query específica para 230px-270px */
+@media (min-width: 230px) and (max-width: 270px) {
+    .hero-section {
+        height: 340px !important;
+        max-width: 100%;
+        width: 390px; /* Usa 100% da largura disponível */
+        padding: 8px;
+        z-index: 1;
+    }
+
+    .hero-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .hero-content img {
+        max-width: 100%;
+        width: 320px !important; /* Faz a imagem ocupar toda a largura do container */
+        height: 292px !important; /* Mantém a proporção */
+        min-height: 292px; /* Altura mínima para garantir visibilidade */
+        object-fit: cover; /* Mantém a proporção sem distorção */
+        display: block; /* Garante que a imagem seja exibida */
+    }
+
+    .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .readmore-hero {
+        font-size: 16px;
+        margin-top: 8px;
+    }
+}
  @media (min-width: 311px) and (max-width: 360px) {
           
             .hero-section {
-                height: 330px;
+                height: 340px;
                 max-width: 100%;
                 width: 315px;
                 padding: 10px;
@@ -1401,7 +1482,7 @@
             .hero-content img {
                 max-width: 100%;
                 width: 300px;
-                height: 250px;
+                height: 230px;
             }
 
             .hero-meta {
@@ -1774,7 +1855,7 @@
             }
 
             .hero-section {
-                height: 480px;
+                height: 420px;
                 max-width: 100%;
                 width: 100%;
                 padding: 20px;
@@ -1786,8 +1867,8 @@
                 max-width: 100%;
                 width: 100%;
                 width: 800px;
-                height: 400px;
-                object-fit: cover;
+                height: 460px;
+                padding-bottom: 3vh;
             }
 
             .hero-title {
@@ -2744,6 +2825,40 @@
 .post-title {
     padding: 0 4px 3px 5px;
 }
+@media (min-width: 500px) and (max-width: 744px) {
+    .footer-bottom {
+        background-size: contain; /* Usa contain para evitar cortes na imagem */
+        background-color: var(--primary-yellow); /* Cor de fundo consistente */
+        background-position: center center; /* Centraliza a imagem */
+        background-repeat: no-repeat; /* Evita repetição */
+        min-height: clamp(4rem, 8vw, 5rem); /* Aumenta a altura mínima para melhor exibição */
+        max-height: 6rem; /* Limita a altura máxima para evitar esticamento excessivo */
+        overflow: hidden; /* Garante que o conteúdo não transborde */
+    }
+}
+@media (min-width: 330px) and (max-width: 396px) {
+    .footer-bottom {
+        background-size: contain; /* Garante que a imagem inteira seja visível */
+        background-color: var(--primary-yellow); /* Cor de fundo consistente */
+        background-position: center center; /* Centraliza a imagem */
+        background-repeat: no-repeat; /* Evita repetição */
+        min-height: clamp(3.5rem, 10vw, 4.5rem); /* Altura mínima ajustada */
+        max-height: 5rem; /* Limita a altura máxima */
+        overflow: hidden; /* Evita transbordo */
+    }
+}
+
+@media (min-width: 240px) and (max-width: 306px) {
+    .footer-bottom {
+        background-size: contain; /* Garante que a imagem inteira seja visível */
+        background-color: var(--primary-yellow); /* Cor de fundo consistente */
+        background-position: center center; /* Centraliza a imagem */
+        background-repeat: no-repeat; /* Evita repetição */
+        min-height: clamp(3rem, 12vw, 4rem); /* Altura mínima ajustada */
+        max-height: 4.5rem; /* Limita a altura máxima */
+        overflow: hidden; /* Evita transbordo */
+    }
+}
 </style>
 </head>
 <body>
@@ -2760,8 +2875,8 @@
                 <li><a href="index.html">Galeria</a></li>
                 <li><a href="index.html">Feedbacks</a></li>
                 <li><a href="tatuadores.html">Tatuadores</a></li>
-                <li><a href="blog.com" class="active">Blog</a></li>
-                <li><a href="contato.com">Contato</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contato.html">Contato</a></li>
                 <li><a href="guest.html">Guest</a></li>
                 <button class="close-btn" id="closeBtn">✕</button>
             </ul>
@@ -2952,7 +3067,6 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 <span class="yellow-ink-brand">Yellow Ink</span>. Todos os direitos reservados.</p>
         </div>
     </footer>
 
