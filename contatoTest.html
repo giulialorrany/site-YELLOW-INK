@@ -271,9 +271,9 @@
 
 
         .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin-top: clamp(1rem, 2vw, 2rem);
     margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
     left: 0;
     min-height: clamp(4rem, 10vw, 6rem); /* Altura mínima aumentada para melhor escalonamento */
@@ -286,23 +286,6 @@
     background-size: cover; /* Usa cover para melhor preenchimento */
     overflow: hidden;
 }
-        /* .footer-bottom {
-    margin-top: clamp(1rem, 2vw, 2rem);
-    margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    left: 0px;
-    min-height: clamp(4rem, 8vw, 5.5rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    background-image: url('img/footerOF.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; 
-    overflow: hidden;
-} */
 .footer-bottom::after {
     content: '';
     position: absolute;
@@ -313,6 +296,7 @@
     z-index: 0;
     pointer-events: none;
 }
+
 
             .footer-container {
                 flex-direction: column;
@@ -355,6 +339,7 @@
                 width: 90vw;
             }
             
+            
             .footer-bottom::before {
                 font-size: clamp(1.5rem, 6vw, 2rem);
             }
@@ -367,17 +352,16 @@
         }
 
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
     .footer-bottom {
         background-size: contain;
         background-color: var(--primary-yellow);
         background-position: center center;
         background-repeat: no-repeat;
-        min-height: 40px !important; /* Força altura baixa */
-        max-height: 50px; /* Limita altura máxima */
+        min-height: 40px !important; 
+        max-height: 50px; 
     }
-    
-}
+} */
 @media (max-width: 330px) {
     .footer-bottom {
         background-size: contain;
@@ -447,26 +431,22 @@
                 font-size: 1.2rem;
                 padding: 0.3rem;
             }
-            .footer-bottom::before {
-                font-size: clamp(3vh, 8vw, 5vh);
-            }
+        
 
         }
-    @media (min-width: 331px) and (max-width: 455px) {
+     @media (min-width: 480px) and (max-width: 623px) {
     .footer-bottom {
-        min-height: clamp(4.5rem, 12vw, 5.5rem); /* Altura ajustada para melhor exibição */
-        background-size: cover; /* Garante que a imagem preencha o espaço */
+        min-height: clamp(5.5rem, 8vw, 7rem);
+        background-size: contain;
         background-position: center center;
-        background-color: var(--primary-yellow); /* Cor de fallback */
-    }}
-    
-        @media (max-width: 768px) {
-    .footer-bottom {
-        min-height: clamp(3rem, 6vw, 4rem);
-        background-size: cover; 
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-}
-
+}   
+ 
         @media (max-width: 310px) {
         }
 
@@ -474,6 +454,19 @@
             margin-top: 0 !important;
             padding-top: 0;
         }
+
+        @media (min-width: 650px) {
+    .hero {
+        margin-top: 0 !important;
+        padding-top: 70px; /* Compensa a altura da navbar fixa */
+    }
+  
+}
+ @media (min-width: 550px) {
+  .hero-title{
+        margin-top: 6vh;
+    }
+ }
 
         .hero {
             background: #d4af37cb;
@@ -1223,6 +1216,8 @@
             }
 
             .hero-title {
+                
+                margin-top: 10vh;
                 font-size: clamp(1.5rem, 6vw, 2rem);
                 padding: 0.8rem 1.5rem;
             }
@@ -1807,6 +1802,7 @@
             .hero {
                 margin-top: 0;
                 scroll-margin-top: 0;
+                /* padding-top: 70px; */
             }
         }
 
@@ -1946,8 +1942,8 @@
                 <li><a href="index.html">Galeria</a></li>
                 <li><a href="index.html">Feedbacks</a></li>
                 <li><a href="tatuadores.html">Tatuadores</a></li>
-                <li><a href="blog.com" class="active">Blog</a></li>
-                <li><a href="contato.com">Contato</a></li>
+                <li><a href="blog.html" >Blog</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
                 <li><a href="guest.html">Guest</a></li>
                 <button class="close-btn" id="closeBtn">✕</button>
             </ul>

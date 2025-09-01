@@ -2,11 +2,8 @@ FAZENDO:
 0-padronizar header Y FOOTER 
 -finalizar tatuadores
 
+contato footer = 400px ate  470px 
 
-  480px ate 623px
-contato footer = 400px ate 470px 
-331px ate 397px
-230px ate 304px 
  
 0-ler mais e ler menos devem estar corretos a funcionaldiade
 1-arrumar foto em hero-content de blog.html aumentar height em alguma responsividade

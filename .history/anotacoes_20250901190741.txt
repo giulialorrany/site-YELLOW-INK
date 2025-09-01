@@ -3,7 +3,7 @@ FAZENDO:
 -finalizar tatuadores
 
 
-  480px ate 623px
+  480px ate 
 contato footer = 400px ate 470px 
 331px ate 397px
 230px ate 304px 
