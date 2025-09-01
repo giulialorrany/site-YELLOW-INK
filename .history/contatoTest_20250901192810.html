@@ -275,7 +275,6 @@
     margin-top: clamp(1rem, 2vw, 2rem);
     margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
     position: relative;
-
     left: 0;
     min-height: clamp(4rem, 10vw, 6rem); /* Altura mínima aumentada para melhor escalonamento */
     display: flex;
@@ -286,7 +285,6 @@
     background-position: center center;
     background-size: cover; /* Usa cover para melhor preenchimento */
     overflow: hidden;
-            background-position: left center; 
 }
 .footer-bottom::after {
     content: '';
@@ -1928,44 +1926,12 @@
                 width: 24px;
             }
         }
-@media (min-width: 455px) and (max-width: 624px) {
-    .footer-bottom {
-        background-position: left center; /* Alinha à esquerda */
-        height: 15vh;
-    }
-}
-/* Regra base - diminua este valor */
-.footer-bottom {
-    min-height: clamp(3rem, 8vw, 4rem); /* Era clamp(4rem, 10vw, 6rem) */
-}
 
-/* Para telas grandes - se você tiver esta regra */
-@media (min-width: 1200px) {
-    .footer-bottom {
-        min-height: clamp(3.5rem, 5vw, 5rem); /* Era clamp(5rem, 6vw, 7rem) */
-    }
-}
 
-/* Para tablets */
-@media (max-width: 768px) {
+        /* Adicione esta media query ao seu CSS existente */
+@media (min-width: 480px) and (max-width: 623px) {
     .footer-bottom {
-        min-height: clamp(2.5rem, 5vw, 3rem); /* Diminua conforme necessário */
-    }
-}
-
-/* Para mobile pequeno */
-@media (max-width: 400px) {
-    .footer-bottom {
-        min-height: 30px !important; /* Era 40px */
-        max-height: 40px; /* Era 50px */
-    }
-}
-
-/* Para telas muito pequenas */
-@media (max-width: 330px) {
-    .footer-bottom {
-        min-height: 25px !important; /* Era 30px */
-        max-height: 25px; /* Era 30px */
+        min-height: clamp(4rem, 10vw, 8rem); /* Aumente conforme necessário */
     }
 }
     </style>

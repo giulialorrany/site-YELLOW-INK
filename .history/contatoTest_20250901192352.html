@@ -275,7 +275,6 @@
     margin-top: clamp(1rem, 2vw, 2rem);
     margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
     position: relative;
-
     left: 0;
     min-height: clamp(4rem, 10vw, 6rem); /* Altura mínima aumentada para melhor escalonamento */
     display: flex;
@@ -286,7 +285,6 @@
     background-position: center center;
     background-size: cover; /* Usa cover para melhor preenchimento */
     overflow: hidden;
-            background-position: left center; 
 }
 .footer-bottom::after {
     content: '';
@@ -1928,45 +1926,150 @@
                 width: 24px;
             }
         }
-@media (min-width: 455px) and (max-width: 624px) {
-    .footer-bottom {
-        background-position: left center; /* Alinha à esquerda */
-        height: 15vh;
-    }
-}
-/* Regra base - diminua este valor */
-.footer-bottom {
-    min-height: clamp(3rem, 8vw, 4rem); /* Era clamp(4rem, 10vw, 6rem) */
-}
 
-/* Para telas grandes - se você tiver esta regra */
+
+        /* OPÇÃO 1: Altura fixa por range de tela (mais previsível) */
+
+/* Desktop */
 @media (min-width: 1200px) {
     .footer-bottom {
-        min-height: clamp(3.5rem, 5vw, 5rem); /* Era clamp(5rem, 6vw, 7rem) */
+        height: 120px; /* Altura fixa */
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
     }
 }
 
-/* Para tablets */
-@media (max-width: 768px) {
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1199px) {
     .footer-bottom {
-        min-height: clamp(2.5rem, 5vw, 3rem); /* Diminua conforme necessário */
+        height: 100px; /* Altura fixa */
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
     }
 }
 
-/* Para mobile pequeno */
-@media (max-width: 400px) {
+/* Range problemático 480px - 623px */
+@media (min-width: 480px) and (max-width: 623px) {
     .footer-bottom {
-        min-height: 30px !important; /* Era 40px */
-        max-height: 40px; /* Era 50px */
+        height: 80px; /* Altura fixa específica */
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
     }
 }
 
-/* Para telas muito pequenas */
-@media (max-width: 330px) {
+/* Range 400px - 479px */
+@media (min-width: 400px) and (max-width: 479px) {
     .footer-bottom {
-        min-height: 25px !important; /* Era 30px */
-        max-height: 25px; /* Era 30px */
+        height: 70px; /* Altura fixa */
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
     }
+}
+
+/* Range 331px - 399px */
+@media (min-width: 331px) and (max-width: 399px) {
+    .footer-bottom {
+        height: 60px; /* Altura fixa */
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+    }
+}
+
+/* Range 230px - 330px */
+@media (min-width: 230px) and (max-width: 330px) {
+    .footer-bottom {
+        height: 50px; /* Altura fixa */
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+    }
+}
+
+/* OPÇÃO 2: Altura baseada na proporção da tela (mais fluida) */
+
+@media (min-width: 230px) and (max-width: 1199px) {
+    .footer-bottom {
+        height: calc(100vw * 0.12); /* 12% da largura da tela */
+        min-height: 50px;
+        max-height: 120px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+    }
+}
+
+/* OPÇÃO 3: Usando aspect-ratio (mais moderno - requer CSS Grid/Flexbox) */
+
+@media (min-width: 230px) and (max-width: 1199px) {
+    .footer-bottom {
+        aspect-ratio: 8/1; /* Ajuste conforme a proporção real da sua imagem */
+        max-height: 120px;
+        min-height: 50px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+    }
+}
+
+/* OPÇÃO 4: Sistema de altura baseado em viewport height */
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .footer-bottom {
+        height: 8vh; /* 8% da altura da tela */
+        min-height: 80px;
+        max-height: 150px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+    }
+}
+
+/* Tablets e mobile landscape */
+@media (min-width: 624px) and (max-width: 1199px) {
+    .footer-bottom {
+        height: 6vh;
+        min-height: 60px;
+        max-height: 100px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+    }
+}
+
+/* Mobile portrait */
+@media (min-width: 230px) and (max-width: 623px) {
+    .footer-bottom {
+        height: 4vh;
+        min-height: 40px;
+        max-height: 80px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-yellow);
+    }
+}
+
+/* DICA EXTRA: Para depuração visual temporária */
+.footer-bottom {
+    /* Adicione estas linhas temporariamente para ver as bordas */
+    border: 2px solid red; /* REMOVER após ajustar */
+    box-sizing: border-box; /* MANTER */
 }
     </style>
 </head>
