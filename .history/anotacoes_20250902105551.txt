@@ -1,0 +1,28 @@
+FAZENDO: 
+0-padronizar header 
+
+
+
+todos os headers deve ser igual o de blog.html quando mobile,
+ e quando desktop devo aumentar o tamanho da logo e em index.html diminuir
+TODOS HEADERS VEM MANTER A MESMA ALTURA
+
+1-saiba mais em guest.html
+2-colocar icon no browser
+ 3-redução de códigos
+5-retirar bordas
+
+5-colocar links direcionando para os conteudos em sidebar blog.html
+
+
+color original =  color: rgba(119, 85, 11, 0.308); 
+cor de .footer-bottom::before:color: rgba(230, 241, 80, 0.301);
+
+
+
+
+IMPORTANTE! 
+
+
+
+
