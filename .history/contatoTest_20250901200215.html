@@ -1936,7 +1936,7 @@
 }
 /* Regra base - diminua este valor */
 .footer-bottom {
-    
+
     min-height: clamp(5rem, 10vw, 6rem); 
 }
 
@@ -1950,18 +1950,15 @@
 /* Para tablets */
 @media (max-width: 768px) {
     .footer-bottom {
-        min-height: clamp(2.5rem, 5vw, 3rem); 
+        min-height: clamp(2.5rem, 5vw, 3rem); /* Diminua conforme necessário */
     }
 }
 
 /* Para mobile pequeno */
 @media (max-width: 400px) {
     .footer-bottom {
-        min-height: 40px !important; 
-        max-height: 40px; 
-    }
-    .footer-bottom img{
-        height: 40px;
+        min-height: 40px !important; /* Era 40px */
+        max-height: 40px; /* Era 50px */
     }
 }
 

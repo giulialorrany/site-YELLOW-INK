@@ -1,9 +1,7 @@
 FAZENDO: 
 0-padronizar header 
 
-todos os headers deve ser igual o de contato.html
-
-2-colocar icon no browser
+2-colocar icon no broser
  3-redução de códigos
 5-retirar bordas
 
