@@ -32,6 +32,7 @@
             color: #1A1A1A;
             overflow-x: hidden;
             transition: var(--transition);
+    overflow-y: hidden; 
         }
 
         /* Navegação */
@@ -57,11 +58,12 @@
             height: 100%;
             min-height: 60px;
         }
-
-        .logo {
+ 
+             .logo {
+                 margin-left: 9px;
             margin-top: 5px;
             font-family: 'League Spartan', sans-serif;
-            
+            position: absolute;
     font-size: clamp(1.5rem, 1.8vw, 3.5rem) !important; 
     /* font-size: clamp(1.5rem, 1.7vw, 4rem) !important; */
             color: #1A1A1A;
@@ -76,6 +78,8 @@
         }
 
         .logo h4 {
+            left: 0;
+    font-size: clamp(1.5rem, 1.8vw, 3.5rem) !important; 
             margin: 0;
             font-weight: 700;
             line-height: 1;
@@ -169,6 +173,8 @@
             padding: 0.5rem;
             transition: var(--transition);
             flex-shrink: 0;
+            margin-top: 3px;
+            margin-right: 9px;
         }
 
         .hamburger:hover {
@@ -1796,7 +1802,7 @@ footer {
             <button class="hamburger" id="hamburger">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">Sobre nós</a></li>
+                <li><a href="index.html">Sobre Nós</a></li>
                 <li><a href="index.html">Galeria</a></li>
                 <li><a href="index.html">Feedbacks</a></li>
                 <li><a href="tatuadores.html">Tatuadores</a></li>

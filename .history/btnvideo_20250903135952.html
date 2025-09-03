@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controles de Vídeo - Yellow Ink</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .video-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .video-controls {
+            background: #2d2d2d;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: #555;
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #f1c232;
+            border-radius: 3px;
+            width: 25%;
+            transition: width 0.1s ease;
+        }
+
+        .progress-handle {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            background: #f1c232;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: left 0.1s ease;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .control-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f1c232;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            color: #2d2d2d;
+        }
+
+        .control-btn:hover {
+            background: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .play-pause-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+        }
+
+        /* Ícones usando CSS */
+        .play-icon::before {
+            content: "▶";
+            margin-left: 2px;
+        }
+
+        .pause-icon::before {
+            content: "⏸";
+        }
+
+        .prev-icon::before {
+            content: "⏮";
+        }
+
+        .next-icon::before {
+            content: "⏭";
+        }
+
+        .volume-icon::before {
+            content: "🔊";
+            font-size: 12px;
+        }
+
+        .fullscreen-icon::before {
+            content: "⛶";
+            font-size: 12px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .video-controls {
+                padding: 15px;
+                gap: 12px;
+            }
+
+            .control-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+
+            .play-pause-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+
+            .progress-handle {
+                width: 12px;
+                height: 12px;
+            }
+
+            .control-buttons {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-controls {
+                padding: 12px;
+                gap: 10px;
+                flex-wrap: nowrap;
+            }
+
+            .control-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 12px;
+            }
+
+            .play-pause-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+
+            .progress-handle {
+                width: 10px;
+                height: 10px;
+            }
+
+            .progress-bar {
+                height: 4px;
+            }
+
+            .video-placeholder {
+                height: 200px;
+                font-size: 18px;
+            }
+
+            .control-buttons {
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .control-buttons {
+                gap: 6px;
+            }
+
+            .control-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 10px;
+            }
+
+            .play-pause-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 12px;
+            }
+        }
+
+        /* Estados ativos */
+        .playing .play-icon {
+            display: none;
+        }
+
+        .playing .pause-icon {
+            display: inline;
+        }
+
+        .paused .pause-icon {
+            display: none;
+        }
+
+        .paused .play-icon {
+            display: inline;
+        }
+
+        /* Animação suave para mudanças */
+        .progress-fill,
+        .progress-handle {
+            transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <div class="video-placeholder">
+            YELLOW INK
+        </div>
+        
+        <div class="video-controls">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-handle" id="progressHandle"></div>
+                </div>
+            </div>
+            
+            <div class="control-buttons">
+                <button class="control-btn play-pause-btn paused" id="playPauseBtn">
+                    <span class="play-icon"></span>
+                    <span class="pause-icon" style="display: none;"></span>
+                </button>
+                
+                <button class="control-btn" id="prevBtn">
+                    <span class="prev-icon"></span>
+                </button>
+                
+                <button class="control-btn" id="nextBtn">
+                    <span class="next-icon"></span>
+                </button>
+                
+                <button class="control-btn" id="volumeBtn">
+                    <span class="volume-icon"></span>
+                </button>
+                
+                <button class="control-btn" id="fullscreenBtn">
+                    <span class="fullscreen-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class VideoControls {
+            constructor() {
+                this.isPlaying = false;
+                this.progress = 25; // Progresso inicial em %
+                this.isDragging = false;
+                
+                this.initElements();
+                this.bindEvents();
+                this.updateProgress();
+            }
+
+            initElements() {
+                this.playPauseBtn = document.getElementById('playPauseBtn');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.volumeBtn = document.getElementById('volumeBtn');
+                this.fullscreenBtn = document.getElementById('fullscreenBtn');
+                this.progressBar = document.getElementById('progressBar');
+                this.progressFill = document.getElementById('progressFill');
+                this.progressHandle = document.getElementById('progressHandle');
+            }
+
+            bindEvents() {
+                // Play/Pause
+                this.playPauseBtn.addEventListener('click', () => this.togglePlayPause());
+                
+                // Controles de navegação
+                this.prevBtn.addEventListener('click', () => this.previousTrack());
+                this.nextBtn.addEventListener('click', () => this.nextTrack());
+                
+                // Controle de volume
+                this.volumeBtn.addEventListener('click', () => this.toggleMute());
+                
+                // Fullscreen
+                this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
+                
+                // Progress bar
+                this.progressBar.addEventListener('click', (e) => this.seekTo(e));
+                this.progressHandle.addEventListener('mousedown', (e) => this.startDrag(e));
+                
+                // Drag events
+                document.addEventListener('mousemove', (e) => this.drag(e));
+                document.addEventListener('mouseup', () => this.stopDrag());
+                
+                // Touch events para dispositivos móveis
+                this.progressHandle.addEventListener('touchstart', (e) => this.startDrag(e));
+                document.addEventListener('touchmove', (e) => this.drag(e));
+                document.addEventListener('touchend', () => this.stopDrag());
+                
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+            }
+
+            togglePlayPause() {
+                this.isPlaying = !this.isPlaying;
+                
+                if (this.isPlaying) {
+                    this.playPauseBtn.classList.remove('paused');
+                    this.playPauseBtn.classList.add('playing');
+                    this.startProgress();
+                } else {
+                    this.playPauseBtn.classList.remove('playing');
+                    this.playPauseBtn.classList.add('paused');
+                    this.stopProgress();
+                }
+                
+                console.log(this.isPlaying ? 'Playing' : 'Paused');
+            }
+
+            previousTrack() {
+                this.progress = 0;
+                this.updateProgress();
+                console.log('Previous track');
+            }
+
+            nextTrack() {
+                this.progress = 0;
+                this.updateProgress();
+                console.log('Next track');
+            }
+
+            toggleMute() {
+                console.log('Toggle mute');
+                // Aqui você implementaria a lógica de mute/unmute
+            }
+
+            toggleFullscreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.log('Erro ao entrar em fullscreen:', err);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+
+            seekTo(e) {
+                if (this.isDragging) return;
+                
+                const rect = this.progressBar.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                this.progress = (x / rect.width) * 100;
+                this.progress = Math.max(0, Math.min(100, this.progress));
+                this.updateProgress();
+            }
+
+            startDrag(e) {
+                this.isDragging = true;
+                e.preventDefault();
+            }
+
+            drag(e) {
+                if (!this.isDragging) return;
+                
+                const rect = this.progressBar.getBoundingClientRect();
+                const x = (e.clientX || e.touches[0].clientX) - rect.left;
+                this.progress = (x / rect.width) * 100;
+                this.progress = Math.max(0, Math.min(100, this.progress));
+                this.updateProgress();
+            }
+
+            stopDrag() {
+                this.isDragging = false;
+            }
+
+            updateProgress() {
+                this.progressFill.style.width = this.progress + '%';
+                this.progressHandle.style.left = this.progress + '%';
+            }
+
+            startProgress() {
+                this.progressInterval = setInterval(() => {
+                    if (this.progress < 100 && !this.isDragging) {
+                        this.progress += 0.5;
+                        this.updateProgress();
+                    } else if (this.progress >= 100) {
+                        this.togglePlayPause();
+                    }
+                }, 200);
+            }
+
+            stopProgress() {
+                if (this.progressInterval) {
+                    clearInterval(this.progressInterval);
+                }
+            }
+
+            handleKeyboard(e) {
+                switch(e.code) {
+                    case 'Space':
+                        e.preventDefault();
+                        this.togglePlayPause();
+                        break;
+                    case 'ArrowLeft':
+                        this.progress = Math.max(0, this.progress - 5);
+                        this.updateProgress();
+                        break;
+                    case 'ArrowRight':
+                        this.progress = Math.min(100, this.progress + 5);
+                        this.updateProgress();
+                        break;
+                }
+            }
+        }
+
+        // Inicializar os controles quando a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            new VideoControls();
+        });
+
+        // Função para simular carregamento
+        window.addEventListener('load', () => {
+            console.log('Controles de vídeo carregados com sucesso!');
+        });
+    </script>
+</body>
+</html>
