@@ -8,7 +8,7 @@ todos os headers deve ser igual o de blog.html quando mobile,
 TODOS HEADERS VEM MANTER A MESMA ALTURA
 
 0-header guest e index padronizados
-1-reocar video-controls btns video-controller player
+1-reocar btns video-controller player
 2-colocar icon no browser
  3-redução de códigos
 5-retirar bordas
