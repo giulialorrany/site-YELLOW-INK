@@ -1,4 +1,6 @@
 FAZENDO: 
+0-padronizar header 
+
 
 
 todos os headers deve ser igual o de blog.html quando mobile,
