@@ -648,7 +648,7 @@
         background-color: var(--primary-yellow);
         background-position: center center;
         background-repeat: no-repeat;
-        min-height: 50px !important; /* Força altura baixa */
+        min-height: 40px !important; /* Força altura baixa */
         max-height: 50px; /* Limita altura máxima */
     }
 }
@@ -659,8 +659,8 @@
         background-color: var(--primary-yellow);
         background-position: center center;
         background-repeat: no-repeat;
-        min-height: 40px !important; /* Força altura baixa */
-        max-height: 40px; /* Limita altura máxima */
+        min-height: 30px !important; /* Força altura baixa */
+        max-height: 30px; /* Limita altura máxima */
     }
 }
 
@@ -670,7 +670,7 @@
         background-color: var(--primary-yellow);
         background-position: center center;
         background-repeat: no-repeat;
-        min-height: 40px; /* ALTURA MÍNIMA */
+        min-height: 35px; /* ALTURA MÍNIMA */
     }
 }
 
@@ -3125,10 +3125,9 @@
     }
 }
 .whatsapp-float {
-    margin-bottom: 10vh;
-    left: clamp(1rem, 3vw, 1.5rem); 
     position: fixed;
     bottom: clamp(1rem, 3vw, 1.5rem);
+    left: clamp(1rem, 3vw, 1.5rem); /* Mantém no canto inferior direito */
     background: #25D366;
     border-radius: 50%;
     width: clamp(50px, 8vw, 60px);
