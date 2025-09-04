@@ -1976,6 +1976,7 @@
     position: absolute;
     left: 1rem;
     top: 46% !important;
+     /* margin-top: 9px; */
             height: auto;
             flex-shrink: 0;
     transform: translateY(-50%);
@@ -1999,75 +2000,6 @@
         display: none;
     }
 }
-
-.whatsapp-float {
-            position: fixed;
-            bottom: clamp(1rem, 3vw, 1.5rem);
-            left: clamp(1rem, 3vw, 1.5rem);
-            background: #25D366;
-            border-radius: 50%;
-            width: clamp(50px, 8vw, 60px);
-            height: clamp(50px, 8vw, 60px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: var(--transition);
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-        .whatsapp-float i {
-            color: #fff;
-            font-size: clamp(1.5rem, 4vw, 1.8rem);
-        }
-
-        .whatsapp-float:hover {
-            background: #1DA851;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-        }
-
-        /* Ajustes para telas menores */
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                bottom: clamp(0.8rem, 2.5vw, 1.2rem);
-                left: clamp(0.8rem, 2.5vw, 1.2rem);
-                width: clamp(45px, 7vw, 50px);
-                height: clamp(45px, 7vw, 50px);
-            }
-
-            .whatsapp-float i {
-                font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .whatsapp-float {
-                bottom: clamp(0.6rem, 2vw, 1rem);
-                left: clamp(0.6rem, 2vw, 1rem);
-                width: clamp(40px, 6vw, 45px);
-                height: clamp(40px, 6vw, 45px);
-            }
-
-            .whatsapp-float i {
-                font-size: clamp(1rem, 3vw, 1.3rem);
-            }
-        }
-
-        @media (max-width: 360px) {
-            .whatsapp-float {
-                bottom: clamp(0.5rem, 1.5vw, 0.8rem);
-                left: clamp(0.5rem, 1.5vw, 0.8rem);
-                width: clamp(35px, 5.5vw, 40px);
-                height: clamp(35px, 5.5vw, 40px);
-            }
-
-            .whatsapp-float i {
-                font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -2185,13 +2117,6 @@
             <div class="swiper-button-next" aria-label="Next slide"></div>
         </div>
     </section>
-        <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Yellow%20Ink!" 
-       class="whatsapp-float" 
-       target="_blank" 
-       aria-label="Entre em contato pelo WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <footer>
         <div class="footer-container">
             <div class="footer-section">
