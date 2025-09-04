@@ -7,7 +7,6 @@ TODOS HEADERS VEM MANTER A MESMA ALTURA
 
 1-arrumar sidebar
 2- arrumar footer blog
-3-
 
 
 2-colocar icon no browser

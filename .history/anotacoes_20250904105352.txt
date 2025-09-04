@@ -5,10 +5,7 @@ todos os headers deve ser igual o de blog.html quando mobile,
  e quando desktop devo aumentar o tamanho da logo e em index.html diminuir
 TODOS HEADERS VEM MANTER A MESMA ALTURA
 
-1-arrumar sidebar
-2- arrumar footer blog
-3-
-
+1-arrumar sidebar,
 
 2-colocar icon no browser
  3-redução de códigos
