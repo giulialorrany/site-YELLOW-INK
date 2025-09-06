@@ -1,0 +1,126 @@
+footer {
+    background: var(--primary-yellow);
+    color: #FFFFFF;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 2vw, 2rem);
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    position: relative;
+    z-index: 1003;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-direction: column; /* Padrão para telas menores (≤ 900px) */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: clamp(180px, 30vw, 250px); /* Padrão para telas menores */
+}
+
+@media (min-width: 769px) and (max-width: 999px) {
+    .footer-container {
+        flex-direction: row; /* Usa linha para permitir o wrap */
+        justify-content: space-between;
+        gap: clamp(1.5rem, 3vw, 2rem);
+    }
+    .footer-section {
+        flex: 1 1 clamp(200px, 30%, 250px); /* 3 seções ocupam ~33% cada */
+        min-width: clamp(180px, 25vw, 220px);
+    }
+    .footer-section:nth-child(4) {
+        flex: 1 1 100%; /* A quarta seção ocupa toda a linha */
+        text-align: center;
+    }
+}
+
+@media (min-width: 1000px) {
+    .footer-container {
+        flex-direction: row !important; /* Garante direção row */
+        flex-wrap: nowrap !important; /* Impede quebra de linha */
+        justify-content: space-between !important; /* Distribui espaço entre as seções */
+        gap: clamp(1rem, 2vw, 2rem); /* Gap menor para caber em uma linha */
+    }
+    .footer-section {
+        flex: 1 1 25% !important; /* Cada seção ocupa ~25% da largura */
+        min-width: clamp(180px, 20vw, 220px) !important; /* Reduz min-width para evitar overflow */
+        max-width: 25%; /* Limita a largura máxima para forçar alinhamento */
+        text-align: center;
+    }
+    .footer-section:nth-child(4) {
+        flex: 1 1 25% !important; /* Quarta seção com mesma largura */
+    }
+}
+
+.footer-section h4 {
+    font-family: 'League Spartan', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #1A1A1A;
+}
+
+.footer-section p {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section .social-links a {
+    color: #FFFFFF;
+    margin: 0 0.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    transition: var(--transition);
+}
+
+.footer-section .social-links a:hover {
+    color: var(--accent-yellow);
+}
+
+.guest-a, .saibamais-a {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.saibamais-a {
+    text-decoration: underline;
+}
+
+.guest-a:hover, .saibamais-a:hover {
+    color: #1A1A1A;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(0.5vh, 1vw, 0.8vh);
+    position: relative;
+    left: 0;
+    min-height: clamp(4rem, 10vw, 6rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('img/footerOF.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.footer-bottom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
